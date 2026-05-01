@@ -60,7 +60,7 @@ jobs:
           tools: composer
 
       - name: composer install (voyager-orbit)
-        run: composer install --no-dev --optimize-autoload --no-interaction --no-progress
+        run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
         working-directory: build/wp-content/plugins/voyager-orbit
 
       # 2. Place the voyager-demo theme files into wp-content/themes/voyager-demo/
