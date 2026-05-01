@@ -53,54 +53,81 @@ sys.exit(1)
     curl -sSL -o "$TMP/$out" "$url"
 }
 
+# Auth header for private voyager-marketing repos. Reads token from
+# ~/.github-token if present (mode 600, gitignored). For public repos no
+# token is needed.
+GH_TOKEN_FILE="$HOME/.github-token"
+GH_HEADER=()
+if [ -f "$GH_TOKEN_FILE" ]; then
+    GH_HEADER=(-H "Authorization: Bearer $(cat "$GH_TOKEN_FILE")")
+    log "Using GitHub token from $GH_TOKEN_FILE for private downloads"
+fi
+
+fetch_private_release() {
+    # Direct release-asset URL pattern (works auth + redirects properly)
+    local repo="$1" asset="$2" out="$3"
+    log "  fetching $repo/$asset"
+    if curl -fsSL "${GH_HEADER[@]}" -o "$TMP/$out" \
+        "https://github.com/$repo/releases/latest/download/$asset" 2>/dev/null; then
+        return 0
+    fi
+    log "  warn: $repo/$asset fetch failed (private repo? token missing?)"
+    return 1
+}
+
 if [ ! -f "$MARKER_FILE" ]; then
     log "First-run plugin install starting"
 
-    fetch_release_zip "voyager-marketing/voyager-orbit"  '\.zip$' voyager-orbit.zip  || true
-    fetch_release_zip "voyager-marketing/voyager-core"   '\.zip$' voyager-core.zip   || true
-    fetch_release_zip "WordPress/abilities-api"          '\.zip$' abilities-api.zip  || true
-    fetch_release_zip "WordPress/mcp-adapter"            '\.zip$' mcp-adapter.zip    || true
-    fetch_release_zip "Automattic/wordpress-mcp"         '\.zip$' wordpress-mcp.zip  || true
+    # Public repos — no auth needed
+    fetch_release_zip "WordPress/abilities-api"  '\.zip$' abilities-api.zip || true
+    fetch_release_zip "WordPress/mcp-adapter"    '\.zip$' mcp-adapter.zip   || true
+    fetch_release_zip "Automattic/wordpress-mcp" '\.zip$' wordpress-mcp.zip || true
 
-    log "  fetching voyager-blocks (source tarball)"
-    curl -sSL -o "$TMP/voyager-blocks.tar.gz" \
-        "https://api.github.com/repos/voyager-marketing/voyager-blocks/tarball/main" || true
+    # Private voyager-marketing repos — need token (or repo made public)
+    fetch_private_release "voyager-marketing/voyager-orbit"  voyager-orbit.zip  voyager-orbit.zip  || true
+    fetch_private_release "voyager-marketing/voyager-core"   voyager-core.zip   voyager-core.zip   || true
+    fetch_private_release "voyager-marketing/voyager-blocks" voyager-blocks.zip voyager-blocks.zip || true
 
     log "Installing plugins via wp-cli"
-    for z in voyager-core abilities-api mcp-adapter wordpress-mcp; do
-        [ -f "$TMP/$z.zip" ] && wp --path="$WP_PATH" plugin install "$TMP/$z.zip" --activate --force 2>&1 | sed 's/^/  /' || true
+    for z in voyager-core voyager-blocks abilities-api mcp-adapter wordpress-mcp; do
+        if [ -f "$TMP/$z.zip" ]; then
+            wp --path="$WP_PATH" plugin install "$TMP/$z.zip" --activate --force 2>&1 | sed 's/^/  /' || true
+        fi
     done
-
-    if [ -f "$TMP/voyager-blocks.tar.gz" ]; then
-        log "  installing voyager-blocks from tarball"
-        mkdir -p "$TMP/vb"
-        tar -xzf "$TMP/voyager-blocks.tar.gz" -C "$TMP/vb"
-        EX=$(ls -d "$TMP"/vb/*/ | head -1)
-        rm -rf "$PLUGINS_DIR/voyager-blocks"
-        mv "$EX" "$PLUGINS_DIR/voyager-blocks"
-        wp --path="$WP_PATH" plugin activate voyager-blocks 2>&1 | sed 's/^/  /' || true
-    fi
 
     wp --path="$WP_PATH" plugin install seo-by-rank-math --activate 2>&1 | sed 's/^/  /' || true
 
     # Orbit LAST — its activation triggers Portal registration
     [ -f "$TMP/voyager-orbit.zip" ] && wp --path="$WP_PATH" plugin install "$TMP/voyager-orbit.zip" --activate --force 2>&1 | sed 's/^/  /' || true
 
-    touch "$MARKER_FILE"
-    log "First-run plugin install complete"
+    # Mark first run complete only if at least the basics installed
+    if wp --path="$WP_PATH" plugin is-installed voyager-blocks 2>/dev/null; then
+        touch "$MARKER_FILE"
+        log "First-run plugin install complete"
+    else
+        log "voyager-blocks not installed — leaving marker off so next deploy retries"
+    fi
 fi
 
 # ---------------------------------------------------------------------------
-# 3. Parent theme install (first run only)
+# 3. Parent theme install (first run only) — also private
 # ---------------------------------------------------------------------------
 if [ ! -d "$PARENT_THEME" ]; then
     log "Installing parent theme voyager-block-theme"
-    curl -sSL -o "$TMP/parent.tar.gz" \
-        "https://api.github.com/repos/voyager-marketing/voyager-block-theme/tarball/main"
-    mkdir -p "$TMP/vt"
-    tar -xzf "$TMP/parent.tar.gz" -C "$TMP/vt"
-    EX=$(ls -d "$TMP"/vt/*/ | head -1)
-    mv "$EX" "$PARENT_THEME"
+    if curl -fsSL "${GH_HEADER[@]}" -o "$TMP/parent.zip" \
+        "https://github.com/voyager-marketing/voyager-block-theme/releases/latest/download/voyager-block-theme.zip" 2>/dev/null; then
+        mkdir -p "$TMP/vt"
+        unzip -q "$TMP/parent.zip" -d "$TMP/vt" || tar -xzf "$TMP/parent.zip" -C "$TMP/vt" 2>/dev/null
+        EX=$(ls -d "$TMP"/vt/*/ 2>/dev/null | head -1)
+        if [ -n "$EX" ]; then
+            mv "$EX" "$PARENT_THEME"
+            log "  parent theme installed"
+        else
+            log "  warn: extracted parent theme directory not found"
+        fi
+    else
+        log "  warn: parent theme download failed (need token or public repo)"
+    fi
 fi
 
 # ---------------------------------------------------------------------------
