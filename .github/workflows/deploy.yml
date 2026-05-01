@@ -1,0 +1,15 @@
+name: Notify Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log deployment
+        run: |
+          echo "Pushed to main — SpinupWP git deploy will pull automatically."
+          echo "Site: demo.voyagermark.com"
+          echo "Commit: ${{ github.sha }}"

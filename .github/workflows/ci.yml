@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: none
+
+      - name: PHP lint (parallel)
+        run: |
+          ! find . -name '*.php' -not -path './vendor/*' -not -path './node_modules/*' \
+            -print0 | xargs -0 -P4 -n1 php -l 2>&1 | grep -v 'No syntax errors'
+
+      - name: Validate theme.json
+        run: |
+          php -r 'if (json_decode(file_get_contents("theme.json")) === null) { fwrite(STDERR, "theme.json INVALID: ".json_last_error_msg()."\n"); exit(1); } echo "theme.json OK\n";'
+
+      - name: Pattern headers present
+        run: |
+          for f in patterns/*.php; do
+            head -10 "$f" | grep -q "Slug:" || { echo "MISSING SLUG: $f"; exit 1; }
+            head -10 "$f" | grep -q "Title:" || { echo "MISSING TITLE: $f"; exit 1; }
+          done
+          echo "All $(ls patterns/*.php | wc -l) patterns have required headers"
