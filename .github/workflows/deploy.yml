@@ -52,6 +52,17 @@ jobs:
           token: ${{ secrets.VOYAGER_GH_TOKEN }}
           path: build/wp-content/plugins/voyager-orbit
 
+      # 1b. composer install --no-dev for orbit (vendor/ is gitignored)
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+
+      - name: composer install (voyager-orbit)
+        run: composer install --no-dev --optimize-autoload --no-interaction --no-progress
+        working-directory: build/wp-content/plugins/voyager-orbit
+
       # 2. Place the voyager-demo theme files into wp-content/themes/voyager-demo/
       #    The repo keeps theme files at root for v3 local dev; this step
       #    re-homes them into the canonical theme path for the deploy artifact.

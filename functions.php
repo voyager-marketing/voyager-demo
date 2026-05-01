@@ -62,25 +62,6 @@ function voyager_demo_register_pattern_categories(): void {
 add_action('init', 'voyager_demo_register_pattern_categories');
 
 /**
- * Register the voyager/pulse binding source — composite ecosystem metrics.
- *
- * voyager/meta and voyager/orbit are registered by other parts of the suite
- * (or by the parent theme); this child theme only owns the pulse aggregation
- * because the ecosystem-pulse pattern is the only consumer.
- */
-function voyager_demo_register_block_bindings(): void {
-    if (! function_exists('register_block_bindings_source')) {
-        return;
-    }
-
-    register_block_bindings_source('voyager/pulse', [
-        'label'              => __('Voyager Pulse', 'voyager-demo'),
-        'get_value_callback' => 'voyager_demo_pulse_binding_callback',
-    ]);
-}
-add_action('init', 'voyager_demo_register_block_bindings');
-
-/**
  * Pulse binding callback — composite metrics from across the Voyager ecosystem.
  *
  * Aggregates real data from CPTs, content pipeline, and site health into
