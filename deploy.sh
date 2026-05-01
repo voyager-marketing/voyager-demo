@@ -10,8 +10,11 @@
 
 set -euo pipefail
 
-WP_PATH="$HOME/files"
+# Resolve site root from the script's own location: this script lives at
+# <site>/files/wp-content/themes/voyager-demo/deploy.sh, so 4 levels up is
+# the WP files dir. Avoids depending on $HOME being set by SpinupWP.
 THEME_DIR="$(cd "$(dirname "$0")" && pwd)"
+WP_PATH="$(cd "$THEME_DIR/../../.." && pwd)"
 PLUGINS_DIR="$WP_PATH/wp-content/plugins"
 MARKER_FILE="$THEME_DIR/.voyager-stack-installed"
 
