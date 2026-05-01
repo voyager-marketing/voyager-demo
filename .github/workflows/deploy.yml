@@ -1,15 +1,134 @@
-name: Notify Deploy
+name: Deploy to demo.voyagermark.com
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  DEMO_HOST: 167.71.168.177
+  DEMO_USER: voyagerdemo
+  DEMO_PATH: /sites/demo.voyagermark.com/files
 
 jobs:
-  notify:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Log deployment
+      # 1. Checkout each Voyager repo into the right wp-content layout
+      - name: Checkout voyager-demo (this repo)
+        uses: actions/checkout@v4
+        with:
+          path: src/voyager-demo
+
+      - name: Checkout voyager-block-theme (parent)
+        uses: actions/checkout@v4
+        with:
+          repository: voyager-marketing/voyager-block-theme
+          token: ${{ secrets.VOYAGER_GH_TOKEN }}
+          path: build/wp-content/themes/voyager-block-theme
+
+      - name: Checkout voyager-blocks
+        uses: actions/checkout@v4
+        with:
+          repository: voyager-marketing/voyager-blocks
+          token: ${{ secrets.VOYAGER_GH_TOKEN }}
+          path: build/wp-content/plugins/voyager-blocks
+
+      - name: Checkout voyager-core
+        uses: actions/checkout@v4
+        with:
+          repository: voyager-marketing/voyager-core
+          token: ${{ secrets.VOYAGER_GH_TOKEN }}
+          path: build/wp-content/plugins/voyager-core
+
+      - name: Checkout voyager-orbit
+        uses: actions/checkout@v4
+        with:
+          repository: voyager-marketing/voyager-orbit
+          token: ${{ secrets.VOYAGER_GH_TOKEN }}
+          path: build/wp-content/plugins/voyager-orbit
+
+      # 2. Place the voyager-demo theme files into wp-content/themes/voyager-demo/
+      #    The repo keeps theme files at root for v3 local dev; this step
+      #    re-homes them into the canonical theme path for the deploy artifact.
+      - name: Stage voyager-demo theme files
         run: |
-          echo "Pushed to main — SpinupWP git deploy will pull automatically."
-          echo "Site: demo.voyagermark.com"
-          echo "Commit: ${{ github.sha }}"
+          mkdir -p build/wp-content/themes/voyager-demo
+          cd src/voyager-demo
+          # Copy theme files only — skip repo metadata + GH Actions
+          for item in style.css theme.json functions.php patterns templates parts assets CLAUDE.md ROADMAP.md; do
+            if [ -e "$item" ]; then
+              cp -r "$item" "../../build/wp-content/themes/voyager-demo/"
+            fi
+          done
+
+      # 3. Drop the .git dirs from each subrepo so we don't ship them
+      - name: Strip .git directories from build artifact
+        run: |
+          find build -type d -name '.git' -exec rm -rf {} + 2>/dev/null || true
+          find build -type f -name '.gitmodules' -delete 2>/dev/null || true
+
+      # 4. Set up SSH agent with the deploy key
+      - name: Configure SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+
+      - name: Trust demo host key
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "$DEMO_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      # 5. Sync built wp-content to the demo server (rsync over SSH)
+      - name: Rsync build/wp-content/ -> demo server
+        run: |
+          rsync -azv --delete-after \
+            --exclude='wp-content/uploads' \
+            --exclude='wp-content/cache' \
+            --exclude='wp-content/upgrade' \
+            --exclude='wp-content/voyager-orbit-cache' \
+            build/wp-content/ \
+            "$DEMO_USER@$DEMO_HOST:$DEMO_PATH/wp-content/"
+
+      # 6. Activate plugins + theme via wp-cli on the demo server
+      - name: Activate plugins + theme
+        run: |
+          ssh "$DEMO_USER@$DEMO_HOST" bash <<'EOF'
+            set -e
+            cd /sites/demo.voyagermark.com/files
+
+            for plugin in voyager-core voyager-blocks voyager-orbit; do
+              if wp plugin is-installed "$plugin" 2>/dev/null; then
+                wp plugin activate "$plugin" 2>&1 | sed "s/^/  $plugin: /"
+              else
+                echo "  $plugin: not installed (rsync may have failed)"
+              fi
+            done
+
+            wp theme activate voyager-demo
+
+            echo "--- final state ---"
+            wp theme list --status=active --format=csv
+            wp plugin list --status=active --field=name --format=csv | xargs -I{} echo "active: {}"
+          EOF
+
+      # 7. Quick smoke test from the runner
+      - name: Smoke test demo.voyagermark.com
+        run: |
+          STATUS=$(curl -sI -o /dev/null -w "%{http_code}" --max-time 15 https://demo.voyagermark.com/)
+          echo "https://demo.voyagermark.com/ -> $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "FAIL: site did not return 200"
+            exit 1
+          fi
+
+      - name: Summary
+        run: |
+          echo "## Deploy summary" >> $GITHUB_STEP_SUMMARY
+          echo "- demo.voyagermark.com → 200 OK" >> $GITHUB_STEP_SUMMARY
+          echo "- Active theme: voyager-demo" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
