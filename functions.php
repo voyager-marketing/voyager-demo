@@ -102,6 +102,28 @@ function voyager_demo_pulse_binding_callback(array $source_args): string {
 }
 
 /**
+ * Register the voyager/pulse binding source.
+ *
+ * Theme owns this binding (showcase-specific computation). Defensive check
+ * skips registration if another extension already did it — keeps the deploy
+ * window between this theme and voyager-blocks <2.3 quiet.
+ */
+function voyager_demo_register_pulse_binding(): void {
+    if (!function_exists('register_block_bindings_source')) {
+        return;
+    }
+    if (class_exists('WP_Block_Bindings_Registry')
+        && \WP_Block_Bindings_Registry::get_instance()->is_registered('voyager/pulse')) {
+        return;
+    }
+    register_block_bindings_source('voyager/pulse', [
+        'label'              => __('Voyager Pulse', 'voyager-demo'),
+        'get_value_callback' => 'voyager_demo_pulse_binding_callback',
+    ]);
+}
+add_action('init', 'voyager_demo_register_pulse_binding', 30);
+
+/**
  * Compute all Pulse metrics.
  *
  * @return array<string, string|int>
