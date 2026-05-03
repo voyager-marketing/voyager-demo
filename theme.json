@@ -171,6 +171,16 @@
             "name": "page-landing",
             "postTypes": ["page"],
             "title": "Landing Page (No Header/Footer)"
+        },
+        {
+            "name": "page-no-title",
+            "postTypes": ["page"],
+            "title": "Page (No Title)"
+        },
+        {
+            "name": "page-results",
+            "postTypes": ["page"],
+            "title": "Results Page"
         }
     ],
     "templateParts": [
