@@ -2,7 +2,7 @@
 /**
  * Seed: Design system showcase.
  *
- * Placeholder body — authored copy lands with TK-2126.
+ * Authored copy (TK-2126).
  *
  * @package VoyagerDemo
  */
@@ -12,11 +12,19 @@ declare(strict_types=1);
 return [
     'slug'       => 'design-system',
     'title'      => 'Design System',
-    'excerpt'    => 'The Voyager design-system v2 component reel — palette, type, motion.',
+    'excerpt'    => 'Voyager design-system v2 at full density — shader heroes, motion, stat reels — every section a registered pattern, every value a theme.json token.',
     'menu_order' => 60,
     'content'    => <<<'HTML'
 <!-- wp:paragraph -->
-<p>Placeholder — authored copy lands with TK-2126.</p>
+<p>This is design-system v2 pushed to its maximal setting: indigo hull canvas, magenta and violet accents, Space Grotesk display type, and a fluid type scale — all of it defined once as theme.json tokens and consumed everywhere by slug. No section below carries a hex value it invented.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Structurally, the whole reel is registered block patterns — from this theme and the voyager-blocks plugin — composed in sequence. Nothing was page-built in the editor. The motion layer (scroll reveals, particle shaders, counters) comes from the parent theme's GSAP setup and degrades to static content without JavaScript.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Fair warning: this page is intentionally denser than anything we'd ship a client. Client themes take the same tokens and patterns at a calmer dial. This is the stress test — if a component survives here, it survives anywhere.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:pattern {"slug":"voyager-demo/design-showcase"} /-->
