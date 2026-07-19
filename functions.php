@@ -295,7 +295,10 @@ add_action('init', 'voyager_demo_register_showcase_cpt');
  * @return array<int, array<string, mixed>>
  */
 function voyager_demo_get_showcase_seeds(): array {
-    $files = glob(VOYAGER_DEMO_PATH . '/seeds/showcases/*.php') ?: [];
+    $files = array_merge(
+        glob(VOYAGER_DEMO_PATH . '/seeds/showcases/*.php') ?: [],
+        glob(VOYAGER_DEMO_PATH . '/seeds/pages/*.php') ?: []
+    );
     sort($files);
 
     $seeds = [];
@@ -318,8 +321,10 @@ function voyager_demo_get_showcase_seeds(): array {
  * @return string|\WP_Error 'created', 'updated', or the WP_Error from the write.
  */
 function voyager_demo_seed_showcase(array $seed) {
+    $post_type = (string) ($seed['post_type'] ?? 'vd_showcase');
+
     $existing = get_posts([
-        'post_type'      => 'vd_showcase',
+        'post_type'      => $post_type,
         'name'           => (string) $seed['slug'],
         'post_status'    => 'any',
         'posts_per_page' => 1,
@@ -327,7 +332,7 @@ function voyager_demo_seed_showcase(array $seed) {
     ]);
 
     $postarr = [
-        'post_type'    => 'vd_showcase',
+        'post_type'    => $post_type,
         'post_name'    => (string) $seed['slug'],
         'post_title'   => (string) $seed['title'],
         'post_excerpt' => (string) ($seed['excerpt'] ?? ''),
@@ -347,6 +352,126 @@ function voyager_demo_seed_showcase(array $seed) {
 
     return is_wp_error($result) ? $result : 'created';
 }
+
+/**
+ * Serialized block markup for the /abilities/ registry listing.
+ *
+ * Enumerates every ability registered through the core Abilities API
+ * (WP 6.9+), grouped by category. The transient stores the rendered
+ * markup keyed to a hash of the registered ability names, so any
+ * registration change invalidates it on the next request without
+ * waiting for the TTL; plugin (de)activation purges it outright.
+ *
+ * @return string Serialized block markup, or a notice if the API is absent.
+ */
+function voyager_demo_abilities_markup(): string {
+    if (! function_exists('wp_get_abilities')) {
+        return '<!-- wp:paragraph --><p>' . esc_html__('The Abilities API is not available on this install (requires WordPress 6.9+).', 'voyager-demo') . '</p><!-- /wp:paragraph -->';
+    }
+
+    $abilities = wp_get_abilities();
+    $hash      = md5(implode('|', array_keys($abilities)));
+    $cached    = get_transient('voyager_demo_abilities_markup');
+
+    if (is_array($cached) && ($cached['hash'] ?? '') === $hash) {
+        return (string) $cached['html'];
+    }
+
+    $by_category = [];
+    foreach ($abilities as $ability) {
+        $by_category[$ability->get_category()][] = $ability;
+    }
+    ksort($by_category);
+
+    $category_labels = [];
+    if (function_exists('wp_get_ability_categories')) {
+        foreach (wp_get_ability_categories() as $slug => $category) {
+            if (is_object($category) && method_exists($category, 'get_label')) {
+                $category_labels[is_string($slug) ? $slug : $category->get_slug()] = $category->get_label();
+            }
+        }
+    }
+
+    $html = '<!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} --><p class="has-fg-4-color has-text-color has-sm-font-size">'
+        . sprintf(
+            /* translators: 1: ability count, 2: category count */
+            esc_html__('%1$d abilities in %2$d categories, enumerated live from this site\'s registry on every change. Nothing on this page is hand-maintained.', 'voyager-demo'),
+            count($abilities),
+            count($by_category)
+        )
+        . '</p><!-- /wp:paragraph -->';
+
+    foreach ($by_category as $category => $items) {
+        $label = $category_labels[$category] ?? ucwords(str_replace('-', ' ', $category));
+
+        $html .= '<!-- wp:heading {"level":2,"fontSize":"2xl"} --><h2 class="wp-block-heading has-2xl-font-size">'
+            . esc_html($label)
+            . ' <code>' . esc_html($category) . '</code></h2><!-- /wp:heading -->';
+
+        foreach ($items as $ability) {
+            $annotations = (array) ($ability->get_meta_item('annotations') ?? []);
+            $badges      = [];
+            if (! empty($annotations['readonly'])) {
+                $badges[] = 'read-only';
+            } elseif (array_key_exists('readonly', $annotations)) {
+                $badges[] = 'writes';
+            }
+            if (! empty($annotations['destructive'])) {
+                $badges[] = 'destructive';
+            }
+            if (! empty($annotations['idempotent'])) {
+                $badges[] = 'idempotent';
+            }
+            $mcp = (array) ($ability->get_meta_item('mcp') ?? []);
+            if (! empty($mcp['public'])) {
+                $badges[] = 'MCP public';
+            }
+            if (! empty($ability->get_meta_item('experimental'))) {
+                $badges[] = 'experimental';
+            }
+
+            $html .= '<!-- wp:heading {"level":3,"fontSize":"lg"} --><h3 class="wp-block-heading has-lg-font-size"><code>'
+                . esc_html($ability->get_name()) . '</code> — ' . esc_html($ability->get_label())
+                . '</h3><!-- /wp:heading -->';
+
+            if ($badges) {
+                $html .= '<!-- wp:paragraph {"textColor":"fg-5","fontSize":"xs"} --><p class="has-fg-5-color has-text-color has-xs-font-size">'
+                    . esc_html(implode(' · ', $badges))
+                    . '</p><!-- /wp:paragraph -->';
+            }
+
+            $html .= '<!-- wp:paragraph {"textColor":"fg-3"} --><p class="has-fg-3-color has-text-color">'
+                . esc_html($ability->get_description())
+                . '</p><!-- /wp:paragraph -->';
+
+            foreach (['input' => $ability->get_input_schema(), 'output' => $ability->get_output_schema()] as $which => $schema) {
+                if (empty($schema)) {
+                    continue;
+                }
+                $json  = wp_json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+                $html .= '<!-- wp:details --><details class="wp-block-details"><summary>'
+                    . esc_html(sprintf('%s schema', ucfirst($which)))
+                    . '</summary><!-- wp:code --><pre class="wp-block-code"><code>'
+                    . esc_html((string) $json)
+                    . '</code></pre><!-- /wp:code --></details><!-- /wp:details -->';
+            }
+        }
+    }
+
+    set_transient('voyager_demo_abilities_markup', ['hash' => $hash, 'html' => $html], 15 * MINUTE_IN_SECONDS);
+
+    return $html;
+}
+
+/**
+ * Purge the abilities listing cache when the registry can change shape.
+ */
+function voyager_demo_purge_abilities_cache(): void {
+    delete_transient('voyager_demo_abilities_markup');
+}
+add_action('activated_plugin', 'voyager_demo_purge_abilities_cache');
+add_action('deactivated_plugin', 'voyager_demo_purge_abilities_cache');
+add_action('switch_theme', 'voyager_demo_purge_abilities_cache');
 
 if (defined('WP_CLI') && WP_CLI) {
     /**
