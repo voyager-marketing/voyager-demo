@@ -6,6 +6,8 @@
 ## Project identity
 
 - **Repo:** voyager-marketing/voyager-demo
+- **Notion project:** [PRJ-56 — Voyager Demo Site (demo.voyagermark.com)](https://www.notion.so/35347c03778b81e5980fe9a682328ed6)
+- **Notion task:** [TK-2104 — Wire voyager-demo → Notion so /mission runs](https://www.notion.so/3a247c03778b81e581e4e44092316d18)
 - **Type:** wp-theme (WordPress block child theme)
 - **Parent theme:** voyager-block-theme
 - **Sibling theme:** voyagermark (the agency marketing site at voyagermark.com)
