@@ -48,8 +48,8 @@
         <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-21 · Content Generation', 'ai lab section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"xx-large","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'AI writes your content from context', 'ai lab generation heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'AI writes your content from context', 'ai lab generation heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
     </div>
@@ -65,12 +65,12 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'generate-hero-content', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'AI writes your homepage headline from your business context', 'hero content description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'AI writes your homepage headline from your business context', 'hero content description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
-            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-small-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: "We turn local searches into booked appointments — SEO, ads, and AI for service businesses."', 'hero content example', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
+            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-sm-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: "We turn local searches into booked appointments — SEO, ads, and AI for service businesses."', 'hero content example', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -83,12 +83,12 @@
             <p class="has-accent-bright-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'generate-service-description', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Service pages written per city and industry', 'service desc description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Service pages written per city and industry', 'service desc description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
-            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-small-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: "Our Denver plumbing SEO package drives 3x more calls from Google Maps within 90 days."', 'service desc example', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
+            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-sm-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: "Our Denver plumbing SEO package drives 3x more calls from Google Maps within 90 days."', 'service desc example', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -107,12 +107,12 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'generate-faq', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( '3 Q&A pairs from topic + location. Schema-ready.', 'faq description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( '3 Q&A pairs from topic + location. Schema-ready.', 'faq description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
-            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-small-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: "Q: How much does SEO cost in Austin? A: Most Austin businesses invest $1,500-3,000/mo for local SEO."', 'faq example', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
+            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-sm-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: "Q: How much does SEO cost in Austin? A: Most Austin businesses invest $1,500-3,000/mo for local SEO."', 'faq example', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -125,12 +125,12 @@
             <p class="has-text-color" style="color:#FF6B35;margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'generate-seo-meta', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Title + description that fit RankMath requirements', 'seo meta description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Title + description that fit RankMath requirements', 'seo meta description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
-            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-small-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: Title (58 chars) + Description (155 chars) optimized for CTR and keyword placement.', 'seo meta example', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
+            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-sm-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: Title (58 chars) + Description (155 chars) optimized for CTR and keyword placement.', 'seo meta example', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -152,8 +152,8 @@
         <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-22 · Content Enrichment', 'ai lab section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"xx-large","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'AI fills in what you leave empty', 'ai lab enrichment heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'AI fills in what you leave empty', 'ai lab enrichment heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
     </div>
@@ -169,12 +169,12 @@
             <p class="has-accent-bright-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'enrich-binding-fields', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Fill 15 empty meta fields per pSEO page', 'enrich bindings description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Fill 15 empty meta fields per pSEO page', 'enrich bindings description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
-            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-small-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'One call: hero headline, intro paragraph, 3 FAQs, local stats, testimonial, CTA — all populated.', 'enrich bindings example', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
+            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-sm-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'One call: hero headline, intro paragraph, 3 FAQs, local stats, testimonial, CTA — all populated.', 'enrich bindings example', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -187,12 +187,12 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'generate-local-stats', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'City-specific statistics from real data', 'local stats description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'City-specific statistics from real data', 'local stats description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
-            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-small-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: "Denver has 2.1M residents, 14,200 active businesses, and 73% smartphone search rate."', 'local stats example', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
+            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-sm-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: "Denver has 2.1M residents, 14,200 active businesses, and 73% smartphone search rate."', 'local stats example', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -211,12 +211,12 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'generate-testimonial', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Industry-relevant social proof', 'testimonial description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Industry-relevant social proof', 'testimonial description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
-            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-small-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: Quote + name + role + company, matching the service vertical and city context.', 'testimonial example', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
+            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-sm-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Output: Quote + name + role + company, matching the service vertical and city context.', 'testimonial example', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -229,12 +229,12 @@
             <p class="has-text-color" style="color:#9333EA;margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'bulk enrich (CLI)', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( '20 pages at a time via CLI', 'bulk enrich description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( '20 pages at a time via CLI', 'bulk enrich description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
-            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-small-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'wp orbit enrich --batch=20 --type=service_area — enriches 300 fields in under 5 minutes.', 'bulk enrich example', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}},"border":{"radius":"8px","left":{"width":"2px","color":"var(--wp--preset--color--accent)"}}},"backgroundColor":"bg-raised"} -->
+            <p class="has-fg-4-color has-text-color has-bg-raised-background-color has-background has-sm-font-size" style="border-radius:8px;border-left-width:2px;border-left-color:var(--wp--preset--color--accent);padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'wp orbit enrich --batch=20 --type=service_area — enriches 300 fields in under 5 minutes.', 'bulk enrich example', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -256,8 +256,8 @@
         <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-23 · Intelligence & Analysis', 'ai lab section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"xx-large","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="color:var(--wp--preset--color--fg-1);letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'AI that watches, measures, and reports', 'ai lab intelligence heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="color:var(--wp--preset--color--fg-1);letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'AI that watches, measures, and reports', 'ai lab intelligence heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
     </div>
@@ -273,12 +273,12 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'get-lead-summary', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Lead counts, velocity, conversion rates', 'lead summary description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Lead counts, velocity, conversion rates', 'lead summary description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"small"} -->
-            <p class="has-fg-3-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Real-time pipeline health. How many leads this week, which sources convert, where the funnel leaks.', 'lead summary detail', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+            <p class="has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Real-time pipeline health. How many leads this week, which sources convert, where the funnel leaks.', 'lead summary detail', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -291,12 +291,12 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'get-binding-stats', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Which bindings resolve, which fail, cache hit rates', 'binding stats description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Which bindings resolve, which fail, cache hit rates', 'binding stats description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"small"} -->
-            <p class="has-fg-3-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Source-level resolution rates, empty field counts, and cache performance across all binding types.', 'binding stats detail', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+            <p class="has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Source-level resolution rates, empty field counts, and cache performance across all binding types.', 'binding stats detail', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -315,12 +315,12 @@
             <p class="has-accent-bright-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'content-freshness', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Score every page by last update date', 'freshness description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Score every page by last update date', 'freshness description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"small"} -->
-            <p class="has-fg-3-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Pages older than 90 days get flagged. Scheduled agents can auto-refresh the worst offenders.', 'freshness detail', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+            <p class="has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Pages older than 90 days get flagged. Scheduled agents can auto-refresh the worst offenders.', 'freshness detail', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -333,12 +333,12 @@
             <p class="has-text-color" style="color:#FF6B35;margin-bottom:var(--wp--preset--spacing--20);font-family:monospace;font-size:0.8rem;font-weight:600"><?php echo esc_html_x( 'audit-binding-health', 'ability name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Fleet-wide binding coverage report', 'binding health description', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
+            <h3 class="wp-block-heading has-md-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Fleet-wide binding coverage report', 'binding health description', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"small"} -->
-            <p class="has-fg-3-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Which sites have empty fields, stale caches, or broken sources. One command, full fleet visibility.', 'binding health detail', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+            <p class="has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Which sites have empty fields, stale caches, or broken sources. One command, full fleet visibility.', 'binding health detail', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -360,12 +360,12 @@
         <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-24 · The Ability Registry', 'ai lab section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"xx-large","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--40)"><?php echo esc_html_x( 'Every ability is discoverable and callable', 'ai lab registry heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}}} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--40)"><?php echo esc_html_x( 'Every ability is discoverable and callable', 'ai lab registry heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
-        <!-- wp:paragraph {"align":"center","textColor":"fg-4","fontSize":"medium","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-        <p class="has-text-align-center has-fg-4-color has-text-color has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'The WordPress Abilities API registers each capability as a machine-readable endpoint. Plugins declare what they can do. AI agents discover and call them.', 'ai lab registry description', 'voyager-demo' ); ?></p>
+        <!-- wp:paragraph {"align":"center","textColor":"fg-4","fontSize":"md","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+        <p class="has-text-align-center has-fg-4-color has-text-color has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'The WordPress Abilities API registers each capability as a machine-readable endpoint. Plugins declare what they can do. AI agents discover and call them.', 'ai lab registry description', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
     </div>
@@ -377,12 +377,12 @@
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px"}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
 
-            <!-- wp:heading {"level":3,"fontSize":"large","textColor":"accent","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-            <h3 class="wp-block-heading has-accent-color has-text-color has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'How it works', 'registry how heading', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg","textColor":"accent","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+            <h3 class="wp-block-heading has-accent-color has-text-color has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'How it works', 'registry how heading', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:list {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
-            <ul class="has-fg-4-color has-text-color has-small-font-size">
+            <!-- wp:list {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
+            <ul class="has-fg-4-color has-text-color has-sm-font-size">
                 <!-- wp:list-item -->
                 <li><?php echo esc_html_x( 'Plugins register abilities with schema, permissions, and handlers', 'registry step 1', 'voyager-demo' ); ?></li>
                 <!-- /wp:list-item -->
@@ -404,12 +404,12 @@
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px"}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
 
-            <!-- wp:heading {"level":3,"fontSize":"large","textColor":"accent-bright","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-            <h3 class="wp-block-heading has-accent-bright-color has-text-color has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Every ability is callable from', 'registry callable heading', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg","textColor":"accent-bright","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+            <h3 class="wp-block-heading has-accent-bright-color has-text-color has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Every ability is callable from', 'registry callable heading', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:list {"textColor":"fg-4","fontSize":"small","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
-            <ul class="has-fg-4-color has-text-color has-small-font-size">
+            <!-- wp:list {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
+            <ul class="has-fg-4-color has-text-color has-sm-font-size">
                 <!-- wp:list-item -->
                 <li><?php echo esc_html_x( 'Orbit Chat slash commands (/generate, /enrich, /audit)', 'callable chat', 'voyager-demo' ); ?></li>
                 <!-- /wp:list-item -->
@@ -449,8 +449,8 @@
         <p style="font-size:1rem"><?php echo esc_html_x( 'ability_count:', 'registry count label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"monospace","fontWeight":"700"}},"textColor":"accent","fontSize":"large","metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"ability_count"}}}}} -->
-        <h3 class="wp-block-heading has-accent-color has-text-color has-large-font-size" style="font-family:monospace;font-weight:700"><?php echo esc_html_x( '32', 'ability count fallback', 'voyager-demo' ); ?></h3>
+        <!-- wp:heading {"level":3,"style":{"typography":{"fontFamily":"monospace","fontWeight":"700"}},"textColor":"accent","fontSize":"lg","metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"ability_count"}}}}} -->
+        <h3 class="wp-block-heading has-accent-color has-text-color has-lg-font-size" style="font-family:monospace;font-weight:700"><?php echo esc_html_x( '32', 'ability count fallback', 'voyager-demo' ); ?></h3>
         <!-- /wp:heading -->
 
     </div>
@@ -465,12 +465,12 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
     <div class="wp-block-group is-layout-constrained">
 
-        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"x-large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-x-large-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( '32 abilities today. The system grows with every plugin update.', 'ai lab cta heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"xl","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
+        <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( '32 abilities today. The system grows with every plugin update.', 'ai lab cta heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
-        <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"small"} -->
-        <p class="has-text-align-center has-fg-3-color has-text-color has-small-font-size"><?php echo esc_html_x( 'New abilities ship automatically. No migrations. No breaking changes. Just more power.', 'ai lab cta subtitle', 'voyager-demo' ); ?></p>
+        <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm"} -->
+        <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'New abilities ship automatically. No migrations. No breaking changes. Just more power.', 'ai lab cta subtitle', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
