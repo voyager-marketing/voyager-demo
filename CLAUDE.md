@@ -46,6 +46,7 @@ feature density that would feel obnoxious on a client site.
 - templates/         ← block templates (HTML)
 - parts/             ← header / footer
 - patterns/          ← voyager-demo/* showcase patterns (PHP)
+- seeds/             ← vd_showcase seed content (wp voyager-demo seed-showcases)
 - assets/css/        ← custom stylesheets
 - assets/js/         ← custom scripts
 ```

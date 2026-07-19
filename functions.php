@@ -284,3 +284,98 @@ function voyager_demo_register_showcase_cpt(): void {
     ]);
 }
 add_action('init', 'voyager_demo_register_showcase_cpt');
+
+/**
+ * Load showcase seed definitions from seeds/showcases/.
+ *
+ * Each seed file returns an array with slug, title, excerpt, content,
+ * and menu_order. Files sort alphabetically; display order comes from
+ * menu_order, not filename.
+ *
+ * @return array<int, array<string, mixed>>
+ */
+function voyager_demo_get_showcase_seeds(): array {
+    $files = glob(VOYAGER_DEMO_PATH . '/seeds/showcases/*.php') ?: [];
+    sort($files);
+
+    $seeds = [];
+    foreach ($files as $file) {
+        $seed = include $file;
+        if (is_array($seed) && ! empty($seed['slug']) && ! empty($seed['title'])) {
+            $seeds[] = $seed;
+        }
+    }
+
+    return $seeds;
+}
+
+/**
+ * Upsert one showcase entry from a seed definition.
+ *
+ * Keyed on post_name — re-running updates in place, never duplicates.
+ *
+ * @param array<string, mixed> $seed Seed definition.
+ * @return string|\WP_Error 'created', 'updated', or the WP_Error from the write.
+ */
+function voyager_demo_seed_showcase(array $seed) {
+    $existing = get_posts([
+        'post_type'      => 'vd_showcase',
+        'name'           => (string) $seed['slug'],
+        'post_status'    => 'any',
+        'posts_per_page' => 1,
+        'fields'         => 'ids',
+    ]);
+
+    $postarr = [
+        'post_type'    => 'vd_showcase',
+        'post_name'    => (string) $seed['slug'],
+        'post_title'   => (string) $seed['title'],
+        'post_excerpt' => (string) ($seed['excerpt'] ?? ''),
+        'post_content' => (string) ($seed['content'] ?? ''),
+        'post_status'  => 'publish',
+        'menu_order'   => (int) ($seed['menu_order'] ?? 0),
+    ];
+
+    if ($existing) {
+        $postarr['ID'] = (int) $existing[0];
+        $result        = wp_update_post(wp_slash($postarr), true);
+
+        return is_wp_error($result) ? $result : 'updated';
+    }
+
+    $result = wp_insert_post(wp_slash($postarr), true);
+
+    return is_wp_error($result) ? $result : 'created';
+}
+
+if (defined('WP_CLI') && WP_CLI) {
+    /**
+     * Seed the vd_showcase entries from seeds/showcases/.
+     *
+     * Content ships with the theme because the demo site has no separate
+     * content pipeline — first deploy runs this once, later deploys re-run
+     * it to pick up copy changes. Idempotent.
+     *
+     * Usage: wp voyager-demo seed-showcases
+     */
+    \WP_CLI::add_command('voyager-demo seed-showcases', function (): void {
+        $seeds = voyager_demo_get_showcase_seeds();
+        if (! $seeds) {
+            \WP_CLI::error('No seed files found in seeds/showcases/.');
+        }
+
+        $created = 0;
+        $updated = 0;
+        foreach ($seeds as $seed) {
+            $result = voyager_demo_seed_showcase($seed);
+            if (is_wp_error($result)) {
+                \WP_CLI::warning("{$seed['slug']}: " . $result->get_error_message());
+                continue;
+            }
+            'created' === $result ? $created++ : $updated++;
+            \WP_CLI::log("  {$result}: {$seed['slug']}");
+        }
+
+        \WP_CLI::success("Showcases seeded: {$created} created, {$updated} updated.");
+    });
+}
