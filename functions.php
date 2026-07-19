@@ -20,15 +20,64 @@ if (! defined('ABSPATH')) {
 define('VOYAGER_DEMO_VERSION', '0.1.0');
 define('VOYAGER_DEMO_PATH', get_stylesheet_directory());
 define('VOYAGER_DEMO_URI', get_stylesheet_directory_uri());
+define('VOYAGER_DEMO_DS_PATH', VOYAGER_DEMO_PATH . '/design-system');
+
+/*
+ * Voyager Design System — single source of truth for brand tokens.
+ * The design-system/ git submodule (pinned to a DS release) ships
+ * tokens.css + theme.json + tokens.json; sync-tokens.php merges those
+ * into this theme's theme.json. Mirrors voyagermark's consumption path.
+ */
+if (is_readable(VOYAGER_DEMO_DS_PATH . '/scripts/sync-tokens.php')) {
+    require_once VOYAGER_DEMO_DS_PATH . '/scripts/sync-tokens.php';
+}
+
+/**
+ * Design-system version for cache-busting; theme version when the
+ * submodule is absent (clone without `git submodule update`).
+ */
+function voyager_demo_ds_version(): string {
+    if (function_exists('voyager_ds_version')) {
+        $version = voyager_ds_version();
+        if ('0.0.0' !== $version) {
+            return $version;
+        }
+    }
+    return VOYAGER_DEMO_VERSION;
+}
+
+/**
+ * Merge DS tokens into this theme's theme.json. Idempotent.
+ */
+function voyager_demo_sync_ds_tokens(): void {
+    if (function_exists('voyager_sync_tokens')) {
+        voyager_sync_tokens(VOYAGER_DEMO_PATH . '/theme.json');
+    }
+}
+add_action('after_switch_theme', 'voyager_demo_sync_ds_tokens');
 
 /**
  * Enqueue parent + child styles.
  */
 function voyager_demo_enqueue_styles(): void {
+    // DS tokens first, so every later stylesheet can reference the
+    // brand custom properties (and @font-face lands once, from the DS).
+    $ds_deps   = [];
+    $ds_tokens = VOYAGER_DEMO_DS_PATH . '/tokens.css';
+    if (file_exists($ds_tokens)) {
+        wp_enqueue_style(
+            'voyager-design-system-tokens',
+            VOYAGER_DEMO_URI . '/design-system/tokens.css',
+            [],
+            voyager_demo_ds_version()
+        );
+        $ds_deps = ['voyager-design-system-tokens'];
+    }
+
     wp_enqueue_style(
         'voyager-block-theme-style',
         get_template_directory_uri() . '/style.css',
-        [],
+        $ds_deps,
         wp_get_theme()->parent()?->get('Version') ?: '1.0.0'
     );
 
@@ -404,7 +453,7 @@ function voyager_demo_abilities_markup(): string {
     foreach ($by_category as $category => $items) {
         $label = $category_labels[$category] ?? ucwords(str_replace('-', ' ', $category));
 
-        $html .= '<!-- wp:heading {"level":2,"fontSize":"2xl"} --><h2 class="wp-block-heading has-2xl-font-size">'
+        $html .= '<!-- wp:heading {"level":2,"fontSize":"2xl"} --><h2 class="wp-block-heading has-2-xl-font-size">'
             . esc_html($label)
             . ' <code>' . esc_html($category) . '</code></h2><!-- /wp:heading -->';
 
@@ -435,7 +484,7 @@ function voyager_demo_abilities_markup(): string {
                 . '</h3><!-- /wp:heading -->';
 
             if ($badges) {
-                $html .= '<!-- wp:paragraph {"textColor":"fg-5","fontSize":"xs"} --><p class="has-fg-5-color has-text-color has-xs-font-size">'
+                $html .= '<!-- wp:paragraph {"textColor":"fg-5","fontSize":"label"} --><p class="has-fg-5-color has-text-color has-label-font-size">'
                     . esc_html(implode(' · ', $badges))
                     . '</p><!-- /wp:paragraph -->';
             }
@@ -502,5 +551,19 @@ if (defined('WP_CLI') && WP_CLI) {
         }
 
         \WP_CLI::success("Showcases seeded: {$created} created, {$updated} updated.");
+    });
+
+    /**
+     * Merge design-system tokens into theme.json (deploy-time path;
+     * activation re-runs it via after_switch_theme). Idempotent.
+     *
+     * Usage: wp voyager-demo sync-tokens
+     */
+    \WP_CLI::add_command('voyager-demo sync-tokens', function (): void {
+        if (! function_exists('voyager_sync_tokens')) {
+            \WP_CLI::error('design-system submodule missing — run `git submodule update --init` first.');
+        }
+        $summary = voyager_sync_tokens(VOYAGER_DEMO_PATH . '/theme.json');
+        \WP_CLI::success('Tokens synced: ' . wp_json_encode($summary));
     });
 }

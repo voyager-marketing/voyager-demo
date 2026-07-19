@@ -12,7 +12,7 @@ declare(strict_types=1);
 return [
     'slug'       => 'bindings',
     'title'      => 'Block Bindings',
-    'excerpt'    => 'Nine binding sources feeding standard core blocks — no shortcodes, no custom render callbacks, no hard-coded values.',
+    'excerpt'    => 'Fourteen binding sources feeding standard core blocks — no shortcodes, no custom render callbacks, no hard-coded values.',
     'menu_order' => 10,
     'content'    => <<<'HTML'
 <!-- wp:paragraph -->

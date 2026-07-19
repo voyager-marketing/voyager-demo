@@ -46,8 +46,8 @@
     <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">— DEMO · D-11 · <?php echo esc_html_x( 'Ability domains', 'abilities section eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:heading {"textAlign":"center","fontSize":"xx-large"} -->
-    <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size"><?php echo esc_html_x( '10 domains. 89 abilities. Every corner of WordPress.', 'abilities section heading', 'voyager-demo' ); ?></h2>
+    <!-- wp:heading {"textAlign":"center","fontSize":"2xl"} -->
+    <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size"><?php echo esc_html_x( '10 domains. 89 abilities. Every corner of WordPress.', 'abilities section heading', 'voyager-demo' ); ?></h2>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
@@ -61,14 +61,14 @@
         <!-- Lead Tracking -->
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"var:preset|color|accent","width":"4px"}}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;border-left-color:var(--wp--preset--color--accent);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:heading {"level":3,"fontSize":"large"} -->
-            <h3 class="wp-block-heading has-large-font-size"><?php echo esc_html_x( 'Lead Tracking', 'domain name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg"} -->
+            <h3 class="wp-block-heading has-lg-font-size"><?php echo esc_html_x( 'Lead Tracking', 'domain name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
-            <!-- wp:paragraph {"textColor":"accent","fontSize":"small","style":{"typography":{"fontWeight":"700"}}} -->
-            <p class="has-accent-color has-text-color has-small-font-size" style="font-weight:700"><?php echo esc_html_x( '6 abilities', 'domain count', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"accent","fontSize":"sm","style":{"typography":{"fontWeight":"700"}}} -->
+            <p class="has-accent-color has-text-color has-sm-font-size" style="font-weight:700"><?php echo esc_html_x( '6 abilities', 'domain count', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Track, score, and analyze leads from forms, phone clicks, and Jobber.', 'domain description', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Track, score, and analyze leads from forms, phone clicks, and Jobber.', 'domain description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -89,14 +89,14 @@
         <!-- Content Generation -->
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"var:preset|color|accent-bright","width":"4px"}}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;border-left-color:var(--wp--preset--color--accent-bright);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:heading {"level":3,"fontSize":"large"} -->
-            <h3 class="wp-block-heading has-large-font-size"><?php echo esc_html_x( 'Content Generation', 'domain name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg"} -->
+            <h3 class="wp-block-heading has-lg-font-size"><?php echo esc_html_x( 'Content Generation', 'domain name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
-            <!-- wp:paragraph {"textColor":"accent-bright","fontSize":"small","style":{"typography":{"fontWeight":"700"}}} -->
-            <p class="has-accent-bright-color has-text-color has-small-font-size" style="font-weight:700"><?php echo esc_html_x( '14 abilities', 'domain count', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"accent-bright","fontSize":"sm","style":{"typography":{"fontWeight":"700"}}} -->
+            <p class="has-accent-bright-color has-text-color has-sm-font-size" style="font-weight:700"><?php echo esc_html_x( '14 abilities', 'domain count', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'AI-generate testimonials, hero copy, service pages, team bios, FAQs, and CTAs.', 'domain description', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'AI-generate testimonials, hero copy, service pages, team bios, FAQs, and CTAs.', 'domain description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -120,14 +120,14 @@
         <!-- SEO & Optimization -->
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"var:preset|color|accent","width":"4px"}}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;border-left-color:var(--wp--preset--color--accent);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:heading {"level":3,"fontSize":"large"} -->
-            <h3 class="wp-block-heading has-large-font-size"><?php echo esc_html_x( 'SEO & Optimization', 'domain name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg"} -->
+            <h3 class="wp-block-heading has-lg-font-size"><?php echo esc_html_x( 'SEO & Optimization', 'domain name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
-            <!-- wp:paragraph {"textColor":"accent","fontSize":"small","style":{"typography":{"fontWeight":"700"}}} -->
-            <p class="has-accent-color has-text-color has-small-font-size" style="font-weight:700"><?php echo esc_html_x( '8 abilities', 'domain count', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"accent","fontSize":"sm","style":{"typography":{"fontWeight":"700"}}} -->
+            <p class="has-accent-color has-text-color has-sm-font-size" style="font-weight:700"><?php echo esc_html_x( '8 abilities', 'domain count', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Content gaps, internal links, schema markup, A/B variants, freshness scans.', 'domain description', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Content gaps, internal links, schema markup, A/B variants, freshness scans.', 'domain description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -155,14 +155,14 @@
         <!-- pSEO System -->
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"#FF6B35","width":"4px"}}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;border-left-color:#FF6B35;border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:heading {"level":3,"fontSize":"large"} -->
-            <h3 class="wp-block-heading has-large-font-size"><?php echo esc_html_x( 'pSEO System', 'domain name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg"} -->
+            <h3 class="wp-block-heading has-lg-font-size"><?php echo esc_html_x( 'pSEO System', 'domain name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
-            <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700"},"color":{"text":"#FF6B35"}},"fontSize":"small"} -->
-            <p class="has-text-color has-small-font-size" style="color:#FF6B35;font-weight:700"><?php echo esc_html_x( '12 abilities', 'domain count', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700"},"color":{"text":"#FF6B35"}},"fontSize":"sm"} -->
+            <p class="has-text-color has-sm-font-size" style="color:#FF6B35;font-weight:700"><?php echo esc_html_x( '12 abilities', 'domain count', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Service areas, industries, neighborhoods — batch create, enrich, score, drip-publish.', 'domain description', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Service areas, industries, neighborhoods — batch create, enrich, score, drip-publish.', 'domain description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -183,14 +183,14 @@
         <!-- Publishing & Editing -->
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"#9333EA","width":"4px"}}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;border-left-color:#9333EA;border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:heading {"level":3,"fontSize":"large"} -->
-            <h3 class="wp-block-heading has-large-font-size"><?php echo esc_html_x( 'Publishing & Editing', 'domain name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg"} -->
+            <h3 class="wp-block-heading has-lg-font-size"><?php echo esc_html_x( 'Publishing & Editing', 'domain name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
-            <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700"},"color":{"text":"#9333EA"}},"fontSize":"small"} -->
-            <p class="has-text-color has-small-font-size" style="color:#9333EA;font-weight:700"><?php echo esc_html_x( '6 abilities', 'domain count', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700"},"color":{"text":"#9333EA"}},"fontSize":"sm"} -->
+            <p class="has-text-color has-sm-font-size" style="color:#9333EA;font-weight:700"><?php echo esc_html_x( '6 abilities', 'domain count', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Upsert posts, safe-edit drafts, SEO meta, media upload, featured images.', 'domain description', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Upsert posts, safe-edit drafts, SEO meta, media upload, featured images.', 'domain description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -211,14 +211,14 @@
         <!-- Analytics & Reports -->
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"#0EA5E9","width":"4px"}}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;border-left-color:#0EA5E9;border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:heading {"level":3,"fontSize":"large"} -->
-            <h3 class="wp-block-heading has-large-font-size"><?php echo esc_html_x( 'Analytics & Reports', 'domain name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg"} -->
+            <h3 class="wp-block-heading has-lg-font-size"><?php echo esc_html_x( 'Analytics & Reports', 'domain name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
-            <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700"},"color":{"text":"#0EA5E9"}},"fontSize":"small"} -->
-            <p class="has-text-color has-small-font-size" style="color:#0EA5E9;font-weight:700"><?php echo esc_html_x( '5 abilities', 'domain count', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700"},"color":{"text":"#0EA5E9"}},"fontSize":"sm"} -->
+            <p class="has-text-color has-sm-font-size" style="color:#0EA5E9;font-weight:700"><?php echo esc_html_x( '5 abilities', 'domain count', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Lead stats, monthly reports, AI insights, client reports, activity timeline.', 'domain description', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Lead stats, monthly reports, AI insights, client reports, activity timeline.', 'domain description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -246,14 +246,14 @@
         <!-- Block Bindings -->
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"var:preset|color|accent","width":"4px"}}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;border-left-color:var(--wp--preset--color--accent);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:heading {"level":3,"fontSize":"large"} -->
-            <h3 class="wp-block-heading has-large-font-size"><?php echo esc_html_x( 'Block Bindings', 'domain name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg"} -->
+            <h3 class="wp-block-heading has-lg-font-size"><?php echo esc_html_x( 'Block Bindings', 'domain name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
-            <!-- wp:paragraph {"textColor":"accent","fontSize":"small","style":{"typography":{"fontWeight":"700"}}} -->
-            <p class="has-accent-color has-text-color has-small-font-size" style="font-weight:700"><?php echo esc_html_x( '9 abilities', 'domain count', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"accent","fontSize":"sm","style":{"typography":{"fontWeight":"700"}}} -->
+            <p class="has-accent-color has-text-color has-sm-font-size" style="font-weight:700"><?php echo esc_html_x( '9 abilities', 'domain count', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Binding stats, health audits, field discovery, Notion schema, cache management.', 'domain description', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Binding stats, health audits, field discovery, Notion schema, cache management.', 'domain description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -274,14 +274,14 @@
         <!-- Theme & Design -->
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"var:preset|color|accent-bright","width":"4px"}}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;border-left-color:var(--wp--preset--color--accent-bright);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:heading {"level":3,"fontSize":"large"} -->
-            <h3 class="wp-block-heading has-large-font-size"><?php echo esc_html_x( 'Theme & Design', 'domain name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg"} -->
+            <h3 class="wp-block-heading has-lg-font-size"><?php echo esc_html_x( 'Theme & Design', 'domain name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
-            <!-- wp:paragraph {"textColor":"accent-bright","fontSize":"small","style":{"typography":{"fontWeight":"700"}}} -->
-            <p class="has-accent-bright-color has-text-color has-small-font-size" style="font-weight:700"><?php echo esc_html_x( '7 abilities', 'domain count', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"accent-bright","fontSize":"sm","style":{"typography":{"fontWeight":"700"}}} -->
+            <p class="has-accent-bright-color has-text-color has-sm-font-size" style="font-weight:700"><?php echo esc_html_x( '7 abilities', 'domain count', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Design tokens, pattern suggestions, portfolio entries, accessibility audits.', 'domain description', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Design tokens, pattern suggestions, portfolio entries, accessibility audits.', 'domain description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -302,14 +302,14 @@
         <!-- Site Management -->
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"var:preset|color|accent","width":"4px"}}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-radius:12px;border-left-color:var(--wp--preset--color--accent);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:heading {"level":3,"fontSize":"large"} -->
-            <h3 class="wp-block-heading has-large-font-size"><?php echo esc_html_x( 'Site Management', 'domain name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg"} -->
+            <h3 class="wp-block-heading has-lg-font-size"><?php echo esc_html_x( 'Site Management', 'domain name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
-            <!-- wp:paragraph {"textColor":"accent","fontSize":"small","style":{"typography":{"fontWeight":"700"}}} -->
-            <p class="has-accent-color has-text-color has-small-font-size" style="font-weight:700"><?php echo esc_html_x( '8 abilities', 'domain count', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"accent","fontSize":"sm","style":{"typography":{"fontWeight":"700"}}} -->
+            <p class="has-accent-color has-text-color has-sm-font-size" style="font-weight:700"><?php echo esc_html_x( '8 abilities', 'domain count', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'WP-CLI, site health, DNA analysis, setup verification, cache clearing, DB optimization.', 'domain description', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'WP-CLI, site health, DNA analysis, setup verification, cache clearing, DB optimization.', 'domain description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -341,8 +341,8 @@
     <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-12 · Architecture', 'architecture section eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:heading {"textAlign":"center","fontSize":"xx-large"} -->
-    <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size"><?php echo esc_html_x( 'How it works', 'architecture section heading', 'voyager-demo' ); ?></h2>
+    <!-- wp:heading {"textAlign":"center","fontSize":"2xl"} -->
+    <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size"><?php echo esc_html_x( 'How it works', 'architecture section heading', 'voyager-demo' ); ?></h2>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
@@ -360,11 +360,11 @@
                 <!-- wp:paragraph {"textColor":"accent","style":{"typography":{"fontWeight":"700","fontSize":"2rem"}}} -->
                 <p class="has-accent-color has-text-color" style="font-size:2rem;font-weight:700">01</p>
                 <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":3,"textColor":"fg-1","fontSize":"large"} -->
-                <h3 class="wp-block-heading has-fg-1-color has-text-color has-large-font-size"><?php echo esc_html_x( 'Register', 'architecture step title', 'voyager-demo' ); ?></h3>
+                <!-- wp:heading {"level":3,"textColor":"fg-1","fontSize":"lg"} -->
+                <h3 class="wp-block-heading has-fg-1-color has-text-color has-lg-font-size"><?php echo esc_html_x( 'Register', 'architecture step title', 'voyager-demo' ); ?></h3>
                 <!-- /wp:heading -->
-                <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-                <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Any plugin calls register_ability() with a name, schema, and callback.', 'architecture step description', 'voyager-demo' ); ?></p>
+                <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Any plugin calls register_ability() with a name, schema, and callback.', 'architecture step description', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -379,11 +379,11 @@
                 <!-- wp:paragraph {"textColor":"accent-bright","style":{"typography":{"fontWeight":"700","fontSize":"2rem"}}} -->
                 <p class="has-accent-bright-color has-text-color" style="font-size:2rem;font-weight:700">02</p>
                 <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":3,"textColor":"fg-1","fontSize":"large"} -->
-                <h3 class="wp-block-heading has-fg-1-color has-text-color has-large-font-size"><?php echo esc_html_x( 'Expose', 'architecture step title', 'voyager-demo' ); ?></h3>
+                <!-- wp:heading {"level":3,"textColor":"fg-1","fontSize":"lg"} -->
+                <h3 class="wp-block-heading has-fg-1-color has-text-color has-lg-font-size"><?php echo esc_html_x( 'Expose', 'architecture step title', 'voyager-demo' ); ?></h3>
                 <!-- /wp:heading -->
-                <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-                <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Abilities API + MCP Adapter make it available to Claude, REST, and the admin chat.', 'architecture step description', 'voyager-demo' ); ?></p>
+                <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Abilities API + MCP Adapter make it available to Claude, REST, and the admin chat.', 'architecture step description', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -398,11 +398,11 @@
                 <!-- wp:paragraph {"textColor":"accent","style":{"typography":{"fontWeight":"700","fontSize":"2rem"}}} -->
                 <p class="has-accent-color has-text-color" style="font-size:2rem;font-weight:700">03</p>
                 <!-- /wp:paragraph -->
-                <!-- wp:heading {"level":3,"textColor":"fg-1","fontSize":"large"} -->
-                <h3 class="wp-block-heading has-fg-1-color has-text-color has-large-font-size"><?php echo esc_html_x( 'Execute', 'architecture step title', 'voyager-demo' ); ?></h3>
+                <!-- wp:heading {"level":3,"textColor":"fg-1","fontSize":"lg"} -->
+                <h3 class="wp-block-heading has-fg-1-color has-text-color has-lg-font-size"><?php echo esc_html_x( 'Execute', 'architecture step title', 'voyager-demo' ); ?></h3>
                 <!-- /wp:heading -->
-                <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-                <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'AI agents call abilities by name. Results flow back as structured data.', 'architecture step description', 'voyager-demo' ); ?></p>
+                <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'AI agents call abilities by name. Results flow back as structured data.', 'architecture step description', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -426,8 +426,8 @@
         <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-13 · Model Context Protocol', 'mcp section eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:heading {"textAlign":"center","fontSize":"xx-large"} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size"><?php echo esc_html_x( 'Connected via Model Context Protocol', 'mcp section heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","fontSize":"2xl"} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size"><?php echo esc_html_x( 'Connected via Model Context Protocol', 'mcp section heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
@@ -446,8 +446,8 @@
             <!-- wp:paragraph {"style":{"typography":{"fontSize":"1.5rem","fontWeight":"700"}},"textColor":"accent"} -->
             <p class="has-accent-color has-text-color" style="font-size:1.5rem;font-weight:700">89</p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'abilities', 'stats bar label', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'abilities', 'stats bar label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
@@ -461,8 +461,8 @@
             <!-- wp:paragraph {"style":{"typography":{"fontSize":"1.5rem","fontWeight":"700"}},"textColor":"accent-bright"} -->
             <p class="has-accent-bright-color has-text-color" style="font-size:1.5rem;font-weight:700">10</p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'domains', 'stats bar label', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'domains', 'stats bar label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
@@ -476,8 +476,8 @@
             <!-- wp:paragraph {"style":{"typography":{"fontSize":"1.5rem","fontWeight":"700"}},"textColor":"accent"} -->
             <p class="has-accent-color has-text-color" style="font-size:1.5rem;font-weight:700">4</p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'plugins', 'stats bar label', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'plugins', 'stats bar label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->
@@ -491,8 +491,8 @@
             <!-- wp:paragraph {"style":{"typography":{"fontSize":"1.5rem","fontWeight":"700"}},"textColor":"accent"} -->
             <p class="has-accent-color has-text-color" style="font-size:1.5rem;font-weight:700">1</p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'protocol', 'stats bar label', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'protocol', 'stats bar label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:group -->

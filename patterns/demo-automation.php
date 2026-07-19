@@ -48,8 +48,8 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
     <div class="wp-block-group is-layout-constrained">
 
-        <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|70"}}},"fontSize":"xx-large"} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--70)"><?php echo esc_html_x( 'The Pipeline', 'automation pipeline heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|70"}}},"fontSize":"2xl"} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--70)"><?php echo esc_html_x( 'The Pipeline', 'automation pipeline heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
     </div>
@@ -79,8 +79,8 @@
                 <!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center">
 
-                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"large"} -->
-                    <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Write in Notion', 'automation step 1 title', 'voyager-demo' ); ?></h3>
+                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"lg"} -->
+                    <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Write in Notion', 'automation step 1 title', 'voyager-demo' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
@@ -131,8 +131,8 @@
                 <!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center">
 
-                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"large"} -->
-                    <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'AI Generates the Draft', 'automation step 2 title', 'voyager-demo' ); ?></h3>
+                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"lg"} -->
+                    <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'AI Generates the Draft', 'automation step 2 title', 'voyager-demo' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
@@ -183,8 +183,8 @@
                 <!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center">
 
-                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"large"} -->
-                    <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Quality Gates Check', 'automation step 3 title', 'voyager-demo' ); ?></h3>
+                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"lg"} -->
+                    <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Quality Gates Check', 'automation step 3 title', 'voyager-demo' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
@@ -243,8 +243,8 @@
                 <!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center">
 
-                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"large"} -->
-                    <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Publish to WordPress', 'automation step 4 title', 'voyager-demo' ); ?></h3>
+                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"lg"} -->
+                    <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Publish to WordPress', 'automation step 4 title', 'voyager-demo' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
@@ -295,8 +295,8 @@
                 <!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center">
 
-                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"large"} -->
-                    <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Block Bindings Activate', 'automation step 5 title', 'voyager-demo' ); ?></h3>
+                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"lg"} -->
+                    <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Block Bindings Activate', 'automation step 5 title', 'voyager-demo' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
@@ -347,8 +347,8 @@
                 <!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center">
 
-                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"large"} -->
-                    <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Orbit Tracks Everything', 'automation step 6 title', 'voyager-demo' ); ?></h3>
+                    <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"lg"} -->
+                    <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Orbit Tracks Everything', 'automation step 6 title', 'voyager-demo' ); ?></h3>
                     <!-- /wp:heading -->
 
                     <!-- wp:paragraph {"textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
@@ -392,8 +392,8 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
     <div class="wp-block-group is-layout-constrained">
 
-        <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|70"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontSize":"xx-large"} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="color:var(--wp--preset--color--fg-1);letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--70)"><?php echo esc_html_x( 'What This Means', 'automation comparison heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|70"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontSize":"2xl"} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="color:var(--wp--preset--color--fg-1);letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--70)"><?php echo esc_html_x( 'What This Means', 'automation comparison heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
     </div>
@@ -488,8 +488,8 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
     <div class="wp-block-group is-layout-constrained">
 
-        <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"fontSize":"xx-large"} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Managed Agents', 'automation agents heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}},"fontSize":"2xl"} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Managed Agents', 'automation agents heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","textColor":"fg-4","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|70"}}}} -->
@@ -509,12 +509,12 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Mon / Wed / Fri 8am', 'agent schedule', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"medium"} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Content Machine', 'agent name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"md"} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Content Machine', 'agent name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Generates strategic content briefs from keyword gaps, competitor analysis, and content calendar.', 'agent desc', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Generates strategic content briefs from keyword gaps, competitor analysis, and content calendar.', 'agent desc', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -527,12 +527,12 @@
             <p class="has-accent-bright-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Tue 10am', 'agent schedule', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"medium"} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'SEO Blitz', 'agent name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"md"} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'SEO Blitz', 'agent name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Expands the pSEO matrix — new service areas, city pages, and landing page variants.', 'agent desc', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Expands the pSEO matrix — new service areas, city pages, and landing page variants.', 'agent desc', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -545,12 +545,12 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Daily 7am', 'agent schedule', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"medium"} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Lead Intelligence', 'agent name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"md"} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Lead Intelligence', 'agent name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Coverage analysis, lead velocity tracking, and source attribution across all touchpoints.', 'agent desc', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Coverage analysis, lead velocity tracking, and source attribution across all touchpoints.', 'agent desc', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -569,12 +569,12 @@
             <p class="has-warn-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Thu 10am', 'agent schedule', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"medium"} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Fleet Binding QA', 'agent name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"md"} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Fleet Binding QA', 'agent name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Audits all binding sources across the fleet — catches empty fields, stale caches, and broken data sources.', 'agent desc', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Audits all binding sources across the fleet — catches empty fields, stale caches, and broken data sources.', 'agent desc', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -587,12 +587,12 @@
             <p class="has-info-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Wed 2pm', 'agent schedule', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"medium"} -->
-            <h3 class="wp-block-heading has-medium-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Content Freshness', 'agent name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}},"fontSize":"md"} -->
+            <h3 class="wp-block-heading has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Content Freshness', 'agent name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Detects stale content, checks publish dates, scores freshness, and flags posts that need updating.', 'agent desc', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Detects stale content, checks publish dates, scores freshness, and flags posts that need updating.', 'agent desc', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -616,8 +616,8 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
     <div class="wp-block-group is-layout-constrained">
 
-        <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"letterSpacing":"-0.03em","lineHeight":"1.1"},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontSize":"xx-large"} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="color:var(--wp--preset--color--fg-1);letter-spacing:-0.03em;line-height:1.1"><?php echo esc_html_x( 'This pipeline published 8 blog posts, 4 case studies, and 92 landing pages.', 'automation cta heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"letterSpacing":"-0.03em","lineHeight":"1.1"},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontSize":"2xl"} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="color:var(--wp--preset--color--fg-1);letter-spacing:-0.03em;line-height:1.1"><?php echo esc_html_x( 'This pipeline published 8 blog posts, 4 case studies, and 92 landing pages.', 'automation cta heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"clamp(1.1rem, 2.5vw, 1.35rem)","lineHeight":"1.6"},"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|50"}},"color":{"text":"rgba(255,255,255,0.85)"}}} -->

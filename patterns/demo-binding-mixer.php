@@ -48,8 +48,8 @@
         <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-91 · Recipe Cards', 'mixer section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"xx-large","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'Multi-source combinations that unlock new effects', 'mixer recipes heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'Multi-source combinations that unlock new effects', 'mixer recipes heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
     </div>
@@ -65,8 +65,8 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Recipe 1 — 3 Sources', 'recipe label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-            <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Local Hero', 'recipe 1 name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+            <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Local Hero', 'recipe 1 name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"var:preset|spacing|30"}},"border":{"radius":"8px"}},"backgroundColor":"bg-raised","layout":{"type":"constrained"}} -->
@@ -79,8 +79,8 @@
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Result: "SEO Services in {your city}" with local phone number. Personalized for every visitor, SEO-optimized per service area.', 'recipe 1 result', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Result: "SEO Services in {your city}" with local phone number. Personalized for every visitor, SEO-optimized per service area.', 'recipe 1 result', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -93,8 +93,8 @@
             <p class="has-accent-bright-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Recipe 2 — 2 Sources', 'recipe label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-            <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Smart CTA', 'recipe 2 name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+            <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Smart CTA', 'recipe 2 name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"var:preset|spacing|30"}},"border":{"radius":"8px"}},"backgroundColor":"bg-raised","layout":{"type":"constrained"}} -->
@@ -107,8 +107,8 @@
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Result: CTA that adapts to page type + always has current phone. Blog says "Read more", service page says "Get a quote".', 'recipe 2 result', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Result: CTA that adapts to page type + always has current phone. Blog says "Read more", service page says "Get a quote".', 'recipe 2 result', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -121,8 +121,8 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Recipe 3 — 2 Sources', 'recipe label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-            <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Time-Aware Banner', 'recipe 3 name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+            <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Time-Aware Banner', 'recipe 3 name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"var:preset|spacing|30"}},"border":{"radius":"8px"}},"backgroundColor":"bg-raised","layout":{"type":"constrained"}} -->
@@ -135,8 +135,8 @@
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Result: Different message per visitor, changes by time of day. "Call now — we are open" vs "Leave a message — we open at 9am".', 'recipe 3 result', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Result: Different message per visitor, changes by time of day. "Call now — we are open" vs "Leave a message — we open at 9am".', 'recipe 3 result', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -155,8 +155,8 @@
             <p class="has-text-color" style="color:#FF6B35;margin-bottom:var(--wp--preset--spacing--10);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Recipe 4 — 3 Sources', 'recipe label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-            <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Proof Dashboard', 'recipe 4 name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+            <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Proof Dashboard', 'recipe 4 name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"var:preset|spacing|30"}},"border":{"radius":"8px"}},"backgroundColor":"bg-raised","layout":{"type":"constrained"}} -->
@@ -169,8 +169,8 @@
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Result: Always-current proof numbers, no maintenance. Stats update themselves as your site grows.', 'recipe 4 result', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Result: Always-current proof numbers, no maintenance. Stats update themselves as your site grows.', 'recipe 4 result', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -183,8 +183,8 @@
             <p class="has-text-color" style="color:#9333EA;margin-bottom:var(--wp--preset--spacing--10);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Recipe 5 — 2 Sources', 'recipe label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-            <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Notion-Powered Page', 'recipe 5 name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+            <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Notion-Powered Page', 'recipe 5 name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"var:preset|spacing|30"}},"border":{"radius":"8px"}},"backgroundColor":"bg-raised","layout":{"type":"constrained"}} -->
@@ -197,8 +197,8 @@
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Result: Fresh content from Notion, auto-hides stale entries. Edit in Notion, see it on your site within 4 hours.', 'recipe 5 result', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Result: Fresh content from Notion, auto-hides stale entries. Edit in Notion, see it on your site within 4 hours.', 'recipe 5 result', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -211,8 +211,8 @@
             <p class="has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Recipe 6 — 4 Sources', 'recipe label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"level":3,"fontSize":"large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-            <h3 class="wp-block-heading has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Everything Header', 'recipe 6 name', 'voyager-demo' ); ?></h3>
+            <!-- wp:heading {"level":3,"fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+            <h3 class="wp-block-heading has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The Everything Header', 'recipe 6 name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"margin":{"bottom":"var:preset|spacing|30"}},"border":{"radius":"8px"}},"backgroundColor":"bg-raised","layout":{"type":"constrained"}} -->
@@ -225,8 +225,8 @@
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"small"} -->
-            <p class="has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Result: One header block group, 4 data sources, completely dynamic. No maintenance, ever-current.', 'recipe 6 result', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Result: One header block group, 4 data sources, completely dynamic. No maintenance, ever-current.', 'recipe 6 result', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -248,12 +248,12 @@
         <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-92 · Live Mixer', 'mixer live section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"xx-large","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="color:var(--wp--preset--color--fg-1);letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Recipe 4 — live from real data', 'mixer live heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
+        <h2 class="wp-block-heading has-text-align-center has-2-xl-font-size" style="color:var(--wp--preset--color--fg-1);letter-spacing:-0.03em;margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Recipe 4 — live from real data', 'mixer live heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
-        <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"small","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-        <p class="has-text-align-center has-fg-3-color has-text-color has-small-font-size" style="margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'These numbers are resolved at render time from pulse + orbit binding sources. Refresh the page — they update live.', 'mixer live description', 'voyager-demo' ); ?></p>
+        <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
+        <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size" style="margin-bottom:var(--wp--preset--spacing--60)"><?php echo esc_html_x( 'These numbers are resolved at render time from pulse + orbit binding sources. Refresh the page — they update live.', 'mixer live description', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
     </div>
@@ -273,8 +273,8 @@
             <h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-family:monospace;font-size:clamp(2rem, 5vw, 3rem);font-weight:700"><?php echo esc_html_x( '—', 'stat fallback', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"small"} -->
-            <p class="has-text-align-center has-fg-3-color has-text-color has-small-font-size"><?php echo esc_html_x( 'pSEO Pages', 'stat label', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm"} -->
+            <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'pSEO Pages', 'stat label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -291,8 +291,8 @@
             <h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-family:monospace;font-size:clamp(2rem, 5vw, 3rem);font-weight:700"><?php echo esc_html_x( '—', 'stat fallback', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"small"} -->
-            <p class="has-text-align-center has-fg-3-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Freshness Score', 'stat label', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm"} -->
+            <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Freshness Score', 'stat label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -309,8 +309,8 @@
             <h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-family:monospace;font-size:clamp(2rem, 5vw, 3rem);font-weight:700"><?php echo esc_html_x( '—', 'stat fallback', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"small"} -->
-            <p class="has-text-align-center has-fg-3-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Leads Tracked', 'stat label', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm"} -->
+            <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Leads Tracked', 'stat label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -327,8 +327,8 @@
             <h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-family:monospace;font-size:clamp(2rem, 5vw, 3rem);font-weight:700"><?php echo esc_html_x( '—', 'stat fallback', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
-            <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"small"} -->
-            <p class="has-text-align-center has-fg-3-color has-text-color has-small-font-size"><?php echo esc_html_x( 'AI Abilities', 'stat label', 'voyager-demo' ); ?></p>
+            <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm"} -->
+            <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'AI Abilities', 'stat label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -346,12 +346,12 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
     <div class="wp-block-group is-layout-constrained">
 
-        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"x-large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-x-large-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Every recipe uses standard WordPress blocks. No custom code. No plugins beyond Voyager.', 'mixer cta heading', 'voyager-demo' ); ?></h2>
+        <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"xl","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
+        <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Every recipe uses standard WordPress blocks. No custom code. No plugins beyond Voyager.', 'mixer cta heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
-        <!-- wp:paragraph {"align":"center","textColor":"fg-4","fontSize":"small"} -->
-        <p class="has-text-align-center has-fg-4-color has-text-color has-small-font-size"><?php echo esc_html_x( 'Add a binding source to any heading, paragraph, button, or image. Mix sources freely. The block editor is now a data platform.', 'mixer cta subtitle', 'voyager-demo' ); ?></p>
+        <!-- wp:paragraph {"align":"center","textColor":"fg-4","fontSize":"sm"} -->
+        <p class="has-text-align-center has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Add a binding source to any heading, paragraph, button, or image. Mix sources freely. The block editor is now a data platform.', 'mixer cta subtitle', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->

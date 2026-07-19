@@ -19,7 +19,7 @@
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"level":1,"textAlign":"center","fontSize":"5xl"} -->
-    <h1 class="wp-block-heading has-text-align-center has-5xl-font-size">The Voyager platform, running on itself</h1>
+    <h1 class="wp-block-heading has-text-align-center has-5-xl-font-size">The Voyager platform, running on itself</h1>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
@@ -37,8 +37,8 @@
     </div>
     <!-- /wp:buttons -->
 
-    <!-- wp:paragraph {"align":"center","textColor":"fg-5","fontSize":"xs","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
-    <p class="has-text-align-center has-fg-5-color has-text-color has-xs-font-size" style="margin-top:var(--wp--preset--spacing--40)">MCP playground opens with first deploy — the button goes live when it does.</p>
+    <!-- wp:paragraph {"align":"center","textColor":"fg-5","fontSize":"label","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+    <p class="has-text-align-center has-fg-5-color has-text-color has-label-font-size" style="margin-top:var(--wp--preset--spacing--40)">MCP playground opens with first deploy — the button goes live when it does.</p>
     <!-- /wp:paragraph -->
 
 </div>
