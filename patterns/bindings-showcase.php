@@ -214,6 +214,7 @@
             <hr class="wp-block-separator has-text-color has-fg-1-color has-alpha-channel-opacity has-bg-panel-background-color has-background" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--30)"/>
             <!-- /wp:separator -->
 
+<?php if ( voyager_demo_binding_live( 'voyager/notion' ) ) : ?>
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"label"} -->
             <p class="has-fg-4-color has-text-color has-label-font-size"><?php echo esc_html_x( 'Live from Notion:', 'demo label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
@@ -221,6 +222,11 @@
             <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Name","filter_key":"Name","filter_value":"What Huntress Is and How It Can Benefit You"}}}}} -->
             <p class="has-sm-font-size" style="font-weight:600"><?php echo esc_html_x( 'Loading from Notion...', 'notion demo fallback', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
+<?php else : ?>
+            <!-- wp:paragraph {"textColor":"warn","fontSize":"label"} -->
+            <p class="has-warn-color has-text-color has-label-font-size"><?php echo esc_html_x( 'Switched off on this install — no Notion workspace is connected. This line reads a live database row the moment credentials land; we don\'t mock it in the meantime.', 'notion inactive notice', 'voyager-demo' ); ?></p>
+            <!-- /wp:paragraph -->
+<?php endif; ?>
 
         </div>
         <!-- /wp:column -->
@@ -321,6 +327,15 @@
         <p class="has-accent-color has-text-color has-sm-font-size" style="font-weight:600;text-transform:uppercase;letter-spacing:0.1em"><?php echo esc_html_x( 'Live Notion Demo — voyager/notion source', 'demo section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
+<?php if ( ! voyager_demo_binding_live( 'voyager/notion' ) ) : ?>
+        <!-- wp:paragraph {"textColor":"warn","fontSize":"sm","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->
+        <p class="has-warn-color has-text-color has-sm-font-size" style="margin-bottom:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Currently switched off on this install: the voyager/notion source is registered in the stack, but no Notion workspace is connected here yet.', 'notion inactive heading', 'voyager-demo' ); ?></p>
+        <!-- /wp:paragraph -->
+
+        <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+        <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'When credentials land, this section pulls a live database row — title, rich text, status, select, and date properties — straight from Notion with triple-layer caching. Until then you get this notice, because a demo about live bindings should never fake being live.', 'notion inactive body', 'voyager-demo' ); ?></p>
+        <!-- /wp:paragraph -->
+<?php else : ?>
         <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
         <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The content below is pulled live from a Notion database row via the voyager/notion binding source. Edit the row in Notion and it updates here after cache expiry.', 'demo section description', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
@@ -390,6 +405,7 @@
         <!-- wp:paragraph {"textColor":"fg-4","fontSize":"label","style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
         <p class="has-fg-4-color has-text-color has-label-font-size" style="margin-top:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Source: Voyager Content DB via Notion API. Cached 1hr. 5 property types demonstrated: title, rich_text, status, select, date.', 'demo footer note', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
+<?php endif; ?>
 
     </div>
     <!-- /wp:group -->

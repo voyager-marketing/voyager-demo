@@ -7,6 +7,12 @@
  * Block Types: core/group
  */
 ?>
+<?php if ( function_exists( 'voyager_demo_binding_live' ) && ! voyager_demo_binding_live( 'voyager/notion' ) ) : ?>
+<!-- wp:paragraph {"align":"wide","textColor":"warn","fontSize":"sm","style":{"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3"}}}} -->
+<p class="alignwide has-warn-color has-text-color has-sm-font-size" style="padding-top:var(--wp--preset--spacing--3);padding-bottom:var(--wp--preset--spacing--3)">Heads up: this pattern demonstrates the voyager/notion binding source, which is switched off on this install &#8212; bound values below show their static fallbacks until it is connected. Nothing is mocked.</p>
+<!-- /wp:paragraph -->
+<?php endif; ?>
+
 
 <!-- ==================== SECTION 1: HERO (DARK) ==================== -->
 
