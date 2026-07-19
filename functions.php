@@ -403,6 +403,19 @@ function voyager_demo_seed_showcase(array $seed) {
 }
 
 /**
+ * Whether a binding source is live in the registry at render time.
+ *
+ * Patterns branch on this to swap live bound markup for an honest
+ * "not connected on this install" treatment instead of a silent static
+ * fallback. The launch gate (wp voyager-demo check-bindings) treats
+ * files calling this helper as degradation-aware.
+ */
+function voyager_demo_binding_live(string $source): bool {
+    return class_exists('WP_Block_Bindings_Registry')
+        && \WP_Block_Bindings_Registry::get_instance()->is_registered($source);
+}
+
+/**
  * Serialized block markup for the /abilities/ registry listing.
  *
  * Enumerates every ability registered through the core Abilities API
@@ -565,5 +578,57 @@ if (defined('WP_CLI') && WP_CLI) {
         }
         $summary = voyager_sync_tokens(VOYAGER_DEMO_PATH . '/theme.json');
         \WP_CLI::success('Tokens synced: ' . wp_json_encode($summary));
+    });
+
+    /**
+     * Launch gate: every binding source consumed in theme markup must be
+     * live in the registry, or its consumer must be degradation-aware
+     * (calls voyager_demo_binding_live() to render an honest notice).
+     *
+     * Exit 0 = launch-safe. Exit 1 = at least one silent static fallback.
+     *
+     * Usage: wp voyager-demo check-bindings
+     */
+    \WP_CLI::add_command('voyager-demo check-bindings', function (): void {
+        $files = array_merge(
+            glob(VOYAGER_DEMO_PATH . '/patterns/*.php') ?: [],
+            glob(VOYAGER_DEMO_PATH . '/parts/*.html') ?: [],
+            glob(VOYAGER_DEMO_PATH . '/templates/*.html') ?: [],
+            glob(VOYAGER_DEMO_PATH . '/seeds/*/*.php') ?: []
+        );
+
+        $registry = \WP_Block_Bindings_Registry::get_instance();
+        $failures = 0;
+        $sources  = [];
+
+        foreach ($files as $file) {
+            $content = (string) file_get_contents($file);
+            if (! preg_match_all('/"source":"(voyager\/[a-z0-9-]+)"/', $content, $m)) {
+                continue;
+            }
+            $aware = str_contains($content, 'voyager_demo_binding_live');
+            foreach (array_unique($m[1]) as $source) {
+                $sources[$source]['files'][] = basename($file);
+                $sources[$source]['aware']   = ($sources[$source]['aware'] ?? true) && $aware;
+            }
+        }
+
+        ksort($sources);
+        foreach ($sources as $source => $info) {
+            $files_list = implode(', ', array_unique($info['files']));
+            if ($registry->is_registered($source)) {
+                \WP_CLI::log("  ACTIVE            {$source}  ({$files_list})");
+            } elseif ($info['aware']) {
+                \WP_CLI::log("  DEGRADED-AWARE    {$source}  ({$files_list})");
+            } else {
+                \WP_CLI::warning("SILENT FALLBACK   {$source}  ({$files_list})");
+                $failures++;
+            }
+        }
+
+        if ($failures > 0) {
+            \WP_CLI::error("{$failures} consumed source(s) would silently fall back. Fix before launch.");
+        }
+        \WP_CLI::success('Launch gate: every consumed binding source is active or visibly degraded.');
     });
 }
