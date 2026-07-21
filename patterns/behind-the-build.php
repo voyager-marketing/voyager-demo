@@ -34,7 +34,7 @@
                 <h4 class="wp-block-heading has-fg-3-color has-text-color has-sm-font-size" style="font-weight:600;letter-spacing:0.05em;text-transform:uppercase">Theme</h4>
                 <!-- /wp:heading -->
                 <!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm"} -->
-                <p class="has-fg-1-color has-text-color has-sm-font-size">Custom block theme with design tokens, Inter typography, and GSAP entrance animations.</p>
+                <p class="has-fg-1-color has-text-color has-sm-font-size">Custom block theme with design tokens, Inter typography, and native IntersectionObserver entrance reveals — no animation library in the theme.</p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->

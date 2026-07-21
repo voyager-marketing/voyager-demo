@@ -20,7 +20,7 @@ return [
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Structurally, the whole reel is registered block patterns — from this theme and the voyager-blocks plugin — composed in sequence. Nothing was page-built in the editor. The motion layer (scroll reveals, particle shaders, counters) comes from the parent theme's GSAP setup and degrades to static content without JavaScript.</p>
+<p>Structurally, the whole reel is registered block patterns — from this theme and the voyager-blocks plugin — composed in sequence. Nothing was page-built in the editor. The motion layer is two-tier and honest about it: the parent theme does baseline scroll reveals with a native IntersectionObserver and CSS scroll-driven animation (no GSAP, no library), while GSAP lives in voyager-blocks where genuine timeline work — particle shaders, counters, pinned scenes — earns it. Both tiers respect reduced-motion and degrade to static content without JavaScript.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->

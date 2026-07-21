@@ -11,15 +11,15 @@
  * PRJ-56 Discoveries page.
  */
 ?>
-<!-- wp:group {"align":"full","backgroundColor":"bg-canvas","textColor":"fg-1","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-bg-canvas-background-color has-fg-1-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--50)">
+<!-- wp:group {"align":"full","className":"is-style-with-blob","backgroundColor":"bg-canvas","textColor":"fg-1","style":{"spacing":{"padding":{"top":"var:preset|spacing|9","bottom":"var:preset|spacing|9","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"bottom":{"color":"var:preset|color|border-hair","width":"1px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull is-style-with-blob has-bg-canvas-background-color has-fg-1-color has-text-color has-background" style="border-bottom-color:var(--wp--preset--color--border-hair);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--9);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--9);padding-left:var(--wp--preset--spacing--50)">
 
-    <!-- wp:paragraph {"align":"center","textColor":"accent-bright","fontSize":"sm","style":{"typography":{"fontWeight":"600","letterSpacing":"0.12em","textTransform":"uppercase"}}} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-sm-font-size" style="font-weight:600;letter-spacing:0.12em;text-transform:uppercase">Live demo — every feature in production</p>
+    <!-- wp:paragraph {"align":"center","textColor":"accent-bright","fontSize":"label","fontFamily":"mono","style":{"typography":{"fontWeight":"600","letterSpacing":"0.14em","textTransform":"uppercase"}}} -->
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-label-font-size has-mono-font-family" style="font-weight:600;letter-spacing:0.14em;text-transform:uppercase">Live demo — every feature in production</p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:heading {"level":1,"textAlign":"center","fontSize":"5xl"} -->
-    <h1 class="wp-block-heading has-text-align-center has-5-xl-font-size">The Voyager platform, running on itself</h1>
+    <!-- wp:heading {"level":1,"textAlign":"center","fontSize":"5xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
+    <h1 class="wp-block-heading has-text-align-center has-5-xl-font-size" style="letter-spacing:-0.03em;margin-top:var(--wp--preset--spacing--3)">The Voyager platform, running on itself</h1>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"lg","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
