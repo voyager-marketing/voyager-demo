@@ -3,3 +3,63 @@
  * This file is conditionally enqueued by functions.php if it exists.
  * Add brand-specific styles here.
  */
+
+/* ==========================================================================
+   Reduced-motion safety for both motion tiers
+   --------------------------------------------------------------------------
+   This site runs two independent motion systems, and neither one honours
+   prefers-reduced-motion on its own:
+
+   Tier 1 — the parent theme's baseline reveal. voyager-block-theme applies
+   `animation: voyager-reveal-up` with `animation-timeline: view()` to every
+   direct child of `.has-scroll-reveal`. Its own reduced-motion block
+   (_design-effects.scss) covers the hover/clip-path styles but never the
+   reveal keyframes, so the scroll-driven entrance runs regardless of the
+   user's preference. Fixing it upstream is a parent-theme change and out of
+   scope here; the child theme opts its own pages out instead.
+
+   Tier 2 — voyager-blocks entrance animations. The plugin's stylesheet sets a
+   pre-animation state for `is-style-animate-*` and GSAP animates out of it.
+   Under reduced motion the element must land in its final state whether or
+   not the GSAP runtime ever loads.
+
+   Both tiers resolve to "content arrives in its final state", never to
+   "content is hidden".
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+	.has-scroll-reveal > .wp-block-group,
+	.has-scroll-reveal > .wp-block-columns,
+	.has-scroll-reveal > .wp-block-cover,
+	.has-scroll-reveal > .wp-block-columns > .wp-block-column {
+		animation: none !important;
+		animation-timeline: auto !important;
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	[class*="is-style-animate-"] {
+		opacity: 1 !important;
+		transform: none !important;
+		filter: none !important;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Known hazard, deliberately NOT patched here (see PRJ-56 Discoveries):
+
+   voyager-blocks enqueues its entrance-animation stylesheet whenever the built
+   CSS exists, but only loads the GSAP runtime when the vendored copy is also
+   present. The stylesheet sets `opacity: 0` on `is-style-animate-*` purely to
+   prevent FOUC, and the runtime is what animates it back. Ship the CSS without
+   the runtime and the content stays invisible — not "visible-but-unanimated"
+   as inc/entrance-animations.php claims in its own comment.
+
+   A child-theme override cannot distinguish "runtime is coming" from "runtime
+   will never arrive" at CSS parse time, so guarding it here would either
+   defeat the FOUC hiding or fabricate a signal the plugin does not emit. The
+   fix belongs in voyager-blocks: gate the stylesheet on the same
+   voyager_blocks_gsap_is_vendored() check the script already uses. Filed as a
+   voyager-blocks candidate task rather than worked around here.
+   -------------------------------------------------------------------------- */

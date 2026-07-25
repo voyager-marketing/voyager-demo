@@ -22,14 +22,14 @@
     <p class="has-text-align-center has-fg-4-color has-text-color has-md-font-size" style="margin-bottom:var(--wp--preset--spacing--60)">Every client site runs on a fleet of managed agents that generate content, expand SEO, monitor quality, and track leads — automatically, on schedule.</p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
-    <div class="wp-block-columns alignwide">
+    <!-- wp:columns {"align":"wide","className":"is-style-animate-fade-up","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
+    <div class="wp-block-columns alignwide is-style-animate-fade-up">
 
         <!-- wp:column -->
         <div class="wp-block-column">
 
-            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}},"layout":{"type":"constrained"}} -->
-            <div class="wp-block-group" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}},"layout":{"type":"constrained"}} -->
+            <div class="wp-block-group" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
                 <!-- wp:paragraph {"textColor":"accent","fontSize":"sm","style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
                 <p class="has-accent-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Daily 7am</p>
                 <!-- /wp:paragraph -->
@@ -42,8 +42,8 @@
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}},"layout":{"type":"constrained"}} -->
-            <div class="wp-block-group" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);margin-top:var(--wp--preset--spacing--40)">
+            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}},"layout":{"type":"constrained"}} -->
+            <div class="wp-block-group" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);margin-top:var(--wp--preset--spacing--40)">
                 <!-- wp:paragraph {"textColor":"accent","fontSize":"sm","style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
                 <p class="has-accent-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Mon / Wed / Fri</p>
                 <!-- /wp:paragraph -->
@@ -62,8 +62,8 @@
         <!-- wp:column -->
         <div class="wp-block-column">
 
-            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}},"layout":{"type":"constrained"}} -->
-            <div class="wp-block-group" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}},"layout":{"type":"constrained"}} -->
+            <div class="wp-block-group" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
                 <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm","style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
                 <p class="has-fg-3-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Tuesday</p>
                 <!-- /wp:paragraph -->
@@ -76,8 +76,8 @@
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}},"layout":{"type":"constrained"}} -->
-            <div class="wp-block-group" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);margin-top:var(--wp--preset--spacing--40)">
+            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}},"layout":{"type":"constrained"}} -->
+            <div class="wp-block-group" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);margin-top:var(--wp--preset--spacing--40)">
                 <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm","style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
                 <p class="has-fg-3-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Monday</p>
                 <!-- /wp:paragraph -->
@@ -96,8 +96,8 @@
         <!-- wp:column -->
         <div class="wp-block-column">
 
-            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}},"layout":{"type":"constrained"}} -->
-            <div class="wp-block-group" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}},"layout":{"type":"constrained"}} -->
+            <div class="wp-block-group" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
                 <!-- wp:paragraph {"textColor":"accent-bright","fontSize":"sm","style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
                 <p class="has-accent-bright-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Daily 6am</p>
                 <!-- /wp:paragraph -->
@@ -110,8 +110,8 @@
             </div>
             <!-- /wp:group -->
 
-            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}},"layout":{"type":"constrained"}} -->
-            <div class="wp-block-group" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);margin-top:var(--wp--preset--spacing--40)">
+            <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}},"layout":{"type":"constrained"}} -->
+            <div class="wp-block-group" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);margin-top:var(--wp--preset--spacing--40)">
                 <!-- wp:paragraph {"textColor":"accent-bright","fontSize":"sm","style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
                 <p class="has-accent-bright-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Weekly</p>
                 <!-- /wp:paragraph -->
@@ -130,8 +130,8 @@
     </div>
     <!-- /wp:columns -->
 
-    <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px"}},"backgroundColor":"accent","layout":{"type":"constrained"}} -->
-    <div class="wp-block-group alignwide has-accent-background-color has-background" style="border-radius:12px;margin-top:var(--wp--preset--spacing--60);padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
+    <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|60"},"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)"}},"backgroundColor":"accent","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group alignwide has-accent-background-color has-background" style="border-radius:var(--wp--custom--voyager--radius--3);margin-top:var(--wp--preset--spacing--60);padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
 
         <!-- wp:heading {"textAlign":"center","level":3,"textColor":"fg-1","fontSize":"lg"} -->
         <h3 class="wp-block-heading has-text-align-center has-fg-1-color has-text-color has-lg-font-size">The dependency graph</h3>

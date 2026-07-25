@@ -23,11 +23,11 @@
     <!-- /wp:paragraph -->
 
     <!-- Row 1: Foundation layer -->
-    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
-    <div class="wp-block-columns alignwide">
+    <!-- wp:columns {"align":"wide","className":"is-style-animate-fade-up","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
+    <div class="wp-block-columns alignwide is-style-animate-fade-up">
 
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"var:preset|color|accent","width":"4px"}}},"backgroundColor":"bg-panel"} -->
-        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:12px;border-left-color:var(--wp--preset--color--accent);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","left":{"color":"var:preset|color|accent","width":"4px"}}},"backgroundColor":"bg-panel"} -->
+        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:var(--wp--custom--voyager--radius--3);border-left-color:var(--wp--preset--color--accent);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
             <!-- wp:paragraph {"textColor":"accent-bright","fontSize":"sm","style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
             <p class="has-accent-bright-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Foundation</p>
             <!-- /wp:paragraph -->
@@ -35,7 +35,7 @@
             <h3 class="wp-block-heading has-lg-font-size">Voyager Block Theme</h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size">Parent theme with 88 patterns, design tokens, GSAP animations, and Full Site Editing. The base layer every client site inherits.</p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size">Parent theme with 88 patterns, design tokens, native scroll-reveal motion, and Full Site Editing. The base layer every client site inherits.</p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
@@ -46,7 +46,7 @@
                 <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">Design tokens</p>
                 <!-- /wp:paragraph -->
                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem"},"spacing":{"padding":{"top":"4px","bottom":"4px","left":"10px","right":"10px"}},"border":{"radius":"4px"}},"backgroundColor":"bg-panel","textColor":"fg-4"} -->
-                <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">GSAP animations</p>
+                <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">Native scroll reveal</p>
                 <!-- /wp:paragraph -->
                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem"},"spacing":{"padding":{"top":"4px","bottom":"4px","left":"10px","right":"10px"}},"border":{"radius":"4px"}},"backgroundColor":"bg-panel","textColor":"fg-4"} -->
                 <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">FSE</p>
@@ -56,8 +56,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"var:preset|color|fg-3","width":"4px"}}},"backgroundColor":"bg-panel"} -->
-        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:12px;border-left-color:var(--wp--preset--color--fg-3);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","left":{"color":"var:preset|color|fg-3","width":"4px"}}},"backgroundColor":"bg-panel"} -->
+        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:var(--wp--custom--voyager--radius--3);border-left-color:var(--wp--preset--color--fg-3);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
             <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm","style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
             <p class="has-fg-3-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Components</p>
             <!-- /wp:paragraph -->
@@ -87,11 +87,11 @@
     <!-- /wp:columns -->
 
     <!-- Row 2: Data + Intelligence layer -->
-    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}}}} -->
-    <div class="wp-block-columns alignwide" style="margin-top:var(--wp--preset--spacing--40)">
+    <!-- wp:columns {"align":"wide","className":"is-style-animate-fade-up","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}}}} -->
+    <div class="wp-block-columns alignwide is-style-animate-fade-up" style="margin-top:var(--wp--preset--spacing--40)">
 
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"var:preset|color|accent","width":"4px"}}},"backgroundColor":"bg-panel"} -->
-        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:12px;border-left-color:var(--wp--preset--color--accent);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","left":{"color":"var:preset|color|accent","width":"4px"}}},"backgroundColor":"bg-panel"} -->
+        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:var(--wp--custom--voyager--radius--3);border-left-color:var(--wp--preset--color--accent);border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
             <!-- wp:paragraph {"textColor":"accent","fontSize":"sm","style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}}} -->
             <p class="has-accent-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Data</p>
             <!-- /wp:paragraph -->
@@ -117,8 +117,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"#FF6B35","width":"4px"}}},"backgroundColor":"bg-panel"} -->
-        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:12px;border-left-color:#FF6B35;border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","left":{"color":"#FF6B35","width":"4px"}}},"backgroundColor":"bg-panel"} -->
+        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:var(--wp--custom--voyager--radius--3);border-left-color:#FF6B35;border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
             <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"},"color":{"text":"#FF6B35"}},"fontSize":"sm"} -->
             <p class="has-text-color has-sm-font-size" style="color:#FF6B35;font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Intelligence</p>
             <!-- /wp:paragraph -->
@@ -151,11 +151,11 @@
     <!-- /wp:columns -->
 
     <!-- Row 3: AI + Connectivity layer -->
-    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}}}} -->
-    <div class="wp-block-columns alignwide" style="margin-top:var(--wp--preset--spacing--40)">
+    <!-- wp:columns {"align":"wide","className":"is-style-animate-fade-up","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}}}} -->
+    <div class="wp-block-columns alignwide is-style-animate-fade-up" style="margin-top:var(--wp--preset--spacing--40)">
 
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"#9333EA","width":"4px"}}},"backgroundColor":"bg-panel"} -->
-        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:12px;border-left-color:#9333EA;border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","left":{"color":"#9333EA","width":"4px"}}},"backgroundColor":"bg-panel"} -->
+        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:var(--wp--custom--voyager--radius--3);border-left-color:#9333EA;border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
             <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"},"color":{"text":"#9333EA"}},"fontSize":"sm"} -->
             <p class="has-text-color has-sm-font-size" style="color:#9333EA;font-weight:700;text-transform:uppercase;letter-spacing:0.05em">AI Infrastructure</p>
             <!-- /wp:paragraph -->
@@ -181,8 +181,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","left":{"color":"#0EA5E9","width":"4px"}}},"backgroundColor":"bg-panel"} -->
-        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:12px;border-left-color:#0EA5E9;border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","left":{"color":"#0EA5E9","width":"4px"}}},"backgroundColor":"bg-panel"} -->
+        <div class="wp-block-column has-bg-panel-background-color has-background" style="border-radius:var(--wp--custom--voyager--radius--3);border-left-color:#0EA5E9;border-left-width:4px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
             <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"},"color":{"text":"#0EA5E9"}},"fontSize":"sm"} -->
             <p class="has-text-color has-sm-font-size" style="color:#0EA5E9;font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Connectivity</p>
             <!-- /wp:paragraph -->

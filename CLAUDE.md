@@ -9,7 +9,7 @@
 - **Notion project:** [PRJ-56 — Voyager Demo Site (demo.voyagermark.com)](https://www.notion.so/35347c03778b81e5980fe9a682328ed6)
 - **Notion task:** [TK-2104 — Wire voyager-demo → Notion so /mission runs](https://www.notion.so/3a247c03778b81e581e4e44092316d18)
 - **Type:** wp-theme (WordPress block child theme)
-- **Parent theme:** voyager-block-theme
+- **Parent theme:** voyager-block-theme (native IntersectionObserver + CSS scroll-reveal — no GSAP; GSAP lives in voyager-blocks)
 - **Sibling theme:** voyagermark (the agency marketing site at voyagermark.com)
 - **Status:** Bootstrapping
 - **Production:** https://demo.voyagermark.com (planned)
@@ -31,7 +31,7 @@ feature density that would feel obnoxious on a client site.
 ## Tech stack
 
 - PHP 8.1+ / WordPress 7.0+ / Full Site Editing
-- Parent: `voyager-block-theme` (block theme with patterns, GSAP, design tokens)
+- Parent: `voyager-block-theme` (structural canvas: templates, native IO + CSS scroll-reveal motion, block styles — no palette, no GSAP)
 - Plugins: Voyager Orbit, Voyager Blocks, Voyager Core, RankMath SEO
 - AI: WordPress AI Client + AI Provider for Anthropic + Abilities API + MCP Adapter
 - Brand: **Voyager design-system v2** (accent #9B1750 magenta, accent-2 #8B5CF6
