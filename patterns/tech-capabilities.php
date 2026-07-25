@@ -22,12 +22,12 @@
     <p class="has-text-align-center has-fg-4-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--60)">These aren't chatbot gimmicks. These are production AI abilities that run inside your WordPress site and handle real work.</p>
     <!-- /wp:paragraph -->
 
-    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
-    <div class="wp-block-columns alignwide">
+    <!-- wp:columns {"align":"wide","className":"is-style-animate-fade-up","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"}}}} -->
+    <div class="wp-block-columns alignwide is-style-animate-fade-up">
 
         <!-- Content Generation -->
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}}} -->
-        <div class="wp-block-column" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}}} -->
+        <div class="wp-block-column" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
             <!-- wp:paragraph {"textColor":"fg-3","style":{"typography":{"fontSize":"2rem"}}} -->
             <p class="has-fg-3-color has-text-color" style="font-size:2rem">&#9997;&#65039;</p>
             <!-- /wp:paragraph -->
@@ -44,8 +44,8 @@
         <!-- /wp:column -->
 
         <!-- SEO Automation -->
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}}} -->
-        <div class="wp-block-column" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}}} -->
+        <div class="wp-block-column" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
             <!-- wp:paragraph {"textColor":"fg-3","style":{"typography":{"fontSize":"2rem"}}} -->
             <p class="has-fg-3-color has-text-color" style="font-size:2rem">&#128200;</p>
             <!-- /wp:paragraph -->
@@ -62,8 +62,8 @@
         <!-- /wp:column -->
 
         <!-- Lead Intelligence -->
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}}} -->
-        <div class="wp-block-column" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}}} -->
+        <div class="wp-block-column" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
             <!-- wp:paragraph {"textColor":"fg-3","style":{"typography":{"fontSize":"2rem"}}} -->
             <p class="has-fg-3-color has-text-color" style="font-size:2rem">&#127919;</p>
             <!-- /wp:paragraph -->
@@ -83,12 +83,12 @@
     <!-- /wp:columns -->
 
     <!-- Row 2 -->
-    <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}}}} -->
-    <div class="wp-block-columns alignwide" style="margin-top:var(--wp--preset--spacing--40)">
+    <!-- wp:columns {"align":"wide","className":"is-style-animate-fade-up","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}}}} -->
+    <div class="wp-block-columns alignwide is-style-animate-fade-up" style="margin-top:var(--wp--preset--spacing--40)">
 
         <!-- AI Chat -->
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}}} -->
-        <div class="wp-block-column" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}}} -->
+        <div class="wp-block-column" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
             <!-- wp:paragraph {"textColor":"fg-3","style":{"typography":{"fontSize":"2rem"}}} -->
             <p class="has-fg-3-color has-text-color" style="font-size:2rem">&#128172;</p>
             <!-- /wp:paragraph -->
@@ -102,8 +102,8 @@
         <!-- /wp:column -->
 
         <!-- Automated Reporting -->
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}}} -->
-        <div class="wp-block-column" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}}} -->
+        <div class="wp-block-column" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
             <!-- wp:paragraph {"textColor":"fg-3","style":{"typography":{"fontSize":"2rem"}}} -->
             <p class="has-fg-3-color has-text-color" style="font-size:2rem">&#128202;</p>
             <!-- /wp:paragraph -->
@@ -117,8 +117,8 @@
         <!-- /wp:column -->
 
         <!-- Workflow Automation -->
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"12px","width":"1px","color":"#ffffff15"}}} -->
-        <div class="wp-block-column" style="border-color:#ffffff15;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"var:preset|color|border-hair"}}} -->
+        <div class="wp-block-column" style="border-color:var(--wp--preset--color--border-hair);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
             <!-- wp:paragraph {"textColor":"fg-3","style":{"typography":{"fontSize":"2rem"}}} -->
             <p class="has-fg-3-color has-text-color" style="font-size:2rem">&#9889;</p>
             <!-- /wp:paragraph -->

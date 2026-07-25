@@ -92,8 +92,8 @@
     <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|40"},"margin":{"top":"var:preset|spacing|40"}}}} -->
     <div class="wp-block-columns alignwide" style="margin-top:var(--wp--preset--spacing--40)">
 
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","width":"1px","color":"rgba(255,255,255,0.06)"}}} -->
-        <div class="wp-block-column" style="border-color:rgba(255,255,255,0.06);border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"rgba(255,255,255,0.06)"}}} -->
+        <div class="wp-block-column" style="border-color:rgba(255,255,255,0.06);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
 
             <!-- wp:columns {"isStackedOnMobile":false,"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-columns is-not-stacked-on-mobile">
@@ -117,8 +117,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","width":"1px","color":"rgba(255,255,255,0.06)"}}} -->
-        <div class="wp-block-column" style="border-color:rgba(255,255,255,0.06);border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"rgba(255,255,255,0.06)"}}} -->
+        <div class="wp-block-column" style="border-color:rgba(255,255,255,0.06);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
 
             <!-- wp:columns {"isStackedOnMobile":false,"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-columns is-not-stacked-on-mobile">
@@ -142,8 +142,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","width":"1px","color":"rgba(255,255,255,0.06)"}}} -->
-        <div class="wp-block-column" style="border-color:rgba(255,255,255,0.06);border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
+        <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"rgba(255,255,255,0.06)"}}} -->
+        <div class="wp-block-column" style="border-color:rgba(255,255,255,0.06);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
 
             <!-- wp:columns {"isStackedOnMobile":false,"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-columns is-not-stacked-on-mobile">
@@ -170,8 +170,8 @@
     </div>
     <!-- /wp:columns -->
 
-    <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"},"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"12px","width":"1px","color":"rgba(255,255,255,0.06)"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-    <div class="wp-block-group alignwide" style="border-color:rgba(255,255,255,0.06);border-width:1px;border-radius:12px;margin-top:var(--wp--preset--spacing--50);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
+    <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|50"},"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"var(--wp--custom--voyager--radius--3)","width":"1px","color":"rgba(255,255,255,0.06)"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+    <div class="wp-block-group alignwide" style="border-color:rgba(255,255,255,0.06);border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);margin-top:var(--wp--preset--spacing--50);padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)">
 
         <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
         <div class="wp-block-group">
