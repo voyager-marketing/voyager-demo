@@ -50,7 +50,13 @@ That third step recurs on every pickup until the task leaves the queue.
 
 ## Discoveries
 
-- **`voyager/animated-section` is a broken hybrid.** Its `save()` emits
+Both voyager-blocks bugs below are **filed**: voyager-blocks#112
+(animated-section) and voyager-blocks#113 (entrance-animations gating). Filed as
+GitHub issues rather than Notion tasks because the mission skill's "What Code
+must never do" forbids Code creating Notion Tasks. Neither is reproduced at
+runtime — the plugin will not build here — and both issues say so explicitly.
+
+- **`voyager/animated-section` is a broken hybrid** (voyager-blocks#112)**.** Its `save()` emits
   `data-animation` / `data-duration` / `data-ease`, but `frontend.js` reads
   `dataset.animationType` / `animationDuration` / `animationEase` — names that
   are never written. Every instance silently falls back to defaults, and since
@@ -59,7 +65,7 @@ That third step recurs on every pickup until the task leaves the queue.
   opacity 0 to a computed opacity of 0. Content stays invisible. Same family as
   the audit's VB-1 findings, on a block the audit did not flag. Avoided; used
   the `is-style-animate-*` block styles instead.
-- **Entrance-animation CSS without the GSAP runtime hides content.**
+- **Entrance-animation CSS without the GSAP runtime hides content** (voyager-blocks#113)**.**
   `inc/entrance-animations.php` enqueues its stylesheet whenever the built CSS
   exists but gates the script on `voyager_blocks_gsap_is_vendored()`. The
   stylesheet sets `opacity: 0` for FOUC prevention and the runtime is what
@@ -98,6 +104,25 @@ block markup, `custom.css` enqueued.
 | No parent-theme GSAP claims | PASS — residual caught and fixed |
 | Before/after screenshots | PASS — front, showcase, mobile, reduced-motion |
 | Lighthouse before/after | **NOT RUN** — not installed; no baseline was ever captured |
+
+## Out-of-repo work done this session
+
+Two things happened outside voyager-demo. Recorded here because they are how the
+next session avoids repeating this one.
+
+- **Plugin currency check** — `~/.claude/scripts/check-plugin-currency.mjs` plus a
+  `SessionStart` hook. At session start the loaded voyager-skills plugin was
+  **11 commits behind** (v0.3.2 vs v0.3.5) and, worse, the marketplace clone
+  `/plugin` installs from was equally stale — so an update would have silently
+  reinstalled the same code with the version number never moving. The check
+  compares the pinned commit SHA to the live remote and flags that clone trap
+  separately. Verified against a fixture in both stale and current states.
+- **voyager-skills `feat/tk-2119-thin-skills-orphaned-families`** — rebased onto
+  the new `main` (`37a6975` → `48f3d25`), conflicts in `plugin.json` and
+  `CHANGELOG.md` resolved (kept 0.4.0, corrected its "0.3.2 → 0.4.0" narrative to
+  "0.3.5 → 0.4.0"). Gates green: validate-skills 67 skills, check-plugin-commands
+  22/22. **Force-pushed** — the branch is unmerged and still needs review; its
+  eight thin router skills are not on `main` and therefore not distributed.
 
 ## Next dispatch
 
