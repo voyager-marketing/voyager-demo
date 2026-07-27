@@ -9,12 +9,25 @@
 ## Queue state this session started in
 
 All three claimable dispatch tasks (TK-2162, TK-2165, TK-2166) read
-`Agent State: awaiting-human` with 2026-07-19 planner Run IDs — the defect the
-last session documented: the Autonomy Planner wrote prose KB "plan" pages,
-logged "Planned N sub-task(s)", and emitted no sub-task records. TK-2162's KB
-plan is a 15-line generic research note; the real spec is the task page, which
-is detailed. Ben chose TK-2162 off the queue, which is the review the previous
+`Agent State: awaiting-human` with 2026-07-19 planner Run IDs. TK-2162's KB plan
+is a 15-line generic research note; the real spec is the task page, which is
+detailed. Ben chose TK-2162 off the queue, which is the review the previous
 session's summary said these tasks were waiting on.
+
+**Correction, made at the end of this session.** I opened by repeating the
+2026-07-25 diagnosis — "planner wrote a plan page and emitted zero sub-task
+records" — without verifying it. It is wrong. TK-2162's four sub-tasks exist:
+**TK-2179 / 2180 / 2181 / 2182**, created 07-19 at 07:10:48–49Z, matching the
+planner's "Planned 4 sub-task(s)" log to the second. All four are **Archived with
+Agent State failed**. Same shape on the neighbours: TK-2166 → TK-2183 (archived,
+failed), TK-2167 → TK-2184 (archived, awaiting-human).
+
+So the real defect is not "sub-tasks never created" but **"sub-tasks created,
+then failed, then archived, while the parent stayed `dispatch` + `Up Next` and
+kept getting re-grabbed."** Different bug, different fix, different place to
+look. The parent-stuck-on-`Up Next` half of the 07-25 entry still holds — moving
+Status off `Up Next` on claim remains the right move, and is what broke the loop
+here.
 
 Claimed by moving Status off `Up Next` as well as setting `Agent State:
 executing` — leaving it on `Up Next` is what let the orchestrator re-grab
@@ -225,11 +238,29 @@ subcommand so drift is caught by the fitness check rather than by eye.
 
 ## Next dispatch
 
-TK-2166 (register `voyager-demo/showcase-default`, P3) and TK-2165
-(behind-the-build merged-PR feed, P3) — both still `awaiting-human` from the
-same 2026-07-19 planner defect, both needing the same one-line judgment Ben made
-for TK-2162 this session.
+**TK-2163 — "Demo-scoped public MCP endpoint: allowlisted read-only tools,
+rate-limited, sandbox-only" (voyager-mcp-server, P2, Up Next, awaiting-human).**
+This is the unlock, and it is already specced by the work in this session: the
+wire contract it must implement is written down in
+`seeds/mcp-playground/tools.php`, and the theme's half is verified against a stub
+that speaks it. Landing TK-2163 flips `/mcp-playground/` from recorded to live
+with one config value. Its own four planner sub-tasks (TK-2191/2192/2193/2194)
+are all archived+failed, so it needs the same reclaim treatment TK-2162 got.
+Note it lives in **voyager-mcp-server**, not this repo.
 
-Also outstanding bookkeeping, not dispatch: **TK-2167 reads `In progress` /
-`awaiting-human` but its PR #12 merged as `2c908ef`.** Work landed, Notion never
-written back.
+Then TK-2166 (register `voyager-demo/showcase-default`, P3) and TK-2165
+(behind-the-build merged-PR feed, P3).
+
+Outstanding bookkeeping, not dispatch:
+
+- **TK-2167 reads `In progress` / `awaiting-human` but its PR #12 merged as
+  `2c908ef`.** Work landed, Notion never written back.
+- **VB-8 can be closed** — voyager-blocks 2.4.1 fixed the missing
+  `conditional-bindings.php` require.
+- **File the `style-variations.css` enqueue bug** against voyager-blocks (no
+  `file_exists` guard; 404 on every page of a build-less install). Precedent from
+  the last session: GitHub issue, not a Notion task, since Code must not create
+  Notion tasks.
+- **Promote the fixture-drift check to `wp voyager-demo check-fixtures`** so drift
+  is caught by the fitness metric instead of by eye.
+- **`scoop update gh`** — 2.72.0's `gh pr edit` is broken on every invocation.
