@@ -6,10 +6,14 @@
  * Keywords: hero, front page, showcase, platform, demo
  * Block Types: core/group
  *
- * The MCP playground URL is not decided yet — the secondary button points at
- * a marked placeholder anchor until the playground ships. Tracked in the
- * PRJ-56 Discoveries page.
+ * The secondary button points at the MCP playground, which ships in both
+ * modes: real recorded responses until the demo-scoped endpoint exists, real
+ * calls after. The small print below reflects whichever mode is configured
+ * rather than making a claim that could go stale — same reasoning as
+ * voyager_demo_binding_live() elsewhere in this theme.
  */
+
+declare(strict_types=1);
 ?>
 <!-- wp:group {"align":"full","className":"is-style-with-blob","backgroundColor":"bg-canvas","textColor":"fg-1","style":{"spacing":{"padding":{"top":"var:preset|spacing|9","bottom":"var:preset|spacing|9","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"bottom":{"color":"var:preset|color|border-hair","width":"1px"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull is-style-with-blob has-bg-canvas-background-color has-fg-1-color has-text-color has-background" style="border-bottom-color:var(--wp--preset--color--border-hair);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--9);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--9);padding-left:var(--wp--preset--spacing--50)">
@@ -32,14 +36,16 @@
         <div class="wp-block-button"><a class="wp-block-button__link has-accent-fg-on-color has-accent-background-color has-text-color has-background wp-element-button" href="/showcases/">Explore the showcases</a></div>
         <!-- /wp:button -->
         <!-- wp:button {"className":"is-style-outline","textColor":"fg-1"} -->
-        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-fg-1-color has-text-color wp-element-button" href="#mcp-playground-coming-soon">Open the MCP playground</a></div>
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-fg-1-color has-text-color wp-element-button" href="/mcp-playground/">Open the MCP playground</a></div>
         <!-- /wp:button -->
     </div>
     <!-- /wp:buttons -->
 
+    <?php if ('recorded' === voyager_demo_mcp_mode()) : ?>
     <!-- wp:paragraph {"align":"center","textColor":"fg-5","fontSize":"label","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
-    <p class="has-text-align-center has-fg-5-color has-text-color has-label-font-size" style="margin-top:var(--wp--preset--spacing--40)">MCP playground opens with first deploy — the button goes live when it does.</p>
+    <p class="has-text-align-center has-fg-5-color has-text-color has-label-font-size" style="margin-top:var(--wp--preset--spacing--40)">The playground is open now and answers with real captured responses — the public endpoint behind it ships with first deploy.</p>
     <!-- /wp:paragraph -->
+    <?php endif; ?>
 
 </div>
 <!-- /wp:group -->

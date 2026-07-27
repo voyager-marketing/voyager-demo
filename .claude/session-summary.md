@@ -1,131 +1,131 @@
-# Session summary — 2026-07-25 (TK-2167)
+# Session summary — 2026-07-27 (TK-2162)
 
 ## Completed task
 
-- **TK-2167 — Demo design polish + motion pass (gate lifted — audit folded in)**
-  — PARTIAL. Resumed an in-flight task whose work was already sitting in an
-  unreviewed PR.
-- PR: https://github.com/voyager-marketing/voyager-demo/pull/12
+- **TK-2162 — MCP playground page: live tool calls from the demo site (fixtures
+  until endpoint ships)** — DONE.
+- PR: https://github.com/voyager-marketing/voyager-demo/pull/14
 
-## What this session found before writing any code
+## Queue state this session started in
 
-TK-2167 read as `Agent State: failed` in Notion, but nothing had ever failed in
-code. The sequence was:
+All three claimable dispatch tasks (TK-2162, TK-2165, TK-2166) read
+`Agent State: awaiting-human` with 2026-07-19 planner Run IDs — the defect the
+last session documented: the Autonomy Planner wrote prose KB "plan" pages,
+logged "Planned N sub-task(s)", and emitted no sub-task records. TK-2162's KB
+plan is a 15-line generic research note; the real spec is the task page, which
+is detailed. Ben chose TK-2162 off the queue, which is the review the previous
+session's summary said these tasks were waiting on.
 
-1. **2026-07-19** — Autonomy Planner triaged it, wrote a prose KB "plan" page,
-   logged "Planned 4 sub-task(s)", set awaiting-review. **No sub-task records
-   were ever emitted** — the KB page only describes a 4-way split in prose.
-2. **2026-07-19 → 21** — a Claude Code session claimed it, did real work,
-   committed `e54e185`, and opened PR #12 — then stopped without running the
-   Stop Protocol. No Notion write-back, no GitHub URL, no Discoveries entry,
-   no PR labels, and the `.claude/session-summary.md` it committed was
-   **TK-2170's**, swept in from the previous session's untracked file.
-3. **2026-07-22** — because the task still read `dispatch` + `Up Next`, the
-   managed orchestrator re-grabbed it, triaged "clear-spec" off the planner's
-   note, and dispatched an executor that rejected in 2 seconds:
-   `rejected-no-scope` — no `declaredScope` on the task. Agent State → failed.
+Claimed by moving Status off `Up Next` as well as setting `Agent State:
+executing` — leaving it on `Up Next` is what let the orchestrator re-grab
+TK-2167 and fail it with `rejected-no-scope` on every pickup.
 
-That third step recurs on every pickup until the task leaves the queue.
+## What shipped
 
-## Work completed this session
+`/mcp-playground/` — pick one of four whitelisted read-only tools, read the
+request, fire it, read the raw JSON back. Placeholder anchor gone from hero,
+header nav, and footer.
 
-- **Reduced-motion defect fixed** (`assets/css/custom.css`). The parent theme
-  applies `voyager-reveal-up` via `animation-timeline: view()` to every direct
-  child of `.has-scroll-reveal`, and its own reduced-motion block never covers
-  the reveal keyframes — so the entrance ran regardless of user preference.
-  PR #12's body claimed "both tiers respect reduced-motion"; that was false for
-  the parent tier. The child theme now opts its own pages out for both tiers.
-- **Deliberate GSAP layer.** `is-style-animate-fade-up` on 9 nested card grids
-  across tech-capabilities / agent-system / bindings-showcase / tech-ecosystem.
-  Applied to nested grids only — the parent's CSS reveal already owns every
-  direct child of `<main>`, so putting GSAP there would have had two systems
-  driving the same opacity/transform.
-- **Token pass on the reel.** 46 `#ffffff15` one-offs → `border-hair` preset;
-  all `12px` radii → `--wp--custom--voyager--radius--3` (the DS scale caps at
-  6px). Verified 0 residual in rendered output.
-- **VD-5 residual caught.** `patterns/tech-ecosystem.php` still credited the
-  parent theme with "GSAP animations" in both body copy and a chip — the exact
-  claim VD-5 exists to kill, missed by the earlier commit and visible on the
-  front page. Now "native scroll-reveal motion" / "Native scroll reveal".
+- **Recorded mode is honest, not simulated.** The endpoint does not exist yet,
+  so rather than invent response shapes I captured four real responses off the
+  live Voyager MCP surface against v3.voyagermark.com
+  (`blocks_get_binding_sources`, `blocks_get_binding_stats`, `wp_list_posts`,
+  `wp_get_theme_details`). Mode banner, per-tool provenance line, and a latency
+  line that reads "681 ms round trip to this site — real transport, recorded
+  payload. No tool ran." No fabricated latency anywhere.
+- **One switch to go live.** `VOYAGER_DEMO_MCP_ENDPOINT` empty → fixtures; set
+  → proxying. `VOYAGER_DEMO_MCP_TOKEN` optional bearer.
+- **Browser never touches the endpoint.** It posts a tool slug to the theme's
+  own REST route, which looks the slug up, supplies arguments server-side, and
+  returns the fixture or proxies upstream. Nothing sensitive in page source.
+  Throttled 12/address/minute.
+- **Core blocks + theme-owned Interactivity API module**, unbundled ESM through
+  WordPress's import map. No npm pipeline needed, and nothing depends on
+  voyager-blocks, which registers zero blocks here.
+
+Two implementation choices are load-bearing and documented in the file headers:
+first-paint `hidden`/`aria-selected` are written in PHP (server-side directive
+processing cannot evaluate JS getters, so it would strip them and flash every
+panel open), and selection lives in store state rather than element context
+(writing a shared value from a nested context creates an own property on the
+inner context and silently stops propagating).
 
 ## Discoveries
 
-Both voyager-blocks bugs below are **filed**: voyager-blocks#112
-(animated-section) and voyager-blocks#113 (entrance-animations gating). Filed as
-GitHub issues rather than Notion tasks because the mission skill's "What Code
-must never do" forbids Code creating Notion Tasks. Neither is reproduced at
-runtime — the plugin will not build here — and both issues say so explicitly.
-
-- **`voyager/animated-section` is a broken hybrid** (voyager-blocks#112)**.** Its `save()` emits
-  `data-animation` / `data-duration` / `data-ease`, but `frontend.js` reads
-  `dataset.animationType` / `animationDuration` / `animationEase` — names that
-  are never written. Every instance silently falls back to defaults, and since
-  `style.scss` hides the block via `.animation-<type>` while nothing ever adds
-  the `animation-complete` class the CSS expects, `gsap.from()` tweens from
-  opacity 0 to a computed opacity of 0. Content stays invisible. Same family as
-  the audit's VB-1 findings, on a block the audit did not flag. Avoided; used
-  the `is-style-animate-*` block styles instead.
-- **Entrance-animation CSS without the GSAP runtime hides content** (voyager-blocks#113)**.**
-  `inc/entrance-animations.php` enqueues its stylesheet whenever the built CSS
-  exists but gates the script on `voyager_blocks_gsap_is_vendored()`. The
-  stylesheet sets `opacity: 0` for FOUC prevention and the runtime is what
-  restores it. The file's own comment claims this degrades to
-  "visible-but-unanimated rather than broken" — it is the opposite. Fix belongs
-  upstream: gate the stylesheet on the same vendored check.
-- **Local voyager-blocks cannot demonstrate motion.** The install is an unbuilt
-  v2.2.3 source checkout with no `build/` directory, so
-  `voyager_blocks_register_all()` returns early and registers **zero** blocks;
-  GSAP is not vendored and no entrance assets exist. Repairing it is blocked on
-  credentials: `npm install` fails against `npm.pkg.github.com` for the private
-  `@voyager-marketing/design-system` package — `.npmrc` wants `NODE_AUTH_TOKEN`
-  and no user `.npmrc` exists.
-- `page-platform-architecture.php` credits **Voyager Core** with "GSAP entrance
-  animations". Stale — `entrance-animations.php` documents its own April 2026
-  migration to voyager-blocks. Left unedited (outside the reel, different error
-  from VD-5); logged as a candidate task.
-- Earlier concern about `var:preset|spacing|30..70` not resolving was checked
-  and is **unfounded** — all nine spacing presets have definitions in rendered
-  CSS.
+- **The unbuilt-voyager-blocks blocker survived the version bump.** The local
+  plugin is now **2.4.1**, not the 2.2.3 the last session found — but it still
+  has no `build/` directory and still registers **zero** blocks. The npm
+  credential blocker (`NODE_AUTH_TOKEN` for the private
+  `@voyager-marketing/design-system` package) is unchanged. Any task assuming
+  voyager-blocks blocks are demonstrable locally is still blocked.
+- **New voyager-blocks candidate task — unguarded stylesheet enqueue.**
+  `voyager_blocks_enqueue_frontend_styles()` enqueues
+  `build/style-variations.css` with no `file_exists` check, unlike
+  `voyager_blocks_enqueue_block_variations()` immediately above it which does
+  guard on its asset file. Every page on an install without a build emits a 404
+  — confirmed on `/`, `/abilities/`, and `/showcase/pulse/` identically. Same
+  class as voyager-blocks#113. Not filed as an issue this session; recorded as a
+  candidate.
+- **`voyager/conditional` is registered now.** The 2026-07-19 finding was that
+  voyager-blocks never `require()`d `inc/conditional-bindings.php` (candidate
+  task VB-8). Fixed upstream in 2.4.1. `check-bindings` now reports **8 ACTIVE /
+  0 DEGRADED-AWARE / 0 failures**, up from 6 ACTIVE / 2 DEGRADED-AWARE — both
+  `voyager/conditional` and `voyager/notion` resolve live. **VB-8 can be
+  closed.** The degradation-aware branches in the patterns are still correct and
+  should stay; they are now the untaken branch rather than the taken one.
+- **Spacing scale reconciliation.** theme.json defines `spacingSizes` 0–11 *and*
+  a `spacingScale` of 7 steps, so both the DS numerics and the 20–80 scale
+  emit presets — which is why the 2026-07-19 "named aliases resolve nowhere"
+  finding and the 2026-07-25 "30..70 resolves fine" finding are both true and
+  not in conflict. New DS-first work should use 0–11; the 20–80 refs are the
+  voyagermark migration inheritance.
+- **The chrome-devtools MCP browser could not be used.** Its profile
+  (`~/.cache/chrome-devtools-mcp/chrome-profile`) was locked by a live browser
+  from another session, and the server cannot attach to an already-running
+  instance. Did not kill it. Verified with the globally installed Playwright
+  1.61.1 instead (cached Chromium, no new dependency). Note for future
+  sessions: ESM ignores `NODE_PATH`, so a scratch script must import the global
+  playwright by absolute `file://` path and destructure the CommonJS default.
 
 ## Fitness
 
 PASS — `php -l` clean across all theme PHP, `theme.json` parses, all patterns
-carry Title + Slug. Render check on local: HTTP 200, 9 animate classes present,
-0 residual `#ffffff15`, 29 border-hair refs, 35 radius-token refs, 0 leaked
-block markup, `custom.css` enqueued.
+carry Title + Slug. `wp voyager-demo check-bindings` green (8 ACTIVE, 0
+failures). `wp voyager-demo seed-showcases` idempotent: 1 created, 10 updated.
+
+Playwright against local WP 7.0.2: **16/18 checks pass.** Both failures are the
+pre-existing site-wide `style-variations.css` 404 above, reproduced on `/` and
+`/abilities/`, not introduced here.
+
+REST route by hand: four tools return their payloads; non-whitelisted slug
+(`wp_upsert_content`) 400; missing param 400; `GET` 404; 13th call in a minute
+429.
 
 ## Acceptance criteria status
 
 | Criterion | Status |
 |---|---|
-| Reel animates with Voyager Blocks | markup landed, **live motion unverified** (plugin unbuilt) |
-| Reduced-motion honored | PASS — fixed + screenshot evidence |
-| Zero one-off color/size values | **PARTIAL** — color/radius done; inline rem font sizes remain |
-| No parent-theme GSAP claims | PASS — residual caught and fixed |
-| Before/after screenshots | PASS — front, showcase, mobile, reduced-motion |
-| Lighthouse before/after | **NOT RUN** — not installed; no baseline was ever captured |
+| Visitor triggers a call, sees real or clearly-labeled recorded response, no page leave | PASS |
+| Placeholder anchor gone from hero and footer | PASS — plus header nav |
+| No private endpoints, tokens, or client data in page source | PASS — asserted in the Playwright run |
+| Fixture mode renders and interacts locally, no console errors | PASS for this feature; the only console error is the pre-existing plugin 404 |
+| Live mode verified against the endpoint | **NOT POSSIBLE** — endpoint does not exist. Proxy path is written and code-reviewed but has never run against a real endpoint |
 
-## Out-of-repo work done this session
+## Before launch
 
-Two things happened outside voyager-demo. Recorded here because they are how the
-next session avoids repeating this one.
-
-- **Plugin currency check** — `~/.claude/scripts/check-plugin-currency.mjs` plus a
-  `SessionStart` hook. At session start the loaded voyager-skills plugin was
-  **11 commits behind** (v0.3.2 vs v0.3.5) and, worse, the marketplace clone
-  `/plugin` installs from was equally stale — so an update would have silently
-  reinstalled the same code with the version number never moving. The check
-  compares the pinned commit SHA to the live remote and flags that clone trap
-  separately. Verified against a fixture in both stale and current states.
-- **voyager-skills `feat/tk-2119-thin-skills-orphaned-families`** — rebased onto
-  the new `main` (`37a6975` → `48f3d25`), conflicts in `plugin.json` and
-  `CHANGELOG.md` resolved (kept 0.4.0, corrected its "0.3.2 → 0.4.0" narrative to
-  "0.3.5 → 0.4.0"). Gates green: validate-skills 67 skills, check-plugin-commands
-  22/22. **Force-pushed** — the branch is unmerged and still needs review; its
-  eight thin router skills are not on `main` and therefore not distributed.
+- **Re-record the payloads against the real public endpoint.** If its envelope
+  differs from `{abilityVersion, data}` they go stale silently — the UI cannot
+  detect that, only a re-record can.
+- Exercise the live path once the endpoint exists. It is the one branch in this
+  PR with no runtime evidence behind it.
 
 ## Next dispatch
 
-TK-2162 MCP playground (P2), TK-2165/2166 (P3) — all still `awaiting-human`
-with planner-written plans from 2026-07-19 that need Ben's review before an
-agent should act on them.
+TK-2166 (register `voyager-demo/showcase-default`, P3) and TK-2165
+(behind-the-build merged-PR feed, P3) — both still `awaiting-human` from the
+same 2026-07-19 planner defect, both needing the same one-line judgment Ben made
+for TK-2162 this session.
+
+Also outstanding bookkeeping, not dispatch: **TK-2167 reads `In progress` /
+`awaiting-human` but its PR #12 merged as `2c908ef`.** Work landed, Notion never
+written back.

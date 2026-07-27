@@ -27,7 +27,9 @@ recruitment; developer-evaluator landing pad.
 - [ ] Author 9 vd_showcase entries (one per pattern reel above)
 - [ ] Demo navigation: top-nav + footer link to /showcases/
 - [ ] Hero section: brand-on-brand intro that frames "what is Voyager"
-- [ ] Live MCP playground link (voyager-mcp-server)
+- [x] Live MCP playground link (voyager-mcp-server) — page shipped at
+      /mcp-playground/ (TK-2162); serves recorded responses until the
+      demo-scoped public endpoint exists, then one config value flips it live
 - [ ] Live AI ability inspector (Orbit AbilityBridge)
 - [ ] /platform overview page (already exists at /platform/, port over)
 
