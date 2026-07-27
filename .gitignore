@@ -14,3 +14,8 @@ scripts/wp-cli-php.ini
 scripts/composer.phar
 # Pre-wipe backups created by bootstrap-laragon.ps1 -Force
 scripts/.force-wipe-backup-*/
+
+# Environment files (secret-scan hardening, TK-2419)
+.env.local
+.env.*.local
+.env.*
