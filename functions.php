@@ -535,6 +535,292 @@ add_action('activated_plugin', 'voyager_demo_purge_abilities_cache');
 add_action('deactivated_plugin', 'voyager_demo_purge_abilities_cache');
 add_action('switch_theme', 'voyager_demo_purge_abilities_cache');
 
+/*
+ * =========================================================================
+ * MCP playground (TK-2162)
+ *
+ * A visitor picks a whitelisted read-only tool, fires it, and reads the JSON
+ * that comes back. The browser only ever talks to this theme's own REST
+ * route; the route decides whether to answer from a recorded fixture or to
+ * proxy the demo-scoped public endpoint. That indirection is the point — the
+ * endpoint URL and any token it needs stay server-side, so nothing sensitive
+ * is ever in the page source, and the fixture-to-live switch is one config
+ * value rather than a rewrite.
+ * =========================================================================
+ */
+
+/**
+ * The demo-scoped public MCP endpoint, or '' when it has not shipped yet.
+ *
+ * This single value decides the page's mode: empty means recorded fixtures,
+ * set means live proxying. At launch, define VOYAGER_DEMO_MCP_ENDPOINT in
+ * wp-config.php (and VOYAGER_DEMO_MCP_TOKEN if the endpoint wants a bearer
+ * token) — no theme change required.
+ *
+ * Never point this at the private MCP surface. It must be the demo-scoped
+ * public endpoint, which enforces its own read-only whitelist.
+ */
+function voyager_demo_mcp_endpoint(): string {
+    $endpoint = defined('VOYAGER_DEMO_MCP_ENDPOINT') ? (string) VOYAGER_DEMO_MCP_ENDPOINT : '';
+
+    /**
+     * Filters the demo-scoped public MCP endpoint URL.
+     *
+     * @param string $endpoint Absolute URL, or '' to serve recorded fixtures.
+     */
+    $endpoint = (string) apply_filters('voyager_demo_mcp_endpoint', $endpoint);
+
+    return esc_url_raw(trim($endpoint));
+}
+
+/**
+ * 'live' when an endpoint is configured, 'recorded' otherwise.
+ */
+function voyager_demo_mcp_mode(): string {
+    return '' === voyager_demo_mcp_endpoint() ? 'recorded' : 'live';
+}
+
+/**
+ * The whitelisted tool catalog, with each recorded payload decoded.
+ *
+ * @return array<int, array<string, mixed>>
+ */
+function voyager_demo_mcp_tools(): array {
+    static $tools = null;
+
+    if (null !== $tools) {
+        return $tools;
+    }
+
+    $file  = VOYAGER_DEMO_PATH . '/seeds/mcp-playground/tools.php';
+    $tools = is_readable($file) ? (array) include $file : [];
+
+    foreach ($tools as $i => $tool) {
+        $decoded = json_decode((string) ($tool['recorded'] ?? ''), true);
+        // Keep the entry either way: a malformed fixture must surface as a
+        // visible error at call time, not vanish from the picker.
+        $tools[$i]['recorded'] = is_array($decoded) ? $decoded : null;
+    }
+
+    return $tools;
+}
+
+/**
+ * One tool by slug, or null when the slug is not whitelisted.
+ *
+ * @return array<string, mixed>|null
+ */
+function voyager_demo_mcp_tool(string $slug): ?array {
+    foreach (voyager_demo_mcp_tools() as $tool) {
+        if (($tool['slug'] ?? '') === $slug) {
+            return $tool;
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Per-address throttle for the public playground route.
+ *
+ * Fixed one-minute buckets keyed on a hash of the address — enough to stop a
+ * public POST route from being used as a free proxy, cheap enough to run on
+ * every call. Not a substitute for the endpoint's own rate limiting.
+ */
+function voyager_demo_mcp_rate_limit_exceeded(): bool {
+    $address = isset($_SERVER['REMOTE_ADDR'])
+        ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR']))
+        : '';
+
+    $bucket = 'voyager_demo_mcp_rl_' . md5($address . '|' . gmdate('Y-m-d H:i'));
+    $hits   = (int) get_transient($bucket);
+
+    if ($hits >= 12) {
+        return true;
+    }
+
+    set_transient($bucket, $hits + 1, 2 * MINUTE_IN_SECONDS);
+
+    return false;
+}
+
+/**
+ * Register the playground's REST route.
+ *
+ * Public and unauthenticated by design — the page is for anonymous visitors.
+ * What keeps it safe is that the tool slug is the only input, it must match
+ * the whitelist exactly, and the arguments are read from the catalog on the
+ * server rather than from the request.
+ */
+function voyager_demo_register_mcp_route(): void {
+    register_rest_route('voyager-demo/v1', '/mcp-playground', [
+        'methods'             => 'POST',
+        'callback'            => 'voyager_demo_mcp_rest_call',
+        'permission_callback' => '__return_true',
+        'args'                => [
+            'tool' => [
+                'required'          => true,
+                'type'              => 'string',
+                'validate_callback' => static fn ($value): bool => is_string($value)
+                    && null !== voyager_demo_mcp_tool($value),
+            ],
+        ],
+    ]);
+}
+add_action('rest_api_init', 'voyager_demo_register_mcp_route');
+
+/**
+ * Answer a playground call from the fixture, or proxy it upstream.
+ *
+ * @return \WP_REST_Response|\WP_Error
+ */
+function voyager_demo_mcp_rest_call(\WP_REST_Request $request) {
+    if (voyager_demo_mcp_rate_limit_exceeded()) {
+        return new \WP_Error(
+            'voyager_demo_mcp_rate_limited',
+            __('Too many calls from this address. Wait a minute and try again.', 'voyager-demo'),
+            ['status' => 429]
+        );
+    }
+
+    $tool = voyager_demo_mcp_tool((string) $request->get_param('tool'));
+    if (null === $tool) {
+        return new \WP_Error(
+            'voyager_demo_mcp_unknown_tool',
+            __('That tool is not on the playground whitelist.', 'voyager-demo'),
+            ['status' => 400]
+        );
+    }
+
+    $endpoint = voyager_demo_mcp_endpoint();
+
+    if ('' === $endpoint) {
+        if (! is_array($tool['recorded'])) {
+            return new \WP_Error(
+                'voyager_demo_mcp_missing_fixture',
+                __('This tool has no readable recorded response — its fixture JSON is malformed.', 'voyager-demo'),
+                ['status' => 500]
+            );
+        }
+
+        return rest_ensure_response([
+            'mode'          => 'recorded',
+            'tool'          => $tool['slug'],
+            'result'        => $tool['recorded'],
+            'upstream_ms'   => null,
+            'recorded_from' => (string) ($tool['recorded_from'] ?? ''),
+            'recorded_at'   => (string) ($tool['recorded_at'] ?? ''),
+        ]);
+    }
+
+    $token   = defined('VOYAGER_DEMO_MCP_TOKEN') ? (string) VOYAGER_DEMO_MCP_TOKEN : '';
+    $started = microtime(true);
+
+    $response = wp_remote_post($endpoint, [
+        'timeout' => 12,
+        'headers' => array_filter([
+            'Content-Type'  => 'application/json',
+            'Accept'        => 'application/json',
+            'Authorization' => '' !== $token ? 'Bearer ' . $token : null,
+        ]),
+        'body'    => wp_json_encode([
+            'tool'      => $tool['slug'],
+            'arguments' => (array) ($tool['request']['arguments'] ?? []),
+        ]),
+    ]);
+
+    $upstream_ms = (int) round((microtime(true) - $started) * 1000);
+
+    if (is_wp_error($response)) {
+        // Surface the transport failure, not the endpoint URL.
+        return new \WP_Error(
+            'voyager_demo_mcp_upstream_unreachable',
+            sprintf(
+                /* translators: %s: transport error message. */
+                __('The demo endpoint did not answer: %s', 'voyager-demo'),
+                $response->get_error_message()
+            ),
+            ['status' => 502]
+        );
+    }
+
+    $code = (int) wp_remote_retrieve_response_code($response);
+    $body = json_decode((string) wp_remote_retrieve_body($response), true);
+
+    if ($code < 200 || $code > 299 || ! is_array($body)) {
+        return new \WP_Error(
+            'voyager_demo_mcp_upstream_error',
+            sprintf(
+                /* translators: %d: HTTP status code. */
+                __('The demo endpoint answered %d with a payload this page could not read.', 'voyager-demo'),
+                $code
+            ),
+            ['status' => 502]
+        );
+    }
+
+    return rest_ensure_response([
+        'mode'          => 'live',
+        'tool'          => $tool['slug'],
+        'result'        => $body,
+        'upstream_ms'   => $upstream_ms,
+        'recorded_from' => '',
+        'recorded_at'   => '',
+    ]);
+}
+
+/**
+ * Register the playground's Interactivity API view module.
+ *
+ * Plain ESM importing @wordpress/interactivity through the core import map —
+ * no build step, which matters because this theme has no npm pipeline.
+ */
+function voyager_demo_register_mcp_script_module(): void {
+    if (! function_exists('wp_register_script_module')) {
+        return;
+    }
+
+    wp_register_script_module(
+        'voyager-demo/mcp-playground',
+        VOYAGER_DEMO_URI . '/assets/js/mcp-playground.js',
+        ['@wordpress/interactivity'],
+        VOYAGER_DEMO_VERSION
+    );
+}
+add_action('init', 'voyager_demo_register_mcp_script_module');
+
+/**
+ * Hand the playground's initial store state to the client and enqueue the
+ * view module. Called from the pattern, so a page without the pattern pays
+ * for none of it.
+ */
+function voyager_demo_mcp_playground_boot(string $selected): void {
+    if (! function_exists('wp_interactivity_state')) {
+        return;
+    }
+
+    wp_interactivity_state('voyager-demo/mcp-playground', [
+        'selected'    => $selected,
+        'status'      => 'idle',
+        'response'    => '',
+        'error'       => '',
+        'latency'     => '',
+        'mode'        => voyager_demo_mcp_mode(),
+        'endpoint'    => rest_url('voyager-demo/v1/mcp-playground'),
+        'runLabel'    => __('Run this call', 'voyager-demo'),
+        'callingLabel' => __('Calling…', 'voyager-demo'),
+        /* translators: %1$s: round-trip milliseconds. */
+        'recordedLatency' => __('%1$s ms round trip to this site — real transport, recorded payload. No tool ran.', 'voyager-demo'),
+        /* translators: 1: upstream milliseconds, 2: round-trip milliseconds. */
+        'liveLatency' => __('%1$s ms at the endpoint, %2$s ms round trip.', 'voyager-demo'),
+        'failedLabel' => __('Call failed:', 'voyager-demo'),
+    ]);
+
+    if (function_exists('wp_enqueue_script_module')) {
+        wp_enqueue_script_module('voyager-demo/mcp-playground');
+    }
+}
+
 if (defined('WP_CLI') && WP_CLI) {
     /**
      * Seed the vd_showcase entries from seeds/showcases/.
