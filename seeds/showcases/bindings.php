@@ -4,6 +4,14 @@
  *
  * Authored copy (TK-2126).
  *
+ * The excerpt deliberately carries no source count. It has gone stale twice —
+ * "9" then "14", and the registry now reports 17 (13 voyager/* plus 4 core/*)
+ * once voyager-blocks 2.4.1 fixed the missing conditional-bindings require.
+ * The MCP playground surfaces this excerpt next to a live-shaped
+ * blocks_get_binding_sources response, so a wrong number here reads as the site
+ * contradicting itself. A hand-maintained count in marketing copy is the
+ * problem; removing it is the fix. See TK-2162 discoveries.
+ *
  * @package VoyagerDemo
  */
 
@@ -12,7 +20,7 @@ declare(strict_types=1);
 return [
     'slug'       => 'bindings',
     'title'      => 'Block Bindings',
-    'excerpt'    => 'Fourteen binding sources feeding standard core blocks — no shortcodes, no custom render callbacks, no hard-coded values.',
+    'excerpt'    => 'Every binding source on this install feeding standard core blocks — no shortcodes, no custom render callbacks, no hard-coded values.',
     'menu_order' => 10,
     'content'    => <<<'HTML'
 <!-- wp:paragraph -->

@@ -723,10 +723,19 @@ function voyager_demo_mcp_rest_call(\WP_REST_Request $request) {
             'Accept'        => 'application/json',
             'Authorization' => '' !== $token ? 'Bearer ' . $token : null,
         ]),
-        'body'    => wp_json_encode([
-            'tool'      => $tool['slug'],
-            'arguments' => (array) ($tool['request']['arguments'] ?? []),
-        ]),
+        'body'    => wp_json_encode(
+            // Omit `arguments` when the tool takes none, so what goes on the
+            // wire is byte-identical to the request preview the page renders.
+            // Sending an empty PHP array here would also serialise as `[]`
+            // rather than `{}`, which is not what the contract describes.
+            array_filter(
+                [
+                    'tool'      => $tool['slug'],
+                    'arguments' => (array) ($tool['request']['arguments'] ?? []),
+                ],
+                static fn ($value): bool => [] !== $value
+            )
+        ),
     ]);
 
     $upstream_ms = (int) round((microtime(true) - $started) * 1000);

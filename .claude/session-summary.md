@@ -93,8 +93,8 @@ PASS — `php -l` clean across all theme PHP, `theme.json` parses, all patterns
 carry Title + Slug. `wp voyager-demo check-bindings` green (8 ACTIVE, 0
 failures). `wp voyager-demo seed-showcases` idempotent: 1 created, 10 updated.
 
-Playwright against local WP 7.0.2: **18/18 recorded mode + 13/13 live mode =
-31/31.** The pre-existing site-wide `style-variations.css` 404 is asserted
+Playwright against local WP 7.0.2: **20/20 recorded mode + 15/15 live mode =
+35/35.** The pre-existing site-wide `style-variations.css` 404 is asserted
 separately rather than folded into the count, so it neither hides nor inflates a
 failure.
 
@@ -155,14 +155,73 @@ URL". Now returns a generic message and logs the detail server-side under
 `WP_DEBUG`. **This was only findable by running it** — code review had already
 passed over it twice, including a comment asserting the opposite.
 
+## Fixture re-record (third pass)
+
+Ben chose a hybrid source after the options were laid out. The three tools that
+read this site's own registries and content are now recorded **against the demo
+install**, so the page describes itself — 17 binding sources ending on
+`voyager/pulse`, which this theme registers in `functions.php`; the
+`voyager-block-theme → voyager-demo` parent/child pair with the parent's
+"no color palette" contract readable in its own description; and the
+`vd_showcase` CPT this theme registers. `blocks_get_binding_stats` stays on
+v3.voyagermark.com and names it explicitly in the request, because telemetry
+needs traffic and a freshly seeded demo reports zeroes — the explainer states
+that reason rather than leaving the reader to wonder why one tool points
+elsewhere.
+
+Refinement worth keeping: the MCP schemas mark `site_id` optional, "uses default
+site if omitted", so the three self-describing tools **omit it**. Request and
+response then agree, and the one tool that names a site explains its own
+exception. The proxy now omits `arguments` entirely when a tool declares none,
+verified byte-for-byte on the wire: `{"tool":"blocks_get_binding_sources"}`.
+
+Two judgment calls made while doing this:
+
+- **Executing abilities live and locally is off the table.** All four backing
+  abilities are registered on this install and marked read-only, so a live
+  no-endpoint playground looked possible — but every one refuses without a
+  capability check (they only ran under `--user=1`). Serving them to anonymous
+  visitors would mean bypassing the plugin's own authorization gate. Not done,
+  and worth arguing against if it comes up again.
+- **`wp_list_posts` queries `vd_showcase`, not `page`.** Against pages it
+  returned `total: 2, pages: 1`, which guts the pagination point the tool exists
+  to make. The showcase CPT has 9 entries, so `per_page: 3` yields
+  `total: 9, pages: 3` — real pagination *and* a custom post type. Also deleted
+  WordPress's default "Sample Page" from the local install; it was cruft that
+  had no business in a showcase listing. **It will exist on the production
+  install too and should be removed there.**
+
+### A contradiction this surfaced
+
+The `bindings` showcase excerpt claimed "Fourteen binding sources" while
+`blocks_get_binding_sources` reports **17** — visible side by side on the
+playground once the fixture carried the excerpt. That count has now gone stale
+twice (the TK-2169 entry records a 9→14 fix; 2.4.1's `conditional-bindings`
+require pushed it to 17). Fixed at the source and re-recorded, rather than
+editing the payload — **a hand-edited recording stops being evidence**. The
+excerpt no longer carries a number at all, since that is the recurring failure.
+
+**Two instances left deliberately unfixed**, because picking the public number is
+a positioning call and neither is surfaced by this page:
+`patterns/bindings-showcase.php:22` ("14 Binding Sources. Zero Custom Blocks.")
+and `patterns/page-platform-architecture.php:302` ("14 Bindings"). Verified
+number is 17 total / 13 `voyager/*`. Both would be better served by the live
+count than by another hand-maintained one.
+
+Added a fixture-drift check (`diff-fixtures.php`, scratchpad): all three demo
+payloads byte-match a fresh capture. Worth promoting to a `wp voyager-demo`
+subcommand so drift is caught by the fitness check rather than by eye.
+
 ## Before launch
 
-- **Re-record the payloads against the real public endpoint.** If its envelope
-  differs from `{abilityVersion, data}` they go stale silently — the UI cannot
-  detect that, only a re-record can.
-- Re-run the live checks against the real endpoint when it ships. The stub
-  proves the theme's half of the contract; it cannot prove the endpoint honors
-  the other half.
+- **Re-record the three demo payloads on demo.voyagermark.com** so permalinks
+  stop saying `voyager-demo.test` and counts match the live site.
+- Re-record `blocks_get_binding_stats` against the real endpoint, or re-point it
+  at the demo site once it has traffic worth reporting.
+- Re-run the live checks against the real endpoint when it ships. The stub proves
+  the theme's half of the contract; it cannot prove the endpoint honors the other
+  half.
+- Remove WordPress's default "Sample Page" from the production install.
 
 ## Next dispatch
 
