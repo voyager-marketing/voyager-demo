@@ -4,7 +4,7 @@
 
 .DESCRIPTION
   Idempotent: safe to re-run. Sets up:
-    * C:\laragon\www\voyager-demo\   - WordPress root (vhost: voyager-demo.test)
+    * <LaragonRoot>\www\voyager-demo\   - WordPress root (vhost: voyager-demo.test)
     * wp-content/themes/voyager-block-theme/ - parent theme (cloned via gh)
     * wp-content/themes/voyager-demo/        - junction to this repo
     * wp-content/plugins/voyager-{core,blocks,orbit}/ - cloned via gh
@@ -22,11 +22,13 @@
       still needs one elevated command; the script prints it if missing.
 
 .PARAMETER LaragonRoot
-  Path to Laragon install. Default: C:\laragon (matches this machine).
+  Path to Laragon install. Default: F:\laragon if it exists, else C:\laragon.
 
 .PARAMETER RepoRoot
   Path to this repo (canonical source of the child theme).
-  Default: C:\Users\benne\dev\voyager\demo-site\voyager-demo
+  Default: derived from the script's own location — the parent of scripts/.
+  Never hardcode a machine path here; a fresh clone on any machine must
+  bootstrap with zero arguments.
 
 .PARAMETER SiteUrl
   Local URL. Default: http://voyager-demo.test
@@ -41,11 +43,11 @@
   Skip cloning the Voyager plugin trio.
 
 .PARAMETER Force
-  Wipe the existing C:\laragon\www\voyager-demo\ before bootstrapping.
+  Wipe the existing <LaragonRoot>\www\voyager-demo\ before bootstrapping.
   Does NOT touch the git repo.
 
 .EXAMPLE
-  powershell -ExecutionPolicy Bypass -File C:\Users\benne\dev\voyager\demo-site\voyager-demo\scripts\bootstrap-laragon.ps1
+  powershell -ExecutionPolicy Bypass -File .\scripts\bootstrap-laragon.ps1
 
 .NOTES
   Prereqs (script will check and bail if missing):
@@ -55,8 +57,15 @@
 
 [CmdletBinding()]
 param(
-  [string]$LaragonRoot = 'C:\laragon',
-  [string]$RepoRoot    = 'C:\Users\benne\dev\voyager\demo-site\voyager-demo',
+  # Machine-agnostic defaults (matches voyager-blank-child's bootstrap):
+  # empty means "derive after the param block" — RepoRoot from the script's
+  # own location, LaragonRoot by probing the standard drives. $PSScriptRoot
+  # is NOT populated during param-default evaluation in PowerShell 5.1, so
+  # the derivation must happen in the body. Hardcoded per-machine paths
+  # broke every desktop/laptop switch; a fresh clone on a new machine must
+  # bootstrap with zero args.
+  [string]$LaragonRoot = '',
+  [string]$RepoRoot    = '',
   [string]$SiteUrl     = 'http://voyager-demo.test',
   [string]$DbName      = 'voyager_demo_local',
   [string]$AdminUser   = 'admin',
@@ -65,6 +74,10 @@ param(
   [switch]$SkipPlugins,
   [switch]$Force
 )
+
+# Resolve machine-agnostic defaults ($PSScriptRoot is valid here, not in param()).
+if (-not $RepoRoot)    { $RepoRoot    = Split-Path -Parent $PSScriptRoot }
+if (-not $LaragonRoot) { $LaragonRoot = if (Test-Path 'F:\laragon') { 'F:\laragon' } else { 'C:\laragon' } }
 
 $SiteSlug  = 'voyager-demo'   # www folder + local hostname
 $ThemeSlug = 'voyager-demo'   # wp-content/themes/<ThemeSlug> = this repo
