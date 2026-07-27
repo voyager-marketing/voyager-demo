@@ -93,13 +93,19 @@ PASS — `php -l` clean across all theme PHP, `theme.json` parses, all patterns
 carry Title + Slug. `wp voyager-demo check-bindings` green (8 ACTIVE, 0
 failures). `wp voyager-demo seed-showcases` idempotent: 1 created, 10 updated.
 
-Playwright against local WP 7.0.2: **16/18 checks pass.** Both failures are the
-pre-existing site-wide `style-variations.css` 404 above, reproduced on `/` and
-`/abilities/`, not introduced here.
+Playwright against local WP 7.0.2: **18/18 recorded mode + 13/13 live mode =
+31/31.** The pre-existing site-wide `style-variations.css` 404 is asserted
+separately rather than folded into the count, so it neither hides nor inflates a
+failure.
 
 REST route by hand: four tools return their payloads; non-whitelisted slug
 (`wp_upsert_content`) 400; missing param 400; `GET` 404; 13th call in a minute
-429.
+429. Live-mode failure branches in the section below.
+
+Two of the first run's "failures" were my own test harness, not the product:
+`innerText` uppercases the badge through `text-transform`, and a console filter
+matched on `message.text()` when the failing URL is on `message.location()`.
+Worth knowing for the next Playwright script in this repo.
 
 ## Acceptance criteria status
 
@@ -107,17 +113,56 @@ REST route by hand: four tools return their payloads; non-whitelisted slug
 |---|---|
 | Visitor triggers a call, sees real or clearly-labeled recorded response, no page leave | PASS |
 | Placeholder anchor gone from hero and footer | PASS — plus header nav |
-| No private endpoints, tokens, or client data in page source | PASS — asserted in the Playwright run |
-| Fixture mode renders and interacts locally, no console errors | PASS for this feature; the only console error is the pre-existing plugin 404 |
-| Live mode verified against the endpoint | **NOT POSSIBLE** — endpoint does not exist. Proxy path is written and code-reviewed but has never run against a real endpoint |
+| No private endpoints, tokens, or client data in page source | PASS — asserted in both Playwright runs |
+| Fixture mode renders and interacts locally, no console errors | PASS — 18/18 |
+| Live mode verified against the endpoint | PASS — 13/13 against a conforming stub. See below |
+
+**All five criteria met.** The first pass of this session recorded the last one
+as "NOT POSSIBLE" because voyager-mcp-server has no demo-scoped endpoint
+(confirmed: only the authenticated JSON-RPC `tools/call` surface exists). That
+was the wrong call — the criterion is about *this* code working in live mode,
+and that is testable without the real endpoint.
+
+## Live-mode verification (second pass)
+
+Stood up a stub endpoint speaking the wire contract from
+`seeds/mcp-playground/tools.php`, pointed the theme at it through a temporary
+mu-plugin, and drove the live branch end to end. **13/13 browser checks pass:**
+`Live` badge, live banner copy, provenance line correctly absent, real round
+trip, measured latency reading "8 ms at the endpoint, 661 ms round trip", error
+copy rendering on failure, nothing sensitive in source. Screenshot:
+`docs/screenshots/mcp-playground-live.png` — the payload self-identifies as the
+stub.
+
+Every failure branch exercised at the HTTP level: upstream 500 → 502, upstream
+200-with-non-JSON → 502, connection refused → 502, and a 20s stub against the
+12s timeout → 502 at 12.7s. Confirmed from the stub side that the bearer token
+and both headers arrive, and that **the proxy sends the catalog's arguments,
+not the client's** (`site_id` echoed back from the server-side catalog).
+
+Harness fully removed afterward: mu-plugin deleted, both options deleted, stub
+killed, recorded mode confirmed restored.
+
+### The bug this found
+
+**The unreachable branch leaked the endpoint host.** cURL's error message embeds
+the host and port it failed to reach ("Failed to connect to 127.0.0.1 port
+9999"), and the proxy passed it straight through to the browser — so any visitor
+who could make the endpoint fail would learn where it lives. That defeats the
+whole point of the proxy and contradicts both the acceptance criterion and the
+code's own comment claiming it surfaced "the transport failure, not the endpoint
+URL". Now returns a generic message and logs the detail server-side under
+`WP_DEBUG`. **This was only findable by running it** — code review had already
+passed over it twice, including a comment asserting the opposite.
 
 ## Before launch
 
 - **Re-record the payloads against the real public endpoint.** If its envelope
   differs from `{abilityVersion, data}` they go stale silently — the UI cannot
   detect that, only a re-record can.
-- Exercise the live path once the endpoint exists. It is the one branch in this
-  PR with no runtime evidence behind it.
+- Re-run the live checks against the real endpoint when it ships. The stub
+  proves the theme's half of the contract; it cannot prove the endpoint honors
+  the other half.
 
 ## Next dispatch
 
