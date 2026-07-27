@@ -93,13 +93,19 @@ PASS — `php -l` clean across all theme PHP, `theme.json` parses, all patterns
 carry Title + Slug. `wp voyager-demo check-bindings` green (8 ACTIVE, 0
 failures). `wp voyager-demo seed-showcases` idempotent: 1 created, 10 updated.
 
-Playwright against local WP 7.0.2: **16/18 checks pass.** Both failures are the
-pre-existing site-wide `style-variations.css` 404 above, reproduced on `/` and
-`/abilities/`, not introduced here.
+Playwright against local WP 7.0.2: **20/20 recorded mode + 15/15 live mode =
+35/35.** The pre-existing site-wide `style-variations.css` 404 is asserted
+separately rather than folded into the count, so it neither hides nor inflates a
+failure.
 
 REST route by hand: four tools return their payloads; non-whitelisted slug
 (`wp_upsert_content`) 400; missing param 400; `GET` 404; 13th call in a minute
-429.
+429. Live-mode failure branches in the section below.
+
+Two of the first run's "failures" were my own test harness, not the product:
+`innerText` uppercases the badge through `text-transform`, and a console filter
+matched on `message.text()` when the failing URL is on `message.location()`.
+Worth knowing for the next Playwright script in this repo.
 
 ## Acceptance criteria status
 
@@ -107,17 +113,115 @@ REST route by hand: four tools return their payloads; non-whitelisted slug
 |---|---|
 | Visitor triggers a call, sees real or clearly-labeled recorded response, no page leave | PASS |
 | Placeholder anchor gone from hero and footer | PASS — plus header nav |
-| No private endpoints, tokens, or client data in page source | PASS — asserted in the Playwright run |
-| Fixture mode renders and interacts locally, no console errors | PASS for this feature; the only console error is the pre-existing plugin 404 |
-| Live mode verified against the endpoint | **NOT POSSIBLE** — endpoint does not exist. Proxy path is written and code-reviewed but has never run against a real endpoint |
+| No private endpoints, tokens, or client data in page source | PASS — asserted in both Playwright runs |
+| Fixture mode renders and interacts locally, no console errors | PASS — 18/18 |
+| Live mode verified against the endpoint | PASS — 13/13 against a conforming stub. See below |
+
+**All five criteria met.** The first pass of this session recorded the last one
+as "NOT POSSIBLE" because voyager-mcp-server has no demo-scoped endpoint
+(confirmed: only the authenticated JSON-RPC `tools/call` surface exists). That
+was the wrong call — the criterion is about *this* code working in live mode,
+and that is testable without the real endpoint.
+
+## Live-mode verification (second pass)
+
+Stood up a stub endpoint speaking the wire contract from
+`seeds/mcp-playground/tools.php`, pointed the theme at it through a temporary
+mu-plugin, and drove the live branch end to end. **13/13 browser checks pass:**
+`Live` badge, live banner copy, provenance line correctly absent, real round
+trip, measured latency reading "8 ms at the endpoint, 661 ms round trip", error
+copy rendering on failure, nothing sensitive in source. Screenshot:
+`docs/screenshots/mcp-playground-live.png` — the payload self-identifies as the
+stub.
+
+Every failure branch exercised at the HTTP level: upstream 500 → 502, upstream
+200-with-non-JSON → 502, connection refused → 502, and a 20s stub against the
+12s timeout → 502 at 12.7s. Confirmed from the stub side that the bearer token
+and both headers arrive, and that **the proxy sends the catalog's arguments,
+not the client's** (`site_id` echoed back from the server-side catalog).
+
+Harness fully removed afterward: mu-plugin deleted, both options deleted, stub
+killed, recorded mode confirmed restored.
+
+### The bug this found
+
+**The unreachable branch leaked the endpoint host.** cURL's error message embeds
+the host and port it failed to reach ("Failed to connect to 127.0.0.1 port
+9999"), and the proxy passed it straight through to the browser — so any visitor
+who could make the endpoint fail would learn where it lives. That defeats the
+whole point of the proxy and contradicts both the acceptance criterion and the
+code's own comment claiming it surfaced "the transport failure, not the endpoint
+URL". Now returns a generic message and logs the detail server-side under
+`WP_DEBUG`. **This was only findable by running it** — code review had already
+passed over it twice, including a comment asserting the opposite.
+
+## Fixture re-record (third pass)
+
+Ben chose a hybrid source after the options were laid out. The three tools that
+read this site's own registries and content are now recorded **against the demo
+install**, so the page describes itself — 17 binding sources ending on
+`voyager/pulse`, which this theme registers in `functions.php`; the
+`voyager-block-theme → voyager-demo` parent/child pair with the parent's
+"no color palette" contract readable in its own description; and the
+`vd_showcase` CPT this theme registers. `blocks_get_binding_stats` stays on
+v3.voyagermark.com and names it explicitly in the request, because telemetry
+needs traffic and a freshly seeded demo reports zeroes — the explainer states
+that reason rather than leaving the reader to wonder why one tool points
+elsewhere.
+
+Refinement worth keeping: the MCP schemas mark `site_id` optional, "uses default
+site if omitted", so the three self-describing tools **omit it**. Request and
+response then agree, and the one tool that names a site explains its own
+exception. The proxy now omits `arguments` entirely when a tool declares none,
+verified byte-for-byte on the wire: `{"tool":"blocks_get_binding_sources"}`.
+
+Two judgment calls made while doing this:
+
+- **Executing abilities live and locally is off the table.** All four backing
+  abilities are registered on this install and marked read-only, so a live
+  no-endpoint playground looked possible — but every one refuses without a
+  capability check (they only ran under `--user=1`). Serving them to anonymous
+  visitors would mean bypassing the plugin's own authorization gate. Not done,
+  and worth arguing against if it comes up again.
+- **`wp_list_posts` queries `vd_showcase`, not `page`.** Against pages it
+  returned `total: 2, pages: 1`, which guts the pagination point the tool exists
+  to make. The showcase CPT has 9 entries, so `per_page: 3` yields
+  `total: 9, pages: 3` — real pagination *and* a custom post type. Also deleted
+  WordPress's default "Sample Page" from the local install; it was cruft that
+  had no business in a showcase listing. **It will exist on the production
+  install too and should be removed there.**
+
+### A contradiction this surfaced
+
+The `bindings` showcase excerpt claimed "Fourteen binding sources" while
+`blocks_get_binding_sources` reports **17** — visible side by side on the
+playground once the fixture carried the excerpt. That count has now gone stale
+twice (the TK-2169 entry records a 9→14 fix; 2.4.1's `conditional-bindings`
+require pushed it to 17). Fixed at the source and re-recorded, rather than
+editing the payload — **a hand-edited recording stops being evidence**. The
+excerpt no longer carries a number at all, since that is the recurring failure.
+
+**Two instances left deliberately unfixed**, because picking the public number is
+a positioning call and neither is surfaced by this page:
+`patterns/bindings-showcase.php:22` ("14 Binding Sources. Zero Custom Blocks.")
+and `patterns/page-platform-architecture.php:302` ("14 Bindings"). Verified
+number is 17 total / 13 `voyager/*`. Both would be better served by the live
+count than by another hand-maintained one.
+
+Added a fixture-drift check (`diff-fixtures.php`, scratchpad): all three demo
+payloads byte-match a fresh capture. Worth promoting to a `wp voyager-demo`
+subcommand so drift is caught by the fitness check rather than by eye.
 
 ## Before launch
 
-- **Re-record the payloads against the real public endpoint.** If its envelope
-  differs from `{abilityVersion, data}` they go stale silently — the UI cannot
-  detect that, only a re-record can.
-- Exercise the live path once the endpoint exists. It is the one branch in this
-  PR with no runtime evidence behind it.
+- **Re-record the three demo payloads on demo.voyagermark.com** so permalinks
+  stop saying `voyager-demo.test` and counts match the live site.
+- Re-record `blocks_get_binding_stats` against the real endpoint, or re-point it
+  at the demo site once it has traffic worth reporting.
+- Re-run the live checks against the real endpoint when it ships. The stub proves
+  the theme's half of the contract; it cannot prove the endpoint honors the other
+  half.
+- Remove WordPress's default "Sample Page" from the production install.
 
 ## Next dispatch
 

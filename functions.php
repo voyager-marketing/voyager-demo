@@ -723,23 +723,38 @@ function voyager_demo_mcp_rest_call(\WP_REST_Request $request) {
             'Accept'        => 'application/json',
             'Authorization' => '' !== $token ? 'Bearer ' . $token : null,
         ]),
-        'body'    => wp_json_encode([
-            'tool'      => $tool['slug'],
-            'arguments' => (array) ($tool['request']['arguments'] ?? []),
-        ]),
+        'body'    => wp_json_encode(
+            // Omit `arguments` when the tool takes none, so what goes on the
+            // wire is byte-identical to the request preview the page renders.
+            // Sending an empty PHP array here would also serialise as `[]`
+            // rather than `{}`, which is not what the contract describes.
+            array_filter(
+                [
+                    'tool'      => $tool['slug'],
+                    'arguments' => (array) ($tool['request']['arguments'] ?? []),
+                ],
+                static fn ($value): bool => [] !== $value
+            )
+        ),
     ]);
 
     $upstream_ms = (int) round((microtime(true) - $started) * 1000);
 
     if (is_wp_error($response)) {
-        // Surface the transport failure, not the endpoint URL.
+        /*
+         * Deliberately generic. cURL's own message embeds the host and port it
+         * failed to reach ("Failed to connect to <host> port <n>"), so passing
+         * it through would publish the endpoint to any visitor who can make it
+         * fail — the one thing this proxy exists to prevent. The detail goes to
+         * the error log instead, where an operator can still get at it.
+         */
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('voyager-demo MCP playground upstream failure: ' . $response->get_error_message()); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+        }
+
         return new \WP_Error(
             'voyager_demo_mcp_upstream_unreachable',
-            sprintf(
-                /* translators: %s: transport error message. */
-                __('The demo endpoint did not answer: %s', 'voyager-demo'),
-                $response->get_error_message()
-            ),
+            __('The demo endpoint did not answer. It may be down or still shipping.', 'voyager-demo'),
             ['status' => 502]
         );
     }

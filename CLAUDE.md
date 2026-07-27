@@ -101,11 +101,28 @@ in the page source. Public and unauthenticated by design, throttled to 12
 calls per address per minute.
 
 The whitelist and the recorded payloads live in
-`seeds/mcp-playground/tools.php`. Those payloads are real responses captured
-from the Voyager MCP surface against v3.voyagermark.com on 2026-07-27 — not
-invented examples. **Re-record them against the public endpoint before
-launch**; if its envelope differs from `{abilityVersion, data}`, they go stale
-silently and only a re-record catches it.
+`seeds/mcp-playground/tools.php`. Every payload is real captured output, never
+an invented example, and comes from one of two places by design:
+
+- **Three tools read this site's own registries and content**, so they are
+  recorded against the demo install and their requests carry no `site_id` — the
+  endpoint defaults to the calling site. The page describes itself, which is the
+  premise of the demo.
+- **`blocks_get_binding_stats` is recorded against v3.voyagermark.com** and
+  names it explicitly, because telemetry needs traffic and a freshly seeded demo
+  install honestly reports zeroes. The explainer says so on the page.
+
+`arguments` is omitted entirely for tools that take none, so what the proxy puts
+on the wire is byte-identical to the request preview the page renders.
+
+**Re-record before launch.** The three demo payloads name `voyager-demo.test`
+because that is where the build runs today; capture them again on
+demo.voyagermark.com so permalinks and counts match. If the endpoint's envelope
+differs from `{abilityVersion, data}` they go stale silently and only a re-record
+catches it.
+
+Do not hand-edit a recorded payload to make it read better — it stops being
+evidence. Change the source and re-record.
 
 Frontend is the Interactivity API via a theme-owned script module
 (`assets/js/mcp-playground.js`), unbundled ESM through WordPress's import map —
