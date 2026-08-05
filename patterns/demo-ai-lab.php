@@ -442,7 +442,7 @@
         <!-- /wp:paragraph -->
 
         <!-- wp:paragraph {"style":{"typography":{"fontFamily":"monospace","fontSize":"0.9rem","fontWeight":"600"}},"textColor":"accent"} -->
-        <p class="has-accent-color has-text-color" style="font-family:monospace;font-size:0.9rem;font-weight:600"><?php echo esc_html_x( 'voyager/orbit', 'registry namespace', 'voyager-demo' ); ?></p>
+        <p class="has-accent-color has-text-color" style="font-family:monospace;font-size:0.9rem;font-weight:600"><?php echo esc_html_x( 'voyager/pulse', 'registry namespace', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"1rem"}}} -->

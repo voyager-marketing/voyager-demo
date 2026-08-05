@@ -302,15 +302,15 @@
         <div class="wp-block-column" style="border-color:rgba(255,255,255,0.08);border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
 
             <!-- wp:paragraph {"align":"center","style":{"typography":{"fontWeight":"700","letterSpacing":"0.05em","textTransform":"uppercase","fontSize":"0.7rem"},"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}},"textColor":"accent"} -->
-            <p class="has-text-align-center has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'voyager/orbit', 'source label', 'voyager-demo' ); ?></p>
+            <p class="has-text-align-center has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'voyager/pulse', 'source label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontSize":"clamp(2rem, 5vw, 3rem)","fontWeight":"700","fontFamily":"monospace"},"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}},"textColor":"accent","metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"lead_count"}}}}} -->
+            <!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontSize":"clamp(2rem, 5vw, 3rem)","fontWeight":"700","fontFamily":"monospace"},"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}},"textColor":"accent","metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"total_content"}}}}} -->
             <h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-family:monospace;font-size:clamp(2rem, 5vw, 3rem);font-weight:700"><?php echo esc_html_x( '—', 'stat fallback', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm"} -->
-            <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Leads Tracked', 'stat label', 'voyager-demo' ); ?></p>
+            <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Content Items', 'stat label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>

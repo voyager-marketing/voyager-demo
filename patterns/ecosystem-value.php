@@ -47,7 +47,7 @@
         <!-- /wp:group -->
         <!-- wp:group {"style":{"spacing":{"padding":{"left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
         <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-            <!-- wp:paragraph {"textColor":"accent-bright","style":{"typography":{"fontWeight":"700","fontSize":"2rem"}},"metadata":{"bindings":{"content":{"source":"voyager/orbit","args":{"key":"ability_count"}}}}} -->
+            <!-- wp:paragraph {"textColor":"accent-bright","style":{"typography":{"fontWeight":"700","fontSize":"2rem"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"ability_count"}}}}} -->
             <p class="has-accent-bright-color has-text-color" style="font-size:2rem;font-weight:700">32</p>
             <!-- /wp:paragraph -->
             <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
