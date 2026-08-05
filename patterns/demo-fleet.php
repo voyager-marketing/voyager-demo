@@ -18,7 +18,7 @@
     <div class="wp-block-group is-layout-constrained">
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-70 · MULTI-SITE MGMT', 'fleet hero eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · MULTI-SITE MGMT', 'fleet hero eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"lineHeight":"1.05","fontSize":"clamp(2.5rem, 7vw, 5rem)","letterSpacing":"-0.03em","fontWeight":"500"},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontFamily":"mono"} -->
@@ -42,7 +42,7 @@
 <div class="wp-block-group alignfull vo-section vo-section--raised vo-reveal is-layout-constrained">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-71 · Live Metrics', 'fleet stats eyebrow', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Live Metrics', 'fleet stats eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
@@ -71,12 +71,12 @@
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|10"},"border":{"radius":"12px","width":"1px","color":"#E2E0EA"}},"backgroundColor":"bg-raised"} -->
         <div class="wp-block-column has-bg-raised-background-color has-background" style="border-color:#E2E0EA;border-width:1px;border-radius:12px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">
 
-            <!-- wp:paragraph {"align":"center","textColor":"accent-bright","style":{"typography":{"fontWeight":"700","fontSize":"2.5rem","letterSpacing":"-0.04em"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"total_pseo_pages"}}}}} -->
+            <!-- wp:paragraph {"align":"center","textColor":"accent-bright","style":{"typography":{"fontWeight":"700","fontSize":"2.5rem","letterSpacing":"-0.04em"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"total_content"}}}}} -->
             <p class="has-text-align-center has-accent-bright-color has-text-color" style="font-size:2.5rem;font-weight:700;letter-spacing:-0.04em">847</p>
             <!-- /wp:paragraph -->
 
             <!-- wp:paragraph {"align":"center","textColor":"fg-4","fontSize":"sm"} -->
-            <p class="has-text-align-center has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Total pSEO Pages', 'fleet stat label', 'voyager-demo' ); ?></p>
+            <p class="has-text-align-center has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Content Items Live', 'fleet stat label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -125,7 +125,7 @@
 <div class="wp-block-group alignfull vo-section vo-section--raised vo-reveal is-layout-constrained">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-72 · Pattern Cloud', 'fleet pattern cloud eyebrow', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Pattern Cloud', 'fleet pattern cloud eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.03em"}}} -->
@@ -224,7 +224,7 @@
 <div class="wp-block-group alignfull vo-reveal is-layout-constrained" style="background:linear-gradient(135deg, #1B1F3B 0%, #2A2F52 100%);padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--60)">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-73 · Binding Health', 'fleet binding health eyebrow', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Binding Health', 'fleet binding health eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.03em"},"color":{"text":"var(--wp--preset--color--bg-raised)"},"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
@@ -414,7 +414,7 @@
 <div class="wp-block-group alignfull vo-section vo-section--raised vo-reveal is-layout-constrained">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-74 · Model Context Protocol', 'fleet mcp eyebrow', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Model Context Protocol', 'fleet mcp eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.03em"}}} -->
@@ -582,7 +582,7 @@
 <div class="wp-block-group alignfull vo-section vo-section--raised vo-reveal is-layout-constrained">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-75 · Autonomous Operations', 'fleet agents eyebrow', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Autonomous Operations', 'fleet agents eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.03em"}}} -->
@@ -744,7 +744,7 @@
         <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
         <div class="wp-block-buttons is-layout-flex">
             <!-- wp:button {"backgroundColor":"bg-raised","textColor":"accent","style":{"border":{"radius":"8px"},"spacing":{"padding":{"top":"16px","bottom":"16px","left":"40px","right":"40px"}},"typography":{"fontWeight":"700"}}} -->
-            <div class="wp-block-button"><a class="wp-block-button__link has-accent-color has-bg-raised-background-color has-text-color has-background" style="border-radius:8px;padding-top:16px;padding-right:40px;padding-bottom:16px;padding-left:40px;font-weight:700"><?php echo esc_html_x( 'Talk to Us', 'fleet cta button', 'voyager-demo' ); ?></a></div>
+            <div class="wp-block-button"><a class="wp-block-button__link has-accent-color has-bg-raised-background-color has-text-color has-background" href="/contact/" style="border-radius:8px;padding-top:16px;padding-right:40px;padding-bottom:16px;padding-left:40px;font-weight:700"><?php echo esc_html_x( 'Talk to Us', 'fleet cta button', 'voyager-demo' ); ?></a></div>
             <!-- /wp:button -->
         </div>
         <!-- /wp:buttons -->

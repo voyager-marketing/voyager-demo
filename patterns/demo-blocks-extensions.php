@@ -14,7 +14,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
     <div class="wp-block-group is-layout-constrained">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-40 · VOYAGER BLOCKS PLUGIN', 'showcase eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · VOYAGER BLOCKS PLUGIN', 'showcase eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em","fontWeight":"500"},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontFamily":"mono"} -->
@@ -56,7 +56,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|7"}}}} -->
     <div class="wp-block-group is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--7)">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-41 · Animation & Visual', 'section label', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Animation & Visual', 'section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
         <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"}}} -->
         <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="letter-spacing:-0.02em"><?php echo esc_html_x( 'Motion that tells a story', 'animation heading', 'voyager-demo' ); ?></h2>
@@ -194,7 +194,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|7"}}}} -->
     <div class="wp-block-group is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--7)">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-42 · Background & Effects', 'section label', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Background & Effects', 'section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
         <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"}}} -->
         <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="letter-spacing:-0.02em"><?php echo esc_html_x( 'The "wow" blocks', 'bg heading', 'voyager-demo' ); ?></h2>
@@ -307,7 +307,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|7"}}}} -->
     <div class="wp-block-group is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--7)">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-43 · Service & Portfolio', 'section label', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Service & Portfolio', 'section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
         <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"}}} -->
         <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="letter-spacing:-0.02em"><?php echo esc_html_x( 'Blocks that drive business pages', 'service heading', 'voyager-demo' ); ?></h2>
@@ -488,7 +488,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|7"}}}} -->
     <div class="wp-block-group is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--7)">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-44 · Social Proof', 'section label', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Social Proof', 'section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
         <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"}}} -->
         <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="letter-spacing:-0.02em"><?php echo esc_html_x( 'The conversion blocks', 'proof heading', 'voyager-demo' ); ?></h2>
@@ -611,7 +611,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|7"}}}} -->
     <div class="wp-block-group is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--7)">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-45 · Interactive & Data', 'section label', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Interactive & Data', 'section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
         <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"}}} -->
         <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="letter-spacing:-0.02em"><?php echo esc_html_x( 'Blocks users play with', 'interactive heading', 'voyager-demo' ); ?></h2>
@@ -807,7 +807,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"},"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|7"}}}} -->
     <div class="wp-block-group is-layout-constrained" style="margin-bottom:var(--wp--preset--spacing--7)">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-47 · 15 Extensions', 'extension eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · 15 Extensions', 'extension eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
         <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
         <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="color:var(--wp--preset--color--fg-1);letter-spacing:-0.02em"><?php echo esc_html_x( 'Superpowers for core blocks', 'extension heading', 'voyager-demo' ); ?></h2>
@@ -1123,7 +1123,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
     <div class="wp-block-group is-layout-constrained">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-46 · Performance', 'perf label', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Performance', 'perf label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
         <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"}}} -->
         <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="letter-spacing:-0.02em"><?php echo esc_html_x( 'Conditional loading. Zero bloat.', 'perf heading', 'voyager-demo' ); ?></h2>

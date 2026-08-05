@@ -12,7 +12,7 @@ declare(strict_types=1);
 return [
     'slug'       => 'ai-capabilities',
     'title'      => 'AI Capabilities',
-    'excerpt'    => 'What the AI layer does for a business day to day — content, SEO, lead intelligence, reporting — all backed by the same 32+ registered abilities.',
+    'excerpt'    => 'What the AI layer does for a business day to day — content, SEO, lead intelligence, reporting — all backed by the same registered abilities, live-counted on this site.',
     'menu_order' => 40,
     'content'    => <<<'HTML'
 <!-- wp:paragraph -->
@@ -20,7 +20,7 @@ return [
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Under every card is the same primitive: a registered ability. There are 32+ of them, each with a typed schema and a permission check, exposed to agents over MCP and to developers over REST. Content generation and lead scoring aren't separate products — they're different abilities on one control plane, which is why new capabilities ship weekly instead of quarterly.</p>
+<p>Under every card is the same primitive: a registered ability. The <a href="/abilities/">abilities page</a> enumerates all of them live — each with a typed schema and a permission check, exposed to agents over MCP and to developers over REST. Content generation and lead scoring aren't separate products — they're different abilities on one control plane, which is why new capabilities ship weekly instead of quarterly.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->

@@ -13,7 +13,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"900px"}} -->
     <div class="wp-block-group is-layout-constrained">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-150 · THE COMPLETE PICTURE', 'mega page badge', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · THE COMPLETE PICTURE', 'mega page badge', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontSize":"clamp(2.5rem, 7vw, 5rem)","letterSpacing":"-0.03em","fontWeight":"500","lineHeight":"1.05"},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontFamily":"mono"} -->
@@ -42,7 +42,7 @@
 <div class="wp-block-group alignfull vo-reveal has-bg-raised-background-color has-background is-layout-constrained" style="background:linear-gradient(135deg, #1B1F3B 0%, #2A2F52 100%);padding-top:var(--wp--preset--spacing--8);padding-right:var(--wp--preset--spacing--7);padding-bottom:var(--wp--preset--spacing--8);padding-left:var(--wp--preset--spacing--7)">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-151 · Architecture', 'section label', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Architecture', 'section label', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"},"spacing":{"margin":{"bottom":"var:preset|spacing|7"}}}} -->
@@ -206,7 +206,7 @@
 <div class="wp-block-group alignfull vo-reveal has-fg-1-color has-bg-canvas-background-color has-text-color has-background is-layout-constrained" style="background:linear-gradient(135deg, #1B1F3B 0%, #2A2F52 100%);padding-top:var(--wp--preset--spacing--8);padding-right:var(--wp--preset--spacing--7);padding-bottom:var(--wp--preset--spacing--8);padding-left:var(--wp--preset--spacing--7)">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-152 · By the Numbers', 'section label', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · By the Numbers', 'section label', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"},"spacing":{"margin":{"bottom":"var:preset|spacing|7"}}}} -->
@@ -359,7 +359,7 @@
 <div class="wp-block-group alignfull vo-reveal is-layout-constrained" style="background:linear-gradient(135deg, #1B1F3B 0%, #2A2F52 100%);padding-top:var(--wp--preset--spacing--8);padding-right:var(--wp--preset--spacing--7);padding-bottom:var(--wp--preset--spacing--8);padding-left:var(--wp--preset--spacing--7)">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-153 · Content Pipeline', 'section label', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Content Pipeline', 'section label', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"},"spacing":{"margin":{"bottom":"var:preset|spacing|5"}}}} -->
@@ -443,7 +443,7 @@
 <div class="wp-block-group alignfull vo-reveal has-bg-raised-background-color has-background is-layout-constrained" style="background:linear-gradient(135deg, #1B1F3B 0%, #2A2F52 100%);padding-top:var(--wp--preset--spacing--8);padding-right:var(--wp--preset--spacing--7);padding-bottom:var(--wp--preset--spacing--8);padding-left:var(--wp--preset--spacing--7)">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-154 · Why This Matters', 'section label', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Why This Matters', 'section label', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"},"spacing":{"margin":{"bottom":"var:preset|spacing|7"}}}} -->
@@ -509,7 +509,7 @@
     <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|6"}}}} -->
     <div class="wp-block-buttons is-layout-flex" style="margin-top:var(--wp--preset--spacing--6)">
         <!-- wp:button {"backgroundColor":"accent","textColor":"fg-1","style":{"spacing":{"padding":{"top":"18px","bottom":"18px","left":"40px","right":"40px"}},"typography":{"fontWeight":"700","fontSize":"var(--wp--preset--font-size--medium)"},"border":{"radius":"8px"}}} -->
-        <div class="wp-block-button has-custom-font-size"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" href="/contact/" style="border-radius:8px;padding-top:18px;padding-right:40px;padding-bottom:18px;padding-left:40px;font-weight:700;font-size:var(--wp--preset--font-size--medium)"><?php echo esc_html_x( 'Get your free site audit \u2192', 'cta button', 'voyager-demo' ); ?></a></div>
+        <div class="wp-block-button has-custom-font-size"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" href="/contact/" style="border-radius:8px;padding-top:18px;padding-right:40px;padding-bottom:18px;padding-left:40px;font-weight:700;font-size:var(--wp--preset--font-size--medium)"><?php echo esc_html_x( 'Get your free site audit →', 'cta button', 'voyager-demo' ); ?></a></div>
         <!-- /wp:button -->
     </div>
     <!-- /wp:buttons -->

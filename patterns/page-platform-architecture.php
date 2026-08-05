@@ -903,10 +903,10 @@
     <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}}} -->
     <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--50)">
         <!-- wp:button {"backgroundColor":"accent","textColor":"fg-1","style":{"spacing":{"padding":{"top":"16px","bottom":"16px","left":"40px","right":"40px"}},"border":{"radius":"8px"},"typography":{"fontWeight":"600","fontSize":"1rem"}}} -->
-        <div class="wp-block-button" style="font-size:1rem;font-weight:600"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" style="border-radius:8px;padding-top:16px;padding-right:40px;padding-bottom:16px;padding-left:40px"><?php echo esc_html_x( 'Book a Demo', 'cta button', 'voyager-demo' ); ?></a></div>
+        <div class="wp-block-button" style="font-size:1rem;font-weight:600"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" href="/contact/" style="border-radius:8px;padding-top:16px;padding-right:40px;padding-bottom:16px;padding-left:40px"><?php echo esc_html_x( 'Book a Demo', 'cta button', 'voyager-demo' ); ?></a></div>
         <!-- /wp:button -->
         <!-- wp:button {"backgroundColor":"bg-inset","textColor":"fg-1","style":{"spacing":{"padding":{"top":"16px","bottom":"16px","left":"40px","right":"40px"}},"border":{"radius":"8px","width":"1px","color":"rgba(255,255,255,0.15)"},"typography":{"fontWeight":"600","fontSize":"1rem"}}} -->
-        <div class="wp-block-button" style="font-size:1rem;font-weight:600"><a class="wp-block-button__link has-fg-1-color has-bg-inset-background-color has-text-color has-background wp-element-button" style="border-color:rgba(255,255,255,0.15);border-width:1px;border-radius:8px;padding-top:16px;padding-right:40px;padding-bottom:16px;padding-left:40px"><?php echo esc_html_x( 'Explore the Demos', 'cta button secondary', 'voyager-demo' ); ?></a></div>
+        <div class="wp-block-button" style="font-size:1rem;font-weight:600"><a class="wp-block-button__link has-fg-1-color has-bg-inset-background-color has-text-color has-background wp-element-button" href="/showcases/" style="border-color:rgba(255,255,255,0.15);border-width:1px;border-radius:8px;padding-top:16px;padding-right:40px;padding-bottom:16px;padding-left:40px"><?php echo esc_html_x( 'Explore the Demos', 'cta button secondary', 'voyager-demo' ); ?></a></div>
         <!-- /wp:button -->
     </div>
     <!-- /wp:buttons -->

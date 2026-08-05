@@ -188,9 +188,13 @@ function voyager_demo_compute_pulse_data(): array {
         ? (int) wp_count_posts('neighborhood')->publish
         : 0;
     $blog_count = (int) wp_count_posts('post')->publish;
+    $page_count = (int) wp_count_posts('page')->publish;
+    $showcase_count = post_type_exists('vd_showcase')
+        ? (int) wp_count_posts('vd_showcase')->publish
+        : 0;
 
     $total_pseo    = $sa_count + $ip_count + $nb_count;
-    $total_content = $total_pseo + $blog_count;
+    $total_content = $total_pseo + $blog_count + $page_count + $showcase_count;
 
     $cities = 0;
     if ($sa_count > 0) {
@@ -212,7 +216,7 @@ function voyager_demo_compute_pulse_data(): array {
 
     $month_start   = gmdate('Y-m-01 00:00:00');
     $ninety_ago    = gmdate('Y-m-d H:i:s', strtotime('-90 days'));
-    $content_types = "'post','service_area','industry_page','neighborhood'";
+    $content_types = "'post','page','vd_showcase','service_area','industry_page','neighborhood'";
 
     // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- static string
     $this_month = (int) $wpdb->get_var(
@@ -346,6 +350,9 @@ function voyager_demo_register_showcase_cpt(): void {
 }
 add_action('init', 'voyager_demo_register_showcase_cpt');
 
+// The only archive this theme exposes is /showcases/ — "Archives:" is noise there.
+add_filter('get_the_archive_title_prefix', '__return_empty_string');
+
 /**
  * Load showcase seed definitions from seeds/showcases/.
  *
@@ -466,7 +473,11 @@ function voyager_demo_abilities_markup(): string {
         }
     }
 
-    $html = '<!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} --><p class="has-fg-4-color has-text-color has-sm-font-size">'
+    $html = '<!-- wp:heading {"level":1,"fontSize":"3xl","style":{"typography":{"letterSpacing":"-0.03em"}}} --><h1 class="wp-block-heading has-3-xl-font-size" style="letter-spacing:-0.03em">'
+        . esc_html__('The ability registry, live', 'voyager-demo')
+        . '</h1><!-- /wp:heading -->';
+
+    $html .= '<!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} --><p class="has-fg-4-color has-text-color has-sm-font-size">'
         . sprintf(
             /* translators: 1: ability count, 2: category count */
             esc_html__('%1$d abilities in %2$d categories, enumerated live from this site\'s registry on every change. Nothing on this page is hand-maintained.', 'voyager-demo'),

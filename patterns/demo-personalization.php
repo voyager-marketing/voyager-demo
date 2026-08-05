@@ -27,7 +27,7 @@
     <div class="wp-block-group alignwide is-layout-constrained">
 
         <!-- wp:paragraph {"style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-        <p class="has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— LIVE DEMO · D-01 · 07 INSTRUMENTS', 'Demo personalization hero eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— LIVE DEMO · 07 INSTRUMENTS', 'Demo personalization hero eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:group {"className":"vo-grid-60-35","style":{"spacing":{"margin":{"top":"var:preset|spacing|6"}}},"layout":{"type":"default"}} -->
