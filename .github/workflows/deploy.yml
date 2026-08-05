@@ -63,6 +63,19 @@ jobs:
         run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
         working-directory: build/wp-content/plugins/voyager-orbit
 
+      # voyager-blocks registers blocks from build/blocks (compiled, gitignored).
+      # A raw checkout ships zero blocks - every custom block silently vanishes.
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: npm build (voyager-blocks)
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+        working-directory: build/wp-content/plugins/voyager-blocks
+
       # 2. Place the voyager-demo theme files into wp-content/themes/voyager-demo/
       #    The repo keeps theme files at root for v3 local dev; this step
       #    re-homes them into the canonical theme path for the deploy artifact.
