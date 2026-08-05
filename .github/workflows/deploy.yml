@@ -94,16 +94,22 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H "$DEMO_HOST" >> ~/.ssh/known_hosts 2>/dev/null
 
-      # 5. Sync built wp-content to the demo server (rsync over SSH)
+      # 5. Sync built wp-content to the demo server (rsync over SSH).
+      #    Each repo-managed directory syncs separately, with --delete
+      #    scoped inside that directory only - nothing else in wp-content
+      #    (uploads, mu-plugins, RankMath, the AI plugins, caches) can be
+      #    touched by a deploy. The old single-rsync form used
+      #    --delete-after with excludes prefixed 'wp-content/...', which
+      #    never matched (rsync excludes are relative to the transfer
+      #    root): every deploy deleted every non-repo plugin, and uploads/.
       - name: Rsync build/wp-content/ -> demo server
         run: |
-          rsync -azv --delete-after \
-            --exclude='wp-content/uploads' \
-            --exclude='wp-content/cache' \
-            --exclude='wp-content/upgrade' \
-            --exclude='wp-content/voyager-orbit-cache' \
-            build/wp-content/ \
-            "$DEMO_USER@$DEMO_HOST:$DEMO_PATH/wp-content/"
+          for dir in themes/voyager-block-theme themes/voyager-demo \
+                     plugins/voyager-blocks plugins/voyager-core plugins/voyager-orbit; do
+            rsync -az --delete-after \
+              "build/wp-content/$dir/" \
+              "$DEMO_USER@$DEMO_HOST:$DEMO_PATH/wp-content/$dir/"
+          done
 
       # 6. Activate plugins + theme via wp-cli on the demo server
       - name: Activate plugins + theme
