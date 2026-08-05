@@ -353,6 +353,15 @@ add_action('init', 'voyager_demo_register_showcase_cpt');
 // The only archive this theme exposes is /showcases/ — "Archives:" is noise there.
 add_filter('get_the_archive_title_prefix', '__return_empty_string');
 
+// /ecosystem-value/ became /why-voyager/ (audit 2026-08-05). Core's old-slug
+// redirect skips hierarchical post types, so the 301 lives here.
+add_action('template_redirect', function () {
+    if (is_404() && str_starts_with((string) ($_SERVER['REQUEST_URI'] ?? ''), '/ecosystem-value')) {
+        wp_safe_redirect(home_url('/why-voyager/'), 301);
+        exit;
+    }
+});
+
 /**
  * Load showcase seed definitions from seeds/showcases/.
  *

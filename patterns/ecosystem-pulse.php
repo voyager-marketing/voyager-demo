@@ -176,9 +176,9 @@
         <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
         <div class="wp-block-group">
             <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
-            <p class="has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Voyager blocks:', 'pulse footer label', 'voyager-demo' ); ?></p>
+            <p class="has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Published this month:', 'pulse footer label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","style":{"typography":{"fontWeight":"600"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"block_count"}}}}} -->
+            <!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","style":{"typography":{"fontWeight":"600"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"content_this_month"}}}}} -->
             <p class="has-fg-1-color has-text-color has-sm-font-size" style="font-weight:600">28</p>
             <!-- /wp:paragraph -->
         </div>
