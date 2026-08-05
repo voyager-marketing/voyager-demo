@@ -219,7 +219,7 @@
             <p class="has-fg-4-color has-text-color has-label-font-size"><?php echo esc_html_x( 'Live from Notion:', 'demo label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Name","filter_key":"Name","filter_value":"What Huntress Is and How It Can Benefit You"}}}}} -->
+            <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Name","filter_key":"Name","filter_value":"Why You Need Digital Marketing For Professional Services"}}}}} -->
             <p class="has-sm-font-size" style="font-weight:600"><?php echo esc_html_x( 'Loading from Notion...', 'notion demo fallback', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 <?php else : ?>
@@ -354,7 +354,7 @@
                 <p class="has-accent-color has-text-color has-label-font-size" style="font-weight:600;text-transform:uppercase;letter-spacing:0.1em"><?php echo esc_html_x( 'Property: Name (title)', 'demo property label', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:heading {"level":3,"fontSize":"lg","style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Name","filter_key":"Name","filter_value":"What Huntress Is and How It Can Benefit You"}}}}} -->
+                <!-- wp:heading {"level":3,"fontSize":"lg","style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Name","filter_key":"Name","filter_value":"Why You Need Digital Marketing For Professional Services"}}}}} -->
                 <h3 class="wp-block-heading has-lg-font-size" style="margin-top:var(--wp--preset--spacing--10)"><?php echo esc_html_x( 'Loading title from Notion...', 'notion title fallback', 'voyager-demo' ); ?></h3>
                 <!-- /wp:heading -->
 
@@ -362,7 +362,7 @@
                 <p class="has-accent-color has-text-color has-label-font-size" style="font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Property: Keyword (rich_text)', 'demo property label', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Keyword","filter_key":"Name","filter_value":"What Huntress Is and How It Can Benefit You"}}}}} -->
+                <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Keyword","filter_key":"Name","filter_value":"Why You Need Digital Marketing For Professional Services"}}}}} -->
                 <p class="has-sm-font-size" style="font-weight:600;margin-top:var(--wp--preset--spacing--10)"><?php echo esc_html_x( 'Loading keyword...', 'notion keyword fallback', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
 
@@ -376,7 +376,7 @@
                 <p class="has-accent-color has-text-color has-label-font-size" style="font-weight:600;text-transform:uppercase;letter-spacing:0.1em"><?php echo esc_html_x( 'Property: Status (status)', 'demo property label', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Status","filter_key":"Name","filter_value":"What Huntress Is and How It Can Benefit You"}}}}} -->
+                <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Status","filter_key":"Name","filter_value":"Why You Need Digital Marketing For Professional Services"}}}}} -->
                 <p class="has-sm-font-size" style="font-weight:600;margin-top:var(--wp--preset--spacing--10)"><?php echo esc_html_x( 'Loading status...', 'notion status fallback', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
 
@@ -384,7 +384,7 @@
                 <p class="has-accent-color has-text-color has-label-font-size" style="font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Property: Type (select)', 'demo property label', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Type","filter_key":"Name","filter_value":"What Huntress Is and How It Can Benefit You"}}}}} -->
+                <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Type","filter_key":"Name","filter_value":"Why You Need Digital Marketing For Professional Services"}}}}} -->
                 <p class="has-sm-font-size" style="font-weight:600;margin-top:var(--wp--preset--spacing--10)"><?php echo esc_html_x( 'Loading type...', 'notion type fallback', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
 
@@ -392,7 +392,7 @@
                 <p class="has-accent-color has-text-color has-label-font-size" style="font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-top:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Property: Do Date (date)', 'demo property label', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Do Date","filter_key":"Name","filter_value":"What Huntress Is and How It Can Benefit You"}}}}} -->
+                <!-- wp:paragraph {"fontSize":"sm","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/notion","args":{"database":"content","key":"Do Date","filter_key":"Name","filter_value":"Why You Need Digital Marketing For Professional Services"}}}}} -->
                 <p class="has-sm-font-size" style="font-weight:600;margin-top:var(--wp--preset--spacing--10)"><?php echo esc_html_x( 'Loading date...', 'notion date fallback', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
 
