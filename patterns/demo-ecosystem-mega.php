@@ -27,7 +27,7 @@
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","textColor":"fg-1","style":{"spacing":{"margin":{"top":"var:preset|spacing|5"}},"typography":{"fontSize":"clamp(1.05rem, 2vw, 1.25rem)","lineHeight":"1.6"}}} -->
-        <p class="has-text-align-center has-fg-1-color has-text-color" style="margin-top:var(--wp--preset--spacing--5);font-size:clamp(1.05rem, 2vw, 1.25rem);line-height:1.6"><?php echo esc_html_x( 'Everything on one page. Four plugins, one theme, 89 AI abilities, 28 custom blocks, 122 patterns, 7 binding sources, 8 custom post types, and a Notion-to-WordPress content pipeline. This is what modern WordPress looks like.', 'mega page subtitle', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-fg-1-color has-text-color" style="margin-top:var(--wp--preset--spacing--5);font-size:clamp(1.05rem, 2vw, 1.25rem);line-height:1.6"><?php echo esc_html_x( 'Everything on one page. Four plugins, one theme, an AI ability registry that counts itself, a full block and pattern library, more than a dozen binding sources, eight custom post types, and a Notion-to-WordPress content pipeline. This is what modern WordPress looks like.', 'mega page subtitle', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
     </div>
     <!-- /wp:group -->
@@ -73,7 +73,7 @@
                 <h4 class="wp-block-heading has-md-font-size"><?php echo esc_html_x( 'Voyager Blocks', 'plugin name', 'voyager-demo' ); ?></h4>
                 <!-- /wp:heading -->
                 <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
-                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( '28 blocks, 122 patterns, 13 extensions, AI sidebar, Pattern Cloud, GSAP animations', 'blocks summary', 'voyager-demo' ); ?></p>
+                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Custom blocks, the full pattern library, editor extensions, AI sidebar, Pattern Cloud, GSAP animations', 'blocks summary', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -111,7 +111,7 @@
                 <h4 class="wp-block-heading has-md-font-size"><?php echo esc_html_x( 'Block Bindings', 'feature name', 'voyager-demo' ); ?></h4>
                 <!-- /wp:heading -->
                 <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
-                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( '7 binding sources: post-meta, site-data, geo, notion, ai-content, contextual-cta, stat-item. Server-side resolution at render time.', 'bindings summary', 'voyager-demo' ); ?></p>
+                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Binding sources spanning post meta, site data, geo, Notion, Airtable, AI content, conditionals, A/B tests, and analytics. Server-side resolution at render time.', 'bindings summary', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -139,7 +139,7 @@
                 <h4 class="wp-block-heading has-md-font-size"><?php echo esc_html_x( 'Voyager Orbit', 'plugin name', 'voyager-demo' ); ?></h4>
                 <!-- /wp:heading -->
                 <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
-                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( '89 AI abilities, lead tracking + scoring, activity timeline, client reporting, AI chat, safe-edit drafts, 15 admin pages, HMAC Portal bridge', 'orbit summary', 'voyager-demo' ); ?></p>
+                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'A live-counted AI ability registry, lead tracking + scoring, activity timeline, client reporting, AI chat, safe-edit drafts, HMAC Portal bridge', 'orbit summary', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->
@@ -187,7 +187,7 @@
                 <h4 class="wp-block-heading has-md-font-size"><?php echo esc_html_x( 'MCP Server + Notion Pipeline', 'feature name', 'voyager-demo' ); ?></h4>
                 <!-- /wp:heading -->
                 <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
-                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( '64 MCP tools across 9 domains. Cloudflare Workers edge deployment. Notion content flows to WordPress via sync, polling, and binding.', 'mcp summary', 'voyager-demo' ); ?></p>
+                <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'The full ability surface exposed as MCP tools. Cloudflare Workers edge deployment. Notion content flows to WordPress via sync, polling, and binding.', 'mcp summary', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:column -->

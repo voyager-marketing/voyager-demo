@@ -35,12 +35,12 @@
             <h3 class="wp-block-heading has-lg-font-size">Voyager Block Theme</h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size">Parent theme with 88 patterns, design tokens, native scroll-reveal motion, and Full Site Editing. The base layer every client site inherits.</p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size">Parent theme with a full pattern library, design tokens, native scroll-reveal motion, and Full Site Editing. The base layer every client site inherits.</p>
             <!-- /wp:paragraph -->
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem"},"spacing":{"padding":{"top":"4px","bottom":"4px","left":"10px","right":"10px"}},"border":{"radius":"4px"}},"backgroundColor":"bg-panel","textColor":"fg-4"} -->
-                <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">88 patterns</p>
+                <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">Pattern library</p>
                 <!-- /wp:paragraph -->
                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem"},"spacing":{"padding":{"top":"4px","bottom":"4px","left":"10px","right":"10px"}},"border":{"radius":"4px"}},"backgroundColor":"bg-panel","textColor":"fg-4"} -->
                 <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">Design tokens</p>
@@ -70,7 +70,7 @@
             <!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|30"}}}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem"},"spacing":{"padding":{"top":"4px","bottom":"4px","left":"10px","right":"10px"}},"border":{"radius":"4px"}},"backgroundColor":"bg-panel","textColor":"fg-4"} -->
-                <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">22 blocks</p>
+                <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">Custom blocks</p>
                 <!-- /wp:paragraph -->
                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.75rem"},"spacing":{"padding":{"top":"4px","bottom":"4px","left":"10px","right":"10px"}},"border":{"radius":"4px"}},"backgroundColor":"bg-panel","textColor":"fg-4"} -->
                 <p class="has-fg-4-color has-bg-panel-background-color has-text-color has-background" style="border-radius:4px;padding-top:4px;padding-right:10px;padding-bottom:4px;padding-left:10px;font-size:0.75rem">React + PHP</p>
