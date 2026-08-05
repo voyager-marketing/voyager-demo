@@ -411,6 +411,10 @@
             ]
         },
         "custom": {
+            "layout": {
+                "wide": "1280px",
+                "content": "760px"
+            },
             "voyager": {
                 "$schema": "./tokens.schema.json",
                 "brand": {
