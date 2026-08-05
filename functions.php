@@ -271,6 +271,16 @@ function voyager_demo_compute_pulse_data(): array {
         ));
     }
 
+    $ability_count = 0;
+    if (function_exists('wp_get_abilities')) {
+        $ability_count = count(wp_get_abilities());
+    }
+
+    $binding_source_count = 0;
+    if (class_exists('WP_Block_Bindings_Registry')) {
+        $binding_source_count = count(\WP_Block_Bindings_Registry::get_instance()->get_all_registered());
+    }
+
     $launch = new \DateTime('2024-01-01', new \DateTimeZone('UTC'));
     $now    = new \DateTime('now', new \DateTimeZone('UTC'));
     $uptime = (int) $now->diff($launch)->days;
@@ -295,6 +305,8 @@ function voyager_demo_compute_pulse_data(): array {
         'avg_posts_per_week'  => (string) $avg_per_week,
         'pattern_count'       => (string) $pattern_count,
         'block_count'         => (string) $block_count,
+        'ability_count'       => (string) $ability_count,
+        'binding_source_count' => (string) $binding_source_count,
         'uptime_days'         => (string) $uptime,
         'freshness_score'     => $freshness . '%',
         'coverage_label'      => $coverage,

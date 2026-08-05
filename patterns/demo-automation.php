@@ -152,7 +152,7 @@
                         <p class="has-accent-color has-text-color" style="font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'Live Proof — AI Abilities', 'automation step 2 proof label', 'voyager-demo' ); ?></p>
                         <!-- /wp:paragraph -->
 
-                        <!-- wp:paragraph {"style":{"typography":{"fontWeight":"600","fontSize":"0.9rem"}},"metadata":{"bindings":{"content":{"source":"voyager/orbit","args":{"key":"ability_count"}}}}} -->
+                        <!-- wp:paragraph {"style":{"typography":{"fontWeight":"600","fontSize":"0.9rem"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"ability_count"}}}}} -->
                         <p style="font-size:0.9rem;font-weight:600"><?php echo esc_html_x( '32', 'binding fallback', 'voyager-demo' ); ?></p>
                         <!-- /wp:paragraph -->
 
