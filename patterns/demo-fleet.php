@@ -422,7 +422,7 @@
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"align":"center","textColor":"fg-4","style":{"typography":{"lineHeight":"1.6","fontSize":"clamp(1rem, 2vw, 1.15rem)"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
-    <p class="has-text-align-center has-fg-4-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--60);font-size:clamp(1rem, 2vw, 1.15rem);line-height:1.6"><?php echo esc_html_x( '64 tools across 9 domains. Any MCP-compatible AI can control any site in the fleet.', 'fleet mcp description', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-fg-4-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--60);font-size:clamp(1rem, 2vw, 1.15rem);line-height:1.6"><?php echo esc_html_x( 'Every fleet ability exposed as an MCP tool. Any MCP-compatible AI can control any site in the fleet.', 'fleet mcp description', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- 3x3 grid of domain cards -->

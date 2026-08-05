@@ -15,7 +15,7 @@
     <div class="wp-block-group is-layout-constrained">
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-20 · 32 AI ABILITIES', 'ai lab eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-20 · AI ABILITIES', 'ai lab eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"lineHeight":"1.05","fontSize":"clamp(2.5rem, 7vw, 4.5rem)","letterSpacing":"-0.03em","fontWeight":"500"},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontFamily":"mono"} -->
@@ -29,7 +29,7 @@
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"lineHeight":"1.6","fontSize":"clamp(1.1rem, 2.5vw, 1.35rem)"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"textColor":"fg-1"} -->
-        <p class="has-text-align-center has-fg-1-color has-text-color" style="margin-top:var(--wp--preset--spacing--40);font-size:clamp(1.1rem, 2.5vw, 1.35rem);line-height:1.6"><?php echo esc_html_x( '32 abilities that write, enrich, analyze, and report. Every one callable from chat, MCP, or a scheduled agent.', 'ai lab subtitle', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-fg-1-color has-text-color" style="margin-top:var(--wp--preset--spacing--40);font-size:clamp(1.1rem, 2.5vw, 1.35rem);line-height:1.6"><?php echo esc_html_x( 'Abilities that write, enrich, analyze, and report — live-counted below, every one callable from chat, MCP, or a scheduled agent.', 'ai lab subtitle', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
     </div>
@@ -466,7 +466,7 @@
     <div class="wp-block-group is-layout-constrained">
 
         <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"xl","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( '32 abilities today. The system grows with every plugin update.', 'ai lab cta heading', 'voyager-demo' ); ?></h2>
+        <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="color:var(--wp--preset--color--fg-1);margin-bottom:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'The registry counts itself — and grows with every plugin update.', 'ai lab cta heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm"} -->

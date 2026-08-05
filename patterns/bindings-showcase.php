@@ -74,7 +74,7 @@
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( '77 fields across 8 CPTs. Dot-notation for nested JSON. Powers all pSEO pages.', 'card description', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Bindable fields across all 8 CPTs. Dot-notation for nested JSON. Powers all pSEO pages.', 'card description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"backgroundColor":"bg-panel"} -->
