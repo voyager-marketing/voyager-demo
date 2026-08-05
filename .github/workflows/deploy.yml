@@ -69,12 +69,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@voyager-marketing'
 
       - name: npm build (voyager-blocks)
         run: |
           npm ci --no-audit --no-fund
           npm run build
         working-directory: build/wp-content/plugins/voyager-blocks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.VOYAGER_GH_TOKEN }}
 
       # 2. Place the voyager-demo theme files into wp-content/themes/voyager-demo/
       #    The repo keeps theme files at root for v3 local dev; this step
