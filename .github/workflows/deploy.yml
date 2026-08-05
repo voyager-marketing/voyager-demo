@@ -34,12 +34,19 @@ jobs:
           token: ${{ secrets.VOYAGER_GH_TOKEN }}
           path: build/wp-content/themes/voyager-block-theme
 
-      - name: Checkout voyager-blocks
-        uses: actions/checkout@v4
-        with:
-          repository: voyager-marketing/voyager-blocks
-          token: ${{ secrets.VOYAGER_GH_TOKEN }}
-          path: build/wp-content/plugins/voyager-blocks
+      # voyager-blocks deploys as its RELEASE artifact, not a source checkout:
+      # blocks register from the compiled build/ dir (gitignored), and the
+      # design-system npm package is not readable from this repo's tokens.
+      # The release ZIP carries build/ and is what the client fleet runs.
+      - name: Fetch voyager-blocks release build
+        env:
+          GH_TOKEN: ${{ secrets.VOYAGER_GH_TOKEN }}
+        run: |
+          gh release download --repo voyager-marketing/voyager-blocks \
+            --pattern 'voyager-blocks.zip' --output /tmp/voyager-blocks.zip
+          unzip -q /tmp/voyager-blocks.zip -d /tmp/vb-extract
+          mkdir -p build/wp-content/plugins
+          mv /tmp/vb-extract/voyager-blocks build/wp-content/plugins/voyager-blocks
 
       - name: Checkout voyager-core
         uses: actions/checkout@v4
@@ -66,22 +73,6 @@ jobs:
         run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
         working-directory: build/wp-content/plugins/voyager-orbit
 
-      # voyager-blocks registers blocks from build/blocks (compiled, gitignored).
-      # A raw checkout ships zero blocks - every custom block silently vanishes.
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@voyager-marketing'
-
-      - name: npm build (voyager-blocks)
-        run: |
-          npm ci --no-audit --no-fund
-          npm run build
-        working-directory: build/wp-content/plugins/voyager-blocks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 2. Place the voyager-demo theme files into wp-content/themes/voyager-demo/
       #    The repo keeps theme files at root for v3 local dev; this step
