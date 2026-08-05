@@ -146,7 +146,7 @@
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"typography":{"lineHeight":"1.6"}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="line-height:1.6"><?php echo esc_html_x( 'Start from any direction. Choose from 135 patterns, generate with AI, pull from Notion databases, or build from scratch with 30 custom blocks.', 'phase description', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="line-height:1.6"><?php echo esc_html_x( 'Start from any direction. Choose a pattern from the library, generate with AI, pull from Notion databases, or build from scratch with custom blocks.', 'phase description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:group {"style":{"spacing":{"blockGap":"6px","margin":{"top":"var:preset|spacing|30"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
@@ -287,7 +287,7 @@
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"typography":{"lineHeight":"1.6"}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="line-height:1.6"><?php echo esc_html_x( 'Everything in the editor: 30 custom blocks, 135 patterns, 20 extensions, AI sidebar, block bindings, animations, mega menu, and a pattern management system.', 'product description', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="line-height:1.6"><?php echo esc_html_x( 'Everything in the editor: custom blocks, the full pattern library, editor extensions, AI sidebar, block bindings, animations, mega menu, and a pattern management system.', 'product description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"},"blockGap":"8px"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
@@ -376,7 +376,7 @@
             <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"},"blockGap":"8px"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
             <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--30)">
                 <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"4px","bottom":"4px","left":"12px","right":"12px"}},"border":{"radius":"100px"},"typography":{"fontSize":"0.75rem","fontWeight":"600"}},"backgroundColor":"bg-canvas","textColor":"accent"} -->
-                <p class="has-accent-color has-text-color has-bg-canvas-background-color has-background" style="border-radius:100px;padding-top:4px;padding-right:12px;padding-bottom:4px;padding-left:12px;font-size:0.75rem;font-weight:600"><?php echo esc_html_x( '6 CPTs', 'tag', 'voyager-demo' ); ?></p>
+                <p class="has-accent-color has-text-color has-bg-canvas-background-color has-background" style="border-radius:100px;padding-top:4px;padding-right:12px;padding-bottom:4px;padding-left:12px;font-size:0.75rem;font-weight:600"><?php echo esc_html_x( '8 CPTs', 'tag', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
                 <!-- wp:paragraph {"style":{"spacing":{"padding":{"top":"4px","bottom":"4px","left":"12px","right":"12px"}},"border":{"radius":"100px"},"typography":{"fontSize":"0.75rem","fontWeight":"600"}},"backgroundColor":"bg-canvas","textColor":"accent"} -->
                 <p class="has-accent-color has-text-color has-bg-canvas-background-color has-background" style="border-radius:100px;padding-top:4px;padding-right:12px;padding-bottom:4px;padding-left:12px;font-size:0.75rem;font-weight:600"><?php echo esc_html_x( '14 Animations', 'tag', 'voyager-demo' ); ?></p>
@@ -733,7 +733,7 @@
             <p class="has-accent-2-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em"><?php echo esc_html_x( 'MCP Server', 'integration name', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
             <!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","style":{"typography":{"lineHeight":"1.5"}}} -->
-            <p class="has-fg-1-color has-text-color has-sm-font-size" style="line-height:1.5"><?php echo esc_html_x( '117 tools across 16 domains on Cloudflare Workers. OAuth-secured. Bridges AI agents to WordPress, Notion, Stripe, and Google APIs.', 'integration description', 'voyager-demo' ); ?></p>
+            <p class="has-fg-1-color has-text-color has-sm-font-size" style="line-height:1.5"><?php echo esc_html_x( 'An OAuth-secured MCP server on Cloudflare Workers. Bridges AI agents to WordPress, Notion, Stripe, and Google APIs.', 'integration description', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->

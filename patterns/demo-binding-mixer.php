@@ -29,7 +29,7 @@
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"lineHeight":"1.6","fontSize":"clamp(1.1rem, 2.5vw, 1.35rem)"},"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"textColor":"fg-1"} -->
-        <p class="has-text-align-center has-fg-1-color has-text-color" style="margin-top:var(--wp--preset--spacing--40);font-size:clamp(1.1rem, 2.5vw, 1.35rem);line-height:1.6"><?php echo esc_html_x( '12 sources. Infinite combinations. Mix data from geo, AI, Notion, analytics, and post meta — all in one block.', 'mixer subtitle', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-fg-1-color has-text-color" style="margin-top:var(--wp--preset--spacing--40);font-size:clamp(1.1rem, 2.5vw, 1.35rem);line-height:1.6"><?php echo esc_html_x( 'One block, every source. Mix data from geo, AI, Notion, analytics, and post meta — infinite combinations.', 'mixer subtitle', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
     </div>
@@ -357,7 +357,7 @@
         <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
         <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
             <!-- wp:button {"backgroundColor":"accent","textColor":"fg-1","style":{"border":{"radius":"8px"},"spacing":{"padding":{"top":"14px","bottom":"14px","left":"32px","right":"32px"}}}} -->
-            <div class="wp-block-button"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" style="border-radius:8px;padding-top:14px;padding-right:32px;padding-bottom:14px;padding-left:32px"><?php echo esc_html_x( 'Explore all 12 binding sources', 'mixer cta button', 'voyager-demo' ); ?></a></div>
+            <div class="wp-block-button"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" style="border-radius:8px;padding-top:14px;padding-right:32px;padding-bottom:14px;padding-left:32px"><?php echo esc_html_x( 'Explore all binding sources', 'mixer cta button', 'voyager-demo' ); ?></a></div>
             <!-- /wp:button -->
         </div>
         <!-- /wp:buttons -->
