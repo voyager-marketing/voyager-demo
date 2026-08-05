@@ -17,6 +17,9 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
     steps:
       # 1. Checkout each Voyager repo into the right wp-content layout
       - name: Checkout voyager-demo (this repo)
@@ -78,7 +81,7 @@ jobs:
           npm run build
         working-directory: build/wp-content/plugins/voyager-blocks
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.VOYAGER_GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 2. Place the voyager-demo theme files into wp-content/themes/voyager-demo/
       #    The repo keeps theme files at root for v3 local dev; this step
