@@ -23,7 +23,7 @@ return [
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"textColor":"fg-4"} -->
-<p class="has-fg-4-color has-text-color">Every tool here is read-only and whitelisted server-side. Your browser never talks to the Voyager MCP surface directly — it posts a tool name to this site, and this site does the rest. That is not a demo shortcut; it is how the boundary is supposed to work, and it is why there is no endpoint URL or token anywhere in this page's source for you to find.</p>
+<p class="has-fg-4-color has-text-color">Every tool here is read-only and whitelisted server-side. Your browser never talks to the Voyager MCP surface directly — it posts a tool name to this site, and this site does the rest. That is not a demo shortcut; it is how the boundary is supposed to work, and it is why no Voyager MCP endpoint or token appears anywhere in this page's source — the only route you will find is this site's own public REST path.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:pattern {"slug":"voyager-demo/mcp-playground"} /-->

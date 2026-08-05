@@ -126,7 +126,7 @@
             <h3 class="wp-block-heading has-fg-1-color has-text-color has-lg-font-size">Workflow Automation</h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size">Scheduled AI agents that run content production, SEO expansion, and lead analysis on autopilot. Three managed agents run weekly without human intervention.</p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size">Scheduled AI agents that run content production, SEO expansion, and lead analysis on autopilot. Eight managed agents run on schedule without human intervention.</p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->

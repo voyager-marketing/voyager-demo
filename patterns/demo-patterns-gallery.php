@@ -13,7 +13,7 @@
     <!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
     <div class="wp-block-group is-layout-constrained">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-140 · PATTERN LIBRARY', 'page eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · PATTERN LIBRARY', 'page eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em","fontWeight":"500"},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontFamily":"mono"} -->
@@ -210,7 +210,7 @@
 <div class="wp-block-group alignfull vo-reveal has-fg-1-color has-bg-canvas-background-color has-text-color has-background is-layout-constrained" style="background:linear-gradient(135deg, #1B1F3B 0%, #2A2F52 100%);padding-top:var(--wp--preset--spacing--8);padding-right:var(--wp--preset--spacing--7);padding-bottom:var(--wp--preset--spacing--8);padding-left:var(--wp--preset--spacing--7)">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-141 · Pattern Cloud', 'section eyebrow', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Pattern Cloud', 'section eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"}}} -->

@@ -23,7 +23,7 @@
     <div class="wp-block-group is-layout-constrained">
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-110 · CONTENT AUTOMATION', 'automation hero eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · CONTENT AUTOMATION', 'automation hero eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"lineHeight":"1.05","fontSize":"clamp(2.5rem, 7vw, 4.5rem)","letterSpacing":"-0.03em","fontWeight":"500"},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontFamily":"mono"} -->
@@ -201,19 +201,19 @@
                     <div class="wp-block-group">
 
                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem"}},"textColor":"fg-1"} -->
-                        <p class="has-fg-1-color has-text-color" style="font-size:0.9rem"><?php echo esc_html_x( "\u2705 Word count \u2265 800", 'automation gate 1', 'voyager-demo' ); ?></p>
+                        <p class="has-fg-1-color has-text-color" style="font-size:0.9rem"><?php echo esc_html_x( '✅ Word count ≥ 800', 'automation gate 1', 'voyager-demo' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem"}},"textColor":"fg-1"} -->
-                        <p class="has-fg-1-color has-text-color" style="font-size:0.9rem"><?php echo esc_html_x( "\u2705 SEO meta description present", 'automation gate 2', 'voyager-demo' ); ?></p>
+                        <p class="has-fg-1-color has-text-color" style="font-size:0.9rem"><?php echo esc_html_x( '✅ SEO meta description present', 'automation gate 2', 'voyager-demo' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem"}},"textColor":"fg-1"} -->
-                        <p class="has-fg-1-color has-text-color" style="font-size:0.9rem"><?php echo esc_html_x( "\u2705 2+ internal links included", 'automation gate 3', 'voyager-demo' ); ?></p>
+                        <p class="has-fg-1-color has-text-color" style="font-size:0.9rem"><?php echo esc_html_x( '✅ 2+ internal links included', 'automation gate 3', 'voyager-demo' ); ?></p>
                         <!-- /wp:paragraph -->
 
                         <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem"}},"textColor":"fg-1"} -->
-                        <p class="has-fg-1-color has-text-color" style="font-size:0.9rem"><?php echo esc_html_x( "\u2705 CTA paragraph at the end", 'automation gate 4', 'voyager-demo' ); ?></p>
+                        <p class="has-fg-1-color has-text-color" style="font-size:0.9rem"><?php echo esc_html_x( '✅ CTA paragraph at the end', 'automation gate 4', 'voyager-demo' ); ?></p>
                         <!-- /wp:paragraph -->
 
                     </div>

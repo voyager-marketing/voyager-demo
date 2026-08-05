@@ -231,7 +231,7 @@
         <p class="has-text-align-center has-accent-color has-text-color has-sm-font-size" style="font-weight:600;text-transform:uppercase;letter-spacing:0.1em"><?php echo esc_html_x( 'What This Replaces', 'section eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
         <!-- wp:heading {"textAlign":"center","fontSize":"xl","style":{"typography":{"letterSpacing":"-0.02em"}}} -->
-        <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="letter-spacing:-0.02em"><?php echo esc_html_x( '11 Tools. $2,400/Month. Replaced by One WordPress Install.', 'section heading', 'voyager-demo' ); ?></h2>
+        <h2 class="wp-block-heading has-text-align-center has-xl-font-size" style="letter-spacing:-0.02em"><?php echo esc_html_x( '11 Tools. $1,600/Month. Replaced by One WordPress Install.', 'section heading', 'voyager-demo' ); ?></h2>
         <!-- /wp:heading -->
     </div>
     <!-- /wp:group -->

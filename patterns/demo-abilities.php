@@ -15,7 +15,7 @@
     <div class="wp-block-group is-layout-constrained">
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-10 · 89 AI ABILITIES', 'abilities hero eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · 89 AI ABILITIES', 'abilities hero eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontSize":"clamp(2.25rem, 6vw, 4rem)","letterSpacing":"-0.02em","fontWeight":"500","lineHeight":"1.1"}},"textColor":"fg-1","fontFamily":"mono"} -->
@@ -43,7 +43,7 @@
 <div class="wp-block-group alignfull vo-section vo-section--raised vo-reveal is-layout-constrained">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">— DEMO · D-11 · <?php echo esc_html_x( 'Ability domains', 'abilities section eyebrow', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">— DEMO · <?php echo esc_html_x( 'Ability domains', 'abilities section eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"2xl"} -->
@@ -338,7 +338,7 @@
 <div class="wp-block-group alignfull vo-section vo-reveal has-fg-1-color has-text-color is-layout-constrained">
 
     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-12 · Architecture', 'architecture section eyebrow', 'voyager-demo' ); ?></p>
+    <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Architecture', 'architecture section eyebrow', 'voyager-demo' ); ?></p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"textAlign":"center","fontSize":"2xl"} -->
@@ -423,7 +423,7 @@
     <div class="wp-block-group is-layout-constrained">
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-13 · Model Context Protocol', 'mcp section eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Model Context Protocol', 'mcp section eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","fontSize":"2xl"} -->

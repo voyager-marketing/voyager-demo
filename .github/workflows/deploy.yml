@@ -71,7 +71,7 @@ jobs:
           mkdir -p build/wp-content/themes/voyager-demo
           cd src/voyager-demo
           # Copy theme files only — skip repo metadata + GH Actions
-          for item in style.css theme.json functions.php patterns templates parts assets CLAUDE.md ROADMAP.md; do
+          for item in style.css theme.json functions.php patterns templates parts assets seeds CLAUDE.md ROADMAP.md; do
             if [ -e "$item" ]; then
               cp -r "$item" "../../build/wp-content/themes/voyager-demo/"
             fi

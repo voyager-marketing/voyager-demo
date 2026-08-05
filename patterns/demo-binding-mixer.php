@@ -15,7 +15,7 @@
     <div class="wp-block-group is-layout-constrained">
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"accent-bright","fontFamily":"mono"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-90 · 12 BINDING SOURCES', 'mixer eyebrow', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · 12 BINDING SOURCES', 'mixer eyebrow', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"lineHeight":"1.05","fontSize":"clamp(2.5rem, 7vw, 4.5rem)","letterSpacing":"-0.03em","fontWeight":"500"},"color":{"text":"var(--wp--preset--color--bg-raised)"}},"fontFamily":"mono"} -->
@@ -45,7 +45,7 @@
     <div class="wp-block-group is-layout-constrained">
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-91 · Recipe Cards', 'mixer section label', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Recipe Cards', 'mixer section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} -->
@@ -245,7 +245,7 @@
     <div class="wp-block-group is-layout-constrained">
 
         <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|30"}}},"textColor":"accent-bright","fontFamily":"mono","className":"vo-eyebrow"} -->
-        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · D-92 · Live Mixer', 'mixer live section label', 'voyager-demo' ); ?></p>
+        <p class="has-text-align-center has-accent-bright-color has-text-color has-mono-font-family vo-eyebrow" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--30);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( '— DEMO · Live Mixer', 'mixer live section label', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","level":2,"fontSize":"2xl","style":{"typography":{"letterSpacing":"-0.03em"},"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"color":{"text":"var(--wp--preset--color--bg-raised)"}}} -->
@@ -269,12 +269,12 @@
             <p class="has-text-align-center has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase"><?php echo esc_html_x( 'voyager/pulse', 'source label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontSize":"clamp(2rem, 5vw, 3rem)","fontWeight":"700","fontFamily":"monospace"},"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}},"textColor":"accent","metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"total_pseo_pages"}}}}} -->
+            <!-- wp:heading {"textAlign":"center","level":3,"style":{"typography":{"fontSize":"clamp(2rem, 5vw, 3rem)","fontWeight":"700","fontFamily":"monospace"},"spacing":{"margin":{"bottom":"var:preset|spacing|10"}}},"textColor":"accent","metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"pattern_count"}}}}} -->
             <h3 class="wp-block-heading has-text-align-center has-accent-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--10);font-family:monospace;font-size:clamp(2rem, 5vw, 3rem);font-weight:700"><?php echo esc_html_x( '—', 'stat fallback', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm"} -->
-            <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'pSEO Pages', 'stat label', 'voyager-demo' ); ?></p>
+            <p class="has-text-align-center has-fg-3-color has-text-color has-sm-font-size"><?php echo esc_html_x( 'Patterns Registered', 'stat label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -357,7 +357,7 @@
         <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
         <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
             <!-- wp:button {"backgroundColor":"accent","textColor":"fg-1","style":{"border":{"radius":"8px"},"spacing":{"padding":{"top":"14px","bottom":"14px","left":"32px","right":"32px"}}}} -->
-            <div class="wp-block-button"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" style="border-radius:8px;padding-top:14px;padding-right:32px;padding-bottom:14px;padding-left:32px"><?php echo esc_html_x( 'Explore all binding sources', 'mixer cta button', 'voyager-demo' ); ?></a></div>
+            <div class="wp-block-button"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" href="/binding-sources/" style="border-radius:8px;padding-top:14px;padding-right:32px;padding-bottom:14px;padding-left:32px"><?php echo esc_html_x( 'Explore all binding sources', 'mixer cta button', 'voyager-demo' ); ?></a></div>
             <!-- /wp:button -->
         </div>
         <!-- /wp:buttons -->

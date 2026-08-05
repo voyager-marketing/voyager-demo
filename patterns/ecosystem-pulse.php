@@ -35,16 +35,16 @@
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"16px","width":"1px","color":"rgba(255,255,255,0.08)"}}} -->
         <div class="wp-block-column" style="border-color:rgba(255,255,255,0.08);border-width:1px;border-radius:16px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
 
-            <!-- wp:heading {"level":3,"textColor":"accent","style":{"typography":{"fontSize":"3rem","letterSpacing":"-0.04em","fontWeight":"700"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"total_pseo_pages"}}}}} -->
-            <h3 class="wp-block-heading has-accent-color has-text-color" style="font-size:3rem;font-weight:700;letter-spacing:-0.04em">92</h3>
+            <!-- wp:heading {"level":3,"textColor":"accent","style":{"typography":{"fontSize":"3rem","letterSpacing":"-0.04em","fontWeight":"700"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"ability_count"}}}}} -->
+            <h3 class="wp-block-heading has-accent-color has-text-color" style="font-size:3rem;font-weight:700;letter-spacing:-0.04em">148</h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"fg-1","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|20"}}}} -->
-            <p class="has-fg-1-color has-text-color" style="font-weight:600;margin-top:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'pSEO landing pages', 'pulse metric label', 'voyager-demo' ); ?></p>
+            <p class="has-fg-1-color has-text-color" style="font-weight:600;margin-top:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'AI abilities registered', 'pulse metric label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} -->
-            <p class="has-fg-3-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--10)"><?php echo esc_html_x( 'Service areas + industry pages + neighborhoods, all data-bound', 'pulse metric detail', 'voyager-demo' ); ?></p>
+            <p class="has-fg-3-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--10)"><?php echo esc_html_x( 'In the Abilities API on this install — the registry counts itself', 'pulse metric detail', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
@@ -53,16 +53,16 @@
         <!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"radius":"16px","width":"1px","color":"rgba(255,255,255,0.08)"}}} -->
         <div class="wp-block-column" style="border-color:rgba(255,255,255,0.08);border-width:1px;border-radius:16px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
 
-            <!-- wp:heading {"level":3,"textColor":"fg-3","style":{"typography":{"fontSize":"3rem","letterSpacing":"-0.04em","fontWeight":"700"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"cities_covered"}}}}} -->
-            <h3 class="wp-block-heading has-fg-3-color has-text-color" style="font-size:3rem;font-weight:700;letter-spacing:-0.04em">15</h3>
+            <!-- wp:heading {"level":3,"textColor":"fg-3","style":{"typography":{"fontSize":"3rem","letterSpacing":"-0.04em","fontWeight":"700"}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"binding_source_count"}}}}} -->
+            <h3 class="wp-block-heading has-fg-3-color has-text-color" style="font-size:3rem;font-weight:700;letter-spacing:-0.04em">18</h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"textColor":"fg-1","style":{"typography":{"fontWeight":"600"},"spacing":{"margin":{"top":"var:preset|spacing|20"}}}} -->
-            <p class="has-fg-1-color has-text-color" style="font-weight:600;margin-top:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Cities covered', 'pulse metric label', 'voyager-demo' ); ?></p>
+            <p class="has-fg-1-color has-text-color" style="font-weight:600;margin-top:var(--wp--preset--spacing--20)"><?php echo esc_html_x( 'Binding sources', 'pulse metric label', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
-            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"metadata":{"bindings":{"content":{"source":"voyager/pulse","args":{"key":"coverage_label"}}}}} -->
-            <p class="has-fg-3-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--10)">15 cities, 92 landing pages</p>
+            <!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} -->
+            <p class="has-fg-3-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--10)"><?php echo esc_html_x( 'Live in the block bindings registry right now', 'pulse metric detail', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
 
         </div>
