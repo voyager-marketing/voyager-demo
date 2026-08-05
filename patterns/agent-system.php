@@ -116,10 +116,10 @@
                 <p class="has-accent-bright-color has-text-color has-sm-font-size" style="font-weight:700;text-transform:uppercase;letter-spacing:0.05em">Weekly</p>
                 <!-- /wp:paragraph -->
                 <!-- wp:heading {"level":4,"textColor":"fg-1","fontSize":"md"} -->
-                <h4 class="wp-block-heading has-fg-1-color has-text-color has-md-font-size">3 More QA Agents</h4>
+                <h4 class="wp-block-heading has-fg-1-color has-text-color has-md-font-size">QA &amp; Review Agents</h4>
                 <!-- /wp:heading -->
                 <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
-                <p class="has-fg-4-color has-text-color has-sm-font-size">Pattern Quality (accessibility), Content Freshness (stale detection), SEO Infrastructure (schema + bindings). Nothing slips through.</p>
+                <p class="has-fg-4-color has-text-color has-sm-font-size">Accessibility, content freshness, and SEO infrastructure checks run weekly on top of the daily QA pass. Nothing slips through.</p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->

@@ -156,7 +156,7 @@
                 <!-- wp:paragraph {"style":{"typography":{"fontSize":"11px","letterSpacing":"0.08em","textTransform":"uppercase","fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"fg-4","fontFamily":"mono"} -->
                 <p class="has-fg-4-color has-text-color has-mono-font-family" style="margin-top:0;margin-bottom:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase"><?php echo esc_html_x( 'PHONE', 'geo label', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
-                <!-- wp:paragraph {"style":{"typography":{"fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"fg-1","fontSize":"md","fontFamily":"mono","metadata":{"bindings":{"content":{"source":"voyager/geo","args":{"key":"phone"}}}}} -->
+                <!-- wp:paragraph {"style":{"typography":{"fontWeight":"500"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"fg-1","fontSize":"md","fontFamily":"mono","metadata":{"bindings":{"content":{"source":"voyager/site-data","args":{"key":"phone"}}}}} -->
                 <p class="has-fg-1-color has-text-color has-mono-font-family has-md-font-size" style="margin-top:0;margin-bottom:0;font-weight:500"><?php echo esc_html_x( '(555) 000-0000', 'geo fallback', 'voyager-demo' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>

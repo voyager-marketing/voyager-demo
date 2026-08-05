@@ -30,6 +30,16 @@
         <p class="has-text-align-center has-fg-3-color has-text-color has-base-font-size" style="margin-top:var(--wp--preset--spacing--30)"><?php echo esc_html_x( 'Here is what that actually means for a business.', 'hero cta', 'voyager-demo' ); ?></p>
         <!-- /wp:paragraph -->
 
+        <!-- wp:paragraph {"align":"center","textColor":"fg-3","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|20"}},"elements":{"link":{"color":{"text":"var:preset|color|accent"}}}}} -->
+        <p class="has-text-align-center has-fg-3-color has-text-color has-link-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--20)"><?php
+        printf(
+            '<a href="%s">%s →</a>',
+            esc_url( '/ecosystem/' ),
+            esc_html_x( 'Want the technical deep dive? Explore the full ecosystem', 'hero cross-link', 'voyager-demo' )
+        );
+        ?></p>
+        <!-- /wp:paragraph -->
+
     </div>
     <!-- /wp:group -->
 

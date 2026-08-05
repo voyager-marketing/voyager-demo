@@ -52,7 +52,7 @@
             <h3 class="wp-block-heading has-accent-color has-text-color has-md-font-size" style="font-weight:700"><?php echo esc_html_x( 'Hero', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '10 patterns: animated hero, split hero, video background, particles, hero with stats, minimal, welcome', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Animated hero, split hero, video background, particles, hero with stats, minimal, welcome', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -63,7 +63,7 @@
             <h3 class="wp-block-heading has-accent-bright-color has-text-color has-md-font-size" style="font-weight:700"><?php echo esc_html_x( 'Features', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '10 patterns: 3-col, 4-col, icons, cards, accordion, alternating, comparison, timeline, grid-6', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '3-col, 4-col, icons, cards, accordion, alternating, comparison, timeline, grid-6', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -74,7 +74,7 @@
             <h3 class="wp-block-heading has-accent-color has-text-color has-md-font-size" style="font-weight:700"><?php echo esc_html_x( 'Testimonials', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '8 patterns: carousel, grid, featured, minimal, large, bound-card, bound-grid, single', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Carousel, grid, featured, minimal, large, bound-card, bound-grid, single', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -92,7 +92,7 @@
             <h3 class="wp-block-heading has-text-color has-md-font-size" style="color:#FF6B35;font-weight:700"><?php echo esc_html_x( 'Services', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '7 patterns: grid, list, pricing, process, showcase, single-service', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Grid, list, pricing, process, showcase, single-service', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -103,7 +103,7 @@
             <h3 class="wp-block-heading has-text-color has-md-font-size" style="color:#9333EA;font-weight:700"><?php echo esc_html_x( 'Portfolio', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '6 patterns: featured, filter, grid, masonry, testimonials combo, single + archive', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Featured, filter, grid, masonry, testimonials combo, single + archive', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -114,7 +114,7 @@
             <h3 class="wp-block-heading has-text-color has-md-font-size" style="color:#0EA5E9;font-weight:700"><?php echo esc_html_x( 'CTA & Contact', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '10 patterns: banner, centered, features, newsletter, split, contextual + contact forms', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Banner, centered, features, newsletter, split, contextual + contact forms', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -132,7 +132,7 @@
             <h3 class="wp-block-heading has-accent-color has-text-color has-md-font-size" style="font-weight:700"><?php echo esc_html_x( 'Full Pages', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '13 patterns: agency, about, services, portfolio, FAQ, pricing, blog + 6 landing pages (app, course, event, product, startup, creative)', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Agency, about, services, portfolio, FAQ, pricing, blog + landing pages (app, course, event, product, startup, creative)', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -143,7 +143,7 @@
             <h3 class="wp-block-heading has-accent-bright-color has-text-color has-md-font-size" style="font-weight:700"><?php echo esc_html_x( 'pSEO Templates', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '10 patterns: service-area (5 layouts), industry (3 layouts), neighborhood (2 layouts). All data-bound via post meta.', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Service-area, industry, and neighborhood layouts. All data-bound via post meta.', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -154,7 +154,7 @@
             <h3 class="wp-block-heading has-accent-color has-text-color has-md-font-size" style="font-weight:700"><?php echo esc_html_x( 'Creative & GSAP', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '6 patterns: galaxy hero, parallax showcase, sticky services, team flip, comparison slider, creative showcase', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Galaxy hero, parallax showcase, sticky services, team flip, comparison slider, creative showcase', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -172,7 +172,7 @@
             <h3 class="wp-block-heading has-text-color has-md-font-size" style="color:#FF6B35;font-weight:700"><?php echo esc_html_x( 'Team & Blog', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '10 patterns: team grid, featured, list, bound archive + blog grid, list, recent posts, single', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Team grid, featured, list, bound archive + blog grid, list, recent posts, single', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -183,7 +183,7 @@
             <h3 class="wp-block-heading has-text-color has-md-font-size" style="color:#9333EA;font-weight:700"><?php echo esc_html_x( 'Headers & Footers', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '6 patterns: default header, mega menu header, logo+menu + 4-col footer, mega footer, minimal, site-data', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( 'Default header, mega menu header, logo+menu + 4-col footer, mega footer, minimal, site-data', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -194,7 +194,7 @@
             <h3 class="wp-block-heading has-text-color has-md-font-size" style="color:#0EA5E9;font-weight:700"><?php echo esc_html_x( 'Stats & Pricing', 'category name', 'voyager-demo' ); ?></h3>
             <!-- /wp:heading -->
             <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","style":{"spacing":{"margin":{"top":"var:preset|spacing|3"}}}} -->
-            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '6 patterns: 4-col stats, animated, centered, counter + pricing comparison, pricing page', 'category patterns', 'voyager-demo' ); ?></p>
+            <p class="has-fg-4-color has-text-color has-sm-font-size" style="margin-top:var(--wp--preset--spacing--3)"><?php echo esc_html_x( '4-col stats, animated, centered, counter + pricing comparison, pricing page', 'category patterns', 'voyager-demo' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
