@@ -503,8 +503,8 @@
 
     <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|6"}}}} -->
     <div class="wp-block-buttons is-layout-flex" style="margin-top:var(--wp--preset--spacing--6)">
-        <!-- wp:button {"backgroundColor":"accent","textColor":"fg-1","style":{"spacing":{"padding":{"top":"18px","bottom":"18px","left":"40px","right":"40px"}},"typography":{"fontWeight":"700","fontSize":"var(--wp--preset--font-size--medium)"},"border":{"radius":"8px"}}} -->
-        <div class="wp-block-button has-custom-font-size"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" href="/contact/" style="border-radius:8px;padding-top:18px;padding-right:40px;padding-bottom:18px;padding-left:40px;font-weight:700;font-size:var(--wp--preset--font-size--medium)"><?php echo esc_html_x( 'Get your free site audit →', 'cta button', 'voyager-demo' ); ?></a></div>
+        <!-- wp:button {"backgroundColor":"accent","textColor":"fg-1","style":{"spacing":{"padding":{"top":"18px","bottom":"18px","left":"40px","right":"40px"}},"typography":{"fontWeight":"700","fontSize":"var(--wp--preset--font-size--md)"},"border":{"radius":"8px"}}} -->
+        <div class="wp-block-button has-custom-font-size"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" href="/audit/" style="border-radius:8px;padding-top:18px;padding-right:40px;padding-bottom:18px;padding-left:40px;font-weight:700;font-size:var(--wp--preset--font-size--md)"><?php echo esc_html_x( 'Book the Operating Audit →', 'cta button', 'voyager-demo' ); ?></a></div>
         <!-- /wp:button -->
     </div>
     <!-- /wp:buttons -->
