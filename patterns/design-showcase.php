@@ -517,13 +517,13 @@
 	<!-- /wp:heading -->
 
 	<!-- wp:paragraph {"align":"center","style":{"typography":{"lineHeight":"1.75"},"spacing":{"margin":{"bottom":"var:preset|spacing|7"}},"color":{"text":"#9ca3af"}},"fontSize":"base"} -->
-	<p class="has-text-align-center has-text-color has-base-font-size" style="color:#9ca3af;margin-bottom:var(--wp--preset--spacing--7);line-height:1.75"><?php echo esc_html_x( 'Get a free audit of your current site. We will show you exactly where the opportunities are — no strings attached.', 'cta desc', 'voyager-demo' ); ?></p>
+	<p class="has-text-align-center has-text-color has-base-font-size" style="color:#9ca3af;margin-bottom:var(--wp--preset--spacing--7);line-height:1.75"><?php echo esc_html_x( 'The Operating Audit reads your whole site and hands you a decision you can act on. $2,500, published up front.', 'cta desc', 'voyager-demo' ); ?></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 	<div class="wp-block-buttons">
 		<!-- wp:button {"backgroundColor":"accent","textColor":"fg-1","style":{"spacing":{"padding":{"top":"1.125rem","bottom":"1.125rem","left":"3rem","right":"3rem"}},"typography":{"fontWeight":"600"},"border":{"radius":"8px"}},"fontSize":"sm"} -->
-		<div class="wp-block-button has-custom-font-size has-sm-font-size"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" href="/contact/" style="border-radius:8px;padding-top:1.125rem;padding-right:3rem;padding-bottom:1.125rem;padding-left:3rem;font-weight:600"><?php echo esc_html_x( 'Get your free site audit →', 'cta button', 'voyager-demo' ); ?></a></div>
+		<div class="wp-block-button has-custom-font-size has-sm-font-size"><a class="wp-block-button__link has-fg-1-color has-accent-background-color has-text-color has-background wp-element-button" href="/audit/" style="border-radius:8px;padding-top:1.125rem;padding-right:3rem;padding-bottom:1.125rem;padding-left:3rem;font-weight:600"><?php echo esc_html_x( 'Book the Operating Audit →', 'cta button', 'voyager-demo' ); ?></a></div>
 		<!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->
