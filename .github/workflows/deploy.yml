@@ -27,10 +27,25 @@ jobs:
         with:
           path: src/voyager-demo
 
+      # Orbit, Core and the parent theme deploy at their latest release
+      # tag, not main, so demo runs what the fleet runs. A repo with no
+      # release fails the step rather than falling back to main.
+      - name: Resolve latest release tags
+        id: tags
+        env:
+          GH_TOKEN: ${{ secrets.VOYAGER_GH_TOKEN }}
+        run: |
+          for repo in voyager-block-theme voyager-core voyager-orbit; do
+            tag=$(gh release view --repo "voyager-marketing/$repo" --json tagName -q .tagName)
+            echo "$repo -> $tag"
+            echo "$repo=$tag" >> "$GITHUB_OUTPUT"
+          done
+
       - name: Checkout voyager-block-theme (parent)
         uses: actions/checkout@v4
         with:
           repository: voyager-marketing/voyager-block-theme
+          ref: ${{ steps.tags.outputs.voyager-block-theme }}
           token: ${{ secrets.VOYAGER_GH_TOKEN }}
           path: build/wp-content/themes/voyager-block-theme
 
@@ -48,10 +63,23 @@ jobs:
           mkdir -p build/wp-content/plugins
           mv /tmp/vb-extract/voyager-blocks build/wp-content/plugins/voyager-blocks
 
+      # The open block pack ships the same way: its release ZIP carries
+      # the compiled build/. `gh release download` with no tag skips
+      # pre-releases, so this takes the latest full release.
+      - name: Fetch voyager-open-blocks release build
+        env:
+          GH_TOKEN: ${{ secrets.VOYAGER_GH_TOKEN }}
+        run: |
+          gh release download --repo voyager-marketing/voyager-open-blocks \
+            --pattern 'voyager-open-blocks.zip' --output /tmp/voyager-open-blocks.zip
+          unzip -q /tmp/voyager-open-blocks.zip -d /tmp/vob-extract
+          mv /tmp/vob-extract/voyager-open-blocks build/wp-content/plugins/voyager-open-blocks
+
       - name: Checkout voyager-core
         uses: actions/checkout@v4
         with:
           repository: voyager-marketing/voyager-core
+          ref: ${{ steps.tags.outputs.voyager-core }}
           token: ${{ secrets.VOYAGER_GH_TOKEN }}
           path: build/wp-content/plugins/voyager-core
 
@@ -59,6 +87,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: voyager-marketing/voyager-orbit
+          ref: ${{ steps.tags.outputs.voyager-orbit }}
           token: ${{ secrets.VOYAGER_GH_TOKEN }}
           path: build/wp-content/plugins/voyager-orbit
 
@@ -116,7 +145,8 @@ jobs:
       - name: Rsync build/wp-content/ -> demo server
         run: |
           for dir in themes/voyager-block-theme themes/voyager-demo \
-                     plugins/voyager-blocks plugins/voyager-core plugins/voyager-orbit; do
+                     plugins/voyager-blocks plugins/voyager-core plugins/voyager-orbit \
+                     plugins/voyager-open-blocks; do
             rsync -az --delete-after \
               "build/wp-content/$dir/" \
               "$DEMO_USER@$DEMO_HOST:$DEMO_PATH/wp-content/$dir/"
@@ -129,7 +159,7 @@ jobs:
             set -e
             cd /sites/demo.voyagermark.com/files
 
-            for plugin in voyager-core voyager-blocks voyager-orbit; do
+            for plugin in voyager-core voyager-blocks voyager-orbit voyager-open-blocks; do
               if wp plugin is-installed "$plugin" 2>/dev/null; then
                 wp plugin activate "$plugin" 2>&1 | sed "s/^/  $plugin: /"
               else
@@ -159,4 +189,5 @@ jobs:
           echo "## Deploy summary" >> $GITHUB_STEP_SUMMARY
           echo "- demo.voyagermark.com → 200 OK" >> $GITHUB_STEP_SUMMARY
           echo "- Active theme: voyager-demo" >> $GITHUB_STEP_SUMMARY
+          echo "- voyager-block-theme ${{ steps.tags.outputs.voyager-block-theme }}, voyager-core ${{ steps.tags.outputs.voyager-core }}, voyager-orbit ${{ steps.tags.outputs.voyager-orbit }}" >> $GITHUB_STEP_SUMMARY
           echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
