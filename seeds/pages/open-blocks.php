@@ -1,6 +1,6 @@
 <?php
 /**
- * Seed: /open-blocks/ page — the Voyager Open Blocks gallery (VOY-1766).
+ * Seed: /open-blocks/ page, the Voyager Open Blocks gallery (VOY-1766).
  *
  * Built from the pack itself: the five patterns render live through
  * core/pattern, the icon block is voyager-open/icon, and the site-data
