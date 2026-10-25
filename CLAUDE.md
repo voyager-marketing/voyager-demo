@@ -77,13 +77,21 @@ excerpt, body, then bottom CTA.
 
 ## Standalone pages (seeds/pages/, post_type=page)
 
-Not every demo fits the vd_showcase shape. Two pages are seeded as regular
+Not every demo fits the vd_showcase shape. Three pages are seeded as regular
 Pages by the same `wp voyager-demo seed-showcases` command:
 
 | Page | Seed | Renders |
 |---|---|---|
 | /abilities/ | seeds/pages/abilities.php | voyager-demo/abilities-registry — live `wp_get_abilities()` |
 | /mcp-playground/ | seeds/pages/mcp-playground.php | voyager-demo/mcp-playground — interactive tool console |
+| /open-blocks/ | seeds/pages/open-blocks.php | Voyager Open Blocks gallery, built from the pack's own patterns and blocks |
+
+Deploy does not run the seeder, so demo gets a seed's markup through the
+Voyager MCP content tools (`wp_upsert_content`). Keep `--` out of block-comment
+JSON in a seed: the upsert path stores it as `u002du002d` (see the header of
+`seeds/pages/open-blocks.php`). Pages not yet launched are listed in
+`VOYAGER_DEMO_HELD_PAGES` in functions.php, which noindexes them and keeps them
+out of the sitemap; launching one is removing its slug from that list.
 
 ### MCP playground — fixture vs live
 
