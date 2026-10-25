@@ -362,6 +362,64 @@ add_action('template_redirect', function () {
     }
 });
 
+/*
+ * Pages held out of search until launch. Taking a slug off this list is the
+ * launch step that lets the page index. /open-blocks/ waits on copy review
+ * (VOY-1766). The hold lives here because RankMath's per-post robots setting
+ * cannot be written through the Voyager MCP tools, and demo has no WP-CLI.
+ */
+const VOYAGER_DEMO_HELD_PAGES = ['open-blocks'];
+
+/**
+ * Noindex a held page in RankMath's robots tag.
+ *
+ * @param array<string, string> $robots RankMath robots directives.
+ * @return array<string, string>
+ */
+function voyager_demo_noindex_held_pages(array $robots): array {
+    if (is_page(VOYAGER_DEMO_HELD_PAGES)) {
+        $robots['index']  = 'noindex';
+        $robots['follow'] = 'follow';
+    }
+
+    return $robots;
+}
+add_filter('rank_math/frontend/robots', 'voyager_demo_noindex_held_pages');
+
+/**
+ * The same hold in core's robots tag, for when RankMath is not printing one.
+ *
+ * @param array<string, bool|string> $robots Core robots directives.
+ * @return array<string, bool|string>
+ */
+function voyager_demo_wp_robots_held_pages(array $robots): array {
+    return is_page(VOYAGER_DEMO_HELD_PAGES) ? wp_robots_no_robots($robots) : $robots;
+}
+add_filter('wp_robots', 'voyager_demo_wp_robots_held_pages');
+
+/**
+ * Keep a held page out of the sitemap.
+ *
+ * RankMath builds the sitemap from its own per-post setting and never sees
+ * the frontend filter, so a held page would be submitted while it refuses
+ * indexing (voyagermark hit this on VOY-280).
+ *
+ * @param array<string, mixed>|false $url  The sitemap entry.
+ * @param string                     $type 'post', 'term' or 'user'.
+ * @param object                     $item The row the entry was built from.
+ * @return array<string, mixed>|false
+ */
+function voyager_demo_sitemap_skip_held_pages($url, $type, $item) {
+    if ('post' !== $type || ! is_object($item) || 'page' !== ($item->post_type ?? '')) {
+        return $url;
+    }
+
+    $slug = (string) ($item->post_name ?? get_post_field('post_name', (int) ($item->ID ?? 0)));
+
+    return in_array($slug, VOYAGER_DEMO_HELD_PAGES, true) ? false : $url;
+}
+add_filter('rank_math/sitemap/entry', 'voyager_demo_sitemap_skip_held_pages', 10, 3);
+
 /**
  * Load showcase seed definitions from seeds/showcases/.
  *
