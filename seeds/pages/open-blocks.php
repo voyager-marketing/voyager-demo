@@ -9,6 +9,12 @@
  * the two identical. The page is held out of search until launch
  * (VOYAGER_DEMO_HELD_PAGES in functions.php).
  *
+ * Keep "--" out of the block-comment JSON. WordPress stores it as
+ * --, and the upsert path strips the backslashes, so a value like
+ * var(--wp--custom--voyager--radius--3) lands as var(u002du002dwp...) and the
+ * block fails validation in the editor. That is why the cards here carry no
+ * radius token.
+ *
  * @package VoyagerDemo
  */
 
@@ -49,8 +55,8 @@ return [
 <!-- /wp:heading -->
 
 <!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|4"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"16rem"}} -->
-<div class="wp-block-group alignwide"><!-- wp:group {"style":{"border":{"width":"1px","radius":"var(--wp--custom--voyager--radius--3)"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-raised","borderColor":"border-hair","layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-raised-background-color has-background" style="border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:voyager-open/icon {"icon":"document","size":32,"textColor":"accent-bright"} /-->
+<div class="wp-block-group alignwide"><!-- wp:group {"style":{"border":{"width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-raised","borderColor":"border-hair","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-raised-background-color has-background" style="border-width:1px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:voyager-open/icon {"icon":"document","size":32,"textColor":"accent-bright"} /-->
 
 <!-- wp:heading {"level":3,"fontSize":"xl"} -->
 <h3 class="wp-block-heading has-xl-font-size">Read</h3>
@@ -61,8 +67,8 @@ return [
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"style":{"border":{"width":"1px","radius":"var(--wp--custom--voyager--radius--3)"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-raised","borderColor":"border-hair","layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-raised-background-color has-background" style="border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:voyager-open/icon {"icon":"check-circle","size":32,"textColor":"accent-bright"} /-->
+<!-- wp:group {"style":{"border":{"width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-raised","borderColor":"border-hair","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-raised-background-color has-background" style="border-width:1px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:voyager-open/icon {"icon":"check-circle","size":32,"textColor":"accent-bright"} /-->
 
 <!-- wp:heading {"level":3,"fontSize":"xl"} -->
 <h3 class="wp-block-heading has-xl-font-size">Check</h3>
@@ -73,8 +79,8 @@ return [
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"style":{"border":{"width":"1px","radius":"var(--wp--custom--voyager--radius--3)"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-raised","borderColor":"border-hair","layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-raised-background-color has-background" style="border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:voyager-open/icon {"icon":"link","size":32,"textColor":"accent-bright"} /-->
+<!-- wp:group {"style":{"border":{"width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-raised","borderColor":"border-hair","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-raised-background-color has-background" style="border-width:1px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:voyager-open/icon {"icon":"link","size":32,"textColor":"accent-bright"} /-->
 
 <!-- wp:heading {"level":3,"fontSize":"xl"} -->
 <h3 class="wp-block-heading has-xl-font-size">Bind</h3>
@@ -300,8 +306,8 @@ return [
 <p class="has-fg-3-color has-text-color">An outline icon from a fixed set of 35, with an optional link and a CSS-only animation. It saves no HTML, so there is nothing to go stale. The row below is the block, rendered live.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:group {"style":{"border":{"width":"1px","radius":"var(--wp--custom--voyager--radius--3)"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|6"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"flex","flexWrap":"wrap"}} -->
-<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:voyager-open/icon {"icon":"rocket-launch","size":40,"animation":"float","animationTrigger":"always","textColor":"accent-bright"} /-->
+<!-- wp:group {"style":{"border":{"width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|6"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"flex","flexWrap":"wrap"}} -->
+<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:voyager-open/icon {"icon":"rocket-launch","size":40,"animation":"float","animationTrigger":"always","textColor":"accent-bright"} /-->
 
 <!-- wp:voyager-open/icon {"icon":"shield-check","size":40,"textColor":"fg-2"} /-->
 
@@ -346,8 +352,8 @@ return [
 <p class="has-fg-3-color has-text-color">Company name, phone, email, address, hours and social links, set once under Settings › Site Data and bound everywhere, including ready-made tel: and mailto: links. The three values below are bound live to this site's settings.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:group {"style":{"border":{"width":"1px","radius":"var(--wp--custom--voyager--radius--3)"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|2"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;border-radius:var(--wp--custom--voyager--radius--3);padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
+<!-- wp:group {"style":{"border":{"width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|2"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","fontFamily":"mono"} -->
 <p class="has-fg-4-color has-text-color has-mono-font-family has-sm-font-size">company →</p>
 <!-- /wp:paragraph -->
@@ -359,11 +365,11 @@ return [
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm","fontFamily":"mono"} -->
-<p class="has-fg-4-color has-text-color has-mono-font-family has-sm-font-size">tagline →</p>
+<p class="has-fg-4-color has-text-color has-mono-font-family has-sm-font-size">phone →</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"voyager/site-data","args":{"key":"tagline"}}}},"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
-<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">Site tagline</p>
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"voyager/site-data","args":{"key":"phone"}}}},"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">Phone number</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
