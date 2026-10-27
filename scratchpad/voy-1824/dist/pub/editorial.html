@@ -1,0 +1,461 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Open Blocks: the field guide</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><meta name="robots" content="noindex">
+<style>
+.wp-pattern{--wp--style--block-gap:var(--d-gap,1.2rem)}
+.wp-pattern *,.wp-pattern *::before,.wp-pattern *::after{box-sizing:border-box}
+.wp-pattern :where(h1,h2,h3,p,ul,figure){margin:0}
+.wp-pattern :where(.is-layout-flow,.is-layout-constrained)>*{margin-block-start:var(--wp--style--block-gap);margin-block-end:0}
+.wp-pattern :where(.is-layout-flow,.is-layout-constrained)>:first-child{margin-block-start:0}
+.wp-pattern .is-layout-constrained>:where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:var(--wp--style--global--content-size);margin-left:auto!important;margin-right:auto!important}
+.wp-pattern .is-layout-constrained>.alignwide{max-width:var(--wp--style--global--wide-size)}
+.wp-pattern .is-layout-flex{display:flex;flex-wrap:wrap;align-items:center;gap:var(--wp--style--block-gap)}
+.wp-pattern .is-layout-flex>*{margin:0}
+.wp-pattern .wp-block-columns{display:flex;flex-wrap:wrap!important;align-items:normal!important}
+.wp-pattern .wp-block-columns.are-vertically-aligned-center{align-items:center!important}
+.wp-pattern .wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word}
+.wp-pattern .wp-block-column.is-vertically-aligned-center{align-self:center;width:100%}
+@media (min-width:782px){.wp-pattern .wp-block-columns{flex-wrap:nowrap!important}
+.wp-pattern .wp-block-column[style*=flex-basis]{flex-grow:0}
+}
+@media (max-width:781px){.wp-pattern .wp-block-column{flex-basis:100%!important}
+}
+.wp-pattern .wp-block-buttons{gap:var(--wp--style--block-gap)}
+.wp-pattern .wp-block-buttons.is-content-justification-right{justify-content:flex-end}
+.wp-pattern .wp-block-buttons.is-content-justification-center{justify-content:center}
+.wp-pattern .wp-block-button__link{display:inline-block;text-align:center;text-decoration:none;cursor:pointer;word-break:break-word}
+.wp-pattern .has-text-align-center{text-align:center}
+.wp-pattern .has-small-font-size{font-size:var(--wp--preset--font-size--small)}
+.wp-pattern .wp-block-image img{height:auto;max-width:100%;vertical-align:bottom}
+.wp-pattern .wp-block-image.is-resized img{width:auto}
+.wp-pattern[data-pattern=cta-band] .wp-block-columns{gap:var(--wp--preset--spacing--40) var(--wp--preset--spacing--60)}
+.wp-pattern[data-pattern=contact-section] .wp-block-columns{gap:var(--wp--preset--spacing--50) var(--wp--preset--spacing--60)}
+.wp-pattern[data-pattern=contact-section] .wp-block-column>.wp-block-group:not([style*=border]){--wp--style--block-gap:var(--wp--preset--spacing--20)}
+.wp-pattern[data-pattern=closing-cta]>section{--wp--style--global--content-size:720px;--wp--style--block-gap:var(--wp--preset--spacing--40)}
+.wp-pattern[data-pattern=proof-strip]>section{--wp--style--global--content-size:var(--wp--style--global--wide-size)}
+.wp-pattern[data-pattern=logo-marquee]>section{--wp--style--block-gap:var(--wp--preset--spacing--40)}
+.wp-pattern[data-pattern=logo-marquee] .is-style-voyager-open-marquee>.wp-block-group{display:flex;align-items:center;justify-content:center;gap:var(--wp--preset--spacing--60)}
+.wp-block-list.is-style-voyager-open-ticks{list-style:none;padding-inline-start:0;display:flex;flex-wrap:wrap;gap:.75em 2em}
+.wp-block-list.is-style-voyager-open-ticks>li{position:relative;margin:0;padding-inline-start:1.6em}
+.wp-block-list.is-style-voyager-open-ticks>li::before{content:"";position:absolute;inset-inline-start:0;top:.2em;width:1.1em;height:1.1em;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m4.5%2012.75%206%206%209-13.5%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m4.5%2012.75%206%206%209-13.5%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat}
+.wp-block-group.is-style-voyager-open-marquee{overflow:hidden;container-type:inline-size}
+.wp-block-group.is-style-voyager-open-marquee>.wp-block-group{flex-wrap:nowrap;width:max-content;animation:voyager-open-marquee var(--voyager-open-marquee-duration,24s) ease-in-out infinite alternate}
+.wp-block-group.is-style-voyager-open-marquee:hover>.wp-block-group,.wp-block-group.is-style-voyager-open-marquee:focus-within>.wp-block-group{animation-play-state:paused}
+@keyframes voyager-open-marquee{from{transform:translateX(0)}
+to{transform:translateX(min(0px,calc(100cqw - 100%)))}
+}
+@media (prefers-reduced-motion:reduce){.wp-block-group.is-style-voyager-open-marquee>.wp-block-group{animation:none;flex-wrap:wrap;width:auto}
+}
+:root{--f-display:'Space Grotesk','Helvetica Neue',Arial,sans-serif;--f-body:'Inter','Helvetica Neue',Arial,sans-serif;--f-mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;--paper:#F4F2FA;--paper2:#E6E3F2;--card:#FFFFFF;--ink:#08071A;--ink2:#15122F;--ink3:#342D5A;--mute:#625E7C;--rule:color-mix(in srgb,var(--ink) 16%,var(--paper));--rule2:color-mix(in srgb,var(--ink) 8%,var(--paper));--accent:#9B1750;--accent-strong:#7C0F3F;--violet:#7238DD;--ok:#2BC678}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink2);font:400 19px/1.7 var(--f-body)}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.ic{width:18px;height:18px;flex:none;vertical-align:-3px}
+.mono{font-family:var(--f-mono)}
+.kick{font:500 13px/1.4 var(--f-mono);letter-spacing:.04em;color:var(--accent)}
+h1,h2,h3{font-family:var(--f-display);color:var(--ink);margin:0;font-weight:600}
+.mast{border-bottom:1px solid var(--ink)}
+.mast .wrap{display:flex;align-items:center;gap:24px;height:64px;font-size:15px}
+.mast b{font:600 17px/1 var(--f-display);letter-spacing:-.01em}
+.mast span{color:var(--mute);font:400 13px/1 var(--f-mono)}
+.mast nav{margin-left:auto;display:flex;gap:24px}
+.mast nav a{text-decoration:none;color:var(--ink3)}
+.title{padding:88px 0 56px}
+.title h1{font-size:96px;line-height:.98;letter-spacing:-.045em;max-width:13ch;margin:22px 0 32px}
+.title h1 i{font-style:normal;color:var(--accent)}
+.stand{display:grid;grid-template-columns:7fr 5fr;gap:64px;align-items:end}
+.stand p{margin:0;font-size:24px;line-height:1.55;color:var(--ink3);max-width:34ch}
+.stand p b{color:var(--ink);font-weight:600}
+.by{border-left:1px solid var(--rule);padding-left:28px}
+.by dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0 0 26px;font:400 14px/1.5 var(--f-mono);color:var(--mute)}
+.by dt{color:var(--ink)}
+.by dd{margin:0}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--f-body);padding:16px 22px;border-radius:4px;text-decoration:none;background:var(--ink);color:var(--paper)}
+.btn:hover{background:var(--accent)}
+.tl{margin-left:20px;font-weight:600;font-size:16px;text-decoration-thickness:1px;text-underline-offset:4px}
+.plate{margin:0 0 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--card)}
+.plate figcaption{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:baseline;padding:14px 0;font:400 14px/1.5 var(--f-mono);color:var(--mute);border-top:1px solid var(--rule)}
+.plate figcaption b{color:var(--ink);font-weight:500}
+.plate figcaption a{color:var(--accent);text-decoration:none}
+.plate figcaption .r{margin-left:auto;display:flex;gap:18px}
+.fig1 .wp-pattern{position:relative}
+.fig1 .wp-pattern :is(h2,.has-small-font-size,.is-style-outline .wp-block-button__link){position:relative}
+.fig1 .wp-pattern :is(h2,.has-small-font-size,.is-style-outline .wp-block-button__link)::after{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font:600 13px/26px var(--f-mono);text-align:center;letter-spacing:0;text-transform:none}
+.fig1 .wp-pattern .has-small-font-size::after{content:"1";left:-40px;top:-4px}
+.fig1 .wp-pattern h2::after{content:"2";left:-40px;top:6px}
+.fig1 .wp-pattern .is-style-outline .wp-block-button__link::after{content:"3";right:-13px;top:-13px}
+.legend{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding:22px 0 26px;font-size:15px;line-height:1.55;color:var(--ink3)}
+.legend div{display:grid;grid-template-columns:26px 1fr;gap:12px}
+.legend i{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font:600 13px/26px var(--f-mono);text-align:center;font-style:normal}
+.legend i.o{background:var(--ink)}
+.legend code{font:500 13px/1.4 var(--f-mono);color:var(--ink)}
+.contents{display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:center;padding:96px 0 40px}
+.ring{width:300px;height:300px}
+.ring text{font-family:var(--f-display);font-weight:600;font-size:17px;fill:var(--ink)}
+.ring .s{font:500 11px var(--f-mono);fill:var(--mute)}
+.contents h2{font-size:44px;letter-spacing:-.03em;line-height:1.1;margin-bottom:28px;max-width:20ch}
+.toc{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.toc li{border-bottom:1px solid var(--rule)}
+.toc a{display:grid;grid-template-columns:56px 1fr auto;align-items:baseline;gap:16px;padding:16px 0;text-decoration:none}
+.toc .n{font:500 14px/1 var(--f-mono);color:var(--accent)}
+.toc .t{font:600 22px/1.2 var(--f-display);color:var(--ink);letter-spacing:-.01em}
+.toc .d{font-size:15px;color:var(--mute)}
+.ch{display:grid;grid-template-columns:300px 1fr;gap:72px;padding:88px 0;border-top:1px solid var(--rule)}
+.rail{position:sticky;top:28px;align-self:start}
+.rail .num{font:600 140px/.8 var(--f-display);letter-spacing:-.06em;color:var(--ink)}
+.rail .num em{font-style:normal;color:var(--accent)}
+.rail h2{font-size:30px;letter-spacing:-.02em;margin:24px 0 8px}
+.rail p{margin:0;font:400 14px/1.5 var(--f-mono);color:var(--mute)}
+.body .lead{font:500 30px/1.3 var(--f-display);color:var(--ink);letter-spacing:-.02em;margin:0 0 22px;max-width:28ch}
+.body>p{margin:0 0 22px;max-width:60ch;color:var(--ink3)}
+.body>p code,.body li code{font:500 .85em/1 var(--f-mono);background:var(--paper2);padding:2px 6px;border-radius:4px;color:var(--ink)}
+figure{margin:0}
+.fig{margin-top:38px}
+.fig .cap{margin-top:12px;font:400 14px/1.5 var(--f-mono);color:var(--mute);max-width:70ch}
+.fig .cap b{color:var(--ink);font-weight:500}
+.ctx{background:var(--ink);color:#C7C3DA;border-radius:6px;padding:26px 28px;font:400 14.5px/1.7 var(--f-mono)}
+.ctx .row{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:10px 0;border-top:1px solid #272248}
+.ctx .row:first-of-type{border-top:0}
+.ctx .k{color:#F4F2FA}
+.ctx .v span{display:inline-block;margin:0 6px 6px 0;padding:2px 8px;border-radius:4px;background:#15122F;border:1px solid #342D5A;color:#E6E3F2}
+.ctx .v span.h{border-color:#E6317A;color:#fff}
+.ctx .cmd{color:#938EAE;padding-bottom:16px;margin-bottom:4px;border-bottom:1px solid #342D5A}
+.ctx .cmd b{color:#E6317A;font-weight:400}
+.flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:center;background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:30px 26px}
+.flow .box{border:1.5px solid var(--ink);border-radius:4px;padding:16px;background:var(--paper)}
+.flow .box b{display:block;font:600 18px/1.2 var(--f-display);color:var(--ink);margin-bottom:6px}
+.flow .box span{display:block;font:400 13px/1.45 var(--f-mono);color:var(--mute)}
+.flow .arr{height:1.5px;background:var(--ink);position:relative;margin:0 4px}
+.flow .arr::after{content:"";position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:7px solid var(--ink);border-right:0}
+.flow .gate{grid-column:5;display:grid;gap:10px}
+.flow .gate div{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:4px;font:500 13.5px/1.35 var(--f-mono)}
+.flow .pass{background:color-mix(in srgb,var(--ok) 16%,var(--card));color:var(--ink);border:1.5px solid var(--ok)}
+.flow .fail{background:color-mix(in srgb,var(--accent) 8%,var(--card));color:var(--accent-strong);border:1.5px dashed var(--accent)}
+.flow .gate i{font-style:normal;font-weight:700}
+.bind{display:grid;grid-template-columns:1fr 120px 1fr;align-items:center;background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:30px 26px}
+.blk{border:1.5px solid var(--ink);border-radius:4px;background:var(--paper)}
+.blk>b{display:block;padding:10px 14px;border-bottom:1.5px solid var(--ink);font:500 13px/1 var(--f-mono);color:var(--ink)}
+.blk dl{margin:0;padding:12px 14px;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font:400 13.5px/1.4 var(--f-mono);color:var(--mute)}
+.blk dt{color:var(--ink)}
+.blk dd{margin:0}
+.blk dd.v{color:var(--violet);font-weight:500}
+.wire{position:relative;height:100%;min-height:90px}
+.wire::before,.wire::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:var(--violet)}
+.wire::before{top:42%}
+.wire::after{top:62%}
+.wire span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--card);border:1.5px solid var(--violet);color:var(--violet);border-radius:999px;padding:4px 10px;font:500 12px/1 var(--f-mono);white-space:nowrap}
+.res{grid-column:1/-1;margin-top:22px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding-top:18px;border-top:1px solid var(--rule);font:400 14px/1.4 var(--f-mono);color:var(--mute)}
+.res b{color:var(--ink);font-weight:500}
+.res .ok{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--ok) 18%,var(--card));color:var(--ink);border:1px solid var(--ok)}
+.res .ok::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ok)}
+.pats{padding:96px 0 40px;border-top:1px solid var(--ink)}
+.pats-head{display:grid;grid-template-columns:300px 1fr;gap:72px;margin-bottom:48px}
+.pats-head .num{font:600 140px/.8 var(--f-display);letter-spacing:-.06em;color:var(--ink)}
+.pats-head .num em{font-style:normal;color:var(--accent)}
+.pats-head h2{font-size:56px;line-height:1.02;letter-spacing:-.035em;margin:0 0 18px;max-width:16ch}
+.pats-head p{margin:0;max-width:56ch;color:var(--ink3)}
+.plates{display:grid;grid-template-columns:repeat(12,1fr);gap:56px 40px}
+.p12{grid-column:span 12}
+.p6{grid-column:span 6}
+.p7{grid-column:span 7}
+.p5{grid-column:span 5}
+.plate2 .frame{background:var(--card);border:1px solid var(--rule);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.plate2 .frame.th-ink{background:var(--ink);border-color:var(--ink)}
+.plate2{display:flex;flex-direction:column}
+.plate2 .frame{flex:1}
+.plate2 figcaption{display:flex;flex-wrap:wrap;gap:4px 18px;padding:12px 2px 0;font:400 14px/1.5 var(--f-mono);color:var(--mute)}
+.plate2 figcaption b{color:var(--ink);font-weight:500}
+.plate2 figcaption a{color:var(--accent);text-decoration:none}
+.plate2 figcaption .r{margin-left:auto;display:flex;gap:16px}
+.plate2 figcaption p{flex-basis:100%;margin:2px 0 0;font:400 16px/1.55 var(--f-body);color:var(--ink3)}
+.th{--wp--preset--spacing--20:.444rem;--wp--preset--spacing--30:.667rem;--wp--preset--spacing--40:1rem;--wp--preset--spacing--50:1.5rem;--wp--preset--spacing--60:2.25rem;--wp--preset--spacing--70:3.375rem;--wp--preset--spacing--80:5.063rem;--wp--style--global--content-size:620px;--wp--style--global--wide-size:1100px;--d-gap:1.15rem;--wp--preset--font-size--small:13px}
+.th-paper{background:var(--card);color:var(--ink3)}
+.th-paper :is(h2,h3){font-family:var(--f-display);font-weight:600;color:var(--ink);letter-spacing:-.025em;line-height:1.1}
+.th-paper h2{font-size:40px}
+.th-paper h3{font-size:24px}
+.th-paper .has-small-font-size{font-family:var(--f-mono);color:var(--accent);letter-spacing:.04em!important}
+.th-paper .wp-block-button__link{background:var(--ink);color:var(--paper);border-radius:4px;font:600 16px/1 var(--f-body);padding:15px 22px;border:1.5px solid var(--ink)}
+.th-paper .is-style-outline .wp-block-button__link{background:transparent;color:var(--ink)}
+.th-paper section[style*=border],.th-paper .wp-block-group[style*=border]{border-color:var(--rule)!important}
+.th-ink{background:var(--ink);color:#C7C3DA}
+.th-ink :is(h2,h3){font-family:var(--f-display);font-weight:600;color:#F4F2FA;letter-spacing:-.025em;line-height:1.1}
+.th-ink h2{font-size:40px}
+.th-ink .has-small-font-size{font-family:var(--f-mono);color:#E6317A}
+.th-ink .wp-block-button__link{background:var(--accent);color:#fff;border-radius:999px;font:600 16px/1 var(--f-body);padding:15px 24px;border:1.5px solid var(--accent)}
+.th-ink .is-style-outline .wp-block-button__link{background:transparent;color:#F4F2FA;border-color:#463E75}
+.agent{display:grid;grid-template-columns:300px 1fr;gap:72px;padding:96px 0;border-top:1px solid var(--ink);margin-top:56px}
+.agent .num{font:600 140px/.8 var(--f-display);letter-spacing:-.06em;color:var(--ink)}
+.agent .num em{font-style:normal;color:var(--accent)}
+.pull{margin:0 0 40px;padding:0 0 0 34px;border-left:4px solid var(--accent);font:500 28px/1.4 var(--f-display);letter-spacing:-.015em;color:var(--ink)}
+.pull cite{display:block;margin-top:16px;font:400 14px/1.4 var(--f-mono);color:var(--mute);font-style:normal}
+.inst{width:100%;border-collapse:collapse;border-top:1px solid var(--ink)}
+.inst td{padding:16px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.inst td:first-child{width:150px;font:600 17px/1.4 var(--f-display);color:var(--ink)}
+.inst code{font:400 15px/1.5 var(--f-mono);color:var(--ink2);overflow-wrap:anywhere}
+.inst code::before{content:"$ ";color:var(--accent)}
+.agent .note{margin:22px 0 0;font-size:16px;color:var(--mute)}
+.agent .note a{color:var(--accent)}
+.end{border-top:1px solid var(--ink)}
+.end .wp-pattern>section{padding-top:104px!important;padding-bottom:104px!important}
+.end h2{font-size:60px!important;letter-spacing:-.04em!important}
+.end p{font-size:21px}
+.colo{border-top:1px solid var(--ink);padding:28px 0 40px;font:400 13px/1.6 var(--f-mono);color:var(--mute)}
+.colo .wrap{display:flex;flex-wrap:wrap;gap:12px 28px}
+.colo a{color:var(--ink);text-decoration:none}
+.colo .r{margin-left:auto;display:flex;gap:22px}
+@media (max-width:900px){body{font-size:17px}
+.wrap{padding:0 20px}
+.mast span,.mast nav a+a{display:none}
+.mast .wrap{height:56px}
+.title{padding:44px 0 36px}
+.title h1{font-size:50px;margin:16px 0 22px}
+.stand{grid-template-columns:minmax(0,1fr);gap:28px}
+.stand p{font-size:19px}
+.by{border-left:0;border-top:1px solid var(--rule);padding:22px 0 0}
+.btn{width:100%;justify-content:center}
+.tl{display:inline-block;margin:16px 0 0}
+.fig1 .wp-pattern .has-small-font-size::after{left:auto;right:0;top:-4px}
+.fig1 .wp-pattern h2::after{left:auto;right:0;top:2px}
+.legend{grid-template-columns:1fr;gap:14px;padding:18px 0 22px}
+.plate figcaption .r{margin-left:0}
+.contents{grid-template-columns:1fr;gap:28px;padding:56px 0 24px}
+.ring{width:220px;height:220px;margin:0 auto}
+.contents h2{font-size:32px}
+.toc a{grid-template-columns:40px 1fr}
+.toc .d{grid-column:2}
+.ch,.pats-head,.agent{grid-template-columns:minmax(0,1fr);gap:20px}
+.ch{padding:56px 0}
+.rail{position:static;display:flex;align-items:flex-end;gap:16px}
+.rail .num,.pats-head .num,.agent .num{font-size:84px}
+.rail h2{margin:0 0 4px;font-size:26px}
+.rail p{display:none}
+.body .lead{font-size:24px}
+.ctx{padding:18px;font-size:12.5px}
+.ctx .row{grid-template-columns:1fr;gap:4px}
+.flow{grid-template-columns:1fr;gap:0;padding:20px}
+.flow .arr{width:1.5px;height:28px;margin:4px auto}
+.flow .arr::after{right:-4px;top:auto;bottom:-1px;border:5px solid transparent;border-top:7px solid var(--ink);border-bottom:0}
+.flow .gate{grid-column:auto}
+.bind{grid-template-columns:1fr;padding:20px}
+.wire{min-height:72px}
+.wire::before,.wire::after{top:0;bottom:0;height:auto;width:1.5px;left:42%;right:auto}
+.wire::after{left:58%}
+.pats{padding:56px 0 24px}
+.pats-head h2{font-size:36px}
+.plates{grid-template-columns:1fr;gap:40px}
+.p12,.p6,.p7,.p5{grid-column:auto}
+.plate2 figcaption .r{margin-left:0}
+.th h2{font-size:30px}
+.agent{padding:56px 0;margin-top:40px}
+.pull{font-size:22px;padding-left:20px}
+.inst td{display:block;padding:10px 0 0;border:0}
+.inst tr{display:block;border-bottom:1px solid var(--rule);padding-bottom:12px}
+.end .wp-pattern>section{padding-top:64px!important;padding-bottom:64px!important}
+.end h2{font-size:38px!important}
+.colo .r{margin-left:0}
+}
+</style></head><body class="d-editorial">
+<header class="mast"><div class="wrap"><b>Voyager Open Blocks</b><span>A field guide to agent-built pages</span>
+<nav><a href="https://github.com/voyager-marketing/voyager-open-blocks">GitHub</a><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprint.json">Playground</a></nav></div></header>
+
+<section class="title"><div class="wrap">
+<span class="kick">Field guide · version 0.4 · free and open source</span>
+<h1>How an agent should build a WordPress <i>page.</i></h1>
+<div class="stand"><p><b>Read the site. Check the markup. Bind the data.</b> Voyager Open Blocks teaches an agent that loop, one SKILL.md at a time, and ships five patterns to practise it on.</p>
+<div class="by"><dl><dt>For</dt><dd>teams that let an agent edit WordPress</dd><dt>Needs</dt><dd>WordPress 6.9+, PHP 8.1+</dd><dt>License</dt><dd>GPL-2.0-or-later, free</dd></dl>
+<a class="btn" href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprint.json"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"/></svg>Open in Playground</a><a class="tl" href="https://github.com/voyager-marketing/voyager-open-blocks">Read the source</a></div></div>
+</div></section>
+
+<figure
+class="plate fig1"><div
+class="th th-paper"><div
+class="wp-pattern" data-pattern="cta-band"><section
+class="wp-block-group alignfull has-global-padding is-layout-constrained wp-container-core-group-is-layout-94fcd6a8 wp-block-group-is-layout-constrained"
+style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)"><div
+class="wp-block-columns alignwide are-vertically-aligned-center is-layout-flex wp-container-core-columns-is-layout-0fcf04ec wp-block-columns-is-layout-flex"><div
+class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow"
+style="flex-basis:60%"><p
+class="has-small-font-size wp-block-paragraph"
+style="letter-spacing:0.08em;text-transform:uppercase">Next step</p><h2
+class="wp-block-heading">Ready to get started?</h2><p
+class="wp-block-paragraph">Tell us what you need and we will get back to you with a plan and a price.</p></div><div
+class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow"
+style="flex-basis:40%"><div
+class="wp-block-buttons is-content-justification-right is-layout-flex wp-container-core-buttons-is-layout-0e28dbe1 wp-block-buttons-is-layout-flex"><div
+class="wp-block-button"><a
+class="wp-block-button__link wp-element-button"
+href="/contact/">Contact us</a></div><div
+class="wp-block-button is-style-outline is-style-outline--2"><a
+class="wp-block-button__link wp-element-button"
+href="tel:5550100199">(555) 010-0199</a></div></div></div></div></section></div></div>
+<div class="wrap"><div class="legend">
+<div><i>1</i><span>An eyebrow, a heading and a line, each named, so <code>insert</code> can rewrite them by label.</span></div>
+<div><i>2</i><span>A real <code>core/heading</code>, level 2. No custom blocks anywhere in the pattern.</span></div>
+<div><i>3</i><span>Click to call, bound to <code>voyager/site-data</code> <code>phone</code> and <code>phone_link</code>.</span></div>
+<div><i class="o">·</i><span>No colours or fonts of its own. This page's theme supplies all of them.</span></div>
+</div>
+<figcaption><span><b>Fig. 1</b> voyager-open/cta-band, as WordPress rendered it, on this page's theme</span><span class="r"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/cta-band.json">Playground ↗</a><a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-cta-band/SKILL.md">SKILL.md ↗</a></span></figcaption></div></figure>
+
+<div class="wrap">
+<section class="contents"><svg class="ring" viewBox="0 0 300 300" role="img" aria-label="The loop: read, check, bind, then the next task starts with read again">
+<circle cx="150" cy="150" r="112" fill="none" stroke="#E6E3F2" stroke-width="22"/>
+<path d="M150 38 A112 112 0 0 1 247 206" fill="none" stroke="#9B1750" stroke-width="22"/>
+<path d="M240 218 A112 112 0 0 1 60 218" fill="none" stroke="#7238DD" stroke-width="22"/>
+<path d="M53 206 A112 112 0 0 1 142 38" fill="none" stroke="#2BC678" stroke-width="22"/>
+<text x="200" y="104" text-anchor="middle">Read</text><text x="150" y="236" text-anchor="middle">Check</text><text x="100" y="104" text-anchor="middle">Bind</text>
+<text x="150" y="146" text-anchor="middle" style="font-size:30px">one task</text><text class="s" x="150" y="170" text-anchor="middle">every time</text></svg>
+<div><h2>Every task runs the same three steps, in the same order.</h2>
+<ol class="toc">
+<li><a href="#read"><span class="n">01</span><span class="t">Read the site</span><span class="d">Wesper</span></a></li>
+<li><a href="#check"><span class="n">02</span><span class="t">Check the markup</span><span class="d">Block Runner</span></a></li>
+<li><a href="#bind"><span class="n">03</span><span class="t">Bind real data</span><span class="d">voyager/site-data</span></a></li>
+<li><a href="#patterns"><span class="n">04</span><span class="t">Five patterns to practise on</span><span class="d">core blocks only</span></a></li>
+<li><a href="#agent"><span class="n">05</span><span class="t">Give it to your agent</span><span class="d">install and prompt</span></a></li>
+</ol></div>
+</section>
+
+<section class="ch" id="read"><div class="rail"><div class="num">0<em>1</em></div><h2>Read the site</h2><p>skills/voyager-open-blocks</p></div>
+<div class="body"><p class="lead">The agent learns what this site accepts before it writes a line.</p>
+<p>Wesper collects the registered blocks, the theme's tokens and every field that can be bound. A pattern that asks for a block the site lacks, or a colour the theme never defined, is caught here instead of on the live page.</p>
+<figure class="fig"><div class="ctx"><div class="cmd"><b>$</b> npx wesper collect --wp-path ./public --out site.context.json</div>
+<div class="row"><span class="k">blocks</span><span class="v"><span>core/heading</span><span>core/buttons</span><span>core/columns</span><span class="h">voyager-open/icon</span><span>…</span></span></div>
+<div class="row"><span class="k">tokens</span><span class="v"><span>color.accent</span><span>spacing.50</span><span>font-size.small</span><span>…</span></span></div>
+<div class="row"><span class="k">bindable</span><span class="v"><span class="h">site-data: phone</span><span>phone_link</span><span>email</span><span>hours</span><span>post meta</span></span></div></div>
+<figcaption class="cap"><b>Fig. 2</b> An illustration of what the agent holds after <code>wesper collect</code>: the site's blocks, tokens and bindable fields, written to site.context.json.</figcaption></figure></div>
+</section>
+
+<section class="ch" id="check"><div class="rail"><div class="num">0<em>2</em></div><h2>Check the markup</h2><p>block-runner 1.0.0</p></div>
+<div class="body"><p class="lead">Nothing is saved until the editor's own parser accepts it.</p>
+<p>Block Runner assembles the agent's intent into block markup, then validates it strictly against the site context. Exit 0 is a pass. Exit 1 means fix and validate again, and the skill says never to save markup that still fails.</p>
+<figure class="fig"><div class="flow">
+<div class="box"><b>Intent</b><span>intent.json, the page as a tree of named blocks</span></div><div class="arr"></div>
+<div class="box"><b>Assemble</b><span>block-runner assemble intent.json --json</span></div><div class="arr"></div>
+<div class="gate"><div class="pass"><i>0</i> valid: save the page</div><div class="fail"><i>1</i> invalid: run fix, validate again</div></div>
+</div><figcaption class="cap"><b>Fig. 3</b> The gate. <code>block-runner validate page.html --strict --json --context site.context.json</code> runs between assembling and saving.</figcaption></figure></div>
+</section>
+
+<section class="ch" id="bind"><div class="rail"><div class="num">0<em>3</em></div><h2>Bind real data</h2><p>voyager/site-data</p></div>
+<div class="body"><p class="lead">The phone number comes from the site, not from the agent's memory.</p>
+<p>The pack binds block attributes to Settings › Site Data and to allowlisted post meta. The <code>bind</code> ability only accepts arguments its catalog lists, and <code>get-post-blocks</code> reports each binding as resolved or fell back, with the reason.</p>
+<figure class="fig"><div class="bind">
+<div class="blk"><b>core/button · Click to call</b><dl><dt>text</dt><dd>bound</dd><dt>url</dt><dd>bound</dd></dl></div>
+<div class="wire"><span>site-data</span></div>
+<div class="blk"><b>Settings › Site Data</b><dl><dt>phone</dt><dd class="v">(555) 010-0199</dd><dt>phone_link</dt><dd class="v">tel:5550100199</dd></dl></div>
+<div class="res"><b>get-post-blocks</b><span class="ok">resolved</span><span>value_preview “(555) 010-0199”</span></div>
+</div><figcaption class="cap"><b>Fig. 4</b> The binding in Fig. 1, traced. Change the number in Site Data and every bound button changes with it.</figcaption></figure></div>
+</section>
+</div>
+
+<section class="pats" id="patterns"><div class="wrap">
+<div class="pats-head"><div class="num">0<em>4</em></div><div><h2>Five patterns to practise on.</h2><p>Each one is core blocks and the active theme's presets, nothing else, so it looks like whatever theme it lands on. Below, four plates on this page's theme and one on a dark theme. The fifth pattern closes the page.</p></div></div>
+<div class="plates">
+<figure
+class="plate2 p12"><div
+class="frame th th-paper"><div
+class="wp-pattern" data-pattern="contact-section"><section
+class="wp-block-group alignfull has-global-padding is-layout-constrained wp-container-core-group-is-layout-94fcd6a8 wp-block-group-is-layout-constrained"
+style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)"><div
+class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-99fa331f wp-block-columns-is-layout-flex"><div
+class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"
+style="flex-basis:40%"><h2
+class="wp-block-heading">Get in touch</h2><p
+class="wp-block-paragraph">Call, email or stop by during business hours.</p><div
+class="wp-block-group is-layout-flow wp-container-core-group-is-layout-d25ea1a2 wp-block-group-is-layout-flow"><p
+class="wp-block-paragraph">(555) 010-0199</p><p
+class="wp-block-paragraph">hello@example.com</p><p
+class="wp-block-paragraph">42 Example Avenue</p><p
+class="wp-block-paragraph">Springfield, ST 00042</p><p
+class="wp-block-paragraph">Monday to Friday, 8am to 6pm</p></div><div
+class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex"><div
+class="wp-block-button"><a
+class="wp-block-button__link wp-element-button"
+href="tel:5550100199">Call us</a></div></div></div><div
+class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"
+style="flex-basis:60%"><div
+class="wp-block-group has-global-padding is-layout-constrained wp-container-core-group-is-layout-8199378c wp-block-group-is-layout-constrained"
+style="border-style:solid;border-width:1px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><h3
+class="wp-block-heading">Send us a note</h3><p
+class="wp-block-paragraph">Tell us a little about what you need and the best way to reach you.</p><div
+class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex"><div
+class="wp-block-button"><a
+class="wp-block-button__link wp-element-button"
+href="mailto:hello@example.com">Email us</a></div></div></div></div></div></section></div></div>
+<figcaption><b>voyager-open/contact-section</b><span>binds phone, email, address, address_locality, hours, phone_link, email_link</span><span class="r"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/contact-section.json">Playground ↗</a><a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-contact-section/SKILL.md">SKILL.md ↗</a></span><p>Phone, email, address and hours from Site Data, beside a slot for the form your site already uses.</p></figcaption></figure>
+<figure class="plate2 p5"><div class="frame th th-paper"><div class="wp-pattern" data-pattern="proof-strip"><section class="wp-block-group alignfull has-global-padding is-layout-constrained wp-container-core-group-is-layout-51428e23 wp-block-group-is-layout-constrained" style="border-top-style:solid;border-top-width:1px;border-bottom-style:solid;border-bottom-width:1px;padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--50)"><ul class="wp-block-list is-style-voyager-open-ticks"><li>Licensed and insured</li><li>Locally owned</li><li>Written quotes before work begins</li><li>Same-week scheduling</li></ul></section></div></div>
+<figcaption><b>voyager-open/proof-strip</b><span>style: Ticks</span><span class="r"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/proof-strip.json">Playground ↗</a><a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-proof-strip/SKILL.md">SKILL.md ↗</a></span><p>Four credentials in a ticked row between two rules.</p></figcaption></figure>
+<figure
+class="plate2 p7"><div
+class="frame th th-paper"><div
+class="wp-pattern" data-pattern="logo-marquee"><section
+class="wp-block-group alignfull has-global-padding is-layout-constrained wp-container-core-group-is-layout-bb4f71e3 wp-block-group-is-layout-constrained"
+style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><p
+class="has-text-align-center has-small-font-size wp-block-paragraph"
+style="letter-spacing:0.08em;text-transform:uppercase">Some of the teams we work with</p><div
+class="wp-block-group alignwide is-style-voyager-open-marquee is-layout-flow wp-block-group-is-layout-flow"><div
+class="wp-block-group is-content-justification-center is-nowrap is-layout-flex wp-container-core-group-is-layout-b1b452a4 wp-block-group-is-layout-flex"><figure
+class="wp-block-image is-resized"><img decoding="async"
+src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2040%22%20role%3D%22img%22%20aria-label%3D%22Placeholder%20logo%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%2214%22%20fill%3D%22%238a8a8a%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%2213%22%20width%3D%22100%22%20height%3D%2214%22%20rx%3D%223%22%20fill%3D%22%238a8a8a%22%2F%3E%3C%2Fsvg%3E" alt="Placeholder logo"
+style="object-fit:contain;height:40px"></figure><figure
+class="wp-block-image is-resized"><img decoding="async"
+src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2040%22%20role%3D%22img%22%20aria-label%3D%22Placeholder%20logo%22%3E%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%2228%22%20height%3D%2228%22%20rx%3D%226%22%20fill%3D%22%238a8a8a%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%229%22%20width%3D%2280%22%20height%3D%2210%22%20rx%3D%222%22%20fill%3D%22%238a8a8a%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%2223%22%20width%3D%2256%22%20height%3D%228%22%20rx%3D%222%22%20fill%3D%22%238a8a8a%22%2F%3E%3C%2Fsvg%3E" alt="Placeholder logo"
+style="object-fit:contain;height:40px"></figure><figure
+class="wp-block-image is-resized"><img decoding="async"
+src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2040%22%20role%3D%22img%22%20aria-label%3D%22Placeholder%20logo%22%3E%3Cpath%20d%3D%22M20%204%2036%2034H4Z%22%20fill%3D%22%238a8a8a%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2214%22%20width%3D%2296%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238a8a8a%22%2F%3E%3C%2Fsvg%3E" alt="Placeholder logo"
+style="object-fit:contain;height:40px"></figure><figure
+class="wp-block-image is-resized"><img decoding="async"
+src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2040%22%20role%3D%22img%22%20aria-label%3D%22Placeholder%20logo%22%3E%3Cpath%20d%3D%22M20%204l14%208v16l-14%208-14-8V12Z%22%20fill%3D%22%238a8a8a%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%2212%22%20width%3D%2240%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%238a8a8a%22%2F%3E%3Crect%20x%3D%2290%22%20y%3D%2212%22%20width%3D%2252%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%238a8a8a%22%2F%3E%3C%2Fsvg%3E" alt="Placeholder logo"
+style="object-fit:contain;height:40px"></figure><figure
+class="wp-block-image is-resized"><img decoding="async"
+src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2040%22%20role%3D%22img%22%20aria-label%3D%22Placeholder%20logo%22%3E%3Crect%20x%3D%226%22%20y%3D%2214%22%20width%3D%22148%22%20height%3D%2212%22%20rx%3D%226%22%20fill%3D%22%238a8a8a%22%2F%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2220%22%20r%3D%2210%22%20fill%3D%22%238a8a8a%22%2F%3E%3C%2Fsvg%3E" alt="Placeholder logo"
+style="object-fit:contain;height:40px"></figure><figure
+class="wp-block-image is-resized"><img decoding="async"
+src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2040%22%20role%3D%22img%22%20aria-label%3D%22Placeholder%20logo%22%3E%3Ccircle%20cx%3D%2214%22%20cy%3D%2220%22%20r%3D%229%22%20fill%3D%22%238a8a8a%22%2F%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2220%22%20r%3D%229%22%20fill%3D%22%238a8a8a%22%2F%3E%3Crect%20x%3D%2252%22%20y%3D%2210%22%20width%3D%2292%22%20height%3D%2220%22%20rx%3D%224%22%20fill%3D%22%238a8a8a%22%2F%3E%3C%2Fsvg%3E" alt="Placeholder logo"
+style="object-fit:contain;height:40px"></figure></div></div></section></div></div>
+<figcaption><b>voyager-open/logo-marquee</b><span>style: Marquee</span><span class="r"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/logo-marquee.json">Playground ↗</a><a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-logo-marquee/SKILL.md">SKILL.md ↗</a></span><p>A row of logos that drifts when it is wider than the screen, and holds still under reduced motion.</p></figcaption></figure>
+<figure
+class="plate2 p12"><div
+class="frame th th-ink"><div
+class="wp-pattern" data-pattern="cta-band"><section
+class="wp-block-group alignfull has-global-padding is-layout-constrained wp-container-core-group-is-layout-94fcd6a8 wp-block-group-is-layout-constrained"
+style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)"><div
+class="wp-block-columns alignwide are-vertically-aligned-center is-layout-flex wp-container-core-columns-is-layout-0fcf04ec wp-block-columns-is-layout-flex"><div
+class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow"
+style="flex-basis:60%"><p
+class="has-small-font-size wp-block-paragraph"
+style="letter-spacing:0.08em;text-transform:uppercase">Next step</p><h2
+class="wp-block-heading">Ready to get started?</h2><p
+class="wp-block-paragraph">Tell us what you need and we will get back to you with a plan and a price.</p></div><div
+class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow"
+style="flex-basis:40%"><div
+class="wp-block-buttons is-content-justification-right is-layout-flex wp-container-core-buttons-is-layout-0e28dbe1 wp-block-buttons-is-layout-flex"><div
+class="wp-block-button"><a
+class="wp-block-button__link wp-element-button"
+href="/contact/">Contact us</a></div><div
+class="wp-block-button is-style-outline is-style-outline--2"><a
+class="wp-block-button__link wp-element-button"
+href="tel:5550100199">(555) 010-0199</a></div></div></div></div></section></div></div>
+<figcaption><b>voyager-open/cta-band</b><span>binds phone, phone_link</span><span class="r"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/cta-band.json">Playground ↗</a><a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-cta-band/SKILL.md">SKILL.md ↗</a></span><p>The same markup as Fig. 1, on a dark theme. Nothing in the pattern changed.</p></figcaption></figure>
+</div>
+</div></section>
+
+<div class="wrap"><section class="agent" id="agent"><div class="num">0<em>5</em></div>
+<div><blockquote class="pull">Add the voyager-open/cta-band pattern to the end of the Services page. Rewrite the heading and the line of copy for that page, keep the click-to-call button bound to voyager/site-data phone_link, and validate the page with Block Runner before saving.<cite>One prompt the skills are written for. Start the agent at skills/voyager-open-blocks/SKILL.md.</cite></blockquote>
+<table class="inst"><tr><td>Skills</td><td><code>npx skills add voyager-marketing/voyager-open-blocks</code></td></tr><tr><td>Plugin zip</td><td><code>wp plugin install voyager-open-blocks.zip --activate</code></td></tr><tr><td>Composer</td><td><code>composer require voyager-marketing/voyager-open-blocks</code></td></tr></table>
+<p class="note">Five abilities (get-catalog, get-post-blocks, insert, configure, bind) reach the same pack over REST and MCP. Or skip installing and <a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprint.json">open it in Playground</a>.</p></div>
+</section></div>
+
+<section
+class="end th th-paper"><div
+class="wp-pattern" data-pattern="closing-cta"><section
+class="wp-block-group alignfull has-global-padding is-layout-constrained wp-container-core-group-is-layout-c8f3c77c wp-block-group-is-layout-constrained"
+style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--50)"><h2
+class="wp-block-heading has-text-align-center">Follow along in Playground.</h2><p
+class="has-text-align-center wp-block-paragraph">Every block and pattern loads with demo content, so each chapter here can be tried in the browser.</p><div
+class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-35f06ea7 wp-block-buttons-is-layout-flex"><div
+class="wp-block-button"><a
+class="wp-block-button__link wp-element-button"
+href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprint.json">Open in Playground</a></div><div
+class="wp-block-button is-style-outline is-style-outline--2"><a
+class="wp-block-button__link wp-element-button"
+href="https://github.com/voyager-marketing/voyager-open-blocks">Read the source</a></div></div></section></div></section>
+<footer class="colo"><div class="wrap"><span>Set in Space Grotesk, Inter and JetBrains Mono. The closing section is voyager-open/closing-cta.</span><span class="r"><a href="https://github.com/voyager-marketing/voyager-open-blocks">GitHub</a><a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/LICENSE">GPL-2.0-or-later</a><a href="https://voyagermark.com/">Built by Voyager</a></span></div></footer></body></html>

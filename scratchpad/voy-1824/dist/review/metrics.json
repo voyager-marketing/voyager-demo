@@ -1,0 +1,1946 @@
+{
+ "tt5-1440-cta-band": {
+  "url": "http://127.0.0.1:9400/voyager-open/cta-band/",
+  "box": {
+   "x": 0,
+   "y": 284,
+   "w": 1440,
+   "h": 265
+  },
+  "padding": "70px 50px",
+  "borderTop": "0px none rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Ready to get started?",
+    "fs": "32px",
+    "ff": "Manrope",
+    "x": 50,
+    "y": 393,
+    "w": 762,
+    "h": 36
+   }
+  ],
+  "paras": [
+   {
+    "text": "Next step",
+    "fs": "14px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 50,
+    "y": 354,
+    "w": 762,
+    "h": 20
+   },
+   {
+    "text": "Tell us what you need and we will get ba",
+    "fs": "22px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 50,
+    "y": 448,
+    "w": 762,
+    "h": 31
+   }
+  ],
+  "btns": [
+   {
+    "text": "Contact us",
+    "href": "/contact/",
+    "target": null,
+    "fs": "18px",
+    "x": 1062,
+    "y": 388,
+    "w": 162,
+    "h": 57
+   },
+   {
+    "text": "555-0199",
+    "href": "tel:5550199",
+    "target": null,
+    "fs": "18px",
+    "x": 1240,
+    "y": 388,
+    "w": 150,
+    "h": 57
+   }
+  ],
+  "groups": [
+   {
+    "justify": "flex-end",
+    "x": 882,
+    "y": 388,
+    "w": 508,
+    "h": 57
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [
+   {
+    "x": 50,
+    "y": 354,
+    "w": 762,
+    "h": 125
+   },
+   {
+    "x": 882,
+    "y": 388,
+    "w": 508,
+    "h": 57
+   }
+  ],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "tt5-1440-proof-strip": {
+  "url": "http://127.0.0.1:9400/voyager-open/proof-strip/",
+  "box": {
+   "x": 0,
+   "y": 284,
+   "w": 1440,
+   "h": 93
+  },
+  "padding": "30px 50px",
+  "borderTop": "1px solid rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [],
+  "paras": [],
+  "btns": [],
+  "groups": [],
+  "imgs": [],
+  "lis": [
+   {
+    "text": "Licensed and insured",
+    "x": 50,
+    "y": 315,
+    "w": 244,
+    "h": 31
+   },
+   {
+    "text": "Locally owned",
+    "x": 338,
+    "y": 315,
+    "w": 175,
+    "h": 31
+   },
+   {
+    "text": "Written quotes before work begins",
+    "x": 557,
+    "y": 315,
+    "w": 376,
+    "h": 31
+   },
+   {
+    "text": "Same-week scheduling",
+    "x": 977,
+    "y": 315,
+    "w": 265,
+    "h": 31
+   }
+  ],
+  "cols": [],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "tt5-1440-logo-marquee": {
+  "url": "http://127.0.0.1:9400/voyager-open/logo-marquee/",
+  "box": {
+   "x": 0,
+   "y": 284,
+   "w": 1440,
+   "h": 190
+  },
+  "padding": "50px",
+  "borderTop": "0px none rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [],
+  "paras": [
+   {
+    "text": "Some of the teams we work with",
+    "fs": "14px",
+    "color": "rgb(17, 17, 17)",
+    "align": "center",
+    "x": 398,
+    "y": 334,
+    "w": 645,
+    "h": 20
+   }
+  ],
+  "btns": [],
+  "groups": [],
+  "imgs": [
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-1.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 50,
+    "y": 384,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-2.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 280,
+    "y": 384,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-3.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 510,
+    "y": 384,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-4.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 740,
+    "y": 384,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-5.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 970,
+    "y": 384,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-6.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 1200,
+    "y": 384,
+    "w": 160,
+    "h": 40
+   }
+  ],
+  "lis": [],
+  "cols": [],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "tt5-1440-closing-cta": {
+  "url": "http://127.0.0.1:9400/voyager-open/closing-cta/",
+  "box": {
+   "x": 0,
+   "y": 284,
+   "w": 1440,
+   "h": 364
+  },
+  "padding": "90px 50px",
+  "borderTop": "0px none rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Ready when you are.",
+    "fs": "32px",
+    "ff": "Manrope",
+    "x": 360,
+    "y": 374,
+    "w": 720,
+    "h": 36
+   }
+  ],
+  "paras": [
+   {
+    "text": "Book a call or send a message, and we wi",
+    "fs": "22px",
+    "color": "rgb(17, 17, 17)",
+    "align": "center",
+    "x": 360,
+    "y": 440,
+    "w": 720,
+    "h": 31
+   }
+  ],
+  "btns": [
+   {
+    "text": "Get in touch",
+    "href": "/contact/",
+    "target": null,
+    "fs": "18px",
+    "x": 558,
+    "y": 501,
+    "w": 170,
+    "h": 57
+   },
+   {
+    "text": "Email us",
+    "href": "mailto:hello@example.com",
+    "target": null,
+    "fs": "18px",
+    "x": 744,
+    "y": 501,
+    "w": 138,
+    "h": 57
+   }
+  ],
+  "groups": [
+   {
+    "justify": "center",
+    "x": 360,
+    "y": 501,
+    "w": 720,
+    "h": 57
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "tt5-1440-contact-section": {
+  "url": "http://127.0.0.1:9400/voyager-open/contact-section/",
+  "box": {
+   "x": 0,
+   "y": 284,
+   "w": 1440,
+   "h": 516
+  },
+  "padding": "70px 50px",
+  "borderTop": "0px none rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Get in touch",
+    "fs": "32px",
+    "ff": "Manrope",
+    "x": 50,
+    "y": 354,
+    "w": 508,
+    "h": 36
+   },
+   {
+    "tag": "H3",
+    "text": "Send us a note",
+    "fs": "22px",
+    "ff": "Manrope",
+    "x": 687,
+    "y": 405,
+    "w": 645,
+    "h": 25
+   }
+  ],
+  "paras": [
+   {
+    "text": "Call, email or stop by during business h",
+    "fs": "22px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 50,
+    "y": 409,
+    "w": 508,
+    "h": 31
+   },
+   {
+    "text": "555-0199",
+    "fs": "22px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 50,
+    "y": 459,
+    "w": 508,
+    "h": 31
+   },
+   {
+    "text": "hello@example.com",
+    "fs": "22px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 50,
+    "y": 500,
+    "w": 508,
+    "h": 31
+   },
+   {
+    "text": "42 Example Avenue",
+    "fs": "22px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 50,
+    "y": 541,
+    "w": 508,
+    "h": 31
+   },
+   {
+    "text": "Springfield, ST 00042",
+    "fs": "22px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 50,
+    "y": 582,
+    "w": 508,
+    "h": 31
+   },
+   {
+    "text": "Monday to Friday, 8am to 6pm",
+    "fs": "22px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 50,
+    "y": 622,
+    "w": 508,
+    "h": 31
+   },
+   {
+    "text": "Tell us a little about what you need and",
+    "fs": "22px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 687,
+    "y": 449,
+    "w": 645,
+    "h": 31
+   }
+  ],
+  "btns": [
+   {
+    "text": "Call us",
+    "href": "tel:5550199",
+    "target": null,
+    "fs": "18px",
+    "x": 50,
+    "y": 672,
+    "w": 125,
+    "h": 57
+   },
+   {
+    "text": "Email us",
+    "href": "mailto:hello@example.com",
+    "target": null,
+    "fs": "18px",
+    "x": 687,
+    "y": 499,
+    "w": 138,
+    "h": 57
+   }
+  ],
+  "groups": [
+   {
+    "justify": "normal",
+    "x": 50,
+    "y": 672,
+    "w": 508,
+    "h": 57
+   },
+   {
+    "justify": "normal",
+    "x": 687,
+    "y": 499,
+    "w": 645,
+    "h": 57
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [
+   {
+    "x": 50,
+    "y": 354,
+    "w": 508,
+    "h": 376
+   },
+   {
+    "x": 628,
+    "y": 354,
+    "w": 762,
+    "h": 376
+   }
+  ],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "tt5-390-cta-band": {
+  "url": "http://127.0.0.1:9400/voyager-open/cta-band/",
+  "box": {
+   "x": 0,
+   "y": 185,
+   "w": 390,
+   "h": 286
+  },
+  "padding": "30px",
+  "borderTop": "0px none rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Ready to get started?",
+    "fs": "28.2744px",
+    "ff": "Manrope",
+    "x": 30,
+    "y": 253,
+    "w": 330,
+    "h": 32
+   }
+  ],
+  "paras": [
+   {
+    "text": "Next step",
+    "fs": "14px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 30,
+    "y": 215,
+    "w": 330,
+    "h": 20
+   },
+   {
+    "text": "Tell us what you need and we will get ba",
+    "fs": "18.2744px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 30,
+    "y": 304,
+    "w": 330,
+    "h": 51
+   }
+  ],
+  "btns": [
+   {
+    "text": "Contact us",
+    "href": "/contact/",
+    "target": null,
+    "fs": "16.1372px",
+    "x": 50,
+    "y": 385,
+    "w": 153,
+    "h": 55
+   },
+   {
+    "text": "555-0199",
+    "href": "tel:5550199",
+    "target": null,
+    "fs": "16.1372px",
+    "x": 219,
+    "y": 385,
+    "w": 141,
+    "h": 55
+   }
+  ],
+  "groups": [
+   {
+    "justify": "flex-end",
+    "x": 30,
+    "y": 385,
+    "w": 330,
+    "h": 55
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [
+   {
+    "x": 30,
+    "y": 215,
+    "w": 330,
+    "h": 141
+   },
+   {
+    "x": 30,
+    "y": 385,
+    "w": 330,
+    "h": 55
+   }
+  ],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "tt5-390-proof-strip": {
+  "url": "http://127.0.0.1:9400/voyager-open/proof-strip/",
+  "box": {
+   "x": 0,
+   "y": 185,
+   "w": 390,
+   "h": 205
+  },
+  "padding": "30px",
+  "borderTop": "1px solid rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [],
+  "paras": [],
+  "btns": [],
+  "groups": [],
+  "imgs": [],
+  "lis": [
+   {
+    "text": "Licensed and insured",
+    "x": 30,
+    "y": 216,
+    "w": 203,
+    "h": 26
+   },
+   {
+    "text": "Locally owned",
+    "x": 30,
+    "y": 255,
+    "w": 145,
+    "h": 26
+   },
+   {
+    "text": "Written quotes before work begins",
+    "x": 30,
+    "y": 294,
+    "w": 311,
+    "h": 26
+   },
+   {
+    "text": "Same-week scheduling",
+    "x": 30,
+    "y": 333,
+    "w": 220,
+    "h": 26
+   }
+  ],
+  "cols": [],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "tt5-390-logo-marquee": {
+  "url": "http://127.0.0.1:9400/voyager-open/logo-marquee/",
+  "box": {
+   "x": 0,
+   "y": 185,
+   "w": 390,
+   "h": 150
+  },
+  "padding": "30px",
+  "borderTop": "0px none rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [],
+  "paras": [
+   {
+    "text": "Some of the teams we work with",
+    "fs": "14px",
+    "color": "rgb(17, 17, 17)",
+    "align": "center",
+    "x": 30,
+    "y": 215,
+    "w": 330,
+    "h": 20
+   }
+  ],
+  "btns": [],
+  "groups": [],
+  "imgs": [
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-1.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 30,
+    "y": 264,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-2.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 220,
+    "y": 264,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-3.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 410,
+    "y": 264,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-4.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 600,
+    "y": 264,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-5.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 790,
+    "y": 264,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "http://127.0.0.1:9400/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-6.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 980,
+    "y": 264,
+    "w": 160,
+    "h": 40
+   }
+  ],
+  "lis": [],
+  "cols": [],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "tt5-390-closing-cta": {
+  "url": "http://127.0.0.1:9400/voyager-open/closing-cta/",
+  "box": {
+   "x": 0,
+   "y": 185,
+   "w": 390,
+   "h": 298
+  },
+  "padding": "50px 30px",
+  "borderTop": "0px none rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Ready when you are.",
+    "fs": "28.2744px",
+    "ff": "Manrope",
+    "x": 30,
+    "y": 235,
+    "w": 330,
+    "h": 32
+   }
+  ],
+  "paras": [
+   {
+    "text": "Book a call or send a message, and we wi",
+    "fs": "18.2744px",
+    "color": "rgb(17, 17, 17)",
+    "align": "center",
+    "x": 30,
+    "y": 296,
+    "w": 330,
+    "h": 51
+   }
+  ],
+  "btns": [
+   {
+    "text": "Get in touch",
+    "href": "/contact/",
+    "target": null,
+    "fs": "16.1372px",
+    "x": 42,
+    "y": 378,
+    "w": 160,
+    "h": 55
+   },
+   {
+    "text": "Email us",
+    "href": "mailto:hello@example.com",
+    "target": null,
+    "fs": "16.1372px",
+    "x": 218,
+    "y": 378,
+    "w": 131,
+    "h": 55
+   }
+  ],
+  "groups": [
+   {
+    "justify": "center",
+    "x": 30,
+    "y": 378,
+    "w": 330,
+    "h": 55
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "tt5-390-contact-section": {
+  "url": "http://127.0.0.1:9400/voyager-open/contact-section/",
+  "box": {
+   "x": 0,
+   "y": 185,
+   "w": 390,
+   "h": 705
+  },
+  "padding": "30px",
+  "borderTop": "0px none rgb(17, 17, 17)",
+  "color": "rgb(17, 17, 17)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Get in touch",
+    "fs": "28.2744px",
+    "ff": "Manrope",
+    "x": 30,
+    "y": 215,
+    "w": 330,
+    "h": 32
+   },
+   {
+    "tag": "H3",
+    "text": "Send us a note",
+    "fs": "18.2744px",
+    "ff": "Manrope",
+    "x": 61,
+    "y": 639,
+    "w": 268,
+    "h": 21
+   }
+  ],
+  "paras": [
+   {
+    "text": "Call, email or stop by during business h",
+    "fs": "18.2744px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 30,
+    "y": 266,
+    "w": 330,
+    "h": 51
+   },
+   {
+    "text": "555-0199",
+    "fs": "18.2744px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 30,
+    "y": 336,
+    "w": 330,
+    "h": 26
+   },
+   {
+    "text": "hello@example.com",
+    "fs": "18.2744px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 30,
+    "y": 371,
+    "w": 330,
+    "h": 26
+   },
+   {
+    "text": "42 Example Avenue",
+    "fs": "18.2744px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 30,
+    "y": 407,
+    "w": 330,
+    "h": 26
+   },
+   {
+    "text": "Springfield, ST 00042",
+    "fs": "18.2744px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 30,
+    "y": 443,
+    "w": 330,
+    "h": 26
+   },
+   {
+    "text": "Monday to Friday, 8am to 6pm",
+    "fs": "18.2744px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 30,
+    "y": 478,
+    "w": 330,
+    "h": 26
+   },
+   {
+    "text": "Tell us a little about what you need and",
+    "fs": "18.2744px",
+    "color": "rgb(17, 17, 17)",
+    "align": "start",
+    "x": 61,
+    "y": 678,
+    "w": 268,
+    "h": 77
+   }
+  ],
+  "btns": [
+   {
+    "text": "Call us",
+    "href": "tel:5550199",
+    "target": null,
+    "fs": "16.1372px",
+    "x": 30,
+    "y": 523,
+    "w": 120,
+    "h": 55
+   },
+   {
+    "text": "Email us",
+    "href": "mailto:hello@example.com",
+    "target": null,
+    "fs": "16.1372px",
+    "x": 61,
+    "y": 774,
+    "w": 131,
+    "h": 55
+   }
+  ],
+  "groups": [
+   {
+    "justify": "normal",
+    "x": 30,
+    "y": 523,
+    "w": 330,
+    "h": 55
+   },
+   {
+    "justify": "normal",
+    "x": 61,
+    "y": 774,
+    "w": 268,
+    "h": 55
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [
+   {
+    "x": 30,
+    "y": 215,
+    "w": 330,
+    "h": 363
+   },
+   {
+    "x": 30,
+    "y": 608,
+    "w": 330,
+    "h": 252
+   }
+  ],
+  "fonts": [
+   "Manrope"
+  ]
+ },
+ "demo-1440-cta-band": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": 1764,
+   "w": 1440,
+   "h": 232
+  },
+  "padding": "36px 24px",
+  "borderTop": "0px none rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Ready to get started?",
+    "fs": "60px",
+    "ff": "\"Space Grotesk\"",
+    "x": 80,
+    "y": 1845,
+    "w": 746,
+    "h": 67
+   }
+  ],
+  "paras": [
+   {
+    "text": "Next step",
+    "fs": "13px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 80,
+    "y": 1800,
+    "w": 746,
+    "h": 21
+   },
+   {
+    "text": "Tell us what you need and we will get ba",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 80,
+    "y": 1936,
+    "w": 746,
+    "h": 24
+   }
+  ],
+  "btns": [
+   {
+    "text": "Contact us",
+    "href": "/contact/",
+    "target": null,
+    "fs": "13px",
+    "x": 1093,
+    "y": 1855,
+    "w": 110,
+    "h": 45
+   },
+   {
+    "text": "(540) 841-9297",
+    "href": "tel:5408419297",
+    "target": null,
+    "fs": "13px",
+    "x": 1227,
+    "y": 1855,
+    "w": 133,
+    "h": 45
+   }
+  ],
+  "groups": [
+   {
+    "justify": "flex-end",
+    "x": 862,
+    "y": 1855,
+    "w": 498,
+    "h": 52
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [
+   {
+    "x": 80,
+    "y": 1800,
+    "w": 746,
+    "h": 160
+   },
+   {
+    "x": 862,
+    "y": 1855,
+    "w": 498,
+    "h": 52
+   }
+  ],
+  "fonts": []
+ },
+ "demo-1440-proof-strip": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": 1067,
+   "w": 1440,
+   "h": 70
+  },
+  "padding": "16px 24px",
+  "borderTop": "1px solid rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [],
+  "paras": [],
+  "btns": [],
+  "groups": [],
+  "imgs": [],
+  "lis": [
+   {
+    "text": "Licensed and insured",
+    "x": 80,
+    "y": 1084,
+    "w": 167,
+    "h": 24
+   },
+   {
+    "text": "Locally owned",
+    "x": 277,
+    "y": 1084,
+    "w": 119,
+    "h": 24
+   },
+   {
+    "text": "Written quotes before work begins",
+    "x": 426,
+    "y": 1084,
+    "w": 251,
+    "h": 24
+   },
+   {
+    "text": "Same-week scheduling",
+    "x": 707,
+    "y": 1084,
+    "w": 179,
+    "h": 24
+   }
+  ],
+  "cols": [],
+  "fonts": []
+ },
+ "demo-1440-logo-marquee": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": 985,
+   "w": 1440,
+   "h": 125
+  },
+  "padding": "24px",
+  "borderTop": "0px none rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [],
+  "paras": [
+   {
+    "text": "Some of the teams we work with",
+    "fs": "13px",
+    "color": "rgb(244, 242, 250)",
+    "align": "center",
+    "x": 340,
+    "y": 1009,
+    "w": 760,
+    "h": 21
+   }
+  ],
+  "btns": [],
+  "groups": [],
+  "imgs": [
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-1.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 150,
+    "y": 1046,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-2.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 346,
+    "y": 1046,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-3.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 542,
+    "y": 1046,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-4.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 738,
+    "y": 1046,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-5.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 934,
+    "y": 1046,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-6.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 1130,
+    "y": 1046,
+    "w": 160,
+    "h": 40
+   }
+  ],
+  "lis": [],
+  "cols": [],
+  "fonts": []
+ },
+ "demo-1440-closing-cta": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": 1927,
+   "w": 1440,
+   "h": 283
+  },
+  "padding": "54.08px 24px",
+  "borderTop": "0px none rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Ready when you are.",
+    "fs": "60px",
+    "ff": "\"Space Grotesk\"",
+    "x": 360,
+    "y": 1981,
+    "w": 720,
+    "h": 67
+   }
+  ],
+  "paras": [
+   {
+    "text": "Book a call or send a message, and we wi",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "center",
+    "x": 360,
+    "y": 2065,
+    "w": 720,
+    "h": 24
+   }
+  ],
+  "btns": [
+   {
+    "text": "Get in touch",
+    "href": "/contact/",
+    "target": null,
+    "fs": "13px",
+    "x": 600,
+    "y": 2105,
+    "w": 119,
+    "h": 45
+   },
+   {
+    "text": "Email us",
+    "href": "mailto:ben@voyagermark.com",
+    "target": null,
+    "fs": "13px",
+    "x": 743,
+    "y": 2105,
+    "w": 97,
+    "h": 45
+   }
+  ],
+  "groups": [
+   {
+    "justify": "center",
+    "x": 360,
+    "y": 2105,
+    "w": 720,
+    "h": 52
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [],
+  "fonts": []
+ },
+ "demo-1440-contact-section": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": -606,
+   "w": 1440,
+   "h": 435
+  },
+  "padding": "36px 24px",
+  "borderTop": "0px none rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 1440,
+  "clientW": 1440,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Get in touch",
+    "fs": "60px",
+    "ff": "\"Space Grotesk\"",
+    "x": 80,
+    "y": -570,
+    "w": 498,
+    "h": 67
+   },
+   {
+    "tag": "H3",
+    "text": "Send us a note",
+    "fs": "38.8px",
+    "ff": "\"Space Grotesk\"",
+    "x": 639,
+    "y": -545,
+    "w": 696,
+    "h": 46
+   }
+  ],
+  "paras": [
+   {
+    "text": "Call, email or stop by during business h",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 80,
+    "y": -479,
+    "w": 498,
+    "h": 24
+   },
+   {
+    "text": "(540) 841-9297",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 80,
+    "y": -431,
+    "w": 498,
+    "h": 24
+   },
+   {
+    "text": "ben@voyagermark.com",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 80,
+    "y": -400,
+    "w": 498,
+    "h": 24
+   },
+   {
+    "text": "100 Main Street",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 80,
+    "y": -369,
+    "w": 498,
+    "h": 24
+   },
+   {
+    "text": "Springfield, ST 00000",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 80,
+    "y": -338,
+    "w": 498,
+    "h": 24
+   },
+   {
+    "text": "Monday to Friday, 9am to 5pm",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 80,
+    "y": -307,
+    "w": 498,
+    "h": 24
+   },
+   {
+    "text": "Tell us a little about what you need and",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 639,
+    "y": -475,
+    "w": 696,
+    "h": 24
+   }
+  ],
+  "btns": [
+   {
+    "text": "Call us",
+    "href": "tel:5408419297",
+    "target": null,
+    "fs": "13px",
+    "x": 80,
+    "y": -259,
+    "w": 86,
+    "h": 45
+   },
+   {
+    "text": "Email us",
+    "href": "mailto:ben@voyagermark.com",
+    "target": null,
+    "fs": "13px",
+    "x": 639,
+    "y": -427,
+    "w": 97,
+    "h": 45
+   }
+  ],
+  "groups": [
+   {
+    "justify": "normal",
+    "x": 80,
+    "y": -259,
+    "w": 498,
+    "h": 52
+   },
+   {
+    "justify": "normal",
+    "x": 639,
+    "y": -427,
+    "w": 696,
+    "h": 52
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [
+   {
+    "x": 80,
+    "y": -570,
+    "w": 498,
+    "h": 363
+   },
+   {
+    "x": 614,
+    "y": -570,
+    "w": 746,
+    "h": 363
+   }
+  ],
+  "fonts": []
+ },
+ "demo-390-cta-band": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": 2486,
+   "w": 390,
+   "h": 292
+  },
+  "padding": "36px 24px",
+  "borderTop": "0px none rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Ready to get started?",
+    "fs": "32px",
+    "ff": "\"Space Grotesk\"",
+    "x": 24,
+    "y": 2567,
+    "w": 342,
+    "h": 36
+   }
+  ],
+  "paras": [
+   {
+    "text": "Next step",
+    "fs": "13px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 24,
+    "y": 2522,
+    "w": 342,
+    "h": 21
+   },
+   {
+    "text": "Tell us what you need and we will get ba",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 24,
+    "y": 2627,
+    "w": 342,
+    "h": 48
+   }
+  ],
+  "btns": [
+   {
+    "text": "Contact us",
+    "href": "/contact/",
+    "target": null,
+    "fs": "13px",
+    "x": 99,
+    "y": 2691,
+    "w": 110,
+    "h": 45
+   },
+   {
+    "text": "(540) 841-9297",
+    "href": "tel:5408419297",
+    "target": null,
+    "fs": "13px",
+    "x": 233,
+    "y": 2691,
+    "w": 133,
+    "h": 45
+   }
+  ],
+  "groups": [
+   {
+    "justify": "flex-end",
+    "x": 24,
+    "y": 2691,
+    "w": 342,
+    "h": 52
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [
+   {
+    "x": 24,
+    "y": 2522,
+    "w": 342,
+    "h": 153
+   },
+   {
+    "x": 24,
+    "y": 2691,
+    "w": 342,
+    "h": 52
+   }
+  ],
+  "fonts": []
+ },
+ "demo-390-proof-strip": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": 1255,
+   "w": 390,
+   "h": 165
+  },
+  "padding": "16px 24px",
+  "borderTop": "1px solid rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [],
+  "paras": [],
+  "btns": [],
+  "groups": [],
+  "imgs": [],
+  "lis": [
+   {
+    "text": "Licensed and insured",
+    "x": 24,
+    "y": 1272,
+    "w": 167,
+    "h": 24
+   },
+   {
+    "text": "Locally owned",
+    "x": 221,
+    "y": 1272,
+    "w": 119,
+    "h": 24
+   },
+   {
+    "text": "Written quotes before work begins",
+    "x": 24,
+    "y": 1319,
+    "w": 251,
+    "h": 24
+   },
+   {
+    "text": "Same-week scheduling",
+    "x": 24,
+    "y": 1367,
+    "w": 179,
+    "h": 24
+   }
+  ],
+  "cols": [],
+  "fonts": []
+ },
+ "demo-390-logo-marquee": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": 1215,
+   "w": 390,
+   "h": 125
+  },
+  "padding": "24px",
+  "borderTop": "0px none rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [],
+  "paras": [
+   {
+    "text": "Some of the teams we work with",
+    "fs": "13px",
+    "color": "rgb(244, 242, 250)",
+    "align": "center",
+    "x": 24,
+    "y": 1239,
+    "w": 342,
+    "h": 21
+   }
+  ],
+  "btns": [],
+  "groups": [],
+  "imgs": [
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-1.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 24,
+    "y": 1276,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-2.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 220,
+    "y": 1276,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-3.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 416,
+    "y": 1276,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-4.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 612,
+    "y": 1276,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-5.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 808,
+    "y": 1276,
+    "w": 160,
+    "h": 40
+   },
+   {
+    "src": "https://demo.voyagermark.com/wp-content/plugins/voyager-open-blocks/assets/placeholders/logo-6.svg",
+    "alt": "Placeholder logo",
+    "ok": true,
+    "x": 1004,
+    "y": 1276,
+    "w": 160,
+    "h": 40
+   }
+  ],
+  "lis": [],
+  "cols": [],
+  "fonts": []
+ },
+ "demo-390-closing-cta": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": 2468,
+   "w": 390,
+   "h": 276
+  },
+  "padding": "54.08px 24px",
+  "borderTop": "0px none rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Ready when you are.",
+    "fs": "32px",
+    "ff": "\"Space Grotesk\"",
+    "x": 24,
+    "y": 2522,
+    "w": 342,
+    "h": 36
+   }
+  ],
+  "paras": [
+   {
+    "text": "Book a call or send a message, and we wi",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "center",
+    "x": 24,
+    "y": 2574,
+    "w": 342,
+    "h": 48
+   }
+  ],
+  "btns": [
+   {
+    "text": "Get in touch",
+    "href": "/contact/",
+    "target": null,
+    "fs": "13px",
+    "x": 75,
+    "y": 2638,
+    "w": 119,
+    "h": 45
+   },
+   {
+    "text": "Email us",
+    "href": "mailto:ben@voyagermark.com",
+    "target": null,
+    "fs": "13px",
+    "x": 218,
+    "y": 2638,
+    "w": 97,
+    "h": 45
+   }
+  ],
+  "groups": [
+   {
+    "justify": "center",
+    "x": 24,
+    "y": 2638,
+    "w": 342,
+    "h": 52
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [],
+  "fonts": []
+ },
+ "demo-390-contact-section": {
+  "url": "https://demo.voyagermark.com/open-blocks/",
+  "box": {
+   "x": 0,
+   "y": -1006,
+   "w": 390,
+   "h": 656
+  },
+  "padding": "36px 24px",
+  "borderTop": "0px none rgb(244, 242, 250)",
+  "color": "rgb(244, 242, 250)",
+  "bg": "rgba(0, 0, 0, 0)",
+  "scrollW": 390,
+  "clientW": 390,
+  "docOverflow": false,
+  "heads": [
+   {
+    "tag": "H2",
+    "text": "Get in touch",
+    "fs": "32px",
+    "ff": "\"Space Grotesk\"",
+    "x": 24,
+    "y": -970,
+    "w": 342,
+    "h": 36
+   },
+   {
+    "tag": "H3",
+    "text": "Send us a note",
+    "fs": "26px",
+    "ff": "\"Space Grotesk\"",
+    "x": 49,
+    "y": -589,
+    "w": 292,
+    "h": 31
+   }
+  ],
+  "paras": [
+   {
+    "text": "Call, email or stop by during business h",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 24,
+    "y": -910,
+    "w": 342,
+    "h": 24
+   },
+   {
+    "text": "(540) 841-9297",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 24,
+    "y": -862,
+    "w": 342,
+    "h": 24
+   },
+   {
+    "text": "ben@voyagermark.com",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 24,
+    "y": -831,
+    "w": 342,
+    "h": 24
+   },
+   {
+    "text": "100 Main Street",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 24,
+    "y": -800,
+    "w": 342,
+    "h": 24
+   },
+   {
+    "text": "Springfield, ST 00000",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 24,
+    "y": -769,
+    "w": 342,
+    "h": 24
+   },
+   {
+    "text": "Monday to Friday, 9am to 5pm",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 24,
+    "y": -738,
+    "w": 342,
+    "h": 24
+   },
+   {
+    "text": "Tell us a little about what you need and",
+    "fs": "15px",
+    "color": "rgb(244, 242, 250)",
+    "align": "start",
+    "x": 49,
+    "y": -534,
+    "w": 292,
+    "h": 48
+   }
+  ],
+  "btns": [
+   {
+    "text": "Call us",
+    "href": "tel:5408419297",
+    "target": null,
+    "fs": "13px",
+    "x": 24,
+    "y": -690,
+    "w": 86,
+    "h": 45
+   },
+   {
+    "text": "Email us",
+    "href": "mailto:ben@voyagermark.com",
+    "target": null,
+    "fs": "13px",
+    "x": 49,
+    "y": -462,
+    "w": 97,
+    "h": 45
+   }
+  ],
+  "groups": [
+   {
+    "justify": "normal",
+    "x": 24,
+    "y": -690,
+    "w": 342,
+    "h": 52
+   },
+   {
+    "justify": "normal",
+    "x": 49,
+    "y": -462,
+    "w": 292,
+    "h": 52
+   }
+  ],
+  "imgs": [],
+  "lis": [],
+  "cols": [
+   {
+    "x": 24,
+    "y": -970,
+    "w": 342,
+    "h": 332
+   },
+   {
+    "x": 24,
+    "y": -614,
+    "w": 342,
+    "h": 228
+   }
+  ],
+  "fonts": []
+ }
+}
