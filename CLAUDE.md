@@ -50,6 +50,7 @@ feature density that would feel obnoxious on a client site.
 - design-system/     ← DS submodule (pinned tag; sync via wp voyager-demo sync-tokens — never edit contents)
 - assets/css/        ← custom stylesheets
 - assets/js/         ← custom scripts
+- assets/fonts/      ← woff2 copied from design-system/assets/fonts/ at the pinned DS tag (deploy does not ship the submodule; re-copy on a DS bump)
 ```
 
 **Never touch:** Parent theme files, the voyagermark sibling theme,

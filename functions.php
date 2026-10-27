@@ -101,6 +101,38 @@ function voyager_demo_enqueue_styles(): void {
 add_action('wp_enqueue_scripts', 'voyager_demo_enqueue_styles');
 
 /**
+ * Preload the display face. Headings above the fold set in Space Grotesk
+ * (theme.json `display`), so its latin subset is the one worth fetching
+ * early. The href has to match the URL core builds from the theme.json
+ * `file:./` src, or the browser fetches the font twice; both go through
+ * get_theme_file_uri().
+ *
+ * The woff2 files in assets/fonts/ are copies of design-system/assets/fonts/
+ * at the pinned DS tag. The deploy does not ship the submodule.
+ */
+function voyager_demo_preload_display_font(array $resources): array {
+    $resources[] = [
+        'href'        => get_theme_file_uri('assets/fonts/space-grotesk/SpaceGrotesk-latin.woff2'),
+        'as'          => 'font',
+        'type'        => 'font/woff2',
+        'crossorigin' => 'anonymous',
+    ];
+    return $resources;
+}
+add_filter('wp_preload_resources', 'voyager_demo_preload_display_font');
+
+/**
+ * Drop the parent's ClashDisplay preload. No style on this site uses Clash
+ * Display, so the parent's hook only spends bandwidth ahead of the real faces.
+ * Runs on after_setup_theme because the parent's functions.php loads after
+ * this one.
+ */
+function voyager_demo_drop_parent_font_preload(): void {
+    remove_action('wp_head', 'Voyager\Performance\preload_primary_font', 1);
+}
+add_action('after_setup_theme', 'voyager_demo_drop_parent_font_preload');
+
+/**
  * Register block pattern category for showcase patterns.
  */
 function voyager_demo_register_pattern_categories(): void {
