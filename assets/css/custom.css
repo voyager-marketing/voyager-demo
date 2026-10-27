@@ -256,6 +256,82 @@
 	line-height: 1.5;
 }
 
+/* ==========================================================================
+   /open-blocks/ (VOY-1851)
+   --------------------------------------------------------------------------
+   Block supports carry this page's layout and colour. These rules cover what
+   they cannot: long tokens in code blocks, the SKILL.md tree, the hero's
+   accent word and the pressed state of the stage switch. The switch itself
+   is wired in functions.php; the light look is the section-light group style
+   in theme.json.
+   ========================================================================== */
+
+/* One unbroken JSON token in a code block sets the grid track's min-content
+   width and pushes the step cards past a phone screen. Let code wrap anywhere. */
+.vd-ob-hero .wp-block-code code,
+.vd-ob-run .wp-block-code code,
+.vd-ob-install .wp-block-code code {
+	overflow-wrap: anywhere;
+}
+
+/* JetBrains Mono draws "--" as one long dash, so a CLI flag such as
+   --wp-path would read as an em dash. Commands are shown as typed. */
+.vd-ob-hero code,
+.vd-ob-run code,
+.vd-ob-install code,
+.vd-stage code {
+	font-variant-ligatures: none;
+}
+
+/* The SKILL.md excerpt is an aligned tree: it scrolls rather than wraps. */
+.vd-ob-hero .vd-ob-skill {
+	overflow-x: auto;
+}
+
+.vd-ob-hero .vd-ob-skill code {
+	overflow-wrap: normal;
+	white-space: pre;
+}
+
+.vd-ob-hero h1 em {
+	color: var(--wp--preset--color--accent-bright);
+	font-style: normal;
+}
+
+/* Inline code in prose and the sources table, in the mono face. */
+.vd-ob-run p code,
+.vd-ob-sources code {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.88em;
+}
+
+.vd-ob-sources th {
+	text-align: left;
+}
+
+/* The column block's word-break would split words mid-letter on a phone. */
+.vd-ob-sources th,
+.vd-ob-sources td {
+	overflow-wrap: normal;
+	word-break: normal;
+}
+
+@media (min-width: 782px) {
+
+	.vd-ob-sources td:first-child {
+		white-space: nowrap;
+	}
+}
+
+/* Both switch buttons are outline buttons; the pressed one fills, hovered
+   or not (the parent theme's outline hover would otherwise win). */
+.vd-stage-switch .wp-block-button.is-style-outline .wp-block-button__link[aria-pressed="true"],
+.vd-stage-switch .wp-block-button.is-style-outline .wp-block-button__link[aria-pressed="true"]:hover {
+	border-color: var(--wp--preset--color--fg-1);
+	background-color: var(--wp--preset--color--fg-1);
+	color: var(--wp--preset--color--bg-canvas);
+}
+
 /* --------------------------------------------------------------------------
    Known hazard, deliberately NOT patched here (see PRJ-56 Discoveries):
 

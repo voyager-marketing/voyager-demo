@@ -88,13 +88,15 @@ function voyager_demo_enqueue_styles(): void {
         VOYAGER_DEMO_VERSION
     );
 
+    // Versioned by file time: VOYAGER_DEMO_VERSION does not move between
+    // deploys, so a changed stylesheet would otherwise be served from cache.
     $custom_css = VOYAGER_DEMO_PATH . '/assets/css/custom.css';
     if (file_exists($custom_css)) {
         wp_enqueue_style(
             'voyager-demo-custom',
             VOYAGER_DEMO_URI . '/assets/css/custom.css',
             ['voyager-demo-style'],
-            VOYAGER_DEMO_VERSION
+            (string) filemtime($custom_css)
         );
     }
 }
@@ -957,6 +959,148 @@ function voyager_demo_mcp_playground_boot(string $selected): void {
         wp_enqueue_script_module('voyager-demo/mcp-playground');
     }
 }
+
+/**
+ * Register the light section style for groups (VOY-1851).
+ *
+ * Its look lives in theme.json, under
+ * styles.blocks.core/group.variations.section-light: fg-1 paper with
+ * bg-canvas ink. Registering the name here is what lets that entry survive
+ * theme.json sanitization. A theme.json partial in styles/ would register it
+ * too, but the deploy does not ship a styles/ directory.
+ */
+function voyager_demo_register_block_styles(): void {
+    register_block_style('core/group', [
+        'name'  => 'section-light',
+        'label' => __('Light section', 'voyager-demo'),
+    ]);
+}
+add_action('init', 'voyager_demo_register_block_styles');
+
+/*
+ * /open-blocks/ pattern stage (VOY-1851): a switch that turns the light
+ * section style on and off on the stage's canvases, so the pack's patterns
+ * are seen following a light theme and this site's dark one.
+ *
+ * The page's markup is plain core blocks, so it can be published through
+ * wp_upsert_content and validated like any other post. The directives are
+ * added here at render time, keyed on class names the seed sets:
+ *
+ *   vd-stage              the section holding the switch and the canvases
+ *   vd-stage-canvas       a group carrying is-style-section-light
+ *   vd-stage-show-light   the button that turns the style on
+ *   vd-stage-show-dark    the button that turns it off
+ *
+ * The page opens on light: the canvases are saved with the style and the
+ * light button is rendered pressed, so first paint is right before the
+ * module hydrates.
+ */
+const VOYAGER_DEMO_STAGE_STORE = 'voyager-demo/open-blocks-stage';
+
+/**
+ * Register the stage's Interactivity API view module. Unbundled ESM, as the
+ * playground's is. Versioned by file time, like custom.css.
+ */
+function voyager_demo_register_stage_script_module(): void {
+    if (! function_exists('wp_register_script_module')) {
+        return;
+    }
+
+    $file = VOYAGER_DEMO_PATH . '/assets/js/open-blocks-stage.js';
+    wp_register_script_module(
+        VOYAGER_DEMO_STAGE_STORE,
+        VOYAGER_DEMO_URI . '/assets/js/open-blocks-stage.js',
+        ['@wordpress/interactivity'],
+        file_exists($file) ? (string) filemtime($file) : VOYAGER_DEMO_VERSION
+    );
+}
+add_action('init', 'voyager_demo_register_stage_script_module');
+
+/**
+ * Whether a block's className carries a given class.
+ *
+ * @param array<string, mixed> $block Parsed block.
+ */
+function voyager_demo_block_has_class(array $block, string $class): bool {
+    $classes = preg_split('/\s+/', (string) ($block['attrs']['className'] ?? '')) ?: [];
+
+    return in_array($class, $classes, true);
+}
+
+/**
+ * Make the stage section the interactive region, and hand the client the
+ * opening state.
+ *
+ * @param string               $block_content Rendered block.
+ * @param array<string, mixed> $block         Parsed block.
+ */
+function voyager_demo_stage_group_directives(string $block_content, array $block): string {
+    if (voyager_demo_block_has_class($block, 'vd-stage')) {
+        $tags = new \WP_HTML_Tag_Processor($block_content);
+        if ($tags->next_tag()) {
+            $tags->set_attribute('data-wp-interactive', VOYAGER_DEMO_STAGE_STORE);
+            $block_content = $tags->get_updated_html();
+
+            if (function_exists('wp_interactivity_state')) {
+                wp_interactivity_state(VOYAGER_DEMO_STAGE_STORE, [
+                    'isLight' => true,
+                    'isDark'  => false,
+                ]);
+            }
+            if (function_exists('wp_enqueue_script_module')) {
+                wp_enqueue_script_module(VOYAGER_DEMO_STAGE_STORE);
+            }
+        }
+
+        return $block_content;
+    }
+
+    if (! voyager_demo_block_has_class($block, 'vd-stage-canvas')) {
+        return $block_content;
+    }
+
+    /*
+     * Core scopes a section style's CSS to a per-render instance class
+     * (is-style-section-light--3), added beside is-style-section-light on the
+     * generic render_block filter. Both have to come off for the dark state,
+     * so each class gets its own directive. render_block_core/group runs after
+     * render_block, so the instance class is already in the markup here.
+     */
+    $tags = new \WP_HTML_Tag_Processor($block_content);
+    if ($tags->next_tag()) {
+        foreach ($tags->class_list() as $class) {
+            if (preg_match('/^is-style-section-light(--\d+)?$/', $class)) {
+                $tags->set_attribute('data-wp-class--' . $class, 'state.isLight');
+            }
+        }
+    }
+
+    return $tags->get_updated_html();
+}
+add_filter('render_block_core/group', 'voyager_demo_stage_group_directives', 20, 2);
+
+/**
+ * Wire the stage's two switch buttons.
+ *
+ * @param string               $block_content Rendered block.
+ * @param array<string, mixed> $block         Parsed block.
+ */
+function voyager_demo_stage_button_directives(string $block_content, array $block): string {
+    $light = voyager_demo_block_has_class($block, 'vd-stage-show-light');
+    if (! $light && ! voyager_demo_block_has_class($block, 'vd-stage-show-dark')) {
+        return $block_content;
+    }
+
+    $tags = new \WP_HTML_Tag_Processor($block_content);
+    if ($tags->next_tag(['class_name' => 'wp-block-button__link'])) {
+        $tags->set_attribute('data-wp-on--click', $light ? 'actions.showLight' : 'actions.showDark');
+        $tags->set_attribute('data-wp-bind--aria-pressed', $light ? 'state.isLight' : 'state.isDark');
+        $tags->set_attribute('aria-pressed', $light ? 'true' : 'false');
+    }
+
+    return $tags->get_updated_html();
+}
+add_filter('render_block_core/button', 'voyager_demo_stage_button_directives', 20, 2);
 
 if (defined('WP_CLI') && WP_CLI) {
     /**

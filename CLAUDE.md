@@ -85,7 +85,7 @@ Pages by the same `wp voyager-demo seed-showcases` command:
 |---|---|---|
 | /abilities/ | seeds/pages/abilities.php | voyager-demo/abilities-registry — live `wp_get_abilities()` |
 | /mcp-playground/ | seeds/pages/mcp-playground.php | voyager-demo/mcp-playground — interactive tool console |
-| /open-blocks/ | seeds/pages/open-blocks.php | Voyager Open Blocks gallery, built from the pack's own patterns and blocks |
+| /open-blocks/ | seeds/pages/open-blocks.php | Voyager Open Blocks product page, built from the pack's own patterns and blocks. Its pattern stage switch is wired at render time in functions.php (`vd-stage*` classes) over the `section-light` group style in theme.json |
 
 Deploy does not run the seeder, so demo gets a seed's markup through the
 Voyager MCP content tools (`wp_upsert_content`). Keep `--` out of block-comment
