@@ -27,6 +27,10 @@
  * escaped and is safe. Keep <, >, & and quotes out of attribute values for
  * the same reason: they are escaped with a backslash too.
  *
+ * The border, radius and padding shared by the code blocks, step cards and
+ * pattern cards are in assets/css/custom.css, not in each block's attributes:
+ * repeated per block they doubled the markup sent through the upsert.
+ *
  * @package VoyagerDemo
  */
 
@@ -64,8 +68,8 @@ return [
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
-<!-- wp:code {"style":{"border":{"radius":"10px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-panel","textColor":"fg-2","borderColor":"border-hair","fontSize":"sm"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-panel-background-color has-text-color has-background has-sm-font-size" style="border-width:1px;border-radius:10px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>$ npx skills add voyager-marketing/voyager-open-blocks</code></pre>
+<!-- wp:code {"backgroundColor":"bg-panel","textColor":"fg-2","fontSize":"sm"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-panel-background-color has-text-color has-background has-sm-font-size"><code>$ npx skills add voyager-marketing/voyager-open-blocks</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
@@ -90,8 +94,8 @@ return [
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="margin-top:var(--wp--preset--spacing--5)">skills/voyager-open-cta-band/SKILL.md, read by the agent</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"className":"vd-ob-skill","style":{"border":{"radius":"10px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|4","bottom":"var:preset|spacing|4","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-panel","textColor":"fg-3","borderColor":"border-strong","fontSize":"label"} -->
-<pre class="wp-block-code vd-ob-skill has-border-color has-border-strong-border-color has-fg-3-color has-bg-panel-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:10px;padding-top:var(--wp--preset--spacing--4);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--4);padding-left:var(--wp--preset--spacing--4)"><code>core/group (section, full width, constrained)   "CTA band"
+<!-- wp:code {"className":"vd-ob-skill","backgroundColor":"bg-panel","textColor":"fg-3","fontSize":"label"} -->
+<pre class="wp-block-code vd-ob-skill has-fg-3-color has-bg-panel-background-color has-text-color has-background has-label-font-size"><code>core/group (section, full width, constrained)   "CTA band"
   core/columns (wide, centered)
     core/column 60%
       core/paragraph  small, uppercase          "Eyebrow"
@@ -182,8 +186,8 @@ return [
 <!-- /wp:columns -->
 
 <!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|5"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":"18rem"}} -->
-<div class="wp-block-group alignwide"><!-- wp:group {"className":"vd-agent-step","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"constrained"}} -->
-<div class="wp-block-group vd-agent-step has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;border-radius:14px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group alignwide"><!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Step 1</p>
 <!-- /wp:paragraph -->
@@ -201,18 +205,18 @@ return [
 <p class="has-fg-3-color has-text-color">Wesper collects the blocks this site registers, its theme tokens and the fields it can bind. The agent works from that file, not from what it remembers about WordPress.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"fg-2","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>$ npx wesper collect --wp-path ./public --out site.context.json
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>$ npx wesper collect --wp-path ./public --out site.context.json
 $ npx wesper summarize site.context.json</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"signal-ok","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>blocks · tokens · bindable fields</code></pre>
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-ok","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>blocks · tokens · bindable fields</code></pre>
 <!-- /wp:code --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"vd-agent-step","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"constrained"}} -->
-<div class="wp-block-group vd-agent-step has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;border-radius:14px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Step 2</p>
 <!-- /wp:paragraph -->
@@ -230,12 +234,12 @@ $ npx wesper summarize site.context.json</code></pre>
 <p class="has-fg-3-color has-text-color">The <code>get-catalog</code> ability lists the pack's patterns, the named blocks inside each one and every bindable field with its exact args. The brief asks for a call to action, so it takes the CTA band.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"fg-2","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>GET voyager-open-blocks/get-catalog</code></pre>
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>GET voyager-open-blocks/get-catalog</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"signal-ok","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>voyager-open/cta-band   copy: Eyebrow, Heading, Body
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-ok","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>voyager-open/cta-band   copy: Eyebrow, Heading, Body
 voyager-open/proof-strip
 voyager-open/logo-marquee
 voyager-open/contact-section
@@ -243,8 +247,8 @@ voyager-open/closing-cta</code></pre>
 <!-- /wp:code --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"vd-agent-step","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"constrained"}} -->
-<div class="wp-block-group vd-agent-step has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;border-radius:14px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Step 3</p>
 <!-- /wp:paragraph -->
@@ -262,8 +266,8 @@ voyager-open/closing-cta</code></pre>
 <p class="has-fg-3-color has-text-color"><code>insert</code> adds a copy of the pattern at the end of the page and rewrites its named blocks by label. The heading and the line now belong to the Services page.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"fg-2","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>POST voyager-open-blocks/insert
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>POST voyager-open-blocks/insert
 {"post_id":42,
  "item":"voyager-open/cta-band",
  "position":2,"mode":"copy",
@@ -273,8 +277,8 @@ voyager-open/closing-cta</code></pre>
 <!-- /wp:code --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"vd-agent-step","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"constrained"}} -->
-<div class="wp-block-group vd-agent-step has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;border-radius:14px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Step 4</p>
 <!-- /wp:paragraph -->
@@ -292,17 +296,17 @@ voyager-open/closing-cta</code></pre>
 <p class="has-fg-3-color has-text-color">Every piece of markup <code>insert</code> returns goes through Block Runner in strict mode, against the site context from step 1. Exit 0 saves. Exit 1 means fix it and validate again.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"fg-2","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>$ npx block-runner validate page.html --strict --json --context site.context.json</code></pre>
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>$ npx block-runner validate page.html --strict --json --context site.context.json</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"signal-ok","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>exit 0  valid, saved</code></pre>
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-ok","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>exit 0  valid, saved</code></pre>
 <!-- /wp:code --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"vd-agent-step","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"constrained"}} -->
-<div class="wp-block-group vd-agent-step has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;border-radius:14px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Step 5</p>
 <!-- /wp:paragraph -->
@@ -320,8 +324,8 @@ voyager-open/closing-cta</code></pre>
 <p class="has-fg-3-color has-text-color">The click-to-call button already reads <code>phone</code> and <code>phone_link</code> from Site Data. The agent also binds the eyebrow to the company name. <code>bind</code> refuses any args the catalog does not list.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"fg-2","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>POST voyager-open-blocks/bind
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>POST voyager-open-blocks/bind
 {"post_id":42,"path":"2/0/0/0",
  "attribute":"content",
  "source":"voyager/site-data",
@@ -329,8 +333,8 @@ voyager-open/closing-cta</code></pre>
 <!-- /wp:code --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"vd-agent-step","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|5","bottom":"var:preset|spacing|5","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","borderColor":"border-hair","layout":{"type":"constrained"}} -->
-<div class="wp-block-group vd-agent-step has-border-color has-border-hair-border-color has-bg-panel-background-color has-background" style="border-width:1px;border-radius:14px;padding-top:var(--wp--preset--spacing--5);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--5);padding-left:var(--wp--preset--spacing--5)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Step 6</p>
 <!-- /wp:paragraph -->
@@ -348,12 +352,12 @@ voyager-open/closing-cta</code></pre>
 <p class="has-fg-3-color has-text-color"><code>get-post-blocks</code> reads the page back. Each binding reports resolved or fell back, with the reason and a preview of the value, so the agent proves the page instead of assuming it.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"fg-2","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>GET voyager-open-blocks/get-post-blocks</code></pre>
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>GET voyager-open-blocks/get-post-blocks</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"signal-ok","borderColor":"border-hair","fontSize":"label"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>company     resolved  “Example Co.”
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-ok","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>company     resolved  “Example Co.”
 phone       resolved  “(555) 010-0199”
 phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- /wp:code --></div>
@@ -390,9 +394,9 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","borderColor":"border-1","layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide vd-ob-card has-border-color has-border-1-border-color has-bg-raised-background-color has-background" style="border-width:1px;border-radius:14px"><!-- wp:group {"style":{"border":{"bottom":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--border-1);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
 <p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/cta-band</p>
 <!-- /wp:paragraph -->
 
@@ -405,8 +409,8 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <div class="wp-block-group is-style-section-light vd-stage-canvas"><!-- wp:pattern {"slug":"voyager-open/cta-band"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"style":{"border":{"top":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border-1);border-top-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
 <p class="has-fg-3-color has-text-color has-sm-font-size">Heading and one line beside a primary button and a click-to-call button.</p>
 <!-- /wp:paragraph -->
 
@@ -418,9 +422,9 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|5","left":"var:preset|spacing|5"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"42%"} -->
-<div class="wp-block-column" style="flex-basis:42%"><!-- wp:group {"className":"vd-ob-card","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","borderColor":"border-1","layout":{"type":"default"}} -->
-<div class="wp-block-group vd-ob-card has-border-color has-border-1-border-color has-bg-raised-background-color has-background" style="border-width:1px;border-radius:14px"><!-- wp:group {"style":{"border":{"bottom":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--border-1);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<div class="wp-block-column" style="flex-basis:42%"><!-- wp:group {"className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
 <p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/proof-strip</p>
 <!-- /wp:paragraph -->
 
@@ -433,8 +437,8 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <div class="wp-block-group is-style-section-light vd-stage-canvas"><!-- wp:pattern {"slug":"voyager-open/proof-strip"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"style":{"border":{"top":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border-1);border-top-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
 <p class="has-fg-3-color has-text-color has-sm-font-size">Four credentials in a ticked row between two rules.</p>
 <!-- /wp:paragraph -->
 
@@ -446,9 +450,9 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"58%"} -->
-<div class="wp-block-column" style="flex-basis:58%"><!-- wp:group {"className":"vd-ob-card","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","borderColor":"border-1","layout":{"type":"default"}} -->
-<div class="wp-block-group vd-ob-card has-border-color has-border-1-border-color has-bg-raised-background-color has-background" style="border-width:1px;border-radius:14px"><!-- wp:group {"style":{"border":{"bottom":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--border-1);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<div class="wp-block-column" style="flex-basis:58%"><!-- wp:group {"className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
 <p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/logo-marquee</p>
 <!-- /wp:paragraph -->
 
@@ -461,8 +465,8 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <div class="wp-block-group is-style-section-light vd-stage-canvas"><!-- wp:pattern {"slug":"voyager-open/logo-marquee"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"style":{"border":{"top":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border-1);border-top-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
 <p class="has-fg-3-color has-text-color has-sm-font-size">A row of logos that drifts when it is wider than the screen, and holds still under reduced motion.</p>
 <!-- /wp:paragraph -->
 
@@ -474,9 +478,9 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
-<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","borderColor":"border-1","layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide vd-ob-card has-border-color has-border-1-border-color has-bg-raised-background-color has-background" style="border-width:1px;border-radius:14px"><!-- wp:group {"style":{"border":{"bottom":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--border-1);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
 <p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/contact-section</p>
 <!-- /wp:paragraph -->
 
@@ -489,8 +493,8 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <div class="wp-block-group is-style-section-light vd-stage-canvas"><!-- wp:pattern {"slug":"voyager-open/contact-section"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"style":{"border":{"top":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border-1);border-top-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
 <p class="has-fg-3-color has-text-color has-sm-font-size">Phone, email, address and hours from Site Data, beside a slot for your form.</p>
 <!-- /wp:paragraph -->
 
@@ -502,9 +506,9 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|5","left":"var:preset|spacing|5"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"42%"} -->
-<div class="wp-block-column" style="flex-basis:42%"><!-- wp:group {"className":"vd-ob-card","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","borderColor":"border-1","layout":{"type":"default"}} -->
-<div class="wp-block-group vd-ob-card has-border-color has-border-1-border-color has-bg-raised-background-color has-background" style="border-width:1px;border-radius:14px"><!-- wp:group {"style":{"border":{"bottom":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-bottom-color:var(--wp--preset--color--border-1);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<div class="wp-block-column" style="flex-basis:42%"><!-- wp:group {"className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
 <p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/icon</p>
 <!-- /wp:paragraph -->
 
@@ -535,8 +539,8 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- wp:voyager-open/icon {"icon":"light-bulb","size":32} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"style":{"border":{"top":{"color":"var:preset|color|border-1","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--border-1);border-top-width:1px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
 <p class="has-fg-3-color has-text-color has-sm-font-size">35 outline icons, an optional link and CSS-only motion. It saves no HTML, so there is nothing to go stale.</p>
 <!-- /wp:paragraph -->
 
@@ -548,8 +552,8 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"58%"} -->
-<div class="wp-block-column" style="flex-basis:58%"><!-- wp:group {"className":"vd-ob-card","style":{"border":{"radius":"14px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|2","bottom":"var:preset|spacing|2","left":"var:preset|spacing|5","right":"var:preset|spacing|5"}}},"backgroundColor":"bg-raised","borderColor":"border-1","layout":{"type":"default"}} -->
-<div class="wp-block-group vd-ob-card has-border-color has-border-1-border-color has-bg-raised-background-color has-background" style="border-width:1px;border-radius:14px;padding-top:var(--wp--preset--spacing--2);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--2);padding-left:var(--wp--preset--spacing--5)"><!-- wp:table {"hasFixedLayout":false,"className":"vd-ob-sources","borderColor":"border-hair","fontSize":"base"} -->
+<div class="wp-block-column" style="flex-basis:58%"><!-- wp:group {"className":"vd-ob-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|2","bottom":"var:preset|spacing|2","left":"var:preset|spacing|5","right":"var:preset|spacing|5"}}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group vd-ob-card has-bg-raised-background-color has-background" style="padding-top:var(--wp--preset--spacing--2);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--2);padding-left:var(--wp--preset--spacing--5)"><!-- wp:table {"hasFixedLayout":false,"className":"vd-ob-sources","borderColor":"border-hair","fontSize":"base"} -->
 <figure class="wp-block-table vd-ob-sources has-base-font-size"><table class="has-border-color has-border-hair-border-color"><thead><tr><th>Binding source</th><th>Reads</th></tr></thead><tbody><tr><td><code>voyager/site-data</code></td><td>Company, phone, email, address, hours and social links, from Settings › Site Data.</td></tr><tr><td><code>voyager/post-meta-text</code></td><td>Allowlisted post meta, with JSON dot paths for nested values.</td></tr><tr><td>5 abilities</td><td><code>get-catalog</code>, <code>get-post-blocks</code>, <code>insert</code>, <code>configure</code> and <code>bind</code>, over REST and to MCP clients through the MCP Adapter.</td></tr></tbody></table></figure>
 <!-- /wp:table --></div>
 <!-- /wp:group --></div>
@@ -591,24 +595,24 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Skills, in the agent's harness</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"fg-2","borderColor":"border-hair","fontSize":"sm"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-sm-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>$ npx skills add voyager-marketing/voyager-open-blocks</code></pre>
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"sm"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-sm-font-size"><code>$ npx skills add voyager-marketing/voyager-open-blocks</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Plugin zip, from the <a href="https://github.com/voyager-marketing/voyager-open-blocks/releases/latest">latest release</a></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"fg-2","borderColor":"border-hair","fontSize":"sm"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-sm-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>$ wp plugin install voyager-open-blocks.zip --activate</code></pre>
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"sm"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-sm-font-size"><code>$ wp plugin install voyager-open-blocks.zip --activate</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
 <p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Composer</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:code {"style":{"border":{"radius":"8px","width":"1px"},"spacing":{"padding":{"top":"var:preset|spacing|3","bottom":"var:preset|spacing|3","left":"var:preset|spacing|4","right":"var:preset|spacing|4"}}},"backgroundColor":"bg-canvas","textColor":"fg-2","borderColor":"border-hair","fontSize":"sm"} -->
-<pre class="wp-block-code has-border-color has-border-hair-border-color has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-sm-font-size" style="border-width:1px;border-radius:8px;padding-top:var(--wp--preset--spacing--3);padding-right:var(--wp--preset--spacing--4);padding-bottom:var(--wp--preset--spacing--3);padding-left:var(--wp--preset--spacing--4)"><code>$ composer config repositories.voyager-open-blocks vcs https://github.com/voyager-marketing/voyager-open-blocks
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"sm"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-sm-font-size"><code>$ composer config repositories.voyager-open-blocks vcs https://github.com/voyager-marketing/voyager-open-blocks
 $ composer require voyager-marketing/voyager-open-blocks</code></pre>
 <!-- /wp:code -->
 

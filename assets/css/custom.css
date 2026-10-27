@@ -266,6 +266,47 @@
    in theme.json.
    ========================================================================== */
 
+/* Chrome shared by the page's code blocks, step cards and pattern cards. It
+   lives here rather than in each block's attributes, which kept the page small
+   enough to publish through wp_upsert_content in one call. */
+.vd-ob-hero .wp-block-code,
+.vd-ob-run .wp-block-code,
+.vd-ob-install .wp-block-code {
+	border: 1px solid var(--wp--preset--color--border-hair);
+	border-radius: 8px;
+	padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--4);
+}
+
+.vd-ob-hero .vd-ob-skill {
+	border-color: var(--wp--preset--color--border-strong);
+	border-radius: 10px;
+	padding: var(--wp--preset--spacing--4);
+}
+
+.vd-agent-step {
+	border: 1px solid var(--wp--preset--color--border-hair);
+	border-radius: 14px;
+	padding: var(--wp--preset--spacing--5);
+}
+
+.vd-ob-card {
+	border: 1px solid var(--wp--preset--color--border-1);
+	border-radius: 14px;
+}
+
+.vd-ob-card__meta,
+.vd-ob-card__desc {
+	padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--5);
+}
+
+.vd-ob-card__meta {
+	border-bottom: 1px solid var(--wp--preset--color--border-1);
+}
+
+.vd-ob-card__desc {
+	border-top: 1px solid var(--wp--preset--color--border-1);
+}
+
 /* One unbroken JSON token in a code block sets the grid track's min-content
    width and pushes the step cards past a phone screen. Let code wrap anywhere. */
 .vd-ob-hero .wp-block-code code,
