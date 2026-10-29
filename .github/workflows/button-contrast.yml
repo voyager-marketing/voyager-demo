@@ -1,0 +1,64 @@
+name: Button contrast
+
+# VOY-1887. Every button style this theme offers, at rest, on hover, on
+# focus-visible and disabled, on every surface it paints, must clear 4.5:1.
+# Demo's filled hover drifted to 4.13:1 (VOY-1870) with the parent's own gate
+# green, because that gate measures the parent and not this child's paint.
+#
+# The gate is voyager-blank-child's composite action (VOY-1885). Private themes
+# call it pinned to a sha. This repo is public and blank-child is private, and
+# GitHub does not let a public repo use an action from a private one, so the
+# action is vendored at .github/actions/button-contrast and called by local
+# path. Its action.yml names the source sha; re-copy it, never edit it.
+#
+# This is the one workflow CLAUDE.md lets a session add or edit. ci.yml and
+# deploy.yml stay out of scope.
+#
+# THE JOB NAME IS LOAD-BEARING
+# ----------------------------
+# Once "Button contrast" is a required check on main, renaming the job removes
+# the gate without turning anything red.
+#
+# WHY THIS IS NOT IN ci.yml
+# -------------------------
+# ci.yml needs no secrets. This job renders the theme over voyager-block-theme,
+# a release zip on a private repo, so it reads RELEASE_READ_TOKEN. A pull
+# request from a fork gets no secrets and fails at the parent download (exit 2),
+# which is the honest result: nothing was measured.
+#
+# THE CONTROL
+# -----------
+# Every run also loads the page with a known-bad rule planted (accent text on
+# the outline hover's accent fill) and requires the gate to fail it. To watch
+# the job itself go red, run .github/actions/button-contrast/run.mjs
+# --known-bad, or set known-bad below to '1'.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: button-contrast-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  button-contrast:
+    name: Button contrast
+    # Pinned, not ubuntu-latest: that label moved to Ubuntu 26.04 in October
+    # 2026, and Playwright 1.56.1 cannot install Chromium there. Move both
+    # together, with the vendored action.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: ./.github/actions/button-contrast
+        with:
+          theme-dir: .
+          known-bad: ''
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_READ_TOKEN }}

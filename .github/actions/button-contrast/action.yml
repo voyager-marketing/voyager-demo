@@ -1,0 +1,111 @@
+# VENDORED COPY. DO NOT EDIT. (VOY-1887)
+#
+# Source: voyager-marketing/voyager-blank-child, .github/actions/button-contrast/
+# at 8ad1c138caf7cbab869404828c123aac6d39acd7 (blank-child #39, VOY-1885).
+#
+# voyager-demo is public and voyager-blank-child is private, and GitHub does
+# not let a public repo's workflow use an action from a private repo. So this
+# directory is a copy rather than a `uses:` reference. Every file in it is
+# byte-identical to the source at that sha except this header.
+#
+# To update it, re-copy the whole directory from blank-child at the new sha,
+# then put this header back with the new sha. Do not fix anything here: a
+# local edit makes demo's gate drift from every other theme's. A surface demo
+# adds goes through the voyager_button_contrast_surfaces filter in this
+# theme's functions.php, never through the fixture.
+#
+# The usage notes below are the source's own and describe calling it by sha
+# from a private repo; this repo calls it by local path from
+# .github/workflows/button-contrast.yml.
+
+name: Button contrast
+description: >-
+  Render a Voyager child theme over voyager-block-theme in WordPress Playground
+  and fail when any button style, at rest, hovered, focused or disabled, on any
+  surface the theme paints, measures under 4.5:1 (VOY-1874, VOY-1885).
+
+# One copy for every private Voyager theme (VOY-1871). Call it from another
+# repo pinned to a commit sha of voyager-blank-child:
+#
+#   jobs:
+#     button-contrast:
+#       name: Button contrast
+#       runs-on: ubuntu-24.04
+#       steps:
+#         - uses: actions/checkout@v7
+#         - uses: voyager-marketing/voyager-blank-child/.github/actions/button-contrast@<sha>
+#           with:
+#             theme-dir: wp-content/themes/<slug>
+#           env:
+#             GH_TOKEN: ${{ secrets.RELEASE_READ_TOKEN }}
+#
+# What the caller provides, because an action cannot:
+#
+#   - GH_TOKEN in the step's env, able to read voyager-block-theme releases.
+#     The parent is a release zip on a private repo; RELEASE_READ_TOKEN is the
+#     org secret the Playground preview already uses.
+#   - runs-on: ubuntu-24.04. ubuntu-latest is Ubuntu 26.04 since October 2026,
+#     and Playwright 1.56.1 cannot install Chromium there. Move both together.
+#   - The theme checked out at theme-dir.
+#
+# blank-child is private, so another repo can call this only while its
+# Actions access level allows repositories in the organization. That is a
+# repo setting, not something this file can change.
+#
+# Every run also measures a known-bad page (accent text planted on the outline
+# hover's accent fill) and requires the gate to fail it. Set known-bad to '1'
+# to plant it in the main test too and watch the job go red.
+
+inputs:
+  theme-dir:
+    description: The child theme to measure, relative to the workspace. It must hold style.css.
+    required: false
+    default: .
+  parent-tag:
+    description: >-
+      The voyager-block-theme release the child is rendered over. run.mjs reads
+      this default for local runs, so it is the one place the pin lives.
+    required: false
+    default: v2.11.6
+  known-bad:
+    description: "'1' plants the known-bad control in the main test as well, so the run must fail."
+    required: false
+    default: ''
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+
+    # WordPress in WASM (@wp-playground/cli), the theme mounted as the active
+    # child, the parent from its release zip, and Playwright measuring computed
+    # colours. The ratio table lands on the job summary.
+    - name: Measure every button style, state and surface
+      shell: bash
+      env:
+        BUTTON_CONTRAST_THEME_DIR: ${{ inputs.theme-dir }}
+        BUTTON_CONTRAST_PARENT_TAG: ${{ inputs.parent-tag }}
+        BUTTON_CONTRAST_KNOWN_BAD: ${{ inputs.known-bad }}
+      run: node "$GITHUB_ACTION_PATH/run.mjs"
+
+    # Called by local path, the action path reads <workspace>/./.github/...,
+    # and upload-artifact rejects any path holding `.` or `..`. Normalize it.
+    # The traces sit under dot-directories (.github, .results), which
+    # upload-artifact skips unless include-hidden-files is set, so set it.
+    - name: Locate Playwright traces
+      id: traces
+      if: failure()
+      shell: bash
+      run: echo "dir=$(cd "$GITHUB_ACTION_PATH" && pwd)/.results" >> "$GITHUB_OUTPUT"
+
+    - name: Upload Playwright traces
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: button-contrast-traces
+        path: ${{ steps.traces.outputs.dir }}
+        include-hidden-files: true
+        if-no-files-found: ignore
+        retention-days: 7

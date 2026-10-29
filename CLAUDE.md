@@ -51,10 +51,36 @@ feature density that would feel obnoxious on a client site.
 - assets/css/        ← custom stylesheets
 - assets/js/         ← custom scripts
 - assets/fonts/      ← woff2 copied from design-system/assets/fonts/ at the pinned DS tag (deploy does not ship the submodule; re-copy on a DS bump)
+- .github/workflows/button-contrast.yml  ← the one allowed workflow edit (VOY-1887); see "Button contrast gate" below
+- .github/actions/button-contrast/       ← vendored from voyager-blank-child at a pinned sha; re-copy, never edit
 ```
 
 **Never touch:** Parent theme files, the voyagermark sibling theme,
-`vendor/`, `node_modules/`, `.github/workflows/`
+`vendor/`, `node_modules/`, `.github/workflows/` (except
+`button-contrast.yml`, the single exception VOY-1887 authorized)
+
+## Button contrast gate
+
+The "Button contrast" check renders this theme over voyager-block-theme in
+WordPress Playground and fails when any button style, at rest, hovered,
+focused or disabled, on any surface the theme paints, measures under 4.5:1.
+It exists because demo's filled hover drifted to 4.13:1 (VOY-1870) with the
+parent's own gate green.
+
+The gate is voyager-blank-child's composite action. Private themes call it
+pinned to a sha; demo is public and blank-child is private, and GitHub does
+not let a public repo use a private repo's action, so demo carries a copy in
+`.github/actions/button-contrast/`. `action.yml` names the source sha. To pick
+up a change, re-copy the whole directory from blank-child at the new sha and
+update that header. A local edit makes the copy drift from every other
+theme's gate. The parent release it renders over is the `parent-tag` default
+in `action.yml`; move it with the parent.
+
+Surfaces beyond the fixture's three dark grounds are added in `functions.php`
+through the `voyager_button_contrast_surfaces` filter, never in the fixture.
+Run it locally with `node .github/actions/button-contrast/run.mjs` (needs `gh`
+logged in, since the parent zip is private); `--known-bad` plants the control
+and must exit 1.
 
 ## Showcase pages (vd_showcase CPT)
 
