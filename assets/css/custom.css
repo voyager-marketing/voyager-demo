@@ -373,6 +373,38 @@
 	color: var(--wp--preset--color--bg-canvas);
 }
 
+/* ==========================================================================
+   Outline button at rest (VOY-1887)
+   --------------------------------------------------------------------------
+   The parent paints an outline button's resting label accent-bright on a
+   transparent fill, per the design system's button table. On this palette
+   that pair clears 4.5:1 only on the two darkest grounds: 4.82 on bg-canvas,
+   4.64 on bg-panel, then 4.39 on bg-raised, 4.09 on bg-inset, about 2 on an
+   accent band and 3.72 on the light section's fg-1 paper. The button
+   contrast gate found the bg-raised pair failing.
+
+   So on dark grounds the button brings its own: a bg-canvas fill, which is
+   invisible on the canvas and holds the label at 4.82:1 on every other
+   surface. In the light section it follows the design system's light theme
+   instead, where accent-bright resolves to accent: 7.19:1 on fg-1.
+
+   Specificity is deliberate. The :is(a, button) adds one type selector, so
+   these beat the parent's resting rule (0,3,0) wherever this file prints,
+   and lose to its :hover, :focus and :disabled rules (0,4,0), which keep
+   their own fills. This file prints before the parent's main.css.
+   ========================================================================== */
+.wp-block-button.is-style-outline > :is(a, button).wp-block-button__link,
+.wp-block-button :is(a, button).wp-block-button__link.is-style-outline {
+	background-color: var(--wp--preset--color--bg-canvas);
+}
+
+:where(.is-style-section-light) .wp-block-button.is-style-outline > :is(a, button).wp-block-button__link,
+:where(.is-style-section-light) .wp-block-button :is(a, button).wp-block-button__link.is-style-outline {
+	border-color: var(--wp--preset--color--accent);
+	background-color: transparent;
+	color: var(--wp--preset--color--accent);
+}
+
 /* --------------------------------------------------------------------------
    Known hazard, deliberately NOT patched here (see PRJ-56 Discoveries):
 

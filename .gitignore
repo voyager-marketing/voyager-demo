@@ -14,3 +14,8 @@ scripts/wp-cli-php.ini
 scripts/composer.phar
 # Pre-wipe backups created by bootstrap-laragon.ps1 -Force
 scripts/.force-wipe-backup-*/
+
+# The vendored button-contrast action stages the parent zip and a Blueprint in
+# .stage, and Playwright writes traces under .results (VOY-1887).
+.github/actions/button-contrast/.stage/
+.github/actions/button-contrast/.results/

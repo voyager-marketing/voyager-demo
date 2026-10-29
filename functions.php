@@ -977,6 +977,30 @@ function voyager_demo_register_block_styles(): void {
 }
 add_action('init', 'voyager_demo_register_block_styles');
 
+/**
+ * Surfaces the button contrast gate measures beyond its defaults (VOY-1887).
+ *
+ * The gate's fixture (.github/actions/button-contrast, vendored) paints
+ * bg-canvas, bg-panel and bg-raised. This theme also paints groups and
+ * columns bg-inset and runs an accent band, so a button can land on either.
+ * Nothing outside the fixture applies this filter, so it is inert on the site.
+ *
+ * fg-1 is left out on purpose. Demo paints it only through the section-light
+ * style, which also sets bg-canvas ink, and the fixture paints a surface by
+ * background slug alone. Registered here, fg-1 is measured under the site's
+ * light text, a pairing no page renders: ghost at rest inherits fg-2 and
+ * reads 1.14:1. The light section's outline pair is set in
+ * assets/css/custom.css and was measured at 7.19:1 by rendering the fixture's
+ * fg-1 surface with section-light applied (VOY-1887 PR).
+ *
+ * @param list<string> $surfaces Palette slugs.
+ * @return list<string>
+ */
+function voyager_demo_button_contrast_surfaces(array $surfaces): array {
+    return [...$surfaces, 'bg-inset', 'accent'];
+}
+add_filter('voyager_button_contrast_surfaces', 'voyager_demo_button_contrast_surfaces');
+
 /*
  * /open-blocks/ pattern stage (VOY-1851): a switch that turns the light
  * section style on and off on the stage's canvases, so the pack's patterns
