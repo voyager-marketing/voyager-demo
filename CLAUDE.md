@@ -6,8 +6,7 @@
 ## Project identity
 
 - **Repo:** voyager-marketing/voyager-demo
-- **Notion project:** [PRJ-56 — Voyager Demo Site (demo.voyagermark.com)](https://www.notion.so/35347c03778b81e5980fe9a682328ed6)
-- **Notion task:** [TK-2162 — MCP playground page (fixtures until endpoint ships)](https://www.notion.so/3a247c03778b810ebff7d6fc3a1a40ba)
+- **Project and task links:** in the maintainers' own tracker, not in this public repo
 - **Type:** wp-theme (WordPress block child theme)
 - **Parent theme:** voyager-block-theme (native IntersectionObserver + CSS scroll-reveal — no GSAP; GSAP lives in voyager-blocks)
 - **Sibling theme:** voyagermark (the agency marketing site at voyagermark.com)
@@ -210,11 +209,11 @@ Conventional Commits. Scopes: `theme`, `pattern`, `template`, `style`, `function
 
 ## Brand system
 
-Voyager brand rules: https://www.notion.so/8ec0c2b2f55b43bcbdfdbd877dd7a659
+Voyager brand rules live in the design system (below).
 Use `voyager-blocks/assets/design-system/` (token source) for all colors,
 type, and spacing — do not invent new values.
 
 ## Key contacts
 
-- Ben: ben@voyagermark.com — final approval on design + showcase scope
-- Alex: alex@voyagermark.com — content and showcase authoring
+- Design and showcase scope: the maintainers (see CONTRIBUTING or open an issue)
+- Content and showcase authoring: the maintainers
