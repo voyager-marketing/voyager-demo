@@ -154,7 +154,7 @@ return [
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|2"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"fontWeight":"600","lineHeight":"1","letterSpacing":"-0.03em"}},"textColor":"fg-1","fontSize":"3xl","fontFamily":"display"} -->
-<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">5</p>
+<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">7</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"base"} -->
@@ -652,7 +652,7 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- wp:column {"width":"58%"} -->
 <div class="wp-block-column" style="flex-basis:58%"><!-- wp:group {"className":"vd-ob-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|2","bottom":"var:preset|spacing|2","left":"var:preset|spacing|5","right":"var:preset|spacing|5"}}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
 <div class="wp-block-group vd-ob-card has-bg-raised-background-color has-background" style="padding-top:var(--wp--preset--spacing--2);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--2);padding-left:var(--wp--preset--spacing--5)"><!-- wp:table {"hasFixedLayout":false,"className":"vd-ob-sources","borderColor":"border-hair","fontSize":"base"} -->
-<figure class="wp-block-table vd-ob-sources has-base-font-size"><table class="has-border-color has-border-hair-border-color"><thead><tr><th>Binding source</th><th>Reads</th></tr></thead><tbody><tr><td><code>voyager/site-data</code></td><td>Company, phone, email, address, hours and social links, from Settings › Site Data.</td></tr><tr><td><code>voyager/post-meta-text</code></td><td>Allowlisted post meta, with JSON dot paths for nested values.</td></tr><tr><td>5 abilities</td><td><code>get-catalog</code>, <code>get-post-blocks</code>, <code>insert</code>, <code>configure</code> and <code>bind</code>, over REST and to MCP clients through the MCP Adapter.</td></tr></tbody></table></figure>
+<figure class="wp-block-table vd-ob-sources has-base-font-size"><table class="has-border-color has-border-hair-border-color"><thead><tr><th>Binding source</th><th>Reads</th></tr></thead><tbody><tr><td><code>voyager/site-data</code></td><td>Company, phone, email, address, hours and social links, from Settings › Site Data.</td></tr><tr><td><code>voyager/post-meta-text</code></td><td>Allowlisted post meta, with JSON dot paths for nested values.</td></tr><tr><td>7 abilities</td><td><code>find-posts</code>, <code>get-catalog</code>, <code>get-post-blocks</code>, <code>insert</code>, <code>configure</code>, <code>bind</code> and <code>validate</code>, over REST and to MCP clients through the MCP Adapter.</td></tr></tbody></table></figure>
 <!-- /wp:table --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
