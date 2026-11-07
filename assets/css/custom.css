@@ -422,3 +422,52 @@
    voyager_blocks_gsap_is_vendored() check the script already uses. Filed as a
    voyager-blocks candidate task rather than worked around here.
    -------------------------------------------------------------------------- */
+
+/* ==========================================================================
+   /open-blocks/ copy buttons
+   --------------------------------------------------------------------------
+   Under each gallery card, one button copies the pattern's block markup and
+   one copies a prompt for an agent. functions.php renders the groups hidden,
+   and drops them where the pack is not active; assets/js/open-blocks-copy.js
+   reveals them once they work. A display rule on .wp-block-buttons beats the
+   browser's own [hidden] rule, hence the guard.
+
+   Size and placement only. The colours stay with the outline button style,
+   the pairs the button contrast gate measures, so nothing here can move a
+   ratio. The selector matches the outline rules' own shape so it outranks
+   the parent's padding without touching its paint.
+   ========================================================================== */
+
+.vd-ob-copy[hidden],
+.vd-ob-copy-hint[hidden] {
+	display: none !important;
+}
+
+.wp-block-buttons.vd-ob-copy {
+	gap: var(--wp--preset--spacing--2);
+}
+
+/* A row of its own under the card's description and links. */
+.vd-ob-card__desc > .vd-ob-copy {
+	flex-basis: 100%;
+}
+
+.vd-ob-copy .wp-block-button.is-style-outline > button.wp-block-button__link {
+	padding: var(--wp--preset--spacing--2) var(--wp--preset--spacing--4);
+	font-size: var(--wp--preset--font-size--sm);
+	line-height: 1.4;
+	white-space: nowrap;
+}
+
+/* The status region the script announces through: read, never seen. */
+.vd-ob-copy__live {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
