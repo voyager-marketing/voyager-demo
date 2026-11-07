@@ -1126,6 +1126,289 @@ function voyager_demo_stage_button_directives(string $block_content, array $bloc
 }
 add_filter('render_block_core/button', 'voyager_demo_stage_button_directives', 20, 2);
 
+/*
+ * =========================================================================
+ * /open-blocks/ copy buttons
+ *
+ * Every gallery card on /open-blocks/ carries two buttons. One copies the
+ * pattern's serialized block markup, the other a prompt to give an agent.
+ * Pasted into the block editor on a site running the pack, the markup becomes
+ * the pattern's blocks, because it is the registered pattern's own content,
+ * read from WP_Block_Patterns_Registry on each request. Nothing here keeps a
+ * copy of it, so the buttons cannot drift from the pack.
+ *
+ * The seed holds plain core blocks, keyed on class names, and this section
+ * wires them at render time, the way the stage switch above is wired:
+ *
+ *   vd-ob-copy              a core/buttons group holding one card's buttons
+ *   vd-ob-copy-for-<item>   the entry the group copies: an item key below
+ *   vd-ob-copy-markup       the core/button that copies the block markup
+ *   vd-ob-copy-prompt       the core/button that copies the prompt
+ *   vd-ob-copy-hint         a paragraph that explains the buttons
+ *
+ * Each is rendered with the hidden attribute and revealed by
+ * assets/js/open-blocks-copy.js, so a visitor without JavaScript never meets
+ * a button that does nothing. A group with nothing to copy on this install
+ * (the pack is not active, or its pattern is not registered) is not rendered
+ * at all. Item keys are single-hyphen slugs on purpose: the seed's
+ * block-comment JSON must not hold "--".
+ * =========================================================================
+ */
+const VOYAGER_DEMO_OB_COPY_PAGE   = 'open-blocks';
+const VOYAGER_DEMO_OB_COPY_SCRIPT = 'voyager-demo-open-blocks-copy';
+
+/**
+ * The prompt each copy group hands to an agent, keyed on item.
+ *
+ * The keys are the pack's pattern names without the voyager-open/ prefix,
+ * plus icon for the block and general for the install section. The prompts
+ * are data, copied verbatim, so they are not translated.
+ *
+ * @return array<string, string>
+ */
+function voyager_demo_ob_copy_prompts(): array {
+    return [
+        'cta-band'        => 'Add the Voyager Open Blocks CTA band near the end of my Services page. Write the heading and the line of copy for that page, keep the click-to-call button bound to my Site Data phone number, and check the blocks before you save.',
+        'proof-strip'     => 'Add the Voyager Open Blocks proof strip under the hero on my home page with these credentials: [three to six short facts]. Use only what I give you.',
+        'logo-marquee'    => 'Add the Voyager Open Blocks logo marquee to my home page and replace the placeholder logos with these images from my media library: [image names].',
+        'closing-cta'     => 'End my About page with the Voyager Open Blocks closing CTA. Rewrite the heading and the line for that page, and keep the email button bound to my Site Data email.',
+        'contact-section' => 'Add the Voyager Open Blocks contact section to my Contact page. Keep the phone, email, address and hours bound to Site Data, and tell me which Site Data fields are still empty.',
+        'icon'            => 'Add a Voyager Open Blocks phone icon next to the call button in my header, linked to my Site Data phone number.',
+        'general'         => 'Use the Voyager Open Blocks skills on my site. Read the site first, then [task]. Check every block before you save, and tell me which values come from Site Data and which are still empty.',
+    ];
+}
+
+/**
+ * Whether the Voyager Open Blocks pack is active on this install.
+ *
+ * Read from the block registry rather than from the plugin list: what the
+ * buttons need is the pack's code running, not a row in the plugins table.
+ */
+function voyager_demo_ob_pack_active(): bool {
+    return class_exists('WP_Block_Type_Registry')
+        && \WP_Block_Type_Registry::get_instance()->is_registered('voyager-open/icon');
+}
+
+/**
+ * What one item copies on this install, or null when it has nothing to copy.
+ *
+ * markup is '' for an item that copies only a prompt (general). For a
+ * pattern it is the registered content, which is what the editor's inserter
+ * places, so a paste and an insert give the same blocks.
+ *
+ * title names the item in each button's accessible name.
+ *
+ * @return array{title: string, markup: string}|null
+ */
+function voyager_demo_ob_copy_source(string $item): ?array {
+    if (! voyager_demo_ob_pack_active()) {
+        return null;
+    }
+
+    if ('general' === $item) {
+        return [
+            'title'  => __('Any page', 'voyager-demo'),
+            'markup' => '',
+        ];
+    }
+
+    if ('icon' === $item) {
+        $type = \WP_Block_Type_Registry::get_instance()->get_registered('voyager-open/icon');
+
+        // The click-to-call icon from the icon's SKILL.md: a phone icon with
+        // an accessible name, its link bound to Site Data's phone_link.
+        return [
+            'title'  => (string) ($type->title ?? '') ?: __('Icon', 'voyager-demo'),
+            'markup' => serialize_block([
+                'blockName'    => 'voyager-open/icon',
+                'attrs'        => [
+                    'icon'     => 'phone',
+                    'size'     => 32,
+                    'label'    => 'Call us',
+                    'metadata' => [
+                        'bindings' => [
+                            'linkUrl' => [
+                                'source' => 'voyager/site-data',
+                                'args'   => ['key' => 'phone_link'],
+                            ],
+                        ],
+                    ],
+                ],
+                'innerBlocks'  => [],
+                'innerHTML'    => '',
+                'innerContent' => [],
+            ]),
+        ];
+    }
+
+    if (! class_exists('WP_Block_Patterns_Registry')) {
+        return null;
+    }
+
+    $name     = 'voyager-open/' . $item;
+    $registry = \WP_Block_Patterns_Registry::get_instance();
+    if (! $registry->is_registered($name)) {
+        return null;
+    }
+
+    $pattern = (array) $registry->get_registered($name);
+    $markup  = trim((string) ($pattern['content'] ?? ''));
+
+    return '' === $markup ? null : [
+        'title'  => (string) ($pattern['title'] ?? $name),
+        'markup' => $markup,
+    ];
+}
+
+/**
+ * Everything the copy groups on this page can copy, keyed on item.
+ *
+ * Built once per request, and only on the open-blocks page: anywhere else it
+ * is empty, so a stray vd-ob-copy class renders nothing.
+ *
+ * @return array<string, array{title: string, markup: string, prompt: string}>
+ */
+function voyager_demo_ob_copy_items(): array {
+    static $items = null;
+
+    if (null !== $items) {
+        return $items;
+    }
+
+    $items = [];
+    if (! is_page(VOYAGER_DEMO_OB_COPY_PAGE)) {
+        return $items;
+    }
+
+    foreach (voyager_demo_ob_copy_prompts() as $item => $prompt) {
+        $source = voyager_demo_ob_copy_source($item);
+        if (null !== $source) {
+            $items[$item] = $source + ['prompt' => $prompt];
+        }
+    }
+
+    return $items;
+}
+
+/**
+ * Register the copy script. A classic deferred script, not a module: it
+ * needs no store and no import map. Versioned by file time, like custom.css.
+ * Registered on init because a block theme renders the page, and so runs the
+ * filters below, before wp_enqueue_scripts fires.
+ */
+function voyager_demo_register_ob_copy_script(): void {
+    $file = VOYAGER_DEMO_PATH . '/assets/js/open-blocks-copy.js';
+    wp_register_script(
+        VOYAGER_DEMO_OB_COPY_SCRIPT,
+        VOYAGER_DEMO_URI . '/assets/js/open-blocks-copy.js',
+        [],
+        file_exists($file) ? (string) filemtime($file) : VOYAGER_DEMO_VERSION,
+        ['strategy' => 'defer', 'in_footer' => true]
+    );
+}
+add_action('init', 'voyager_demo_register_ob_copy_script');
+
+/**
+ * Hand the script its data and enqueue it, once, the first time a copy group
+ * renders. A page without one pays for none of it.
+ */
+function voyager_demo_ob_copy_boot(): void {
+    static $booted = false;
+
+    if ($booted) {
+        return;
+    }
+    $booted = true;
+
+    $data = [
+        'items'        => voyager_demo_ob_copy_items(),
+        'copied'       => __('Copied', 'voyager-demo'),
+        'failed'       => __('Not copied', 'voyager-demo'),
+        'markupCopied' => __('Block markup copied. Paste it into the block editor.', 'voyager-demo'),
+        'promptCopied' => __('Prompt copied. Paste it into your agent.', 'voyager-demo'),
+        'copyFailed'   => __('Your browser did not allow copying. Try again.', 'voyager-demo'),
+    ];
+
+    // JSON_HEX_TAG keeps a "</script>" in pattern markup from closing the tag.
+    wp_add_inline_script(
+        VOYAGER_DEMO_OB_COPY_SCRIPT,
+        'window.voyagerDemoObCopy = ' . wp_json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP) . ';',
+        'before'
+    );
+    wp_enqueue_script(VOYAGER_DEMO_OB_COPY_SCRIPT);
+}
+
+/**
+ * The item a copy group names in its vd-ob-copy-for-<item> class, or ''.
+ *
+ * @param array<string, mixed> $block Parsed block.
+ */
+function voyager_demo_ob_copy_item(array $block): string {
+    $classes = preg_split('/\s+/', (string) ($block['attrs']['className'] ?? '')) ?: [];
+    foreach ($classes as $class) {
+        if (str_starts_with($class, 'vd-ob-copy-for-')) {
+            return substr($class, strlen('vd-ob-copy-for-'));
+        }
+    }
+
+    return '';
+}
+
+/**
+ * Wire a copy group (core/buttons) or the hint (core/paragraph).
+ *
+ * Both render hidden for the script to reveal. A group also names its item
+ * and marks what each of its buttons copies; it is dropped, buttons and all,
+ * when its item has nothing to copy here. The buttons are read inside the
+ * group because a core/button renders before its parent and cannot see the
+ * item.
+ *
+ * @param string               $block_content Rendered block.
+ * @param array<string, mixed> $block         Parsed block.
+ */
+function voyager_demo_ob_copy_directives(string $block_content, array $block): string {
+    $is_hint = voyager_demo_block_has_class($block, 'vd-ob-copy-hint');
+    if (! $is_hint && ! voyager_demo_block_has_class($block, 'vd-ob-copy')) {
+        return $block_content;
+    }
+
+    $items = voyager_demo_ob_copy_items();
+    $item  = $is_hint ? '' : voyager_demo_ob_copy_item($block);
+    if ($is_hint ? [] === $items : ! isset($items[$item])) {
+        return '';
+    }
+
+    $tags = new \WP_HTML_Tag_Processor($block_content);
+    if (! $tags->next_tag()) {
+        return '';
+    }
+    $tags->set_attribute('hidden', true);
+
+    if (! $is_hint) {
+        $tags->set_attribute('data-vd-ob-copy-item', $item);
+
+        $kind = '';
+        while ($tags->next_tag()) {
+            if ($tags->has_class('vd-ob-copy-markup')) {
+                $kind = 'markup';
+            } elseif ($tags->has_class('vd-ob-copy-prompt')) {
+                $kind = 'prompt';
+            } elseif ('' !== $kind && 'BUTTON' === $tags->get_tag()) {
+                $tags->set_attribute('data-vd-ob-copy', $kind);
+                $kind = '';
+            }
+        }
+    }
+
+    voyager_demo_ob_copy_boot();
+
+    return $tags->get_updated_html();
+}
+add_filter('render_block_core/buttons', 'voyager_demo_ob_copy_directives', 20, 2);
+add_filter('render_block_core/paragraph', 'voyager_demo_ob_copy_directives', 20, 2);
+
+/* End of /open-blocks/ copy buttons. */
+
 if (defined('WP_CLI') && WP_CLI) {
     /**
      * Seed the vd_showcase entries from seeds/showcases/.
