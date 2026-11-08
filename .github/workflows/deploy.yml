@@ -9,10 +9,12 @@ concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: false
 
+# The origin host, SSH user and path are repository secrets, not literals:
+# this repo is public, and the origin serves more than the demo site.
 env:
-  DEMO_HOST: 167.71.168.177
-  DEMO_USER: voyagerdemo
-  DEMO_PATH: /sites/demo.voyagermark.com/files
+  DEMO_HOST: ${{ secrets.DEMO_HOST }}
+  DEMO_USER: ${{ secrets.DEMO_USER }}
+  DEMO_PATH: ${{ secrets.DEMO_PATH }}
 
 jobs:
   deploy:

@@ -37,7 +37,7 @@
   MySQL database name. Default: voyager_demo_local
 
 .PARAMETER AdminUser / AdminPass / AdminEmail
-  WP admin creds. Defaults: admin / admin / ben@voyagermark.com
+  WP admin creds. Defaults: admin / admin / admin@example.test
 
 .PARAMETER SkipPlugins
   Skip cloning the Voyager plugin trio.
@@ -70,7 +70,7 @@ param(
   [string]$DbName      = 'voyager_demo_local',
   [string]$AdminUser   = 'admin',
   [string]$AdminPass   = 'admin',
-  [string]$AdminEmail  = 'ben@voyagermark.com',
+  [string]$AdminEmail  = 'admin@example.test',
   [switch]$SkipPlugins,
   [switch]$Force
 )
