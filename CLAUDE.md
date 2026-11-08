@@ -58,6 +58,12 @@ feature density that would feel obnoxious on a client site.
 `vendor/`, `node_modules/`, `.github/workflows/` (except
 `button-contrast.yml`, the single exception VOY-1887 authorized)
 
+Two other workflows changed with the maintainers' sign-off (2026-11-08) and
+stay off-limits without it: `deploy.yml` reads the deploy host, SSH user and
+path from the `DEMO_HOST`, `DEMO_USER` and `DEMO_PATH` Actions secrets, and
+`secret-scan.yml` runs gitleaks over the commits each pull request and each
+push to main adds (run it by hand to scan the whole history).
+
 ## Button contrast gate
 
 The "Button contrast" check renders this theme over voyager-block-theme in
