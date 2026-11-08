@@ -4,6 +4,9 @@ vendor/
 Thumbs.db
 *.log
 .env
+# Every other env file too (.env.local, .env.production, ...). An example file stays tracked.
+.env.*
+!.env.example
 .mcp.json
 .claude/settings.local.json
 
