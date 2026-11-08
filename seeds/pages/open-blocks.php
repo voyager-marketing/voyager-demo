@@ -15,6 +15,14 @@
  * here. The light look is the section-light group style in theme.json. The
  * page opens on light because the canvases are saved with that style.
  *
+ * Every stage card, and the install section's prompt, ends in a core/buttons
+ * group of copy buttons: vd-ob-copy plus vd-ob-copy-for-<item>, holding a
+ * vd-ob-copy-markup and a vd-ob-copy-prompt button, with the vd-ob-copy-hint
+ * paragraph explaining them. functions.php (the /open-blocks/ copy buttons
+ * section) supplies what they copy, the pattern's registered markup and a
+ * prompt, renders them hidden for assets/js/open-blocks-copy.js to reveal,
+ * and drops them where the pack is not active. Nothing to copy lives here.
+ *
  * Deploy does not run the seeder, so demo carries this markup through the
  * Voyager MCP content tools; keep the two identical. The page is held out of
  * search until launch (VOYAGER_DEMO_HELD_PAGES in functions.php).
@@ -146,7 +154,7 @@ return [
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|2"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"fontWeight":"600","lineHeight":"1","letterSpacing":"-0.03em"}},"textColor":"fg-1","fontSize":"3xl","fontFamily":"display"} -->
-<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">5</p>
+<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">7</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"base"} -->
@@ -390,7 +398,11 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- wp:button {"tagName":"button","className":"is-style-outline vd-stage-show-dark"} -->
 <div class="wp-block-button is-style-outline vd-stage-show-dark"><button type="button" class="wp-block-button__link wp-element-button">Voyager dark</button></div>
 <!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph {"className":"vd-ob-copy-hint","textColor":"fg-3","fontSize":"sm"} -->
+<p class="vd-ob-copy-hint has-fg-3-color has-text-color has-sm-font-size">Every card has two copy buttons. Paste the block markup into the block editor on a site with the pack installed, and the pattern's blocks appear. Paste the prompt into an agent that has the pack's skills.</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
 
@@ -416,7 +428,17 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 
 <!-- wp:paragraph {"fontSize":"sm"} -->
 <p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/cta-band.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-cta-band/SKILL.md">SKILL.md</a></p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-cta-band"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-cta-band"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
@@ -444,7 +466,17 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 
 <!-- wp:paragraph {"fontSize":"sm"} -->
 <p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/proof-strip.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-proof-strip/SKILL.md">SKILL.md</a></p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-proof-strip"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-proof-strip"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column -->
@@ -472,7 +504,17 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 
 <!-- wp:paragraph {"fontSize":"sm"} -->
 <p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/logo-marquee.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-logo-marquee/SKILL.md">SKILL.md</a></p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-logo-marquee"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-logo-marquee"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
@@ -500,7 +542,53 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 
 <!-- wp:paragraph {"fontSize":"sm"} -->
 <p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/contact-section.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-contact-section/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-contact-section"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-contact-section"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/closing-cta</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"signal-ok","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-signal-ok-color has-text-color has-mono-font-family has-label-font-size">binds email_link</p>
 <!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"is-style-section-light vd-stage-canvas","layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-section-light vd-stage-canvas"><!-- wp:pattern {"slug":"voyager-open/closing-cta"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<p class="has-fg-3-color has-text-color has-sm-font-size">A centered band to end a page: heading, one line, a primary button and an email button from Site Data.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/closing-cta.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-closing-cta/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-closing-cta"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-closing-cta"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
@@ -545,8 +633,18 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"sm"} -->
-<p class="has-sm-font-size"><a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-icon/SKILL.md">SKILL.md</a></p>
-<!-- /wp:paragraph --></div>
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/icon.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-icon/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-icon"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-icon"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column -->
@@ -554,7 +652,7 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- wp:column {"width":"58%"} -->
 <div class="wp-block-column" style="flex-basis:58%"><!-- wp:group {"className":"vd-ob-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|2","bottom":"var:preset|spacing|2","left":"var:preset|spacing|5","right":"var:preset|spacing|5"}}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
 <div class="wp-block-group vd-ob-card has-bg-raised-background-color has-background" style="padding-top:var(--wp--preset--spacing--2);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--2);padding-left:var(--wp--preset--spacing--5)"><!-- wp:table {"hasFixedLayout":false,"className":"vd-ob-sources","borderColor":"border-hair","fontSize":"base"} -->
-<figure class="wp-block-table vd-ob-sources has-base-font-size"><table class="has-border-color has-border-hair-border-color"><thead><tr><th>Binding source</th><th>Reads</th></tr></thead><tbody><tr><td><code>voyager/site-data</code></td><td>Company, phone, email, address, hours and social links, from Settings › Site Data.</td></tr><tr><td><code>voyager/post-meta-text</code></td><td>Allowlisted post meta, with JSON dot paths for nested values.</td></tr><tr><td>5 abilities</td><td><code>get-catalog</code>, <code>get-post-blocks</code>, <code>insert</code>, <code>configure</code> and <code>bind</code>, over REST and to MCP clients through the MCP Adapter.</td></tr></tbody></table></figure>
+<figure class="wp-block-table vd-ob-sources has-base-font-size"><table class="has-border-color has-border-hair-border-color"><thead><tr><th>Binding source</th><th>Reads</th></tr></thead><tbody><tr><td><code>voyager/site-data</code></td><td>Company, phone, email, address, hours and social links, from Settings › Site Data.</td></tr><tr><td><code>voyager/post-meta-text</code></td><td>Allowlisted post meta, with JSON dot paths for nested values.</td></tr><tr><td>7 abilities</td><td><code>find-posts</code>, <code>get-catalog</code>, <code>get-post-blocks</code>, <code>insert</code>, <code>configure</code>, <code>bind</code> and <code>validate</code>, over REST and to MCP clients through the MCP Adapter.</td></tr></tbody></table></figure>
 <!-- /wp:table --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
@@ -629,14 +727,20 @@ $ composer require voyager-marketing/voyager-open-blocks</code></pre>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"textColor":"fg-3"} -->
-<p class="has-fg-3-color has-text-color">One prompt the skills are written for.</p>
+<p class="has-fg-3-color has-text-color">Start from this prompt and replace [task] with what you need, or copy a ready one from a pattern card above.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:group {"style":{"border":{"left":{"color":"var:preset|color|accent-bright","width":"3px"}},"spacing":{"padding":{"top":"var:preset|spacing|4","bottom":"var:preset|spacing|4","left":"var:preset|spacing|5","right":"var:preset|spacing|5"}}},"backgroundColor":"bg-canvas","layout":{"type":"constrained"}} -->
 <div class="wp-block-group has-bg-canvas-background-color has-background" style="border-left-color:var(--wp--preset--color--accent-bright);border-left-width:3px;padding-top:var(--wp--preset--spacing--4);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--4);padding-left:var(--wp--preset--spacing--5)"><!-- wp:paragraph {"textColor":"fg-1","fontFamily":"mono"} -->
-<p class="has-fg-1-color has-text-color has-mono-font-family">Add the voyager-open/cta-band pattern to the end of the Services page. Rewrite the heading and the line of copy for that page, keep the click-to-call button bound to voyager/site-data phone_link, and validate the page with Block Runner before saving.</p>
+<p class="has-fg-1-color has-text-color has-mono-font-family">Use the Voyager Open Blocks skills on my site. Read the site first, then [task]. Check every block before you save, and tell me which values come from Site Data and which are still empty.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-general"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-general"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
 
 <!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
 <p class="has-fg-4-color has-text-color has-sm-font-size">Start the agent at <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-blocks/SKILL.md">skills/voyager-open-blocks/SKILL.md</a>.</p>
