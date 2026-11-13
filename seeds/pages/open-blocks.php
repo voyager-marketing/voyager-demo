@@ -9,6 +9,17 @@
  * patterns render live through core/pattern, the icons are voyager-open/icon,
  * and the hero's call button is bound to voyager/site-data.
  *
+ * Pack 0.7 to 0.9 added: safe writes under the agent run (dry run, save,
+ * undo, a refused bound slot), a whole-pages section (compose, a refused
+ * claim, the FAQ), the CTA band in the Panel, Inverted and Accent section
+ * styles, the hero, services and reviews sections, a Facts block bound to
+ * Site Data services, and the Site Data usage counts. The requests and
+ * responses in those step cards are real calls made against a draft page on
+ * demo.voyagermark.com, trimmed where marked with an ellipsis, never
+ * invented. The section-styled bands are the pack's cta-band markup with the
+ * style class on its top-level group, as compose writes it; they sit on plain
+ * canvases, not stage canvases, so they show the styles on this theme.
+ *
  * The stage switch is wired at render time by functions.php
  * (voyager_demo_stage_group_directives), keyed on the vd-stage,
  * vd-stage-canvas, vd-stage-show-light and vd-stage-show-dark classes set
@@ -124,7 +135,7 @@ return [
 <section class="wp-block-group alignfull vd-ob-facts has-fg-3-color has-bg-panel-background-color has-text-color has-background" style="border-top-color:var(--wp--preset--color--border-hair);border-top-width:1px;border-bottom-color:var(--wp--preset--color--border-hair);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--6);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--6);padding-left:var(--wp--preset--spacing--5)"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|5"}},"layout":{"type":"grid","columnCount":5,"minimumColumnWidth":"9rem"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|2"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"fontWeight":"600","lineHeight":"1","letterSpacing":"-0.03em"}},"textColor":"fg-1","fontSize":"3xl","fontFamily":"display"} -->
-<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">5</p>
+<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">20</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"base"} -->
@@ -154,7 +165,7 @@ return [
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|2"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"fontWeight":"600","lineHeight":"1","letterSpacing":"-0.03em"}},"textColor":"fg-1","fontSize":"3xl","fontFamily":"display"} -->
-<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">7</p>
+<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">10</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"base"} -->
@@ -164,7 +175,7 @@ return [
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|2"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"fontWeight":"600","lineHeight":"1","letterSpacing":"-0.03em"}},"textColor":"fg-1","fontSize":"3xl","fontFamily":"display"} -->
-<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">9</p>
+<p class="has-fg-1-color has-text-color has-display-font-family has-3-xl-font-size" style="font-weight:600;letter-spacing:-0.03em;line-height:1">18</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"base"} -->
@@ -248,10 +259,9 @@ $ npx wesper summarize site.context.json</code></pre>
 
 <!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-ok","fontSize":"label"} -->
 <pre class="wp-block-code has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>voyager-open/cta-band   copy: Eyebrow, Heading, Body
-voyager-open/proof-strip
-voyager-open/logo-marquee
-voyager-open/contact-section
-voyager-open/closing-cta</code></pre>
+voyager-open/hero · services · reviews · faq
+voyager-open/contact-section · closing-cta
+… 20 patterns, 6 page recipes, 3 section styles</code></pre>
 <!-- /wp:code --></div>
 <!-- /wp:group -->
 
@@ -370,6 +380,335 @@ phone       resolved  “(555) 010-0199”
 phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- /wp:code --></div>
 <!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:columns {"verticalAlignment":"bottom","align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|4","left":"var:preset|spacing|8"}}}} -->
+<div class="wp-block-columns alignwide are-vertically-aligned-bottom"><!-- wp:column {"verticalAlignment":"bottom"} -->
+<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-3","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-3-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Safe writes</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3,"fontSize":"2xl"} -->
+<h3 class="wp-block-heading has-2-xl-font-size">Try it first. Undo it after.</h3>
+<!-- /wp:heading --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"bottom"} -->
+<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color">The same band, placed on a draft page on this site with the pack's own abilities. Every write can run as a dry run first, every save returns a <code>revision_id</code>, and <code>undo</code> takes the save back. Under each request is what the site returned.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|5"}},"layout":{"type":"grid","columnCount":2,"minimumColumnWidth":"18rem"}} -->
+<div class="wp-block-group alignwide"><!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Dry run</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"accent-2","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-accent-2-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Check</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">It runs every check and saves nothing.</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color">With <code>dry_run</code>, <code>insert</code> checks the copy against the pattern's rules and the markup against the site, refusals included, and returns what it would save. The draft is untouched.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>POST voyager-open-blocks/insert
+{"post_id":165,
+ "item":"voyager-open/cta-band",
+ "copy":{"Heading":"Need a hand this week?",
+   "Body":"Tell us what needs fixing…"},
+ "dry_run":true}</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-ok","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>saved        false
+round_trip   true
+revision_id  null</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-safe-dry-run"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-safe-dry-run"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Save</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-3","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-3-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Write</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Then it saves, and keeps the receipt.</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color">The same call without <code>dry_run</code> saves the band. Every save returns a <code>revision_id</code> that names it, and that is what <code>undo</code> takes.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>POST voyager-open-blocks/insert
+{"post_id":165,
+ "item":"voyager-open/cta-band",
+ "copy":{"Heading":"Need a hand this week?",
+   "Body":"Tell us what needs fixing…"}}</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-ok","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>saved        true
+index        8
+revision_id  168</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-safe-save"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-safe-save"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Undo</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"accent-bright","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-accent-bright-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Reverse</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">One call puts the page back.</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color"><code>undo</code> restores the content from before that save. When someone has saved the page since, it refuses and lists their saves, so it never writes over a person's edit. Nothing is deleted: the undo returns its own <code>revision_id</code>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>POST voyager-open-blocks/undo
+{"post_id":165,"revision_id":168}</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-ok","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>undone       168
+restored     167
+matches      true
+revision_id  169</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-safe-undo"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-safe-undo"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Refused</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"signal-down","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-signal-down-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Bound</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Copy aimed at a bound button is refused.</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color">The call button reads the phone number from Site Data. Text sent to it would be stored only as a fallback that goes stale, so <code>insert</code> saves nothing and says where the value lives.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>POST voyager-open-blocks/insert
+{"post_id":165,
+ "item":"voyager-open/cta-band",
+ "copy":{"Heading":"Need a hand this week?",
+   "Body":"Tell us what needs fixing…",
+   "Click to call":"Call (555) 010-0142"}}</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-down","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-down-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>voyager_open_blocks_bound_slot
+Nothing was saved: copy names a slot whose
+value comes from a binding. … "Click to call"
+(core/button text at 8/0/1/1) is bound to
+voyager/site-data, key "phone", so change the
+value in Settings &gt; Site Data instead.</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-safe-bound"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-safe-bound"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></section>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"section","align":"full","className":"vd-ob-run vd-ob-pages","style":{"border":{"top":{"color":"var:preset|color|border-hair","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|9","bottom":"var:preset|spacing|9","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|7"}},"backgroundColor":"bg-canvas","textColor":"fg-2","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull vd-ob-run vd-ob-pages has-fg-2-color has-bg-canvas-background-color has-text-color has-background" style="border-top-color:var(--wp--preset--color--border-hair);border-top-width:1px;padding-top:var(--wp--preset--spacing--9);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--9);padding-left:var(--wp--preset--spacing--5)"><!-- wp:columns {"verticalAlignment":"bottom","align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|4","left":"var:preset|spacing|8"}}}} -->
+<div class="wp-block-columns alignwide are-vertically-aligned-bottom"><!-- wp:column {"verticalAlignment":"bottom"} -->
+<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-3","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-3-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase"><strong>02</strong> · Whole pages</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">One call builds a draft page.</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"bottom"} -->
+<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color">New in 0.9: <code>compose</code> builds a whole draft from one of six recipes (home, services, service, location, contact and about) and checks it the way <code>insert</code> checks one section. The copy rules come with it. Text over a slot's limit is refused, and so is a claim the agent typed in itself.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|5"}},"layout":{"type":"grid","columnCount":2,"minimumColumnWidth":"18rem"}} -->
+<div class="wp-block-group alignwide"><!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Compose</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-3","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-3-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Write</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">It builds the home page as a draft.</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color">The home recipe holds eight sections, each in its layout and section style. <code>compose</code> saves them as a draft, checks the page, and returns its preview link and every Site Data field the page shows that is still empty.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>POST voyager-open-blocks/compose
+{"title":"Home (compose demo draft)",
+ "recipe":"home"}</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-ok","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-ok-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>post_id      165
+preview_url  https://demo.voyagermark.com/?page_id=165&amp;preview=true
+revision_id  167
+valid        true, 23 placeholder warnings
+empty        founded, rating, review_count, service_area</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+<p class="has-fg-4-color has-text-color has-sm-font-size">The preview opens only for a signed-in editor. Each placeholder warning names stand-in text, such as "Your first credential", for the site owner to replace.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-compose-home"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-compose-home"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-agent-step","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"backgroundColor":"bg-panel","layout":{"type":"constrained"}} -->
+<div class="wp-block-group vd-agent-step has-bg-panel-background-color has-background"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-4","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-4-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Refused</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"signal-down","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-signal-down-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase">Claim</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">A review it typed in is refused.</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color">A review, a rating or a credential is a claim slot: its words come from the site owner. A plain string there is refused and nothing is saved. Words the owner gave go in as <code>{"text": "…", "source": "user"}</code>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>POST voyager-open-blocks/insert
+{"post_id":165,
+ "item":"voyager-open/reviews",
+ "omit":["Review 2","Review 3"],
+ "copy":{"Heading":"What customers say",
+   "Review 1 quote":"Fast, friendly and fair…"}}</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:code {"backgroundColor":"bg-canvas","textColor":"signal-down","fontSize":"label"} -->
+<pre class="wp-block-code has-signal-down-color has-bg-canvas-background-color has-text-color has-background has-label-font-size"><code>voyager_open_blocks_copy_rules
+Nothing was saved: one slot was refused. …
+"Review 1 quote" is a claim slot: its text
+comes from the site owner, never from you,
+so a plain string is refused, even one that
+matches a Site Data value.</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-claim-refused"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-claim-refused"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/faq</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"accent-2","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-accent-2-color has-text-color has-mono-font-family has-label-font-size">new in 0.9 · core/details</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"is-style-section-light","layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-section-light"><!-- wp:pattern {"slug":"voyager-open/faq"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<p class="has-fg-3-color has-text-color has-sm-font-size">Questions one under another. Each opens to show its answer, with no script. The answers ship as prompts for the site owner's own facts.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/faq.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-faq/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-faq"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-faq"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></section>
 <!-- /wp:group -->
 
@@ -377,11 +716,11 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <section class="wp-block-group alignfull vd-stage has-fg-2-color has-bg-panel-background-color has-text-color has-background" style="border-top-color:var(--wp--preset--color--border-hair);border-top-width:1px;padding-top:var(--wp--preset--spacing--9);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--9);padding-left:var(--wp--preset--spacing--5)"><!-- wp:columns {"verticalAlignment":"bottom","align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|4","left":"var:preset|spacing|8"},"margin":{"bottom":"var:preset|spacing|6"}}}} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-bottom" style="margin-bottom:var(--wp--preset--spacing--6)"><!-- wp:column {"verticalAlignment":"bottom"} -->
 <div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-3","fontSize":"label","fontFamily":"mono"} -->
-<p class="has-fg-3-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase"><strong>02</strong> · Patterns</p>
+<p class="has-fg-3-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase"><strong>03</strong> · Patterns</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Five patterns that follow your theme.</h2>
+<h2 class="wp-block-heading">Patterns that follow your theme.</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:column -->
 
@@ -592,6 +931,336 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/cta-band</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"accent-2","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-accent-2-color has-text-color has-mono-font-family has-label-font-size">style: Panel</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:group {"tagName":"section","metadata":{"name":"CTA band"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"layout":{"type":"constrained"},"className":"is-style-voyager-open-panel"} -->
+<section class="wp-block-group alignfull is-style-voyager-open-panel" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"metadata":{"name":"Row"},"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+<div class="wp-block-group alignwide"><!-- wp:group {"metadata":{"name":"Text"},"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"metadata":{"name":"Eyebrow"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}},"fontSize":"small"} -->
+<p class="has-small-font-size" style="letter-spacing:0.08em;text-transform:uppercase">Next step</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"metadata":{"name":"Heading"}} -->
+<h2 class="wp-block-heading">Ready to get started?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"metadata":{"name":"Body"}} -->
+<p>Tell us what you need and we will get back to you with a plan and a price.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"metadata":{"name":"Primary button"}} -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/contact/">Contact us</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"metadata":{"name":"Click to call","bindings":{"text":{"source":"voyager/site-data","args":{"key":"phone"}},"url":{"source":"voyager/site-data","args":{"key":"phone_link"}}}},"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/contact/">Call us</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></section>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<p class="has-fg-3-color has-text-color has-sm-font-size">The CTA band in the Panel section style. Its colours come from this theme's palette, so the switch above leaves it as it is.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/cta-band.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-cta-band/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-cta-band-panel"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-cta-band-panel"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/cta-band</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"accent-2","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-accent-2-color has-text-color has-mono-font-family has-label-font-size">style: Inverted</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:group {"tagName":"section","metadata":{"name":"CTA band"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"layout":{"type":"constrained"},"className":"is-style-voyager-open-inverted"} -->
+<section class="wp-block-group alignfull is-style-voyager-open-inverted" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"metadata":{"name":"Row"},"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+<div class="wp-block-group alignwide"><!-- wp:group {"metadata":{"name":"Text"},"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"metadata":{"name":"Eyebrow"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}},"fontSize":"small"} -->
+<p class="has-small-font-size" style="letter-spacing:0.08em;text-transform:uppercase">Next step</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"metadata":{"name":"Heading"}} -->
+<h2 class="wp-block-heading">Ready to get started?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"metadata":{"name":"Body"}} -->
+<p>Tell us what you need and we will get back to you with a plan and a price.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"metadata":{"name":"Primary button"}} -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/contact/">Contact us</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"metadata":{"name":"Click to call","bindings":{"text":{"source":"voyager/site-data","args":{"key":"phone"}},"url":{"source":"voyager/site-data","args":{"key":"phone_link"}}}},"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/contact/">Call us</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></section>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<p class="has-fg-3-color has-text-color has-sm-font-size">The same band in the Inverted section style, with this theme's text and ground swapped.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/cta-band.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-cta-band/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-cta-band-inverted"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-cta-band-inverted"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/cta-band</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"accent-2","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-accent-2-color has-text-color has-mono-font-family has-label-font-size">style: Accent</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:group {"tagName":"section","metadata":{"name":"CTA band"},"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"layout":{"type":"constrained"},"className":"is-style-voyager-open-accent"} -->
+<section class="wp-block-group alignfull is-style-voyager-open-accent" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"metadata":{"name":"Row"},"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+<div class="wp-block-group alignwide"><!-- wp:group {"metadata":{"name":"Text"},"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"metadata":{"name":"Eyebrow"},"style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.08em"}},"fontSize":"small"} -->
+<p class="has-small-font-size" style="letter-spacing:0.08em;text-transform:uppercase">Next step</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"metadata":{"name":"Heading"}} -->
+<h2 class="wp-block-heading">Ready to get started?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"metadata":{"name":"Body"}} -->
+<p>Tell us what you need and we will get back to you with a plan and a price.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"metadata":{"name":"Primary button"}} -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/contact/">Contact us</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"metadata":{"name":"Click to call","bindings":{"text":{"source":"voyager/site-data","args":{"key":"phone"}},"url":{"source":"voyager/site-data","args":{"key":"phone_link"}}}},"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/contact/">Call us</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></section>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<p class="has-fg-3-color has-text-color has-sm-font-size">The same band in the Accent section style, on this theme's accent colour, with its buttons kept readable there.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/cta-band.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-cta-band/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-cta-band-accent"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-cta-band-accent"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/hero</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"signal-ok","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-signal-ok-color has-text-color has-mono-font-family has-label-font-size">binds phone · phone_link</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"is-style-section-light vd-stage-canvas","layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-section-light vd-stage-canvas"><!-- wp:pattern {"slug":"voyager-open/hero"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<p class="has-fg-3-color has-text-color has-sm-font-size">The top of a page: the heading and one line beside an image, with a call button that follows your Site Data phone number.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/hero.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-hero/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-hero"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-hero"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/services</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"accent-2","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-accent-2-color has-text-color has-mono-font-family has-label-font-size">layout: grid · reveals on scroll</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"is-style-section-light vd-stage-canvas","layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-section-light vd-stage-canvas"><!-- wp:pattern {"slug":"voyager-open/services"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<p class="has-fg-3-color has-text-color has-sm-font-size">Three services in a row, each an icon, a name and one line. The cards fade into place as you scroll to them, and hold still when motion is turned off.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/services.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-services/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-services"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-services"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/reviews</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"accent-2","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-accent-2-color has-text-color has-mono-font-family has-label-font-size">placeholders, never a review</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"is-style-section-light vd-stage-canvas","layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-section-light vd-stage-canvas"><!-- wp:pattern {"slug":"voyager-open/reviews"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<p class="has-fg-3-color has-text-color has-sm-font-size">Three review cards with the rating in words. It ships placeholders for the site owner's real reviews, never a review of its own.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/reviews.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-reviews/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-reviews"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-reviews"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide","className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide vd-ob-card has-bg-raised-background-color has-background"><!-- wp:group {"className":"vd-ob-card__meta","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__meta"><!-- wp:paragraph {"textColor":"fg-1","fontSize":"sm","fontFamily":"mono"} -->
+<p class="has-fg-1-color has-text-color has-mono-font-family has-sm-font-size">voyager-open/facts</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"signal-ok","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-signal-ok-color has-text-color has-mono-font-family has-label-font-size">block · binds services</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"is-style-section-light vd-stage-canvas","style":{"spacing":{"padding":{"top":"var:preset|spacing|6","bottom":"var:preset|spacing|6","left":"var:preset|spacing|5","right":"var:preset|spacing|5"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group is-style-section-light vd-stage-canvas" style="padding-top:var(--wp--preset--spacing--6);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--6);padding-left:var(--wp--preset--spacing--5)"><!-- wp:voyager-open/facts {"className":"is-style-voyager-open-ticks","metadata":{"bindings":{"items":{"source":"voyager/site-data","args":{"key":"services"}}}}} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"vd-ob-card__desc","style":{"spacing":{"blockGap":"var:preset|spacing|3"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+<div class="wp-block-group vd-ob-card__desc"><!-- wp:paragraph {"textColor":"fg-3","fontSize":"sm"} -->
+<p class="has-fg-3-color has-text-color has-sm-font-size">A list from one Site Data field, one item per line. This one is bound to services, so it shows the services in this site's Settings › Site Data and changes when they do.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/voyager-marketing/voyager-open-blocks/main/blueprints/facts.json">Try in Playground</a> · <a href="https://github.com/voyager-marketing/voyager-open-blocks/blob/main/skills/voyager-open-facts/SKILL.md">SKILL.md</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"className":"vd-ob-copy vd-ob-copy-for-facts"} -->
+<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-facts"><!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-markup"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-markup"><button type="button" class="wp-block-button__link wp-element-button">Copy block markup</button></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"tagName":"button","className":"is-style-outline vd-ob-copy-prompt"} -->
+<div class="wp-block-button is-style-outline vd-ob-copy-prompt"><button type="button" class="wp-block-button__link wp-element-button">Copy prompt for your agent</button></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|5","left":"var:preset|spacing|5"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"42%"} -->
 <div class="wp-block-column" style="flex-basis:42%"><!-- wp:group {"className":"vd-ob-card","style":{"spacing":{"blockGap":"var:preset|spacing|0"}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
@@ -652,9 +1321,57 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <!-- wp:column {"width":"58%"} -->
 <div class="wp-block-column" style="flex-basis:58%"><!-- wp:group {"className":"vd-ob-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|2","bottom":"var:preset|spacing|2","left":"var:preset|spacing|5","right":"var:preset|spacing|5"}}},"backgroundColor":"bg-raised","layout":{"type":"default"}} -->
 <div class="wp-block-group vd-ob-card has-bg-raised-background-color has-background" style="padding-top:var(--wp--preset--spacing--2);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--2);padding-left:var(--wp--preset--spacing--5)"><!-- wp:table {"hasFixedLayout":false,"className":"vd-ob-sources","borderColor":"border-hair","fontSize":"base"} -->
-<figure class="wp-block-table vd-ob-sources has-base-font-size"><table class="has-border-color has-border-hair-border-color"><thead><tr><th>Binding source</th><th>Reads</th></tr></thead><tbody><tr><td><code>voyager/site-data</code></td><td>Company, phone, email, address, hours and social links, from Settings › Site Data.</td></tr><tr><td><code>voyager/post-meta-text</code></td><td>Allowlisted post meta, with JSON dot paths for nested values.</td></tr><tr><td>7 abilities</td><td><code>find-posts</code>, <code>get-catalog</code>, <code>get-post-blocks</code>, <code>insert</code>, <code>configure</code>, <code>bind</code> and <code>validate</code>, over REST and to MCP clients through the MCP Adapter.</td></tr></tbody></table></figure>
+<figure class="wp-block-table vd-ob-sources has-base-font-size"><table class="has-border-color has-border-hair-border-color"><thead><tr><th>Binding source</th><th>Reads</th></tr></thead><tbody><tr><td><code>voyager/site-data</code></td><td>Company, phone, email, address, hours, social links and the business profile (services, service area, credentials and more), from Settings › Site Data.</td></tr><tr><td><code>voyager/post-meta-text</code></td><td>Allowlisted post meta, with JSON dot paths for nested values.</td></tr><tr><td>10 abilities</td><td><code>find-posts</code>, <code>get-catalog</code>, <code>get-post-blocks</code>, <code>insert</code>, <code>compose</code>, <code>configure</code>, <code>bind</code>, <code>undo</code>, <code>validate</code> and <code>prompt</code>, over REST and to MCP clients through the MCP Adapter, whose 0.3.0 and later list <code>prompt</code> as an MCP prompt.</td></tr></tbody></table></figure>
 <!-- /wp:table --></div>
 <!-- /wp:group --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></section>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"section","align":"full","className":"vd-ob-run vd-ob-site-data","style":{"border":{"top":{"color":"var:preset|color|border-hair","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|9","bottom":"var:preset|spacing|9","left":"var:preset|spacing|5","right":"var:preset|spacing|5"},"blockGap":"var:preset|spacing|6"}},"backgroundColor":"bg-canvas","textColor":"fg-2","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull vd-ob-run vd-ob-site-data has-fg-2-color has-bg-canvas-background-color has-text-color has-background" style="border-top-color:var(--wp--preset--color--border-hair);border-top-width:1px;padding-top:var(--wp--preset--spacing--9);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--9);padding-left:var(--wp--preset--spacing--5)"><!-- wp:columns {"verticalAlignment":"bottom","align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|4","left":"var:preset|spacing|8"}}}} -->
+<div class="wp-block-columns alignwide are-vertically-aligned-bottom"><!-- wp:column {"verticalAlignment":"bottom"} -->
+<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-3","fontSize":"label","fontFamily":"mono"} -->
+<p class="has-fg-3-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase"><strong>04</strong> · Site Data</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Change a field once. Every page that shows it follows.</h2>
+<!-- /wp:heading --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"bottom"} -->
+<div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color">The pack keeps an index of the published pages and templates that show each Site Data field, and <code>get-catalog</code> reports it as <code>used_on</code>. These are this site's counts, read on 13 November 2026.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|5","left":"var:preset|spacing|5"}}}} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:code {"backgroundColor":"bg-panel","textColor":"fg-2","fontSize":"label"} -->
+<pre class="wp-block-code has-fg-2-color has-bg-panel-background-color has-text-color has-background has-label-font-size"><code>GET voyager-open-blocks/get-catalog
+used_on, voyager/site-data
+
+phone       3 pages
+copyright   3 pages, 1 template
+email       2 pages
+hours       2 pages
+address     2 pages
+company     1 page
+tagline     1 page
+services    1 page</code></pre>
+<!-- /wp:code --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:paragraph {"textColor":"fg-3"} -->
+<p class="has-fg-3-color has-text-color">When a field changes, the pack refreshes the pages that show it, and tells each page cache that is on through its adapter. It ships seven: WP Super Cache, SpinupWP, Nginx Helper, LiteSpeed Cache, WP Rocket, Cloudflare and W3 Total Cache. This host runs no page cache plugin, so no adapter is active here.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"textColor":"fg-4","fontSize":"sm"} -->
+<p class="has-fg-4-color has-text-color has-sm-font-size">On a site where the pack owns Settings › Site Data, each field there says "Shown on N pages", and the screen opens with the last refresh. This site also runs Voyager Blocks, which registers Site Data first, so the pack defers to its screen and the counts are read from <code>get-catalog</code> instead.</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
@@ -663,7 +1380,7 @@ phone_link  resolved  “tel:5550100199”</code></pre>
 <section class="wp-block-group alignfull vd-ob-install has-fg-2-color has-bg-canvas-background-color has-text-color has-background" style="border-top-color:var(--wp--preset--color--border-hair);border-top-width:1px;padding-top:var(--wp--preset--spacing--9);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--9);padding-left:var(--wp--preset--spacing--5)"><!-- wp:columns {"verticalAlignment":"bottom","align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|4","left":"var:preset|spacing|8"},"margin":{"bottom":"var:preset|spacing|6"}}}} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-bottom" style="margin-bottom:var(--wp--preset--spacing--6)"><!-- wp:column {"verticalAlignment":"bottom"} -->
 <div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"style":{"typography":{"letterSpacing":"0.06em","textTransform":"uppercase"}},"textColor":"fg-3","fontSize":"label","fontFamily":"mono"} -->
-<p class="has-fg-3-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase"><strong>03</strong> · Install</p>
+<p class="has-fg-3-color has-text-color has-mono-font-family has-label-font-size" style="letter-spacing:0.06em;text-transform:uppercase"><strong>05</strong> · Install</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
