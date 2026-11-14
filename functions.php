@@ -1160,22 +1160,109 @@ const VOYAGER_DEMO_OB_COPY_SCRIPT = 'voyager-demo-open-blocks-copy';
 /**
  * The prompt each copy group hands to an agent, keyed on item.
  *
- * The keys are the pack's pattern names without the voyager-open/ prefix,
- * plus icon for the block and general for the install section. The prompts
- * are data, copied verbatim, so they are not translated.
+ * The keys are the pack's pattern names without the voyager-open/ prefix;
+ * icon and facts for the blocks; cta-band-<style> for the CTA band in a
+ * section style; general for the install section; and the agent run's step
+ * cards, which copy only a prompt (voyager_demo_ob_prompt_only_items()). The
+ * pattern and block prompts are each skill's "Tell your agent" prompt, as the
+ * pack's prompt ability returns it. The prompts are data, copied verbatim,
+ * so they are not translated.
  *
  * @return array<string, string>
  */
 function voyager_demo_ob_copy_prompts(): array {
     return [
-        'cta-band'        => 'Add the Voyager Open Blocks CTA band near the end of my Services page. Write the heading and the line of copy for that page, keep the click-to-call button bound to my Site Data phone number, and check the blocks before you save.',
-        'proof-strip'     => 'Add the Voyager Open Blocks proof strip under the hero on my home page with these credentials: [three to six short facts]. Use only what I give you.',
-        'logo-marquee'    => 'Add the Voyager Open Blocks logo marquee to my home page and replace the placeholder logos with these images from my media library: [image names].',
-        'closing-cta'     => 'End my About page with the Voyager Open Blocks closing CTA. Rewrite the heading and the line for that page, and keep the email button bound to my Site Data email.',
-        'contact-section' => 'Add the Voyager Open Blocks contact section to my Contact page. Keep the phone, email, address and hours bound to Site Data, and tell me which Site Data fields are still empty.',
-        'icon'            => 'Add a Voyager Open Blocks phone icon next to the call button in my header, linked to my Site Data phone number.',
-        'general'         => 'Use the Voyager Open Blocks skills on my site. Read the site first, then [task]. Check every block before you save, and tell me which values come from Site Data and which are still empty.',
+        'cta-band'          => 'Add the Voyager Open Blocks CTA band near the end of my Services page. Write the heading and the line of copy for that page, keep the click-to-call button bound to my Site Data phone number, and check the blocks before you save.',
+        'proof-strip'       => 'Add the Voyager Open Blocks proof strip under the hero on my home page with these credentials: [three to six short facts]. Use only what I give you.',
+        'logo-marquee'      => 'Add the Voyager Open Blocks logo marquee to my home page and replace the placeholder logos with these images from my media library: [image names].',
+        'closing-cta'       => 'End my About page with the Voyager Open Blocks closing CTA. Rewrite the heading and the line for that page, and keep the email button bound to my Site Data email.',
+        'contact-section'   => 'Add the Voyager Open Blocks contact section to my Contact page. Keep the phone, email, address and hours bound to Site Data, and tell me which Site Data fields are still empty.',
+        'icon'              => 'Add a Voyager Open Blocks phone icon next to the call button in my header, linked to my Site Data phone number.',
+        'general'           => 'Use the Voyager Open Blocks skills on my site. Read the site first, then [task]. Check every block before you save, and tell me which values come from Site Data and which are still empty.',
+        'hero'              => 'Open my home page with the Voyager Open Blocks hero, image beside text. Write the heading and the line for my business, keep the call button bound to my Site Data phone number, and tell me which image to put in the slot.',
+        'services'          => "Add the Voyager Open Blocks services section to my home page under the proof strip, as cards. Use these services: [three to six services, each with one line]. Pick an icon for each from the pack's set.",
+        'reviews'           => "Add the Voyager Open Blocks reviews section to my home page, above the closing CTA. Use these reviews, exactly as written: [each review's quote, the customer's name as they agreed to show it, the service or the month and year, and the star rating they gave]. Use only what I give you.",
+        'faq'               => 'Add the Voyager Open Blocks FAQ to my [service] page, before the closing CTA. Use these questions and answers: [three to eight, each a question as a customer asks it and my answer]. Use only the facts I give you.',
+        'facts'             => 'Add a Voyager Open Blocks facts list of my services to my Services page, bound to my Site Data services. Tell me if the services are still empty.',
+        'cta-band-panel'    => 'Add the Voyager Open Blocks CTA band near the end of my Services page, in the Panel section style. Write the heading and the line of copy for that page, keep the click-to-call button bound to my Site Data phone number, and check the blocks before you save.',
+        'cta-band-inverted' => 'Add the Voyager Open Blocks CTA band near the end of my Services page, in the Inverted section style. Write the heading and the line of copy for that page, keep the click-to-call button bound to my Site Data phone number, and check the blocks before you save.',
+        'cta-band-accent'   => 'Add the Voyager Open Blocks CTA band near the end of my Services page, in the Accent section style. Write the heading and the line of copy for that page, keep the click-to-call button bound to my Site Data phone number, and check the blocks before you save.',
+        'safe-dry-run'      => 'Add the Voyager Open Blocks CTA band to the end of my [page], with a heading and a line for that page. Do a dry run first and show me what it would save before you save anything.',
+        'safe-save'         => 'Add the Voyager Open Blocks CTA band to the end of my [page], with a heading and a line for that page. Save it, and tell me the revision_id the save returned so we can undo it.',
+        'safe-undo'         => 'Undo your last Voyager Open Blocks save on my [page] with the revision_id it returned. If someone else has saved the page since, stop and tell me.',
+        'safe-bound'        => 'Change the number on the call button in the Voyager Open Blocks CTA band on my [page] to (555) 010-0142.',
+        'compose-home'      => 'Build a draft home page on my site from the Voyager Open Blocks home recipe. Keep it a draft, send me the preview link, and tell me which Site Data fields it shows that are still empty.',
+        'claim-refused'     => "Add the Voyager Open Blocks reviews section to my home page. Use only reviews I give you in the customer's own words. If I have not given you any, keep the placeholders and tell me what you need.",
     ];
+}
+
+/**
+ * Items that copy a prompt and no markup, with the name each button's
+ * accessible name gives them: the install section's general prompt, and the
+ * agent run's step cards, which show an ability call rather than blocks.
+ *
+ * @return array<string, string>
+ */
+function voyager_demo_ob_prompt_only_items(): array {
+    return [
+        'general'       => __('Any page', 'voyager-demo'),
+        'safe-dry-run'  => __('Dry run', 'voyager-demo'),
+        'safe-save'     => __('Save', 'voyager-demo'),
+        'safe-undo'     => __('Undo', 'voyager-demo'),
+        'safe-bound'    => __('Refused bound slot', 'voyager-demo'),
+        'compose-home'  => __('Compose a home page', 'voyager-demo'),
+        'claim-refused' => __('Refused claim', 'voyager-demo'),
+    ];
+}
+
+/**
+ * The pack's section styles a cta-band-<style> item can carry, with their
+ * labels, as the pack registers them on core/group.
+ *
+ * @return array<string, string>
+ */
+function voyager_demo_ob_section_styles(): array {
+    return [
+        'panel'    => __('Panel', 'voyager-demo'),
+        'inverted' => __('Inverted', 'voyager-demo'),
+        'accent'   => __('Accent', 'voyager-demo'),
+    ];
+}
+
+/**
+ * Pattern markup with a section style on its first top-level group: the
+ * class in the block's className and on its wrapper element, which is where
+ * the pack's compose ability puts it. Markup with no top-level group comes
+ * back as it was.
+ *
+ * @param string $markup Serialized blocks.
+ * @param string $style  panel, inverted or accent.
+ */
+function voyager_demo_ob_with_section_style(string $markup, string $style): string {
+    $class  = 'is-style-voyager-open-' . $style;
+    $blocks = parse_blocks($markup);
+
+    foreach ($blocks as $index => $block) {
+        if ('core/group' !== ($block['blockName'] ?? null)) {
+            continue;
+        }
+
+        $block['attrs']['className'] = trim(((string) ($block['attrs']['className'] ?? '')) . ' ' . $class);
+
+        if (isset($block['innerContent'][0]) && is_string($block['innerContent'][0])) {
+            $tags = new \WP_HTML_Tag_Processor($block['innerContent'][0]);
+            if ($tags->next_tag()) {
+                $tags->add_class($class);
+                $block['innerContent'][0] = $tags->get_updated_html();
+            }
+        }
+
+        $blocks[$index] = $block;
+
+        return trim(serialize_blocks($blocks));
+    }
+
+    return $markup;
 }
 
 /**
@@ -1192,9 +1279,10 @@ function voyager_demo_ob_pack_active(): bool {
 /**
  * What one item copies on this install, or null when it has nothing to copy.
  *
- * markup is '' for an item that copies only a prompt (general). For a
- * pattern it is the registered content, which is what the editor's inserter
- * places, so a paste and an insert give the same blocks.
+ * markup is '' for an item that copies only a prompt (general and the step
+ * cards). For a pattern it is the registered content, which is what the
+ * editor's inserter places, so a paste and an insert give the same blocks;
+ * for cta-band-<style> it is the CTA band's with that section style on it.
  *
  * title names the item in each button's accessible name.
  *
@@ -1205,10 +1293,53 @@ function voyager_demo_ob_copy_source(string $item): ?array {
         return null;
     }
 
-    if ('general' === $item) {
+    $prompt_only = voyager_demo_ob_prompt_only_items();
+    if (isset($prompt_only[$item])) {
         return [
-            'title'  => __('Any page', 'voyager-demo'),
+            'title'  => $prompt_only[$item],
             'markup' => '',
+        ];
+    }
+
+    if (str_starts_with($item, 'cta-band-')) {
+        $style  = substr($item, strlen('cta-band-'));
+        $styles = voyager_demo_ob_section_styles();
+        $band   = isset($styles[$style]) ? voyager_demo_ob_copy_source('cta-band') : null;
+
+        return null === $band ? null : [
+            /* translators: 1: pattern title, 2: section style label. */
+            'title'  => sprintf(__('%1$s, %2$s style', 'voyager-demo'), $band['title'], $styles[$style]),
+            'markup' => voyager_demo_ob_with_section_style($band['markup'], $style),
+        ];
+    }
+
+    if ('facts' === $item) {
+        $type = \WP_Block_Type_Registry::get_instance()->get_registered('voyager-open/facts');
+        if (null === $type) {
+            return null;
+        }
+
+        // The Facts block on the page: the Ticks style, its items bound to
+        // Site Data's services.
+        return [
+            'title'  => (string) ($type->title ?? '') ?: __('Facts', 'voyager-demo'),
+            'markup' => serialize_block([
+                'blockName'    => 'voyager-open/facts',
+                'attrs'        => [
+                    'className' => 'is-style-voyager-open-ticks',
+                    'metadata'  => [
+                        'bindings' => [
+                            'items' => [
+                                'source' => 'voyager/site-data',
+                                'args'   => ['key' => 'services'],
+                            ],
+                        ],
+                    ],
+                ],
+                'innerBlocks'  => [],
+                'innerHTML'    => '',
+                'innerContent' => [],
+            ]),
         ];
     }
 
