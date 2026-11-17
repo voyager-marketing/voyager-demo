@@ -401,8 +401,14 @@ add_action('template_redirect', function () {
  * launch step that lets the page index. /open-blocks/ waits on copy review
  * (VOY-1766). The hold lives here because RankMath's per-post robots setting
  * cannot be written through the Voyager MCP tools, and demo has no WP-CLI.
+ *
+ * Each entry is a page path: the slug, with its parents' slugs in front for
+ * a child page. The section gallery, /open-blocks/sections/, waits with its
+ * parent. is_page() matches a path with a slash through get_page_by_path(),
+ * and a slug alone through post_name (WP_Query::is_page() in
+ * wp-includes/class-wp-query.php), so both forms work in the robots filters.
  */
-const VOYAGER_DEMO_HELD_PAGES = ['open-blocks'];
+const VOYAGER_DEMO_HELD_PAGES = ['open-blocks', 'open-blocks/sections'];
 
 /**
  * Noindex a held page in RankMath's robots tag.
@@ -438,6 +444,10 @@ add_filter('wp_robots', 'voyager_demo_wp_robots_held_pages');
  * the frontend filter, so a held page would be submitted while it refuses
  * indexing (voyagermark hit this on VOY-280).
  *
+ * The list holds page paths, so a page is matched on its path. Only a page
+ * whose own slug ends a held path pays for the lookup, which keeps a sitemap
+ * of thousands of pages to the few rows that share a held slug.
+ *
  * @param array<string, mixed>|false $url  The sitemap entry.
  * @param string                     $type 'post', 'term' or 'user'.
  * @param object                     $item The row the entry was built from.
@@ -448,9 +458,14 @@ function voyager_demo_sitemap_skip_held_pages($url, $type, $item) {
         return $url;
     }
 
-    $slug = (string) ($item->post_name ?? get_post_field('post_name', (int) ($item->ID ?? 0)));
+    $id   = (int) ($item->ID ?? 0);
+    $slug = (string) ($item->post_name ?? get_post_field('post_name', $id));
 
-    return in_array($slug, VOYAGER_DEMO_HELD_PAGES, true) ? false : $url;
+    if ($id < 1 || ! in_array($slug, array_map('basename', VOYAGER_DEMO_HELD_PAGES), true)) {
+        return $url;
+    }
+
+    return in_array(get_page_uri($id), VOYAGER_DEMO_HELD_PAGES, true) ? false : $url;
 }
 add_filter('rank_math/sitemap/entry', 'voyager_demo_sitemap_skip_held_pages', 10, 3);
 
@@ -492,9 +507,22 @@ function voyager_demo_get_showcase_seeds(): array {
 function voyager_demo_seed_showcase(array $seed) {
     $post_type = (string) ($seed['post_type'] ?? 'vd_showcase');
 
+    // A child page names its parent's path. Seeds load in file name order,
+    // so a parent's seed file sorts first (open-blocks.php before
+    // open-blocks-sections.php).
+    $parent = 0;
+    if (! empty($seed['parent'])) {
+        $parent_post = get_page_by_path((string) $seed['parent'], OBJECT, $post_type);
+        if (! $parent_post) {
+            return new \WP_Error('voyager_demo_seed_parent', "Parent {$seed['parent']} does not exist yet.");
+        }
+        $parent = (int) $parent_post->ID;
+    }
+
     $existing = get_posts([
         'post_type'      => $post_type,
         'name'           => (string) $seed['slug'],
+        'post_parent'    => $parent,
         'post_status'    => 'any',
         'posts_per_page' => 1,
         'fields'         => 'ids',
@@ -503,6 +531,7 @@ function voyager_demo_seed_showcase(array $seed) {
     $postarr = [
         'post_type'    => $post_type,
         'post_name'    => (string) $seed['slug'],
+        'post_parent'  => $parent,
         'post_title'   => (string) $seed['title'],
         'post_excerpt' => (string) ($seed['excerpt'] ?? ''),
         'post_content' => (string) ($seed['content'] ?? ''),
@@ -1394,8 +1423,11 @@ function voyager_demo_ob_copy_source(string $item): ?array {
 /**
  * Everything the copy groups on this page can copy, keyed on item.
  *
- * Built once per request, and only on the open-blocks page: anywhere else it
- * is empty, so a stray vd-ob-copy class renders nothing.
+ * Built once per request, and only on the open-blocks page and its section
+ * gallery: anywhere else it is empty, so a stray vd-ob-copy class renders
+ * nothing. The gallery's items are every pattern it shows, keyed on the
+ * pattern's name without the voyager-open/ prefix
+ * (voyager_demo_obs_copy_items()).
  *
  * @return array<string, array{title: string, markup: string, prompt: string}>
  */
@@ -1407,6 +1439,12 @@ function voyager_demo_ob_copy_items(): array {
     }
 
     $items = [];
+    if (is_page(VOYAGER_DEMO_OBS_PAGE)) {
+        $items = voyager_demo_obs_copy_items();
+
+        return $items;
+    }
+
     if (! is_page(VOYAGER_DEMO_OB_COPY_PAGE)) {
         return $items;
     }
@@ -1539,6 +1577,709 @@ add_filter('render_block_core/buttons', 'voyager_demo_ob_copy_directives', 20, 2
 add_filter('render_block_core/paragraph', 'voyager_demo_ob_copy_directives', 20, 2);
 
 /* End of /open-blocks/ copy buttons. */
+
+/*
+ * =========================================================================
+ * /open-blocks/sections/ section gallery
+ *
+ * Every pattern the installed Voyager Open Blocks release registers, grouped
+ * by section with its layouts side by side, under a switch that puts the
+ * pack's section styles on every section at once. The page holds an intro
+ * and the voyager-demo/open-blocks-sections pattern, which prints
+ * voyager_demo_obs_markup(). That reads the pattern registry on each
+ * request, so a layout a later release adds shows after the next deploy with
+ * no seed edit, and no count on the page is typed.
+ *
+ * Pattern names come from the pack's patterns/intents/ directory, the files
+ * the pack registers its patterns from (its inc/patterns.php register()), and
+ * each pattern is read through WP_Block_Patterns_Registry::get_registered().
+ * get_all_registered() is not used: it includes every theme pattern file, and
+ * called from this gallery's own file it would include that file again, and
+ * again, without end (get_content() in
+ * wp-includes/class-wp-block-patterns-registry.php stores a file's content
+ * only once the include returns).
+ *
+ * The style switch is built like the stage switch above: the Interactivity
+ * API, wired at render time on class names this markup sets.
+ *
+ *   vd-obs               the gallery, the interactive region
+ *   vd-obs-probe         an empty group in one section style, never shown
+ *   vd-obs-frame         the group a pattern renders in; its first child is
+ *                        the pattern's outer group, which the switch styles
+ *   vd-obs-show-<style>  the switch button for a style, plain for none
+ *
+ * WordPress prints a section style's colours only for a group rendered with
+ * that style, scoped to a class made for that one render, such as
+ * is-style-voyager-open-panel--12 (wp_render_block_style_variation_support_styles()
+ * in wp-includes/block-supports/block-style-variations.php). That CSS depends
+ * on the style and the block type alone, so one group per style is enough:
+ * each probe renders in its style, its class is recorded here, and every
+ * section turns both classes on and off. The page opens on Plain, the pack's
+ * name for no style, and the colours are the pack's: this theme adds none.
+ *
+ * Copy buttons reuse the /open-blocks/ wiring above: a vd-ob-copy group per
+ * pattern, copying the registered markup and the section skill's prompt.
+ * =========================================================================
+ */
+const VOYAGER_DEMO_OBS_PAGE   = 'open-blocks/sections';
+const VOYAGER_DEMO_OBS_STORE  = 'voyager-demo/open-blocks-sections';
+const VOYAGER_DEMO_OBS_SLUG   = '/^[a-z0-9]+(-[a-z0-9]+)*$/';
+const VOYAGER_DEMO_OBS_SOURCE = 'https://github.com/voyager-marketing/voyager-open-blocks';
+
+/**
+ * Sections in the order a page holds them, top to bottom. A section the
+ * pack adds later and this list does not name follows, in name order.
+ */
+const VOYAGER_DEMO_OBS_ORDER = [
+    'hero',
+    'proof-strip',
+    'services',
+    'process-steps',
+    'stats',
+    'reviews',
+    'service-area',
+    'logo-marquee',
+    'faq',
+    'cta-band',
+    'contact-section',
+    'closing-cta',
+];
+
+/**
+ * The pack's section styles, style => label, in the pack's order: its own
+ * list when it has one (SectionStyles\labels()), kept to the styles
+ * registered on core/group, so the switch never offers one WordPress would
+ * not paint.
+ *
+ * @return array<string, string>
+ */
+function voyager_demo_obs_styles(): array {
+    $labels = function_exists('VoyagerOpenBlocks\SectionStyles\labels')
+        ? (array) \VoyagerOpenBlocks\SectionStyles\labels()
+        : voyager_demo_ob_section_styles();
+
+    $registry = \WP_Block_Styles_Registry::get_instance();
+    $styles   = [];
+
+    foreach ($labels as $style => $label) {
+        if (
+            is_string($style)
+            && 'plain' !== $style
+            && 1 === preg_match(VOYAGER_DEMO_OBS_SLUG, $style)
+            && $registry->is_registered('core/group', 'voyager-open-' . $style)
+        ) {
+            $styles[$style] = (string) $label;
+        }
+    }
+
+    return $styles;
+}
+
+/**
+ * The per-render class each probe was given, style => class, as recorded
+ * while the probes render. Pass both arguments to record one.
+ *
+ * @return array<string, string>
+ */
+function voyager_demo_obs_instances(string $style = '', string $class = ''): array {
+    static $instances = [];
+
+    if ('' !== $style && '' !== $class) {
+        $instances[$style] = $class;
+    }
+
+    return $instances;
+}
+
+/**
+ * Every voyager-open/* pattern the pack registers, once per request.
+ *
+ * section and layout are the intent's (Patterns\intent_meta()); a pattern
+ * whose section has one layout is its own section. first marks the layout
+ * that keeps the section's slug. standins names what the pattern ships in
+ * place of real content: placeholder text where a copy rule marks a slot as
+ * a claim (a review, a rating, a credential, a figure), the pack's
+ * placeholder images, and the contact section's form slot. bound is true
+ * when the markup binds Site Data.
+ *
+ * @return list<array{name: string, item: string, title: string, description: string, content: string, section: string, layout: string, first: bool, standins: list<string>, bound: bool}>
+ */
+function voyager_demo_obs_patterns(): array {
+    static $patterns = null;
+
+    if (null !== $patterns) {
+        return $patterns;
+    }
+
+    $patterns = [];
+    if (! defined('VOYAGER_OPEN_BLOCKS_DIR') || ! voyager_demo_ob_pack_active() || ! class_exists('WP_Block_Patterns_Registry')) {
+        return $patterns;
+    }
+
+    $registry = \WP_Block_Patterns_Registry::get_instance();
+
+    foreach (glob(VOYAGER_OPEN_BLOCKS_DIR . '/patterns/intents/*.json') ?: [] as $file) {
+        $item = basename($file, '.json');
+        $name = 'voyager-open/' . $item;
+
+        if (1 !== preg_match(VOYAGER_DEMO_OBS_SLUG, $item) || ! $registry->is_registered($name)) {
+            continue;
+        }
+
+        $pattern = (array) $registry->get_registered($name);
+        $content = (string) ($pattern['content'] ?? '');
+        if ('' === trim($content)) {
+            continue;
+        }
+
+        $meta    = function_exists('VoyagerOpenBlocks\Patterns\intent_meta') ? (array) \VoyagerOpenBlocks\Patterns\intent_meta($name) : [];
+        $section = is_string($meta['section'] ?? null) && 1 === preg_match(VOYAGER_DEMO_OBS_SLUG, $meta['section']) ? $meta['section'] : $item;
+
+        $claims = false;
+        foreach ((array) ($meta['copy_rules'] ?? []) as $rule) {
+            if (is_array($rule) && true === ($rule['claim'] ?? null)) {
+                $claims = true;
+                break;
+            }
+        }
+
+        // What the pattern ships in place of real content, named on its card.
+        $standins = [];
+        if ($claims) {
+            $standins[] = __('placeholder text where a review, a rating, a credential or a figure goes, never a real one', 'voyager-demo');
+        }
+        if (str_contains($content, '/assets/placeholders/')) {
+            $standins[] = __('placeholder images, not photos or logos of a business', 'voyager-demo');
+        }
+        if (str_contains($content, '"name":"Form slot"')) {
+            $standins[] = __('a form slot, which holds an email button until a form plugin\'s block takes its place', 'voyager-demo');
+        }
+
+        $patterns[] = [
+            'name'        => $name,
+            'item'        => $item,
+            'title'       => (string) ($pattern['title'] ?? $name),
+            'description' => (string) ($pattern['description'] ?? ''),
+            'content'     => $content,
+            'section'     => $section,
+            'layout'      => is_string($meta['layout'] ?? null) ? $meta['layout'] : '',
+            'first'       => $item === $section,
+            'standins'    => $standins,
+            'bound'       => str_contains($content, '"source":"voyager/site-data"'),
+        ];
+    }
+
+    return $patterns;
+}
+
+/**
+ * The gallery's sections in page order, each with its title and its
+ * layouts, the first layout first. A section's title is its first layout's
+ * pattern title, which names the section ("Hero", "FAQ").
+ *
+ * @return array<string, array{title: string, patterns: list<array<string, mixed>>}>
+ */
+function voyager_demo_obs_sections(): array {
+    $grouped = [];
+    foreach (voyager_demo_obs_patterns() as $pattern) {
+        $grouped[$pattern['section']][] = $pattern;
+    }
+
+    $sections = [];
+    foreach ($grouped as $section => $patterns) {
+        usort(
+            $patterns,
+            static fn (array $a, array $b): int => [! $a['first'], $a['item']] <=> [! $b['first'], $b['item']]
+        );
+
+        $sections[(string) $section] = [
+            'title'    => $patterns[0]['first'] ? $patterns[0]['title'] : ucfirst(str_replace('-', ' ', (string) $section)),
+            'patterns' => $patterns,
+        ];
+    }
+
+    $order = array_flip(VOYAGER_DEMO_OBS_ORDER);
+    uksort(
+        $sections,
+        static fn (string $a, string $b): int => [$order[$a] ?? PHP_INT_MAX, $a] <=> [$order[$b] ?? PHP_INT_MAX, $b]
+    );
+
+    return $sections;
+}
+
+/**
+ * The prompt a pattern's copy button gives an agent: its section skill's
+ * "Tell your agent" prompt, as the pack's prompt ability reads it
+ * (Abilities\skill_prompts()), so the skills stay the one place it is
+ * written.
+ *
+ * A skill's prompt asks for its first layout. For another one, the skill's
+ * own swap is applied when it says how, as `say "X" instead of "Y"`, and a
+ * line names the layout's pattern, so the prompt never asks for the wrong
+ * one. A section with no skill prompt gives '', and the copy script drops
+ * that button.
+ *
+ * @param array{name: string, section: string, layout: string, first: bool} $pattern A gallery pattern.
+ */
+function voyager_demo_obs_prompt(array $pattern): string {
+    static $prompts = null;
+
+    if (null === $prompts) {
+        $prompts = function_exists('VoyagerOpenBlocks\Abilities\skill_prompts') ? (array) \VoyagerOpenBlocks\Abilities\skill_prompts() : [];
+    }
+
+    $skill  = 'voyager-open-' . $pattern['section'];
+    $prompt = (string) ($prompts[$skill] ?? '');
+
+    if ('' === $prompt || $pattern['first']) {
+        return $prompt;
+    }
+
+    $file     = VOYAGER_OPEN_BLOCKS_DIR . '/skills/' . $skill . '/SKILL.md';
+    $markdown = is_readable($file) ? (string) file_get_contents($file) : '';
+
+    if (
+        1 === preg_match_all('/say "([^"]+)" instead of "([^"]+)"/', $markdown, $swap)
+        && 1 === substr_count($prompt, $swap[2][0])
+    ) {
+        $prompt = str_replace($swap[2][0], $swap[1][0], $prompt);
+    }
+
+    $layout = '' !== $pattern['layout'] ? $pattern['layout'] . ' layout' : 'layout';
+
+    return $prompt . "\n\nUse the " . $layout . ', ' . $pattern['name'] . '.';
+}
+
+/**
+ * What the gallery's copy groups copy, keyed on item: each pattern's
+ * registered content, byte for byte, and its prompt.
+ *
+ * @return array<string, array{title: string, markup: string, prompt: string}>
+ */
+function voyager_demo_obs_copy_items(): array {
+    $items = [];
+
+    foreach (voyager_demo_obs_patterns() as $pattern) {
+        $items[$pattern['item']] = [
+            'title'  => $pattern['title'],
+            'markup' => $pattern['content'],
+            'prompt' => voyager_demo_obs_prompt($pattern),
+        ];
+    }
+
+    return $items;
+}
+
+/**
+ * One block in serialized form. The attributes go through
+ * serialize_block_attributes(), which encodes "--" and markup characters the
+ * way the editor saves them.
+ *
+ * @param string               $name  Block name without the core/ prefix.
+ * @param array<string, mixed> $attrs Block attributes.
+ * @param string               $html  The block's HTML, inner blocks included.
+ */
+function voyager_demo_obs_block(string $name, array $attrs, string $html): string {
+    $json = [] === $attrs ? '' : serialize_block_attributes($attrs) . ' ';
+
+    return "<!-- wp:{$name} {$json}-->\n{$html}\n<!-- /wp:{$name} -->\n";
+}
+
+/**
+ * A paragraph in fg-3, at the sm size or in the mono label style.
+ *
+ * @param string $html  Escaped inner HTML.
+ * @param bool   $mono  Mono label style rather than sm.
+ * @param string $class Extra classes.
+ */
+function voyager_demo_obs_note(string $html, bool $mono = false, string $class = ''): string {
+    $attrs = ['textColor' => 'fg-3', 'fontSize' => $mono ? 'label' : 'sm'];
+    $html_class = 'has-fg-3-color has-text-color has-' . ($mono ? 'mono-font-family has-label' : 'sm') . '-font-size';
+
+    if ($mono) {
+        $attrs['fontFamily'] = 'mono';
+    }
+    if ('' !== $class) {
+        $attrs['className'] = $class;
+        $html_class         = $class . ' ' . $html_class;
+    }
+
+    return voyager_demo_obs_block('paragraph', $attrs, '<p class="' . esc_attr($html_class) . '">' . $html . '</p>');
+}
+
+/**
+ * One button of the switch or a copy group: an outline core/button that
+ * renders a button element.
+ */
+function voyager_demo_obs_button(string $class, string $label): string {
+    return voyager_demo_obs_block(
+        'button',
+        ['tagName' => 'button', 'className' => 'is-style-outline ' . $class],
+        '<div class="wp-block-button is-style-outline ' . esc_attr($class) . '"><button type="button" class="wp-block-button__link wp-element-button">' . esc_html($label) . '</button></div>'
+    );
+}
+
+/**
+ * One layout's card: its name, any stand-in notes, the pattern rendered by
+ * this site, its description, SKILL.md and copy buttons.
+ *
+ * @param array<string, mixed> $pattern A gallery pattern.
+ */
+function voyager_demo_obs_card(array $pattern): string {
+    $item = (string) $pattern['item'];
+
+    $meta = voyager_demo_obs_block(
+        'paragraph',
+        ['fontSize' => 'sm'],
+        '<p class="has-sm-font-size"><strong>' . esc_html((string) $pattern['title']) . '</strong></p>'
+    );
+    $meta .= voyager_demo_obs_note(esc_html((string) $pattern['name']) . ('' !== $pattern['layout'] ? ' · ' . esc_html((string) $pattern['layout']) : ''), true);
+
+    $notes = '';
+    if ([] !== $pattern['standins']) {
+        $notes .= voyager_demo_obs_note(
+            '<strong>' . esc_html__('Stand-ins.', 'voyager-demo') . '</strong> '
+                . esc_html(
+                    sprintf(
+                        /* translators: %s: what the section ships in place of real content, a list joined with semicolons. */
+                        __('This section ships with %s. On a live site, each is replaced only with what the owner gives.', 'voyager-demo'),
+                        implode('; ', $pattern['standins'])
+                    )
+                ),
+            false,
+            'vd-obs-note'
+        );
+    }
+    if ($pattern['bound']) {
+        $notes .= voyager_demo_obs_note(
+            '<strong>' . esc_html__('Site Data.', 'voyager-demo') . '</strong> ' . esc_html__('Bound values come from this demo site\'s Site Data, which holds made-up details such as a 555 phone number and an example.com email. Nothing here describes a real business.', 'voyager-demo'),
+            false,
+            'vd-obs-note'
+        );
+    }
+
+    $frame = voyager_demo_obs_block(
+        'group',
+        ['className' => 'vd-obs-frame', 'backgroundColor' => 'bg-canvas', 'layout' => ['type' => 'default']],
+        '<div class="wp-block-group vd-obs-frame has-bg-canvas-background-color has-background">' . $pattern['content'] . '</div>'
+    );
+
+    $desc = '' !== $pattern['description']
+        ? voyager_demo_obs_note(esc_html((string) $pattern['description']))
+        : '';
+
+    $skill = VOYAGER_OPEN_BLOCKS_DIR . '/skills/voyager-open-' . $pattern['section'] . '/SKILL.md';
+    if (is_readable($skill)) {
+        $ref   = defined('VOYAGER_OPEN_BLOCKS_VERSION') ? 'v' . VOYAGER_OPEN_BLOCKS_VERSION : 'main';
+        $url   = VOYAGER_DEMO_OBS_SOURCE . '/blob/' . rawurlencode($ref) . '/skills/voyager-open-' . $pattern['section'] . '/SKILL.md';
+        $desc .= voyager_demo_obs_block(
+            'paragraph',
+            ['fontSize' => 'sm'],
+            '<p class="has-sm-font-size"><a href="' . esc_url($url) . '">SKILL.md</a></p>'
+        );
+    }
+
+    $desc .= voyager_demo_obs_block(
+        'buttons',
+        ['className' => 'vd-ob-copy vd-ob-copy-for-' . $item],
+        '<div class="wp-block-buttons vd-ob-copy vd-ob-copy-for-' . esc_attr($item) . '">'
+            . voyager_demo_obs_button('vd-ob-copy-markup', __('Copy block markup', 'voyager-demo'))
+            . voyager_demo_obs_button('vd-ob-copy-prompt', __('Copy prompt for your agent', 'voyager-demo'))
+            . '</div>'
+    );
+
+    $desc = voyager_demo_obs_block(
+        'group',
+        [
+            'className' => 'vd-ob-card__desc',
+            'style'     => ['spacing' => ['blockGap' => 'var:preset|spacing|3']],
+            'layout'    => ['type' => 'flex', 'flexWrap' => 'wrap', 'justifyContent' => 'space-between'],
+        ],
+        '<div class="wp-block-group vd-ob-card__desc">' . $desc . '</div>'
+    );
+
+    $meta = voyager_demo_obs_block(
+        'group',
+        [
+            'className' => 'vd-ob-card__meta',
+            'style'     => ['spacing' => ['blockGap' => 'var:preset|spacing|1']],
+            'layout'    => ['type' => 'flex', 'orientation' => 'vertical'],
+        ],
+        '<div class="wp-block-group vd-ob-card__meta">' . $meta . '</div>'
+    );
+
+    $class = 'vd-ob-card vd-obs-card vd-obs-for-' . $item;
+
+    return voyager_demo_obs_block(
+        'group',
+        [
+            'className'       => $class,
+            'style'           => ['spacing' => ['blockGap' => 'var:preset|spacing|0']],
+            'backgroundColor' => 'bg-raised',
+            'layout'          => ['type' => 'default'],
+        ],
+        '<div class="wp-block-group ' . esc_attr($class) . ' has-bg-raised-background-color has-background">' . $meta . $notes . $frame . $desc . '</div>'
+    );
+}
+
+/**
+ * The gallery, as block markup for the voyager-demo/open-blocks-sections
+ * pattern to print.
+ */
+function voyager_demo_obs_markup(): string {
+    $sections = voyager_demo_obs_sections();
+
+    $wrap = static fn (string $html): string => voyager_demo_obs_block(
+        'group',
+        [
+            'tagName'         => 'section',
+            'align'           => 'full',
+            'className'       => 'vd-obs',
+            'style'           => [
+                'spacing' => [
+                    'padding'  => [
+                        'top'    => 'var:preset|spacing|6',
+                        'bottom' => 'var:preset|spacing|9',
+                        'left'   => 'var:preset|spacing|5',
+                        'right'  => 'var:preset|spacing|5',
+                    ],
+                    'blockGap' => 'var:preset|spacing|8',
+                ],
+            ],
+            'backgroundColor' => 'bg-canvas',
+            'textColor'       => 'fg-2',
+            'layout'          => ['type' => 'constrained'],
+        ],
+        '<section class="wp-block-group alignfull vd-obs has-fg-2-color has-bg-canvas-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--6);padding-right:var(--wp--preset--spacing--5);padding-bottom:var(--wp--preset--spacing--9);padding-left:var(--wp--preset--spacing--5)">' . $html . '</section>'
+    );
+
+    if ([] === $sections) {
+        return $wrap(voyager_demo_obs_note(esc_html__('Voyager Open Blocks is not active on this site, so there are no sections to show.', 'voyager-demo')));
+    }
+
+    $styles = voyager_demo_obs_styles();
+
+    // One empty group per style, rendered first, so each style's class is
+    // recorded before the switch and the sections render.
+    $probes = '';
+    foreach (array_keys($styles) as $style) {
+        $class   = 'is-style-voyager-open-' . $style . ' vd-obs-probe';
+        $probes .= voyager_demo_obs_block(
+            'group',
+            ['className' => $class, 'layout' => ['type' => 'default']],
+            '<div class="wp-block-group ' . esc_attr($class) . '" hidden></div>'
+        );
+    }
+
+    $count   = array_sum(array_map(static fn (array $section): int => count($section['patterns']), $sections));
+    $summary = sprintf(
+        /* translators: 1: number of patterns, 2: number of sections. */
+        __('%1$s in %2$s, read from this site\'s pattern registry as the page renders.', 'voyager-demo'),
+        /* translators: %d: number of patterns. */
+        sprintf(_n('%d pattern', '%d patterns', $count, 'voyager-demo'), $count),
+        /* translators: %d: number of sections. */
+        sprintf(_n('%d section', '%d sections', count($sections), 'voyager-demo'), count($sections))
+    );
+    if (defined('VOYAGER_OPEN_BLOCKS_VERSION')) {
+        /* translators: 1: pack version, 2: what the page shows. */
+        $summary = sprintf(__('Voyager Open Blocks %1$s: %2$s', 'voyager-demo'), (string) VOYAGER_OPEN_BLOCKS_VERSION, $summary);
+    }
+
+    $switch = voyager_demo_obs_button('vd-obs-show-plain', __('Plain', 'voyager-demo'));
+    foreach ($styles as $style => $label) {
+        $switch .= voyager_demo_obs_button('vd-obs-show-' . $style, $label);
+    }
+    $switch = voyager_demo_obs_block(
+        'buttons',
+        ['className' => 'vd-obs-switch', 'style' => ['spacing' => ['blockGap' => 'var:preset|spacing|2']]],
+        '<div class="wp-block-buttons vd-obs-switch" role="group" aria-label="' . esc_attr__('Section style', 'voyager-demo') . '">' . $switch . '</div>'
+    );
+
+    $bar = voyager_demo_obs_block(
+        'group',
+        [
+            'align'     => 'wide',
+            'className' => 'vd-obs-bar',
+            'style'     => ['spacing' => ['blockGap' => 'var:preset|spacing|3']],
+            'layout'    => ['type' => 'flex', 'flexWrap' => 'wrap', 'justifyContent' => 'space-between', 'verticalAlignment' => 'center'],
+        ],
+        '<div class="wp-block-group alignwide vd-obs-bar">'
+            . voyager_demo_obs_note(esc_html($summary), true)
+            . $switch
+            . '</div>'
+    );
+
+    $hint = voyager_demo_obs_note(
+        esc_html__('Each layout has two copy buttons. The block markup is the pattern exactly as the pack registers it, with no section style: paste it into the block editor on a site with the pack installed, then pick a style in the block\'s Styles panel. The prompt is the section skill\'s own, for an agent that has the pack\'s skills.', 'voyager-demo'),
+        false,
+        'vd-ob-copy-hint'
+    );
+
+    $links = [];
+    foreach ($sections as $key => $section) {
+        $links[] = '<a href="#' . esc_attr((string) $key) . '">' . esc_html($section['title']) . '</a>';
+    }
+    $nav = voyager_demo_obs_note(implode(' · ', $links), false, 'vd-obs-nav');
+
+    $body = '';
+    foreach ($sections as $key => $section) {
+        $layouts = count($section['patterns']);
+        $heading = voyager_demo_obs_block(
+            'heading',
+            [],
+            '<h2 class="wp-block-heading">' . esc_html($section['title']) . '</h2>'
+        );
+        if ($layouts > 1) {
+            /* translators: %d: number of layouts. */
+            $heading .= voyager_demo_obs_note(esc_html(sprintf(_n('%d layout', '%d layouts', $layouts, 'voyager-demo'), $layouts)), true);
+        }
+
+        if (1 === $layouts) {
+            $cards = voyager_demo_obs_card($section['patterns'][0]);
+        } else {
+            $columns = '';
+            foreach ($section['patterns'] as $pattern) {
+                $columns .= voyager_demo_obs_block('column', [], '<div class="wp-block-column">' . voyager_demo_obs_card($pattern) . '</div>');
+            }
+            $cards = voyager_demo_obs_block(
+                'columns',
+                ['style' => ['spacing' => ['blockGap' => ['top' => 'var:preset|spacing|5', 'left' => 'var:preset|spacing|5']]]],
+                '<div class="wp-block-columns">' . $columns . '</div>'
+            );
+        }
+
+        $body .= voyager_demo_obs_block(
+            'group',
+            [
+                'tagName'   => 'section',
+                'align'     => 'wide',
+                'anchor'    => (string) $key,
+                'className' => 'vd-obs-group',
+                'style'     => ['spacing' => ['blockGap' => 'var:preset|spacing|4']],
+                'layout'    => ['type' => 'default'],
+            ],
+            '<section class="wp-block-group alignwide vd-obs-group" id="' . esc_attr((string) $key) . '">' . $heading . $cards . '</section>'
+        );
+    }
+
+    return $wrap($probes . $bar . $hint . $nav . $body);
+}
+
+/**
+ * Register the switch's Interactivity API view module, as the stage's is.
+ */
+function voyager_demo_register_obs_script_module(): void {
+    if (! function_exists('wp_register_script_module')) {
+        return;
+    }
+
+    $file = VOYAGER_DEMO_PATH . '/assets/js/open-blocks-sections.js';
+    wp_register_script_module(
+        VOYAGER_DEMO_OBS_STORE,
+        VOYAGER_DEMO_URI . '/assets/js/open-blocks-sections.js',
+        ['@wordpress/interactivity'],
+        file_exists($file) ? (string) filemtime($file) : VOYAGER_DEMO_VERSION
+    );
+}
+add_action('init', 'voyager_demo_register_obs_script_module');
+
+/**
+ * Record each probe's class, style each pattern's outer group, and make the
+ * gallery the interactive region.
+ *
+ * Inner blocks render first, so by the time a frame renders, the probes
+ * above it have recorded their classes, and by the time the gallery renders,
+ * every section is wired.
+ *
+ * @param string               $block_content Rendered block.
+ * @param array<string, mixed> $block         Parsed block.
+ */
+function voyager_demo_obs_group_directives(string $block_content, array $block): string {
+    if (voyager_demo_block_has_class($block, 'vd-obs-probe')) {
+        $tags = new \WP_HTML_Tag_Processor($block_content);
+        if ($tags->next_tag()) {
+            foreach ($tags->class_list() as $class) {
+                if (1 === preg_match('/^is-style-voyager-open-([a-z0-9]+(?:-[a-z0-9]+)*)--\d+$/', $class, $match)) {
+                    voyager_demo_obs_instances($match[1], $class);
+                }
+            }
+        }
+
+        return $block_content;
+    }
+
+    if (voyager_demo_block_has_class($block, 'vd-obs-frame')) {
+        $tags = new \WP_HTML_Tag_Processor($block_content);
+        if ($tags->next_tag() && $tags->next_tag() && $tags->has_class('wp-block-group')) {
+            $tags->add_class('vd-obs-section');
+            foreach (voyager_demo_obs_instances() as $style => $class) {
+                $tags->set_attribute('data-wp-class--is-style-voyager-open-' . $style, 'state.on.' . $style);
+                $tags->set_attribute('data-wp-class--' . $class, 'state.on.' . $style);
+            }
+        }
+
+        return $tags->get_updated_html();
+    }
+
+    if (! voyager_demo_block_has_class($block, 'vd-obs')) {
+        return $block_content;
+    }
+
+    $tags = new \WP_HTML_Tag_Processor($block_content);
+    if (! $tags->next_tag()) {
+        return $block_content;
+    }
+    $tags->set_attribute('data-wp-interactive', VOYAGER_DEMO_OBS_STORE);
+
+    if (function_exists('wp_interactivity_state')) {
+        wp_interactivity_state(VOYAGER_DEMO_OBS_STORE, [
+            'on' => ['plain' => true] + array_fill_keys(array_keys(voyager_demo_obs_instances()), false),
+        ]);
+    }
+    if (function_exists('wp_enqueue_script_module')) {
+        wp_enqueue_script_module(VOYAGER_DEMO_OBS_STORE);
+    }
+
+    return $tags->get_updated_html();
+}
+add_filter('render_block_core/group', 'voyager_demo_obs_group_directives', 20, 2);
+
+/**
+ * Wire a switch button. One for a style that recorded no class is dropped:
+ * WordPress printed no colours for it, so it would change nothing.
+ *
+ * @param string               $block_content Rendered block.
+ * @param array<string, mixed> $block         Parsed block.
+ */
+function voyager_demo_obs_button_directives(string $block_content, array $block): string {
+    $style   = '';
+    $classes = preg_split('/\s+/', (string) ($block['attrs']['className'] ?? '')) ?: [];
+    foreach ($classes as $class) {
+        if (str_starts_with($class, 'vd-obs-show-')) {
+            $style = substr($class, strlen('vd-obs-show-'));
+        }
+    }
+
+    if ('' === $style) {
+        return $block_content;
+    }
+    if ('plain' !== $style && ! isset(voyager_demo_obs_instances()[$style])) {
+        return '';
+    }
+
+    $tags = new \WP_HTML_Tag_Processor($block_content);
+    if ($tags->next_tag(['class_name' => 'wp-block-button__link'])) {
+        $tags->set_attribute('data-wp-on--click', 'actions.select');
+        $tags->set_attribute('data-wp-context', (string) wp_json_encode(['style' => $style]));
+        $tags->set_attribute('data-wp-bind--aria-pressed', 'state.on.' . $style);
+        $tags->set_attribute('aria-pressed', 'plain' === $style ? 'true' : 'false');
+    }
+
+    return $tags->get_updated_html();
+}
+add_filter('render_block_core/button', 'voyager_demo_obs_button_directives', 20, 2);
+
+/* End of /open-blocks/sections/ section gallery. */
 
 if (defined('WP_CLI') && WP_CLI) {
     /**
