@@ -24,7 +24,9 @@
  * (voyager_demo_stage_group_directives), keyed on the vd-stage,
  * vd-stage-canvas, vd-stage-show-light and vd-stage-show-dark classes set
  * here. The light look is the section-light group style in theme.json. The
- * page opens on light because the canvases are saved with that style.
+ * page opens on light because the canvases are saved with that style. The
+ * stage links to the section gallery, /open-blocks/sections/
+ * (seeds/pages/open-blocks-sections.php), which shows every pattern.
  *
  * Every stage card, and the install section's prompt, ends in a core/buttons
  * group of copy buttons: vd-ob-copy plus vd-ob-copy-for-<item>, holding a
@@ -741,6 +743,10 @@ matches a Site Data value.</code></pre>
 
 <!-- wp:paragraph {"className":"vd-ob-copy-hint","textColor":"fg-3","fontSize":"sm"} -->
 <p class="vd-ob-copy-hint has-fg-3-color has-text-color has-sm-font-size">Every card has two copy buttons. Paste the block markup into the block editor on a site with the pack installed, and the pattern's blocks appear. Paste the prompt into an agent that has the pack's skills.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"sm"} -->
+<p class="has-sm-font-size"><a href="/open-blocks/sections/">See every section, in every layout and section style</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->

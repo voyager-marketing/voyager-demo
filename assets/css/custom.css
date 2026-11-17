@@ -365,9 +365,12 @@
 }
 
 /* Both switch buttons are outline buttons; the pressed one fills, hovered
-   or not (the parent theme's outline hover would otherwise win). */
+   or not (the parent theme's outline hover would otherwise win). The section
+   gallery's style switch, /open-blocks/sections/, is built the same way. */
 .vd-stage-switch .wp-block-button.is-style-outline .wp-block-button__link[aria-pressed="true"],
-.vd-stage-switch .wp-block-button.is-style-outline .wp-block-button__link[aria-pressed="true"]:hover {
+.vd-stage-switch .wp-block-button.is-style-outline .wp-block-button__link[aria-pressed="true"]:hover,
+.vd-obs-switch .wp-block-button.is-style-outline .wp-block-button__link[aria-pressed="true"],
+.vd-obs-switch .wp-block-button.is-style-outline .wp-block-button__link[aria-pressed="true"]:hover {
 	border-color: var(--wp--preset--color--fg-1);
 	background-color: var(--wp--preset--color--fg-1);
 	color: var(--wp--preset--color--bg-canvas);
@@ -470,4 +473,50 @@
 	clip-path: inset(50%);
 	white-space: nowrap;
 	border: 0;
+}
+
+/* ==========================================================================
+   /open-blocks/sections/ section gallery
+   --------------------------------------------------------------------------
+   The cards reuse .vd-ob-card and the copy buttons reuse the rules above.
+   These cover the switch bar, which stays in view on a wide screen, the
+   frame each pattern renders in, the stand-in notes, and the probes that
+   carry each section style's CSS and are never shown. No colour here: the
+   sections are painted by the pack's styles over this theme's palette.
+   ========================================================================== */
+
+.vd-obs-probe[hidden] {
+	display: none !important;
+}
+
+.vd-obs-bar {
+	border-bottom: 1px solid var(--wp--preset--color--border-hair);
+	padding-block: var(--wp--preset--spacing--3);
+	background-color: var(--wp--preset--color--bg-canvas);
+}
+
+/* On a phone the bar wraps to several rows, so it scrolls away there. */
+@media (min-width: 782px) {
+
+	.vd-obs-bar {
+		position: sticky;
+		top: var(--wp-admin--admin-bar--height, 0px);
+		z-index: 10;
+	}
+}
+
+/* A section reached from the jump links lands below the sticky bar. */
+.vd-obs-group {
+	scroll-margin-top: 6rem;
+}
+
+/* A section may overflow on purpose (the logo marquee); the card clips it. */
+.vd-obs-frame {
+	overflow: hidden;
+}
+
+.vd-obs-note {
+	margin: 0;
+	padding: var(--wp--preset--spacing--3) var(--wp--preset--spacing--5);
+	border-bottom: 1px solid var(--wp--preset--color--border-1);
 }
